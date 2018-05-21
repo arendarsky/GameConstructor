@@ -92,7 +92,7 @@ namespace GameConstructor.GUI
 
         private void DeveloperModeButton_Click(object sender, RoutedEventArgs e)
         {
-            DeveloperModeWindow developerModeWindow = new DeveloperModeWindow();
+            Developer_II_Window developerModeWindow = new Developer_II_Window();
 
             developerModeWindow.Show();
 
