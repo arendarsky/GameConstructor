@@ -8,7 +8,7 @@ using GameConstructor.Core.Interfaces;
 
 namespace GameConstructor.Core.DataStorages
 {
-    class DbRepository : IRepository
+    public class DbRepository : IRepository
     {
         public List<Game> Games { get; set; }
         public List<User> Users { get; set; }

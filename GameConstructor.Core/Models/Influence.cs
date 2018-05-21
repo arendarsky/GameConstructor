@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameConstructor.Core.Models
 {
-    class Influence
+    public class Influence
     {
         public int Id { get; set; }
         public virtual Characteristic Characteristic { get; set; }

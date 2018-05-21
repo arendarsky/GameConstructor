@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameConstructor.Core.Models
 {
-    class Game : IGame
+    public class Game : IGame
     {
         public int Id { get; set; }
         public string Name { get; set; }

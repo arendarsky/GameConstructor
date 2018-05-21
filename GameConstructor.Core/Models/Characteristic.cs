@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameConstructor.Core.Models
 {
-    class Characteristic
+    public class Characteristic
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameConstructor.Core.Models
 {
-    class Question
+    public class Question
     {
         public int Id { get; set; }
         public string Body { get; set; }
