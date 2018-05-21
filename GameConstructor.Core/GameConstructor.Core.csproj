@@ -43,6 +43,7 @@
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Characteristic.cs" />
     <Compile Include="Models\Effect.cs" />
+    <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Influence.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
