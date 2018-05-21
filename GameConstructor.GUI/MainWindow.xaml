@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameConstructor.GUI"
         mc:Ignorable="d"
-        Title="Игровой конструктор - Меню" Height="400" MinHeight="360" Width="550" MinWidth="510" MaxWidth="850" SizeChanged="Window_SizeChanged" FontFamily="Verdana">
+        Title="Игровой конструктор - Меню" Height="400" MinHeight="360" Width="550" MinWidth="510" MaxWidth="850" StateChanged="Window_StateChanged" SizeChanged="Window_SizeChanged" FontFamily="Verdana">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

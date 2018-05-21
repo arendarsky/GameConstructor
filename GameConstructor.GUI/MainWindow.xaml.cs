@@ -30,6 +30,8 @@ namespace GameConstructor.GUI
         double _fontSize;
         Thickness _padding;
 
+        bool _windowIsMaximized = false;
+
 
         public MainWindow()
         {
@@ -42,11 +44,9 @@ namespace GameConstructor.GUI
         }
 
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void ChangingTheParametersOfTheWindowAndItsContent()
         {
-            _minimalChangingOfTheSizeParameters = Math.Min(Height / _defaultHeightOfTheWindow, Width / _defaultWidthOfTheWindow);
-
-            _fontSize = _defaultFontSize * Math.Pow (_minimalChangingOfTheSizeParameters, 1.2);
+            _fontSize = _defaultFontSize * Math.Pow(_minimalChangingOfTheSizeParameters, 1.2);
 
             _padding.Left = _defaultPadding.Left * Math.Pow(_minimalChangingOfTheSizeParameters, 1.8);
             _padding.Right = _defaultPadding.Right * Math.Pow(_minimalChangingOfTheSizeParameters, 1.8);
@@ -58,6 +58,35 @@ namespace GameConstructor.GUI
 
             PlayingModeButton.Padding = _padding;
             DeveloperModeButton.Padding = _padding;
+        }
+
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (!_windowIsMaximized)
+            {
+                _minimalChangingOfTheSizeParameters = Math.Min(Height / _defaultHeightOfTheWindow, Width / _defaultWidthOfTheWindow);
+
+                ChangingTheParametersOfTheWindowAndItsContent();
+            }
+        }
+
+
+        private void Window_StateChanged(object sender, EventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+            {
+                _minimalChangingOfTheSizeParameters = MaxWidth / _defaultWidthOfTheWindow;
+
+                _windowIsMaximized = true;
+
+                ChangingTheParametersOfTheWindowAndItsContent();                
+            }
+
+            else if (WindowState == WindowState.Normal)
+            {
+                _windowIsMaximized = false;
+            }
         }
 
 
