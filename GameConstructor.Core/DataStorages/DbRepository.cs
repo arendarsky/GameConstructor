@@ -10,16 +10,23 @@ namespace GameConstructor.Core.DataStorages
 {
     public class DbRepository : IRepository
     {
-        public List<Game> Games { get; set; }
-        public List<User> Users { get; set; }
-
         Context _context;
+
+        List<Game> _games;
+
+        List<User> _users;
+
+
+        public IEnumerable<Game> Games => _games;
+
+        public IEnumerable<User> Users => _users;
+        
 
         public DbRepository()
         {
             _context = new Context();
-            Games = _context.Games.ToList();
-            Users = _context.Users.ToList();
+            _games = _context.Games.ToList();
+            _users = _context.Users.ToList();
         }
     }
 }

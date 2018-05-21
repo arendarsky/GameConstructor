@@ -9,7 +9,7 @@ namespace GameConstructor.Core.Interfaces
 {
     public interface IRepository
     {
-        List<Game> Games { get; set; }
-        List<User> Users { get; set; }
+        IEnumerable<Game> Games { get;}
+        IEnumerable<User> Users { get;}
     }
 }
