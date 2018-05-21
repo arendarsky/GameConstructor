@@ -17,12 +17,12 @@ namespace GameConstructor.GUI
     /// <summary>
     /// Логика взаимодействия для DeveloperModeWindow.xaml
     /// </summary>
-    public partial class DeveloperModeWindow : Window
+    public partial class Developer_II_Window : Window
     {
         int _questionNumber = 1;
         int _answerNumber = 1;
 
-        public DeveloperModeWindow()
+        public Developer_II_Window()
         {
             InitializeComponent();
 
