@@ -25,6 +25,6 @@ namespace GameConstructor.Core
 
         private IRepository _repository;
 
-        public IRepository GetRepository => _repository ?? (_repository = new Repository());
+        public IRepository GetRepository => _repository ?? (_repository = new DbRepository());
     }
 }

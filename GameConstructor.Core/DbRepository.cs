@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameConstructor.Core.Models;
+using GameConstructor.Core.Interfaces;
 
 namespace GameConstructor.Core
 {
-    class DbRepository
+    class DbRepository : IRepository
     {
         public List<Game> Games { get; set; }
         public List<User> Users { get; set; }

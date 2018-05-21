@@ -51,6 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
+    <Compile Include="Factory.cs" />
+    <Compile Include="Interfaces\IGame.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Migrations\201805211552233_InitialCreate.cs" />
     <Compile Include="Migrations\201805211552233_InitialCreate.Designer.cs">
       <DependentUpon>201805211552233_InitialCreate.cs</DependentUpon>
