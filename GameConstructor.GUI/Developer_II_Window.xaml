@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameConstructor.GUI"
         mc:Ignorable="d"
-        Title="Игровой конструктор - режим разработчика. Этап 2." Height="600" MinHeight="460" MinWidth="740" Width="795" MaxWidth="1040" Closing="Window_Closing">
+        Title="Игровой конструктор - режим разработчика. Этап 2." Height="600" MinHeight="460" MinWidth="740" Width="795" MaxWidth="1040">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -47,8 +47,8 @@
 
                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="17 5 20 5" FontSize="19" FontFamily="Segoe Script" FontStyle="Italic">Шаг 2 из 3</TextBlock>
 
-                    <Button Name="PreviousWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14">Назад</Button>
-                    <Button Name="NextWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1">Далее</Button>
+                    <Button Name="PreviousWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="PreviousWindowButton_Click">Назад</Button>
+                    <Button Name="NextWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="NextWindowButton_Click">Далее</Button>
                     
                 </Grid>
 

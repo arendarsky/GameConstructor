@@ -37,14 +37,6 @@ namespace GameConstructor.GUI
         }
 
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-
-            mainWindow.Show();
-        }
-
-
         private void AnswerTextBox_Initialized(object sender, EventArgs e)
         {
             TextBox TextBox = sender as TextBox;
@@ -75,6 +67,25 @@ namespace GameConstructor.GUI
         private void ChangesOfCharacteristicListBox_Initialized(object sender, EventArgs e)
         {
             (sender as ListBox).ItemsSource = new int[3] { 0, 0, 0 };
+        }
+
+
+        private void PreviousWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            Developer_I_Window developer_I_Window = new Developer_I_Window();
+
+            developer_I_Window.Show();
+
+            Close();
+        }
+
+        private void NextWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            Developer_III_Window developer_III_Window = new Developer_III_Window();
+
+            developer_III_Window.Show();
+
+            Close();
         }
     }
 }

@@ -15,30 +15,30 @@ using System.Windows.Shapes;
 namespace GameConstructor.GUI
 {
     /// <summary>
-    /// Логика взаимодействия для Developer_I_Window.xaml
+    /// Логика взаимодействия для Developer_III_Window.xaml
     /// </summary>
-    public partial class Developer_I_Window : Window
+    public partial class Developer_III_Window : Window
     {
-        public Developer_I_Window()
+        public Developer_III_Window()
         {
             InitializeComponent();
         }
 
 
-        private void BackToProfileButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-
-            mainWindow.Show();
-
-            Close();
-        }
-
-        private void NextWindowButton_Click(object sender, RoutedEventArgs e)
+        private void PreviousWindowButton_Click(object sender, RoutedEventArgs e)
         {
             Developer_II_Window developer_II_Window = new Developer_II_Window();
 
             developer_II_Window.Show();
+
+            Close();
+        }
+
+        private void SaveGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+
+            mainWindow.Show();
 
             Close();
         }
