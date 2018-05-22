@@ -18,7 +18,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
@@ -52,8 +52,13 @@
 
                 </Grid>
 
-                <Image Grid.Column="0" Grid.Row="1" Margin="50" Width="250" Height="250" VerticalAlignment="Top" HorizontalAlignment="Left"></Image>
+                <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Padding="10" Margin="0 20" FontSize="18.5" FontFamily="Verdana" Width="350">Введите название вашей игры</TextBox>
 
+                <DockPanel Grid.Column="0" Grid.Row="2" Margin="100" Width="180" Height="180" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Border BorderThickness="1.2" BorderBrush="#FF715C4E">
+                        <Image Stretch="UniformToFill" Source="Images/gamepad.png"></Image>
+                    </Border>                    
+                </DockPanel>
             </Grid>
         </ScrollViewer>
     </Grid>
