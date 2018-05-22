@@ -22,6 +22,8 @@ namespace GameConstructor.GUI
         public Developer_I_Window()
         {
             InitializeComponent();
+
+            CharacteristicsListBox.ItemsSource = new List<int> { 1, 2, 3 };
         }
 
 
