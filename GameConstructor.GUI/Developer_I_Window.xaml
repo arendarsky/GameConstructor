@@ -13,5 +13,25 @@
                 <GradientStop Color="#FFFEF4C9"/>
             </LinearGradientBrush>
         </Grid.Background>
+
+        <ScrollViewer>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="20 35 10 20" FontSize="18" FontFamily="Verdana">Разработайте игру с нашим конструктором</TextBlock>
+
+                <Button Name="HelpButton" BorderBrush="Transparent" Background="Transparent" Grid.Column="1" Height="Auto" Width="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 32">
+                    <Image Source="Images/img_199922.png" Height="25" Width="25"></Image>
+                </Button>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Window>
