@@ -1,4 +1,4 @@
-﻿<Window x:Class="GameConstructor.GUI.MainWindow"
+﻿<Window x:Class="GameConstructor.GUI.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -19,15 +19,18 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" HorizontalAlignment="Center" FontSize="16.5">Опробуйте наши игры прямо сейчас</TextBlock>
+            <TextBlock Grid.Row="0" HorizontalAlignment="Center" FontFamily="Verdana" FontSize="16.5">Опробуйте наши игры прямо сейчас</TextBlock>
 
-            <Button Grid.Row="1" Name="PlayingModeButton" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="25 12" Margin="15" FontSize="18" FontFamily="Verdana">Играть!</Button>
+            <Button Grid.Row="1" Name="PlayingModeButton" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="25 12" Margin="15" FontSize="18" FontFamily="Verdana" Click="PlayingModeButton_Click">Играть!</Button>
 
-            <TextBlock HorizontalAlignment="Center" Grid.Row="2" FontSize="14" MaxWidth="450" TextWrapping="Wrap" Margin="0 30">Либо авторизуйтесь, чтобы создать собственный шедевр!</TextBlock>
+            <TextBlock HorizontalAlignment="Center" Grid.Row="2" FontSize="16" MaxWidth="450" FontFamily="Verdana" TextWrapping="Wrap" Margin="0 30 0 10">Либо создайте свою собственную:</TextBlock>
 
+            <TextBox Name="LoginTextBox" Grid.Row="3" HorizontalAlignment="Stretch" Margin="120 5" Padding="12 4" FontFamily="Verdana" FontSize="14">Логин</TextBox>
+            <TextBox Name="PasswordTextBox" Grid.Row="4" HorizontalAlignment="Stretch" Margin="120 5" Padding="12 4" FontFamily="Verdana" FontSize="14">Пароль</TextBox>
         </Grid>
 
         

@@ -29,7 +29,7 @@ namespace GameConstructor.GUI
 
         private void BackToProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            LoginWindow mainWindow = new LoginWindow();
 
             mainWindow.Show();
 

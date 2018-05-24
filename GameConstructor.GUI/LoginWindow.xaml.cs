@@ -18,7 +18,7 @@ namespace GameConstructor.GUI
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : Window
     {
         double _defaultWidthOfTheWindow;
         double _defaultHeightOfTheWindow;
@@ -33,7 +33,7 @@ namespace GameConstructor.GUI
         bool _windowIsMaximized = false;
 
 
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
 
@@ -95,6 +95,16 @@ namespace GameConstructor.GUI
             Developer_I_Window developerModeWindow = new Developer_I_Window();
 
             developerModeWindow.Show();
+
+            Close();
+        }
+
+
+        private void PlayingModeButton_Click(object sender, RoutedEventArgs e)
+        {
+            PlayingModeWindow playingModeWindow = new PlayingModeWindow();
+
+            playingModeWindow.Show();
 
             Close();
         }
