@@ -90,21 +90,31 @@ namespace GameConstructor.GUI
         }
 
 
-        private void DeveloperModeButton_Click(object sender, RoutedEventArgs e)
-        {
-            Developer_I_Window developerModeWindow = new Developer_I_Window();
-
-            developerModeWindow.Show();
-
-            Close();
-        }
-
-
         private void PlayingModeButton_Click(object sender, RoutedEventArgs e)
         {
             PlayingModeWindow playingModeWindow = new PlayingModeWindow();
 
             playingModeWindow.Show();
+
+            Close();
+        }
+
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProfileWindow profileWindow = new ProfileWindow();
+
+            profileWindow.Show();
+
+            Close();
+        }
+
+
+        private void RegisterTextBlock_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Developer_I_Window developer_I_Window = new Developer_I_Window();
+
+            developer_I_Window.Show();
 
             Close();
         }
