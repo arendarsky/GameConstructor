@@ -37,10 +37,10 @@ namespace GameConstructor.GUI
         {
             InitializeComponent();
 
-            _defaultWidthOfTheWindow = Width;
-            _defaultHeightOfTheWindow = Height;
-            _defaultPadding = PlayingModeButton.Padding;
-            _defaultFontSize = PlayingModeButton.FontSize;
+            //_defaultWidthOfTheWindow = Width;
+            //_defaultHeightOfTheWindow = Height;
+            //_defaultPadding = PlayingModeButton.Padding;
+            //_defaultFontSize = PlayingModeButton.FontSize;
         }
 
 
@@ -53,11 +53,11 @@ namespace GameConstructor.GUI
             _padding.Top = _defaultPadding.Top * Math.Pow(_minimalChangingOfTheSizeParameters, 1.2);
             _padding.Bottom = _defaultPadding.Bottom * Math.Pow(_minimalChangingOfTheSizeParameters, 1.2);
 
-            PlayingModeButton.FontSize = _fontSize;
-            DeveloperModeButton.FontSize = _fontSize;
+            //PlayingModeButton.FontSize = _fontSize;
+            //DeveloperModeButton.FontSize = _fontSize;
 
-            PlayingModeButton.Padding = _padding;
-            DeveloperModeButton.Padding = _padding;
+            //PlayingModeButton.Padding = _padding;
+            //DeveloperModeButton.Padding = _padding;
         }
 
 
