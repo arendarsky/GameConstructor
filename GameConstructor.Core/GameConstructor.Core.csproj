@@ -56,9 +56,9 @@
     <Compile Include="Interfaces\IGame.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IStorage.cs" />
-    <Compile Include="Migrations\201805211552233_InitialCreate.cs" />
-    <Compile Include="Migrations\201805211552233_InitialCreate.Designer.cs">
-      <DependentUpon>201805211552233_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201805251321291_InitialCreate.cs" />
+    <Compile Include="Migrations\201805251321291_InitialCreate.Designer.cs">
+      <DependentUpon>201805251321291_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201805251343464_YurasMigration.cs" />
     <Compile Include="Migrations\201805251343464_YurasMigration.Designer.cs">
@@ -80,8 +80,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805211552233_InitialCreate.resx">
-      <DependentUpon>201805211552233_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805251321291_InitialCreate.resx">
+      <DependentUpon>201805251321291_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805251343464_YurasMigration.resx">
       <DependentUpon>201805251343464_YurasMigration.cs</DependentUpon>

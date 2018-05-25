@@ -18,5 +18,7 @@ namespace GameConstructor.Core.Interfaces
         List<Characteristic> Characteristics { get; }
 
         void NewCharacteristics(List<Characteristic> characteristics);
+        void NewQuestions(List<Question> questions);
+        void SaveGame();
     }
 }
