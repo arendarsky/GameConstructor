@@ -13,7 +13,7 @@ namespace GameConstructor.Core.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201805211552233_InitialCreate"; }
+            get { return "201805251321291_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

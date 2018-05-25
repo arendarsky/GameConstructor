@@ -21,38 +21,24 @@ namespace GameConstructor.Core.Models
         public User User { get; set; }
         List<Question> _questions;
         List<Characteristic> _characteristics;
-        public List<Question> Questions
-        {
-            get
-            {
-                using(_context = new Context())
-                {
-                    if (!_context.Entry(this).Reference(g => g.Questions).IsLoaded)
-                        _context.Entry(this).Reference(g => g.Questions).Load();
-                    return _questions;
-                }
-            }
-            set
-            {
-                _questions = value;
-            }
-        }
-        public List<Characteristic> Characteristics
-        {
-            get
-            {
-                using (_context = new Context())
-                {
-                    if (!_context.Entry(this).Reference(g => g.Characteristics).IsLoaded)
-                        _context.Entry(this).Reference(g => g.Characteristics).Load();
-                    return _characteristics;
-                }
-            }
-        }
+        public List<Question> Questions => _questions;
+        public List<Characteristic> Characteristics => _characteristics;
 
         public void NewCharacteristics(List<Characteristic> characteristics)
         {
             _characteristics = characteristics;
+        }
+        public void NewQuestions(List<Question> questions)
+        {
+            _questions = questions;
+        }
+        public void SaveGame()
+        {
+            using(_context = new Context())
+            {
+                _context.Games.Add(this);
+                _context.SaveChanges();
+            }
         }
     }
 }
