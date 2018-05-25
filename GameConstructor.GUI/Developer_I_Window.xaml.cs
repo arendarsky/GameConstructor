@@ -92,7 +92,7 @@ namespace GameConstructor.GUI
         }
 
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private void SaveGameButton_Click(object sender, RoutedEventArgs e)
         {
             _game.NewCharacteristics(_characteristics);
             _game.SaveGame();
