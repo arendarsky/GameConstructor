@@ -48,11 +48,11 @@ namespace GameConstructor.Core.Models
                     return _characteristics;
                 }
             }
-            set
-            {
-                _characteristics = value;
-            }
         }
 
+        public void NewCharacteristics(List<Characteristic> characteristics)
+        {
+            _characteristics = characteristics;
+        }
     }
 }

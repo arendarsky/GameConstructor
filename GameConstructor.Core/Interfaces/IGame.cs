@@ -16,5 +16,7 @@ namespace GameConstructor.Core.Interfaces
         User User { get; }
         List<Question> Questions { get; }
         List<Characteristic> Characteristics { get; }
+
+        void NewCharacteristics(List<Characteristic> characteristics);
     }
 }

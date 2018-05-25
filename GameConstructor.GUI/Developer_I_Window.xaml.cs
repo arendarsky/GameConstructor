@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GameConstructor.Core;
+using GameConstructor.Core.Interfaces;
+using GameConstructor.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +22,48 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class Developer_I_Window : Window
     {
-        public Developer_I_Window()
+        private const string defaultCharacteristicName = "Название характеристики";
+        private const int defaultValueOfCharacteristic = 0;
+
+        IGame _game;
+        List<Characteristic> _characteristics = new List<Characteristic>();
+
+
+        public Developer_I_Window(bool creatingANewGame)
         {
             InitializeComponent();
 
-            CharacteristicsListBox.ItemsSource = new List<int> { 1, 2, 3 };
+            if (creatingANewGame)
+            {
+                _game = Factory.Instance.GetGame;
+
+                AddNewDefaultCharacteristic();
+            }
+
+            else
+            {
+                CharacteristicsListBox.ItemsSource = new List<int> { 1, 2, 3 };
+            }
+        }
+
+
+        private void DefaultCharacteristicsListBoxSource()
+        {
+            CharacteristicsListBox.ItemsSource = null;
+
+            CharacteristicsListBox.ItemsSource = _characteristics;
+        }
+
+        private void AddNewDefaultCharacteristic()
+        {
+            _characteristics.Add(new Characteristic(defaultCharacteristicName, defaultValueOfCharacteristic));
+
+            DefaultCharacteristicsListBoxSource();
+        }
+
+        private void NewCharacteristicButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewDefaultCharacteristic();
         }
 
 
@@ -35,7 +75,6 @@ namespace GameConstructor.GUI
 
             Close();
         }
-
 
         private void NextWindowButton_Click(object sender, RoutedEventArgs e)
         {
@@ -50,6 +89,53 @@ namespace GameConstructor.GUI
         private void UploadImageButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("К сожалению, эта возможность ещё не реализована. Ожидайте ближайших обновлений.", "Ошибка!");
+        }
+
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            _game.NewCharacteristics(_characteristics);
+        }
+
+
+
+        private void CharacteristicNameTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox CharacteristicNameTextBox = sender as TextBox;
+
+            CharacteristicNameTextBox.Text = (CharacteristicNameTextBox.DataContext as Characteristic).Name;
+        }
+
+        private void CharacteristicNameTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox CharacteristicNameTextBox = sender as TextBox;
+
+            Characteristic characteristic = CharacteristicNameTextBox.DataContext as Characteristic;
+
+            characteristic.Name = CharacteristicNameTextBox.Text;
+        }
+
+        private void CharacteristicValueTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox CharacteristicValueTextBox = sender as TextBox;
+
+            CharacteristicValueTextBox.Text = (CharacteristicValueTextBox.DataContext as Characteristic).Value.ToString();
+        }
+
+        private void CharacteristicValueTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox CharacteristicValueTextBox = sender as TextBox;
+
+            Characteristic characteristic = CharacteristicValueTextBox.DataContext as Characteristic;
+
+            try
+            {
+                characteristic.Value = int.Parse(CharacteristicValueTextBox.Text);
+            }
+            catch
+            {
+                CharacteristicValueTextBox.Text = characteristic.Value.ToString();
+            }
         }
     }
 }

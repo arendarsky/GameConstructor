@@ -72,7 +72,7 @@ namespace GameConstructor.GUI
 
         private void PreviousWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_I_Window developer_I_Window = new Developer_I_Window();
+            Developer_I_Window developer_I_Window = new Developer_I_Window(false);
 
             developer_I_Window.Show();
 

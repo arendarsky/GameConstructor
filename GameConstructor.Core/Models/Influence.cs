@@ -13,7 +13,7 @@ namespace GameConstructor.Core.Models
         public int Value { get; set; }
         public void Influenced()
         {
-            Characteristic.Level += Value;
+            Characteristic.Value += Value;
         }
     }
 }

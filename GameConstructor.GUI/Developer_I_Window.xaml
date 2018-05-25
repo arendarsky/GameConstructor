@@ -94,15 +94,17 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <TextBox Grid.Column="0" HorizontalAlignment="Stretch" Margin="0 8 50 8" Padding="10 5" FontSize="14" Name="CharacteristicNameTextBox" FontFamily="Verdana">Название характеристики</TextBox>
-                                    <TextBox Grid.Column="1" VerticalAlignment="Center" Name="CharacteristicValueTextBox" Padding="8 5" FontSize="14" Width="90" FontFamily="Verdana">Значение</TextBox>
+                                    <TextBox Grid.Column="0" HorizontalAlignment="Stretch" Margin="0 8 50 8" Padding="10 5" FontSize="14" Name="CharacteristicNameTextBox" GotFocus="CharacteristicNameTextBox_GotFocus" LostFocus="CharacteristicNameTextBox_LostFocus" FontFamily="Verdana">Название характеристики</TextBox>
+                                    <TextBox Grid.Column="1" VerticalAlignment="Center" Name="CharacteristicValueTextBox" Padding="8 5" FontSize="14" Width="90" FontFamily="Verdana" GotFocus="CharacteristicValueTextBox_GotFocus" LostFocus="CharacteristicValueTextBox_LostFocus">Значение</TextBox>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
 
-                    <Button Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="13 7" FontSize="15.5" Margin="0 5 0 60">Добавить характеристику</Button>
+                    <Button Name="NewCharacteristicButton" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="13 7" FontSize="15.5" Margin="0 5 0 60" Click="NewCharacteristicButton_Click">Добавить характеристику</Button>
                 </Grid>
+
+                <Button Name="SaveButton" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Padding="20" FontSize="20" Margin="50" Click="SaveButton_Click">Save</Button>
             </Grid>
         </ScrollViewer>
     </Grid>
