@@ -45,5 +45,11 @@ namespace GameConstructor.GUI
 
             Close();
         }
+
+
+        private void UploadImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("К сожалению, эта возможность ещё не реализована. Ожидайте ближайших обновлений.", "Ошибка!");
+        }
     }
 }

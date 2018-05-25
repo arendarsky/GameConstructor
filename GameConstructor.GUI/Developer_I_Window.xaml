@@ -80,7 +80,7 @@
                             </Border>
                         </DockPanel>
 
-                        <Button Grid.Row="1" HorizontalAlignment="Center" Margin="50 0 0 0" VerticalAlignment="Top" Padding="10 5" FontSize="13">Загрузите свою обложку</Button>
+                        <Button Name="UploadImageButton" Grid.Row="1" HorizontalAlignment="Center" Margin="50 0 0 0" VerticalAlignment="Top" Padding="10 5" FontSize="13" Click="UploadImageButton_Click">Загрузите свою обложку</Button>
                     </Grid>
 
                     <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30 30 30 0" FontSize="18" FontFamily="Verdana">Игровые характеристики</TextBlock>
