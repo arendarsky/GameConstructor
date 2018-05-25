@@ -60,6 +60,10 @@
     <Compile Include="Migrations\201805211552233_InitialCreate.Designer.cs">
       <DependentUpon>201805211552233_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805251343464_YurasMigration.cs" />
+    <Compile Include="Migrations\201805251343464_YurasMigration.Designer.cs">
+      <DependentUpon>201805251343464_YurasMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Characteristic.cs" />
@@ -78,6 +82,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805211552233_InitialCreate.resx">
       <DependentUpon>201805211552233_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805251343464_YurasMigration.resx">
+      <DependentUpon>201805251343464_YurasMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
