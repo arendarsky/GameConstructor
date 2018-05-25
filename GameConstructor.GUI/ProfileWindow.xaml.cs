@@ -34,8 +34,46 @@ namespace GameConstructor.GUI
 
             if (number == 2)
             {
-                
+                image.Source = new BitmapImage(new Uri("Images/gamepad.png", UriKind.Relative));
+
+                Border border = image.Parent as Border;
+
+                border.BorderThickness = new Thickness(1.1);
             }
+
+            else if (number == 3)
+            {
+                image.Source = new BitmapImage(new Uri("Images/книга.png", UriKind.Relative));
+            }
+        }
+
+
+        private void NewGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            Developer_I_Window developer_I_Window = new Developer_I_Window();
+
+            developer_I_Window.Show();
+
+            Close();
+        }
+
+
+        private void LogOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+
+            loginWindow.Show();
+
+            Close();
+        }
+
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //if (e.ClickCount >= 2)
+            //{
+                NewGameButton_Click(sender, null);
+            //}
         }
     }
 }

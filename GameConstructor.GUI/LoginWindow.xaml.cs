@@ -108,15 +108,5 @@ namespace GameConstructor.GUI
 
             Close();
         }
-
-
-        private void RegisterTextBlock_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Developer_I_Window developer_I_Window = new Developer_I_Window();
-
-            developer_I_Window.Show();
-
-            Close();
-        }
     }
 }

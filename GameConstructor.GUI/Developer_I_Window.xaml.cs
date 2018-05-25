@@ -29,12 +29,13 @@ namespace GameConstructor.GUI
 
         private void BackToProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow mainWindow = new LoginWindow();
+            ProfileWindow mainWindow = new ProfileWindow();
 
             mainWindow.Show();
 
             Close();
         }
+
 
         private void NextWindowButton_Click(object sender, RoutedEventArgs e)
         {
