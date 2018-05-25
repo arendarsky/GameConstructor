@@ -10,13 +10,11 @@ namespace GameConstructor.Core.Interfaces
     public interface IGame
     {
         int Id { get; }
-
+        int Popularity { get; }
         string Name { get; }
-
-        IEnumerable<Characteristic> Characteristics { get;}
-
-        User User { get;}
-
-        IEnumerable<Question> Questions { get;}
+        string Source { get; }
+        User User { get; }
+        List<Question> Questions { get; }
+        List<Characteristic> Characteristics { get; }
     }
 }

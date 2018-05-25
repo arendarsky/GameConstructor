@@ -10,7 +10,7 @@ namespace GameConstructor.Core.Models
     {
         public int Id { get; set; }
         public string Body { get; set; }
-        public virtual List<Influence> Influences { get; set; }
+        public List<Influence> Influences { get; set; }
         public double Value { get; set; }
         public void Influenced()
         {

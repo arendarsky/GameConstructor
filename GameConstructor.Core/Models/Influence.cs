@@ -9,7 +9,7 @@ namespace GameConstructor.Core.Models
     public class Influence
     {
         public int Id { get; set; }
-        public virtual Characteristic Characteristic { get; set; }
+        public Characteristic Characteristic { get; set; }
         public int Value { get; set; }
         public void Influenced()
         {

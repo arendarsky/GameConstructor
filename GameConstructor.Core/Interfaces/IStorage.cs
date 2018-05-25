@@ -7,10 +7,9 @@ using GameConstructor.Core.Models;
 
 namespace GameConstructor.Core.Interfaces
 {
-    public interface IRepository<T>
+    public interface IGameStorage
     {
-        IEnumerable<T> Items { get; }
-        void Add(T item);
-        void Remove(T item);
+        IRepository<Question> Questions { get; }
+        IRepository<Characteristic> Characteristics { get; }
     }
 }

@@ -23,8 +23,8 @@ namespace GameConstructor.Core
         public IGame GetGame => _game ?? (_game = new Game());
 
 
-        private IRepository _repository;
+        //private IRepository _repository;
 
-        public IRepository GetRepository => _repository ?? (_repository = new DbRepository());
+        //public IRepository GetRepository => _repository ?? (_repository = new Repository());
     }
 }

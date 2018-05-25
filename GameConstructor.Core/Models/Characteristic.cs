@@ -11,5 +11,6 @@ namespace GameConstructor.Core.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public double Level { get; set; }
+        public int GameId { get; set; }
     }
 }

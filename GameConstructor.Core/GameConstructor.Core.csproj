@@ -51,9 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
+    <Compile Include="DataStorages\Storage.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="Interfaces\IGame.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IStorage.cs" />
     <Compile Include="Migrations\201805211552233_InitialCreate.cs" />
     <Compile Include="Migrations\201805211552233_InitialCreate.Designer.cs">
       <DependentUpon>201805211552233_InitialCreate.cs</DependentUpon>
@@ -67,7 +69,7 @@
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataStorages\DbRepository.cs" />
+    <Compile Include="DataStorages\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

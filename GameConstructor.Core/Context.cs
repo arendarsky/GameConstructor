@@ -12,8 +12,11 @@ namespace GameConstructor.Core
     {
         public DbSet<Game> Games { get; set; }
         public DbSet<User> Users { get; set; }
-        public List<Question> Questions { get; set; }
-        public DbSet<Answer> Answers { get; set; }
-        public DbSet<Effect> Effects { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Characteristic> Characteristics { get; set; }
+        public Context(): base("GameConstructorDb")
+        {
+
+        }
     }
 }

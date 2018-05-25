@@ -10,6 +10,7 @@ namespace GameConstructor.Core.Models
     {
         public int Id { get; set; }
         public string Body { get; set; }
+        public int GameId { get; }
         public List<Answer> Answers { get; set; }
         public Question(string Body)
         {
