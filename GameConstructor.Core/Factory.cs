@@ -18,9 +18,7 @@ namespace GameConstructor.Core
         private Factory () { }
 
 
-        private IGame _game;
-
-        public IGame GetGame => _game ?? (_game = new Game());
+        public IGame GetGame => new Game();
 
 
         //private IRepository _repository;

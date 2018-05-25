@@ -50,7 +50,7 @@ namespace GameConstructor.GUI
 
         private void NewGameButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_I_Window developer_I_Window = new Developer_I_Window(true);
+            Developer_I_Window developer_I_Window = new Developer_I_Window();
 
             developer_I_Window.Show();
 

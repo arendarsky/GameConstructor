@@ -22,28 +22,35 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class Developer_I_Window : Window
     {
+        private const string defaultGameName = "Введите название вашей игры";
+        private const string defaultSourceName = "Укажите оригинальный источник (ссылку), если имеется";
         private const string defaultCharacteristicName = "Название характеристики";
         private const int defaultValueOfCharacteristic = 0;
 
         IGame _game;
-        List<Characteristic> _characteristics = new List<Characteristic>();
+        List<Characteristic> _characteristics;
 
 
-        public Developer_I_Window(bool creatingANewGame)
+        public Developer_I_Window()
+        {
+            InitializeComponent();
+            
+            _game = Factory.Instance.GetGame;
+
+            _characteristics = new List<Characteristic>();
+
+            AddNewDefaultCharacteristic();
+        }
+
+        public Developer_I_Window(IGame game)
         {
             InitializeComponent();
 
-            if (creatingANewGame)
-            {
-                _game = Factory.Instance.GetGame;
+            _game = game;
 
-                AddNewDefaultCharacteristic();
-            }
+            _characteristics = _game.Characteristics.ToList();
 
-            else
-            {
-                CharacteristicsListBox.ItemsSource = new List<int> { 1, 2, 3 };
-            }
+            DefaultCharacteristicsListBoxSource();
         }
 
 
@@ -67,11 +74,12 @@ namespace GameConstructor.GUI
         }
 
 
+
         private void BackToProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            ProfileWindow mainWindow = new ProfileWindow();
+            ProfileWindow profileWindow = new ProfileWindow();
 
-            mainWindow.Show();
+            profileWindow.Show();
 
             Close();
         }
@@ -94,33 +102,62 @@ namespace GameConstructor.GUI
 
         private void SaveGameButton_Click(object sender, RoutedEventArgs e)
         {
-            _game.NewCharacteristics(_characteristics);
-            _game.SaveGame();
+            if (CheckingIfEveryFieldIsFilledCorrectly())
+            {
+                _game.UpdateCharacteristics(_characteristics);
+                _game.SaveGame();
+            }
         }
 
 
+
+        private void CharacteristicNameTextBox_Initialized(object sender, EventArgs e)
+        {
+            TextBox CharacteristicNameTextBox = sender as TextBox;
+
+            Characteristic characteristic = CharacteristicNameTextBox.DataContext as Characteristic;
+
+            CharacteristicNameTextBox.Text = characteristic.Name;
+
+            if (characteristic.Name == defaultCharacteristicName)
+            {
+                CharacteristicNameTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void CharacteristicValueTextBox_Initialized(object sender, EventArgs e)
+        {
+            TextBox CharacteristicValueTextBox = sender as TextBox;
+
+            Characteristic characteristic = CharacteristicValueTextBox.DataContext as Characteristic;
+
+            CharacteristicValueTextBox.Text = characteristic.Value.ToString();
+        }
 
         private void CharacteristicNameTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox CharacteristicNameTextBox = sender as TextBox;
 
-            CharacteristicNameTextBox.Text = (CharacteristicNameTextBox.DataContext as Characteristic).Name;
+            if (CharacteristicNameTextBox.Text == defaultCharacteristicName)
+            {
+                CharacteristicNameTextBox.Text = "";
+                CharacteristicNameTextBox.Foreground = Brushes.Black;
+            }
         }
 
         private void CharacteristicNameTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox CharacteristicNameTextBox = sender as TextBox;
 
+            if (CharacteristicNameTextBox.Text == "")
+            {
+                CharacteristicNameTextBox.Text = defaultCharacteristicName;
+                CharacteristicNameTextBox.Foreground = Brushes.Gray;
+            }
+
             Characteristic characteristic = CharacteristicNameTextBox.DataContext as Characteristic;
 
             characteristic.Name = CharacteristicNameTextBox.Text;
-        }
-
-        private void CharacteristicValueTextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox CharacteristicValueTextBox = sender as TextBox;
-
-            CharacteristicValueTextBox.Text = (CharacteristicValueTextBox.DataContext as Characteristic).Value.ToString();
         }
 
         private void CharacteristicValueTextBox_LostFocus(object sender, RoutedEventArgs e)
@@ -129,14 +166,64 @@ namespace GameConstructor.GUI
 
             Characteristic characteristic = CharacteristicValueTextBox.DataContext as Characteristic;
 
-            try
+            try { characteristic.Value = int.Parse(CharacteristicValueTextBox.Text); }
+            catch { }
+
+            CharacteristicValueTextBox.Text = characteristic.Value.ToString();
+        }
+
+        private void GameNameTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (GameNameTextBox.Text == defaultGameName)
             {
-                characteristic.Value = int.Parse(CharacteristicValueTextBox.Text);
+                GameNameTextBox.Text = "";
+                GameNameTextBox.Foreground = Brushes.Black;
             }
-            catch
+        }
+
+        private void GameNameTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (GameNameTextBox.Text == "")
             {
-                CharacteristicValueTextBox.Text = characteristic.Value.ToString();
+                GameNameTextBox.Text = defaultGameName;
+                GameNameTextBox.Foreground = Brushes.Gray;
             }
+        }
+
+        private void SourceTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (SourceTextBox.Text == defaultSourceName)
+            {
+                SourceTextBox.Text = "";
+                SourceTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void SourceTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (SourceTextBox.Text == "")
+            {
+                SourceTextBox.Text = defaultSourceName;
+                SourceTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
+
+        private bool CheckingIfEveryFieldIsFilledCorrectly()
+        {
+            if (GameNameTextBox.Text == defaultGameName)
+            {
+                MessageBox.Show("Название игры является обязательным полем!", "Ошибка!");
+                GameNameTextBox.Focus();
+                return false;
+            }
+
+            else
+            {
+                //there will be more checking here
+            }
+
+            return true;
         }
     }
 }
