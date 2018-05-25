@@ -104,7 +104,7 @@
                     <Button Name="NewCharacteristicButton" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="13 7" FontSize="15.5" Margin="0 5 0 60" Click="NewCharacteristicButton_Click">Добавить характеристику</Button>
                 </Grid>
 
-                <Button Name="SaveButton" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Padding="20" FontSize="20" Margin="50" Click="SaveButton_Click">Save</Button>
+                <Button Name="SaveButton" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Padding="20" FontSize="20" Margin="50" Click="SaveGameButton_Click">Save</Button>
             </Grid>
         </ScrollViewer>
     </Grid>
