@@ -22,6 +22,20 @@ namespace GameConstructor.GUI
         public ProfileWindow()
         {
             InitializeComponent();
+
+            UserGamesListBox.ItemsSource = new List<int> { 1, 2, 3 };
+        }
+
+        private void Image_Initialized(object sender, EventArgs e)
+        {
+            Image image = sender as Image;
+
+            int number = (int)image.DataContext;
+
+            if (number == 2)
+            {
+                
+            }
         }
     }
 }
