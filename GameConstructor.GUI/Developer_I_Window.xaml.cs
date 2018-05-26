@@ -48,7 +48,7 @@ namespace GameConstructor.GUI
 
             _game = game;
 
-            _characteristics = _game.Characteristics.ToList();
+            _characteristics = _game.GetCharacteristics.ToList();
 
             DefaultCharacteristicsListBoxSource();
         }
@@ -104,7 +104,10 @@ namespace GameConstructor.GUI
         {
             if (CheckingIfEveryFieldIsFilledCorrectly())
             {
+                _game.UpdateName(GameNameTextBox.Text);
+                _game.UpdateSource(SourceTextBox.Text);
                 _game.UpdateCharacteristics(_characteristics);
+
                 _game.SaveGame();
             }
         }
@@ -132,10 +135,6 @@ namespace GameConstructor.GUI
             Characteristic characteristic = CharacteristicValueTextBox.DataContext as Characteristic;
 
             CharacteristicValueTextBox.Text = characteristic.Value.ToString();
-
-            //_const += 1;
-
-            //Title = _const.ToString();
         }
 
         private void CharacteristicNameTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -241,6 +240,11 @@ namespace GameConstructor.GUI
                         return false;
                     }
                 }
+            }
+
+            if (SourceTextBox.Text == defaultSourceName)
+            {
+                SourceTextBox.Text = "";
             }
 
             return true;

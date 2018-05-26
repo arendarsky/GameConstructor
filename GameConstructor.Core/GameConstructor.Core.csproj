@@ -56,9 +56,13 @@
     <Compile Include="Interfaces\IGame.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IStorage.cs" />
-    <Compile Include="Migrations\201805251321291_InitialCreate.cs" />
-    <Compile Include="Migrations\201805251321291_InitialCreate.Designer.cs">
-      <DependentUpon>201805251321291_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201805261656285_InitialCreate.cs" />
+    <Compile Include="Migrations\201805261656285_InitialCreate.Designer.cs">
+      <DependentUpon>201805261656285_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805261705497_NewCreate.cs" />
+    <Compile Include="Migrations\201805261705497_NewCreate.Designer.cs">
+      <DependentUpon>201805261705497_NewCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -76,8 +80,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805251321291_InitialCreate.resx">
-      <DependentUpon>201805251321291_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805261656285_InitialCreate.resx">
+      <DependentUpon>201805261656285_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805261705497_NewCreate.resx">
+      <DependentUpon>201805261705497_NewCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

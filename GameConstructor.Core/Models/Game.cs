@@ -10,34 +10,47 @@ namespace GameConstructor.Core.Models
 {
     public class Game : IGame
     {
-        public int Popularity { get; set; }
         public int Id { get; set; }
-        public string Source { get; set; }
-        Context _context;
         public string Name { get; set; }
-
+        public string Source { get; set; }
+        public int Popularity { get; set; }
         public User User { get; set; }
-        List<Question> _questions;
-        List<Characteristic> _characteristics;
-        public IEnumerable<Question> Questions => _questions;
-        public IEnumerable<Characteristic> Characteristics => _characteristics;
+        public List<Question> Questions { get; set; }
+        public List<Characteristic> Characteristics { get; set; }
+
+        public IEnumerable<Question> GetQuestions => Questions;
+        public IEnumerable<Characteristic> GetCharacteristics => Characteristics;
+
+
+        public void UpdateName(string name)
+        {
+            Name = name;
+        }
+
+        public void UpdateSource(string source)
+        {
+            Source = source;
+        }
 
         public void UpdateCharacteristics(List<Characteristic> characteristics)
         {
-            _characteristics = characteristics;
+            Characteristics = characteristics;
         }
 
         public void UpdateQuestions(List<Question> questions)
         {
-            _questions = questions;
+            Questions = questions;
         }
+
+
+        Context context;
 
         public void SaveGame()
         {
-            using(_context = new Context())
+            using(context = new Context())
             {
-                _context.Games.Add(this);
-                _context.SaveChanges();
+                context.Games.Add(this);
+                context.SaveChanges();
             }
         }
     }

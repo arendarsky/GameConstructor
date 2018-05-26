@@ -14,11 +14,14 @@ namespace GameConstructor.Core.Interfaces
         string Name { get; }
         string Source { get; }
         User User { get; }
-        IEnumerable<Question> Questions { get; }
-        IEnumerable<Characteristic> Characteristics { get; }
+        IEnumerable<Question> GetQuestions { get; }
+        IEnumerable<Characteristic> GetCharacteristics { get; }
 
-        void UpdateCharacteristics(List<Characteristic> characteristics);
+        void UpdateName(string name);
+        void UpdateSource(string source);
         void UpdateQuestions(List<Question> questions);
+        void UpdateCharacteristics(List<Characteristic> characteristics);
+        
         void SaveGame();
     }
 }
