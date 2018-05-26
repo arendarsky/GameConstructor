@@ -22,5 +22,7 @@ namespace GameConstructor.Core.Models
             Name = name;
             Value = value;
         }
+
+        public Characteristic() { }
     }
 }

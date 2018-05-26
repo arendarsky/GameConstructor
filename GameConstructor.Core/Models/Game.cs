@@ -16,7 +16,7 @@ namespace GameConstructor.Core.Models
         public int Popularity { get; set; }
         public User User { get; set; }
         public List<Question> Questions { get; set; }
-        public List<Characteristic> Characteristics { get; set; }
+        public virtual List<Characteristic> Characteristics { get; set; }
 
         public IEnumerable<Question> GetQuestions => Questions;
         public IEnumerable<Characteristic> GetCharacteristics => Characteristics;
