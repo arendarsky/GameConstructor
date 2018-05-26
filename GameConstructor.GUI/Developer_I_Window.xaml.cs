@@ -132,6 +132,10 @@ namespace GameConstructor.GUI
             Characteristic characteristic = CharacteristicValueTextBox.DataContext as Characteristic;
 
             CharacteristicValueTextBox.Text = characteristic.Value.ToString();
+
+            //_const += 1;
+
+            //Title = _const.ToString();
         }
 
         private void CharacteristicNameTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -220,7 +224,23 @@ namespace GameConstructor.GUI
 
             else
             {
-                //there will be more checking here
+                for (int i = 0; i < CharacteristicsListBox.Items.Count; i++)
+                {
+                    ListBoxItem itemContainer = CharacteristicsListBox.ItemContainerGenerator.ContainerFromIndex(i) as ListBoxItem;
+
+                    Border itemContainerBorder = VisualTreeHelper.GetChild(itemContainer, 0) as Border;
+                    ContentPresenter itemContainerContentPresenter = VisualTreeHelper.GetChild(itemContainerBorder, 0) as ContentPresenter;
+                    Grid itemUIParent = VisualTreeHelper.GetChild(itemContainerContentPresenter, 0) as Grid;
+
+                    TextBox CharacteristicNameTextBox = itemUIParent.Children[0] as TextBox;
+
+                    if (CharacteristicNameTextBox.Text == defaultCharacteristicName)
+                    {
+                        MessageBox.Show("Название характеристики — обязательный аттрибут. Заполните все поля либо удалите ненужные характеристики");
+                        CharacteristicNameTextBox.Focus();
+                        return false;
+                    }
+                }
             }
 
             return true;
