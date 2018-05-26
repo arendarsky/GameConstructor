@@ -41,15 +41,20 @@ namespace GameConstructor.Core.Models
         {
             Questions = questions;
         }
+        
 
-
-        Context context;
-
-        public void SaveGame()
+        public void SaveGame(Context context)
         {
-            using(context = new Context())
+            if (context == null)
             {
-                context.Games.Add(this);
+                using (Context contextNew = new Context())
+                {
+                    contextNew.Games.Add(this);
+                    contextNew.SaveChanges();
+                }
+            }
+            else
+            {
                 context.SaveChanges();
             }
         }

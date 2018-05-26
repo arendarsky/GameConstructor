@@ -65,8 +65,8 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <TextBox Name="GameNameTextBox" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalAlignment="top" Padding="15 10" Margin="0 30 0 15" FontSize="18.5" FontFamily="Verdana" Width="350" Foreground="Gray" GotFocus="GameNameTextBox_GotFocus" LostFocus="GameNameTextBox_LostFocus">Введите название вашей игры</TextBox>
-                    <TextBox Name="SourceTextBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="15 4" Margin="0 0 50 0" FontSize="13" FontFamily="Verdana" Foreground="Gray" GotFocus="SourceTextBox_GotFocus" LostFocus="SourceTextBox_LostFocus">Укажите оригинальный источник (ссылку), если имеется</TextBox>
+                    <TextBox Name="GameNameTextBox" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalAlignment="top" Padding="15 10" Margin="0 30 0 15" FontSize="18.5" FontFamily="Verdana" Width="350" GotFocus="GameNameTextBox_GotFocus" LostFocus="GameNameTextBox_LostFocus" Initialized="GameNameTextBox_Initialized">Введите название вашей игры</TextBox>
+                    <TextBox Name="SourceTextBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Padding="15 4" Margin="0 0 50 0" FontSize="13" FontFamily="Verdana" GotFocus="SourceTextBox_GotFocus" LostFocus="SourceTextBox_LostFocus" Initialized="SourceTextBox_Initialized">Укажите оригинальный источник (ссылку), если имеется</TextBox>
 
                     <Grid Grid.Row="0" Grid.RowSpan="4" Grid.Column="0">
                         <Grid.RowDefinitions>

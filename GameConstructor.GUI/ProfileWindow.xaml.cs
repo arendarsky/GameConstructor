@@ -117,7 +117,7 @@ namespace GameConstructor.GUI
         {
             Game game = UserGamesListBox.SelectedItem as Game;
 
-            Developer_I_Window developer_I_Window = new Developer_I_Window(game);
+            Developer_I_Window developer_I_Window = new Developer_I_Window(game, _context);
 
             developer_I_Window.Show();
 

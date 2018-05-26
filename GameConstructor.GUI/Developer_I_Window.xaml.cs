@@ -29,26 +29,26 @@ namespace GameConstructor.GUI
 
         IGame _game;
         List<Characteristic> _characteristics;
+        Context _context;
 
 
         public Developer_I_Window()
         {
-            InitializeComponent();
-            
             _game = Factory.Instance.GetGame;
-
             _characteristics = new List<Characteristic>();
+
+            InitializeComponent();
 
             AddNewDefaultCharacteristic();
         }
 
-        public Developer_I_Window(IGame game)
+        public Developer_I_Window(IGame game, Context context)
         {
-            InitializeComponent();
-
             _game = game;
-
             _characteristics = _game.GetCharacteristics.ToList();
+            _context = context;
+
+            InitializeComponent();
 
             DefaultCharacteristicsListBoxSource();
         }
@@ -94,6 +94,31 @@ namespace GameConstructor.GUI
         }
 
 
+
+        private void GameNameTextBox_Initialized(object sender, EventArgs e)
+        {
+            GameNameTextBox.Text = _game.Name;
+
+            if (_game.Name == null || _game.Name == "")
+            {
+                GameNameTextBox.Text = defaultGameName;
+
+                GameNameTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void SourceTextBox_Initialized(object sender, EventArgs e)
+        {
+            SourceTextBox.Text = _game.Source;
+
+            if (_game.Source == null || _game.Source == "")
+            {
+                SourceTextBox.Text = defaultSourceName;
+
+                SourceTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
         private void UploadImageButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("К сожалению, эта возможность ещё не реализована. Ожидайте ближайших обновлений.", "Ошибка!");
@@ -115,7 +140,7 @@ namespace GameConstructor.GUI
                 _game.UpdateSource(sourceText);
                 _game.UpdateCharacteristics(_characteristics);
 
-                _game.SaveGame();
+                _game.SaveGame(_context);
             }
         }
 

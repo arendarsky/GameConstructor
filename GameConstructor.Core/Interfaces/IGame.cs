@@ -22,6 +22,6 @@ namespace GameConstructor.Core.Interfaces
         void UpdateQuestions(List<Question> questions);
         void UpdateCharacteristics(List<Characteristic> characteristics);
         
-        void SaveGame();
+        void SaveGame(Context context);
     }
 }
