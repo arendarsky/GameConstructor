@@ -8,7 +8,7 @@ using GameConstructor.Core.Models;
 
 namespace GameConstructor.Core
 {
-    class Context: DbContext
+    public class Context: DbContext
     {
         public DbSet<Game> Games { get; set; }
         public DbSet<User> Users { get; set; }

@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GameConstructor.Core;
+using GameConstructor.Core.Interfaces;
+using GameConstructor.Core.Models;
 
 namespace GameConstructor.GUI
 {
@@ -19,12 +22,30 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class ProfileWindow : Window
     {
+        Context _context = new Context();
+
+        List<IGame> _games;
+        int _userId = 1;
+
+
         public ProfileWindow()
         {
-            InitializeComponent();
+            FormingTheGamesCollection();
 
-            UserGamesListBox.ItemsSource = new List<int> { 1, 2, 3 };
+            InitializeComponent();            
         }
+
+
+        private void FormingTheGamesCollection()
+        {
+            var games = _context.Games
+                .Where(g => g.User.Id == _userId);
+
+            //Type gameType = games.FirstOrDefault().GetType();
+
+            _games = GeneralMethods.GettingAbstractCollectionFromNormalCollection<IGame, Game>(games).ToList();
+        }
+
 
         private void Image_Initialized(object sender, EventArgs e)
         {
@@ -70,10 +91,7 @@ namespace GameConstructor.GUI
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //if (e.ClickCount >= 2)
-            //{
-                NewGameButton_Click(sender, null);
-            //}
+            
         }
     }
 }
