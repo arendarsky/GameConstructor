@@ -13,12 +13,15 @@ namespace GameConstructor.Core.Interfaces
         int Popularity { get; }
         string Name { get; }
         string Source { get; }
+        bool DisplayingInGameMode { get; }
+        Picture Picture { get; }
         User User { get; }
         IEnumerable<Question> GetQuestions { get; }
         IEnumerable<Characteristic> GetCharacteristics { get; }
 
         void UpdateName(string name);
         void UpdateSource(string source);
+        void UpdatePicture(Picture picture);
         void UpdateQuestions(List<Question> questions);
         void UpdateCharacteristics(List<Characteristic> characteristics);
         

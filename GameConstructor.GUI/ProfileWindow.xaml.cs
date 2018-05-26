@@ -22,6 +22,9 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class ProfileWindow : Window
     {
+        private const double defaultBorderThickness = 1.1;
+
+
         Context _context = new Context();
 
         List<IGame> _games;
@@ -62,19 +65,27 @@ namespace GameConstructor.GUI
             Game game = image.DataContext as Game;
             Border border = image.Parent as Border;
 
-            image.Source = new BitmapImage(new Uri("Images/gamepad.png", UriKind.Relative));
-            border.BorderThickness = new Thickness(1.1);
+            image.Stretch = Stretch.UniformToFill;
 
-            if (game.Name == "Новая тестовая игра")
+            try
             {
-                image.Source = new BitmapImage(new Uri("Images/img_199922.png", UriKind.Relative));
-                border.BorderThickness = new Thickness(0);
+                image.Source = new BitmapImage(new Uri("Images/" + game.Picture.ImageSource, UriKind.Relative));
+
+                if (game.Picture.IsBorderRequired)
+                {
+                    border.BorderThickness = new Thickness(defaultBorderThickness);
+                }
+
+                else
+                {
+                    border.BorderThickness = new Thickness(0);
+                }
             }
 
-            else if (game.Name == "Yura's game")
+            catch
             {
-                image.Source = new BitmapImage(new Uri("Images/книга.png", UriKind.Relative));
-                border.BorderThickness = new Thickness(0);
+                image.Source = new BitmapImage(new Uri("Images/grey.png", UriKind.Relative));
+                border.BorderThickness = new Thickness(defaultBorderThickness);
             }
         }
 

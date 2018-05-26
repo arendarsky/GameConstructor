@@ -76,7 +76,7 @@
 
                         <DockPanel Grid.Row="0" Margin="80 30 30 15" Width="200" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left">
                             <Border BorderThickness="1.2" BorderBrush="#FF715C4E">
-                                <Image Stretch="UniformToFill" Source="Images/gamepad.png"></Image>
+                                <Image Name="EditAvatarImage" Stretch="UniformToFill" Source="Images/gamepad.png" Initialized="EditAvatarImage_Initialized"></Image>
                             </Border>
                         </DockPanel>
 

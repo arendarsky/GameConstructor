@@ -27,6 +27,9 @@ namespace GameConstructor.GUI
         private const string defaultCharacteristicName = "Название характеристики";
         private const int defaultValueOfCharacteristic = 0;
 
+        private const double defaultBorderThickness = 1.2;
+
+
         IGame _game;
         List<Characteristic> _characteristics;
         Context _context;
@@ -118,6 +121,34 @@ namespace GameConstructor.GUI
                 SourceTextBox.Foreground = Brushes.Gray;
             }
         }
+
+        private void EditAvatarImage_Initialized(object sender, EventArgs e)
+        {
+            if (_game.Picture != null)
+            {
+                try
+                {
+                    Border imageBorder = EditAvatarImage.Parent as Border;
+
+                    EditAvatarImage.Stretch = Stretch.UniformToFill;
+
+                    EditAvatarImage.Source = new BitmapImage(new Uri("Images/" + _game.Picture.ImageSource, UriKind.Relative));
+
+                    if (_game.Picture.IsBorderRequired)
+                    {
+                        imageBorder.BorderThickness = new Thickness(defaultBorderThickness);
+                    }
+
+                    else
+                    {
+                        imageBorder.BorderThickness = new Thickness(0);
+                    }
+                }
+                catch { }
+            }
+        }
+
+
 
         private void UploadImageButton_Click(object sender, RoutedEventArgs e)
         {

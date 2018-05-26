@@ -13,7 +13,9 @@ namespace GameConstructor.Core.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Source { get; set; }
+        public bool DisplayingInGameMode { get; set; }
         public int Popularity { get; set; }
+        public virtual Picture Picture { get; set; }
         public User User { get; set; }
         public List<Question> Questions { get; set; }
         public virtual List<Characteristic> Characteristics { get; set; }
@@ -30,6 +32,11 @@ namespace GameConstructor.Core.Models
         public void UpdateSource(string source)
         {
             Source = source;
+        }
+
+        public void UpdatePicture(Picture picture)
+        {
+            Picture = picture;
         }
 
         public void UpdateCharacteristics(List<Characteristic> characteristics)

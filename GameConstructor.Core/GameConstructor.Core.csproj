@@ -65,12 +65,17 @@
     <Compile Include="Migrations\201805261705497_NewCreate.Designer.cs">
       <DependentUpon>201805261705497_NewCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805262211492_GameModelChanged.cs" />
+    <Compile Include="Migrations\201805262211492_GameModelChanged.Designer.cs">
+      <DependentUpon>201805262211492_GameModelChanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Characteristic.cs" />
     <Compile Include="Models\Effect.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Influence.cs" />
+    <Compile Include="Models\Picture.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805261705497_NewCreate.resx">
       <DependentUpon>201805261705497_NewCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805262211492_GameModelChanged.resx">
+      <DependentUpon>201805262211492_GameModelChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
