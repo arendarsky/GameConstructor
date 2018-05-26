@@ -27,17 +27,23 @@ namespace GameConstructor.GUI
         private const string defaultCharacteristicName = "Название характеристики";
         private const int defaultValueOfCharacteristic = 0;
 
+        private const string defaultImageSource = "gamepad.png";
+        private const bool defaultStateOfBorder = true;
+
         private const double defaultBorderThickness = 1.2;
 
 
         IGame _game;
+        Picture _picture;
         List<Characteristic> _characteristics;
+
         Context _context;
 
 
         public Developer_I_Window()
         {
             _game = Factory.Instance.GetGame;
+            _picture = new Picture(defaultImageSource, defaultStateOfBorder);
             _characteristics = new List<Characteristic>();
 
             InitializeComponent();
@@ -48,6 +54,7 @@ namespace GameConstructor.GUI
         public Developer_I_Window(IGame game, Context context)
         {
             _game = game;
+            _picture = _game.Picture;
             _characteristics = _game.GetCharacteristics.ToList();
             _context = context;
 
@@ -124,28 +131,25 @@ namespace GameConstructor.GUI
 
         private void EditAvatarImage_Initialized(object sender, EventArgs e)
         {
-            if (_game.Picture != null)
+            try
             {
-                try
+                Border imageBorder = EditAvatarImage.Parent as Border;
+
+                EditAvatarImage.Stretch = Stretch.UniformToFill;
+
+                EditAvatarImage.Source = new BitmapImage(new Uri("Images/" + _picture.ImageSource, UriKind.Relative));
+
+                if (_picture.IsBorderRequired)
                 {
-                    Border imageBorder = EditAvatarImage.Parent as Border;
-
-                    EditAvatarImage.Stretch = Stretch.UniformToFill;
-
-                    EditAvatarImage.Source = new BitmapImage(new Uri("Images/" + _game.Picture.ImageSource, UriKind.Relative));
-
-                    if (_game.Picture.IsBorderRequired)
-                    {
-                        imageBorder.BorderThickness = new Thickness(defaultBorderThickness);
-                    }
-
-                    else
-                    {
-                        imageBorder.BorderThickness = new Thickness(0);
-                    }
+                    imageBorder.BorderThickness = new Thickness(defaultBorderThickness);
                 }
-                catch { }
+
+                else
+                {
+                    imageBorder.BorderThickness = new Thickness(0);
+                }
             }
+            catch { }            
         }
 
 
@@ -154,6 +158,7 @@ namespace GameConstructor.GUI
         {
             MessageBox.Show("К сожалению, эта возможность ещё не реализована. Ожидайте ближайших обновлений.", "Ошибка!");
         }
+
 
 
         private void SaveGameButton_Click(object sender, RoutedEventArgs e)
@@ -169,6 +174,7 @@ namespace GameConstructor.GUI
 
                 _game.UpdateName(GameNameTextBox.Text);
                 _game.UpdateSource(sourceText);
+                _game.UpdatePicture(_picture);
                 _game.UpdateCharacteristics(_characteristics);
 
                 _game.SaveGame(_context);

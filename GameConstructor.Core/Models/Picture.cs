@@ -13,5 +13,14 @@ namespace GameConstructor.Core.Models
         public string ImageSource { get; set; }
 
         public bool IsBorderRequired { get; set; }
+
+
+        public Picture (string imageSource, bool isBorderRequired)
+        {
+            ImageSource = imageSource;
+            IsBorderRequired = isBorderRequired;
+        }
+
+        public Picture() { }
     }
 }

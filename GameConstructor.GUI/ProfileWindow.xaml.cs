@@ -42,7 +42,9 @@ namespace GameConstructor.GUI
         private void FormingTheGamesCollection()
         {
             var games = _context.Games
-                .Where(g => g.User.Id == _userId);
+                .Where(g => true);
+            //  .Where(g => g.User.Id == _userId);
+          
 
             //Type gameType = games.FirstOrDefault().GetType();
 
