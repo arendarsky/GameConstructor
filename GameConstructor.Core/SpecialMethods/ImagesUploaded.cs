@@ -29,14 +29,42 @@ namespace GameConstructor.Core.SpecialMethods
         }
 
 
-
         public void UploadImageAndSave()
         {
             if (UploadImage())
             {
-                string destinationPath = GetDestinationPath(_picture.ImageSource, "Images");
+                string originDestinationPath = GetDestinationPath(_picture.ImageSource, "Images");                
 
-                File.Copy(_fullImagePath, destinationPath, true);
+                try
+                {
+                    File.Copy(_fullImagePath, originDestinationPath, false);
+                }
+
+                catch
+                {
+                    int i = 1;
+
+                    string destinationPath;
+
+                    while (true)
+                    {
+                        destinationPath = AddingASubStringBeforeTypeFormat(originDestinationPath, "(" + i.ToString() + ")");
+                        
+                        try
+                        {
+                            File.Copy(_fullImagePath, destinationPath, false);
+
+                            _picture.ImageSource = AddingASubStringBeforeTypeFormat(_picture.ImageSource, "(" + i.ToString() + ")");
+
+                            break;
+                        }
+
+                        catch
+                        {
+                            i++;
+                        }
+                    }
+                }               
             }
         }
 
@@ -96,6 +124,22 @@ namespace GameConstructor.Core.SpecialMethods
             appStartPath = string.Format(appStartPath + "\\{0}\\" + fileName, folderName);
 
             return appStartPath;            
+        }
+
+
+
+        public static string AddingASubStringBeforeTypeFormat (string originalString, string subString)
+        {
+            string[] imageNameParts = originalString.Split('.');
+
+            string originalStringWithoutTheFormat="";
+
+            for (int i = 0; i < imageNameParts.Length-2; i++)
+            {
+                originalStringWithoutTheFormat += imageNameParts[i] + ".";
+            }
+
+            return originalStringWithoutTheFormat + imageNameParts[imageNameParts.Length - 2] + subString + "." + imageNameParts[imageNameParts.Length - 1];
         }
     }
 }
