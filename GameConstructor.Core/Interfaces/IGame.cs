@@ -15,7 +15,6 @@ namespace GameConstructor.Core.Interfaces
         string Source { get; }
         bool DisplayingInGameMode { get; }
         Picture Picture { get; }
-        User User { get; }
         IEnumerable<Question> GetQuestions { get; }
         IEnumerable<Characteristic> GetCharacteristics { get; }
 
@@ -26,5 +25,6 @@ namespace GameConstructor.Core.Interfaces
         void UpdateCharacteristics(List<Characteristic> characteristics);
         
         void SaveGame(Context context);
+        Game Load();
     }
 }

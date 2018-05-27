@@ -61,7 +61,7 @@ namespace GameConstructor.GUI
 
         public Developer_I_Window(IGame game, Context context, bool wereThereAlreadySomeChangings)
         {
-            _game = game;
+            _game = game.Load();
             _picture = _game.Picture;
             _characteristics = _game.GetCharacteristics.ToList();
             _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
