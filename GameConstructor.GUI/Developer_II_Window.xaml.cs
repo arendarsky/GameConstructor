@@ -26,12 +26,17 @@ namespace GameConstructor.GUI
 
 
         IGame _game;
+        bool _wereThereAlreadySomeChangings;
+
         Context _context;
+        
 
 
-        public Developer_II_Window(IGame game, Context context)
+        public Developer_II_Window(IGame game, Context context, bool wereThereAlreadySomeChangings)
         {
             _game = game;
+            _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
+
             _context = context;
 
             InitializeComponent();
@@ -82,7 +87,7 @@ namespace GameConstructor.GUI
 
         private void PreviousWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_I_Window developer_I_Window = new Developer_I_Window(_game, _context);
+            Developer_I_Window developer_I_Window = new Developer_I_Window(_game, _context, _wereThereAlreadySomeChangings);
 
             developer_I_Window.Show();
 
@@ -91,7 +96,7 @@ namespace GameConstructor.GUI
 
         private void NextWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_III_Window developer_III_Window = new Developer_III_Window(_game, _context);
+            Developer_III_Window developer_III_Window = new Developer_III_Window(_game, _context, _wereThereAlreadySomeChangings);
 
             developer_III_Window.Show();
 

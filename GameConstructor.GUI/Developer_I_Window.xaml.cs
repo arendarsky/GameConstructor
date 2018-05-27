@@ -36,6 +36,7 @@ namespace GameConstructor.GUI
         IGame _game;
         Picture _picture;
         List<Characteristic> _characteristics;
+        bool _wereThereAlreadySomeChangings;
 
         bool _goingToTheNextDeveloperWindow = false;
         bool _goingBackToProfileWondow = false;
@@ -49,17 +50,20 @@ namespace GameConstructor.GUI
             _game = Factory.Instance.GetGame;
             _picture = new Picture(defaultImageSource, defaultStateOfBorder);
             _characteristics = new List<Characteristic>();
+            _wereThereAlreadySomeChangings = false;
 
             InitializeComponent();
 
             AddNewDefaultCharacteristic();
         }
 
-        public Developer_I_Window(IGame game, Context context)
+        public Developer_I_Window(IGame game, Context context, bool wereThereAlreadySomeChangings)
         {
             _game = game;
             _picture = _game.Picture;
             _characteristics = _game.GetCharacteristics.ToList();
+            _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
+
             _context = context;
 
             if (_picture == null)
@@ -71,6 +75,8 @@ namespace GameConstructor.GUI
 
             DefaultCharacteristicsListBoxSource();
         }
+
+        public Developer_I_Window(IGame game, Context context) : this(game, context, false) { }
 
 
 
@@ -116,6 +122,8 @@ namespace GameConstructor.GUI
         {
             if (CheckingIfEveryFieldIsFilledCorrectly())
             {
+                IfThereWereAnyChangesMadeByUser();
+
                 string sourceText = SourceTextBox.Text;
                 Picture picture = _picture;
 
@@ -347,6 +355,8 @@ namespace GameConstructor.GUI
 
         private bool IfThereWereAnyChangesMadeByUser()
         {
+            if (_wereThereAlreadySomeChangings) { return true; }
+
             string name = GameNameTextBox.Text;
             string source = SourceTextBox.Text;
             Picture picture = _picture;
@@ -373,6 +383,8 @@ namespace GameConstructor.GUI
             {
                 return false;
             }
+
+            _wereThereAlreadySomeChangings = true;
 
             return true;
         }
@@ -412,7 +424,7 @@ namespace GameConstructor.GUI
 
         private void GoingToTheNextDeveloperWindow()
         {
-            Developer_II_Window developer_II_Window = new Developer_II_Window(_game, _context);
+            Developer_II_Window developer_II_Window = new Developer_II_Window(_game, _context, _wereThereAlreadySomeChangings);
 
             developer_II_Window.Show();
         }
