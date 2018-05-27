@@ -150,6 +150,9 @@ namespace GameConstructor.GUI
 
                 _games.Remove(currentGame);
 
+                _context.Games.Remove(currentGame);
+                _context.SaveChanges();
+
                 DefaultGameListBoxItemsSource();
             }
         }
