@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameConstructor.Core;
+using GameConstructor.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,8 +24,16 @@ namespace GameConstructor.GUI
         int _questionNumber = 1;
         int _answerNumber = 1;
 
-        public Developer_II_Window()
+
+        IGame _game;
+        Context _context;
+
+
+        public Developer_II_Window(IGame game, Context context)
         {
+            _game = game;
+            _context = context;
+
             InitializeComponent();
 
             QuestionsListBox.ItemsSource = new List<List<List<int>>> { new List<List<int>> { new List<int> { 1 } }, new List<List<int>> { new List<int> { 2, 3, 4 }, new List<int> { 1 } }, new List<List<int>> { new List<int> { 5, 7 }, new List<int> { 6 }, new List<int> { 7, 8, 9, 10 } } };
@@ -72,7 +82,7 @@ namespace GameConstructor.GUI
 
         private void PreviousWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_I_Window developer_I_Window = new Developer_I_Window();
+            Developer_I_Window developer_I_Window = new Developer_I_Window(_game, _context);
 
             developer_I_Window.Show();
 
@@ -81,7 +91,7 @@ namespace GameConstructor.GUI
 
         private void NextWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_III_Window developer_III_Window = new Developer_III_Window();
+            Developer_III_Window developer_III_Window = new Developer_III_Window(_game, _context);
 
             developer_III_Window.Show();
 

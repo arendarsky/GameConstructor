@@ -96,7 +96,7 @@ namespace GameConstructor.GUI
 
         private void NextWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_II_Window developer_II_Window = new Developer_II_Window();
+            Developer_II_Window developer_II_Window = new Developer_II_Window(_game, _context);
 
             developer_II_Window.Show();
 

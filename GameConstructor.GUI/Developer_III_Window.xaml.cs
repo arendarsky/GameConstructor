@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameConstructor.Core;
+using GameConstructor.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,15 +21,22 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class Developer_III_Window : Window
     {
-        public Developer_III_Window()
+        IGame _game;
+        Context _context;
+
+
+        public Developer_III_Window(IGame game, Context context)
         {
+            _game = game;
+            _context = context;
+
             InitializeComponent();
         }
 
 
         private void PreviousWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_II_Window developer_II_Window = new Developer_II_Window();
+            Developer_II_Window developer_II_Window = new Developer_II_Window(_game, _context);
 
             developer_II_Window.Show();
 
