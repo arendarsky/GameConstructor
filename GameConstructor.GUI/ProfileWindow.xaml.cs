@@ -28,33 +28,17 @@ namespace GameConstructor.GUI
 
         Context _context = new Context();
 
-        List<IGame> _games;
+        IEnumerable<IGame> _games;
         //int _userId = 1;
 
 
         public ProfileWindow()
         {
-            InitializeComponent();
-
-            FormingTheGamesListBoxSource();
-        }
-
-
-        private void FormingTheGamesCollection()
-        {
-            var games = _context.Games
+            _games = _context.Games
                 .Where(g => true);
             //  .Where(g => g.User.Id == _userId);
-          
 
-            //Type gameType = games.FirstOrDefault().GetType();
-
-            _games = GeneralMethods.GettingAbstractCollectionFromNormalCollection<IGame, Game>(games).ToList();
-        }
-
-        private void FormingTheGamesListBoxSource()
-        {
-            FormingTheGamesCollection();
+            InitializeComponent();
 
             UserGamesListBox.ItemsSource = _games;
         }
