@@ -12,4 +12,8 @@ namespace GameConstructor.Core.Interfaces
         IRepository<Question> Questions { get; }
         IRepository<Characteristic> Characteristics { get; }
     }
+    public interface IStorage
+    {
+
+    }
 }
