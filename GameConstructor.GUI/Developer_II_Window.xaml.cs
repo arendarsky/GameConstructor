@@ -254,5 +254,12 @@ namespace GameConstructor.GUI
 
             return false;
         }
+
+
+
+        private void NewQuestionButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewDefaultQuestion();
+        }
     }
 }
