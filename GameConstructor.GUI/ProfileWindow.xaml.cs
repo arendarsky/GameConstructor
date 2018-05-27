@@ -28,7 +28,7 @@ namespace GameConstructor.GUI
         Context _context = new Context();
 
         List<IGame> _games;
-        int _userId = 1;
+        //int _userId = 1;
 
 
         public ProfileWindow()
@@ -86,7 +86,7 @@ namespace GameConstructor.GUI
 
             catch
             {
-                image.Source = new BitmapImage(new Uri("Images/grey.png", UriKind.Relative));
+                image.Source = new BitmapImage(new Uri("Images/gamepad.png", UriKind.Relative));
                 border.BorderThickness = new Thickness(defaultBorderThickness);
             }
         }

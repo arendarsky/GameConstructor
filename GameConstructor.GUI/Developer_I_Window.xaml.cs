@@ -23,7 +23,7 @@ namespace GameConstructor.GUI
     public partial class Developer_I_Window : Window
     {
         private const string defaultGameName = "Введите название вашей игры";
-        private const string defaultSourceName = "Укажите оригинальный источник (ссылку), если имеется";
+        private const string defaultSource = "Укажите оригинальный источник (ссылку), если имеется";
         private const string defaultCharacteristicName = "Название характеристики";
         private const int defaultValueOfCharacteristic = 0;
 
@@ -61,6 +61,11 @@ namespace GameConstructor.GUI
             _picture = _game.Picture;
             _characteristics = _game.GetCharacteristics.ToList();
             _context = context;
+
+            if (_picture == null)
+            {
+                _picture = new Picture(defaultImageSource, defaultStateOfBorder);
+            }
 
             InitializeComponent();
 
@@ -112,15 +117,20 @@ namespace GameConstructor.GUI
             if (CheckingIfEveryFieldIsFilledCorrectly())
             {
                 string sourceText = SourceTextBox.Text;
+                Picture picture = _picture;
 
-                if (sourceText == defaultSourceName)
+                if (sourceText == defaultSource)
                 {
-                    sourceText = "";
+                    sourceText = null;
+                }
+                if (picture.ImageSource == defaultImageSource && picture.IsBorderRequired == defaultStateOfBorder)
+                {
+                    picture = null;
                 }
 
                 _game.UpdateName(GameNameTextBox.Text);
                 _game.UpdateSource(sourceText);
-                _game.UpdatePicture(_picture);
+                _game.UpdatePicture(picture);
                 _game.UpdateCharacteristics(_characteristics);
 
                 return true;
@@ -149,7 +159,7 @@ namespace GameConstructor.GUI
 
             if (_game.Source == null || _game.Source == "")
             {
-                SourceTextBox.Text = defaultSourceName;
+                SourceTextBox.Text = defaultSource;
 
                 SourceTextBox.Foreground = Brushes.Gray;
             }
@@ -157,12 +167,12 @@ namespace GameConstructor.GUI
 
         private void EditAvatarImage_Initialized(object sender, EventArgs e)
         {
+            Border imageBorder = EditAvatarImage.Parent as Border;
+
+            EditAvatarImage.Stretch = Stretch.UniformToFill;
+
             try
-            {
-                Border imageBorder = EditAvatarImage.Parent as Border;
-
-                EditAvatarImage.Stretch = Stretch.UniformToFill;
-
+            {                        
                 EditAvatarImage.Source = new BitmapImage(new Uri("Images/" + _picture.ImageSource, UriKind.Relative));
 
                 if (_picture.IsBorderRequired)
@@ -175,7 +185,13 @@ namespace GameConstructor.GUI
                     imageBorder.BorderThickness = new Thickness(0);
                 }
             }
-            catch { }            
+
+            catch
+            {
+                EditAvatarImage.Source = new BitmapImage(new Uri("Images" + defaultImageSource, UriKind.Relative));
+
+                imageBorder.BorderThickness = new Thickness(defaultBorderThickness);
+            }            
         }
 
 
@@ -278,7 +294,7 @@ namespace GameConstructor.GUI
 
         private void SourceTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (SourceTextBox.Text == defaultSourceName)
+            if (SourceTextBox.Text == defaultSource)
             {
                 SourceTextBox.Text = "";
                 SourceTextBox.Foreground = Brushes.Black;
@@ -289,7 +305,7 @@ namespace GameConstructor.GUI
         {
             if (SourceTextBox.Text == "")
             {
-                SourceTextBox.Text = defaultSourceName;
+                SourceTextBox.Text = defaultSource;
                 SourceTextBox.Foreground = Brushes.Gray;
             }
         }
@@ -329,21 +345,60 @@ namespace GameConstructor.GUI
             return true;
         }
 
+        private bool IfThereWereAnyChangesMadeByUser()
+        {
+            string name = GameNameTextBox.Text;
+            string source = SourceTextBox.Text;
+            Picture picture = _picture;
+            List<Characteristic> characteristics = _characteristics;
+
+            if (name == defaultGameName)
+            {
+                name = null;
+            }
+            if (source == defaultSource)
+            {
+                source = null;
+            }
+            if (picture.ImageSource == defaultImageSource && picture.IsBorderRequired == defaultStateOfBorder)
+            {
+                picture = null;
+            }
+            if (characteristics.Count == 1 && characteristics[0].Name == defaultCharacteristicName && characteristics[0].Value == defaultValueOfCharacteristic)
+            {
+                characteristics = null;
+            }
+
+            if (name == _game.Name && source == _game.Source && picture == _game.Picture && GeneralMethods.CheckingWhetherCollectionsHaveTheSameValues(characteristics, _game.GetCharacteristics))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
 
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            bool cancellation = false;
+
             if (!_goingToTheNextDeveloperWindow)
             {
-                var messageBoxResult = MessageBox.Show("Вы уверены, что хотите покинуть окно разработки? Никакие текущие изменения не будут сохранены!",
+                if (IfThereWereAnyChangesMadeByUser())
+                {
+                    var messageBoxResult = MessageBox.Show("Вы уверены, что хотите покинуть окно разработки? Никакие текущие изменения не будут сохранены!",
                     "Предупреждение!", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning, MessageBoxResult.No);
 
-                if (messageBoxResult == MessageBoxResult.No || messageBoxResult == MessageBoxResult.Cancel || messageBoxResult == MessageBoxResult.None)
-                {
-                    e.Cancel = true;
+                    if (messageBoxResult == MessageBoxResult.No || messageBoxResult == MessageBoxResult.Cancel || messageBoxResult == MessageBoxResult.None)
+                    {
+                        e.Cancel = true;
+
+                        cancellation = true;
+                    }
                 }
 
-                else if (_goingBackToProfileWondow)
+                if (_goingBackToProfileWondow && !cancellation)
                 {
                     GoingBackToProfileWindow();
                 }
