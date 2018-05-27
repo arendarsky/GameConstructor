@@ -83,6 +83,13 @@ namespace GameConstructor.GUI
             AnswerListBox.ItemsSource = question.Answers;
         }
 
+        private void DefaultReactionsListBoxSource(ListBox ReactionsListBox, Answer answer)
+        {
+            ReactionsListBox.ItemsSource = null;
+
+            ReactionsListBox.ItemsSource = answer.Effects;
+        }
+
 
 
         private void AddNewDefaultQuestion()
@@ -97,6 +104,13 @@ namespace GameConstructor.GUI
             question.Answers.Add(DefaultAnswer());
 
             DefaultAnswersListBoxSource(AnswerListBox, question);
+        }
+
+        private void AddNewDefaultReaction(ListBox ReactionsListBox, Answer answer)
+        {
+            answer.Effects.Add(DefaultEffect());
+
+            DefaultReactionsListBoxSource(ReactionsListBox, answer);
         }
 
 
@@ -180,7 +194,7 @@ namespace GameConstructor.GUI
 
             Answer answer = ReactionsListBox.DataContext as Answer;
 
-            ReactionsListBox.ItemsSource = answer.Effects;
+            DefaultReactionsListBoxSource(ReactionsListBox, answer);
         }
 
         private void ChangesOfCharacteristicListBox_Initialized(object sender, EventArgs e)
@@ -289,6 +303,19 @@ namespace GameConstructor.GUI
             Question question = NewAnswerButton.DataContext as Question;
 
             AddNewDefaultAnswer(AnswerListBox, question);
+        }
+
+        private void NewReactionButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button NewReactionButton = sender as Button;
+
+            Grid AnswerGrid = NewReactionButton.Parent as Grid;
+
+            ListBox ReactionsListBox = AnswerGrid.Children[2] as ListBox;
+
+            Answer answer = NewReactionButton.DataContext as Answer;
+
+            AddNewDefaultReaction(ReactionsListBox, answer);
         }
     }
 }
