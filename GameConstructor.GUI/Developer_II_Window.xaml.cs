@@ -1,5 +1,6 @@
 ﻿using GameConstructor.Core;
 using GameConstructor.Core.Interfaces;
+using GameConstructor.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +22,14 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class Developer_II_Window : Window
     {
-        int _questionNumber = 1;
-        int _answerNumber = 1;
-
+        private const string defaultQuestionText = "Текст вопроса";
+        private const string defaultAnswerText = "Вариант ответа";
+        private const string defaultEffectText = "Текст возможной реакции";
+        private const string defaultInfluenceText = "Изменение характеристики";
+        
 
         IGame _game;
+        List<Question> _questions;
         bool _wereThereAlreadySomeChangings;
 
         bool _goingToTheNextDeveloperWindow = false;
@@ -44,48 +48,134 @@ namespace GameConstructor.GUI
 
             InitializeComponent();
 
-            QuestionsListBox.ItemsSource = new List<List<List<int>>> { new List<List<int>> { new List<int> { 1 } }, new List<List<int>> { new List<int> { 2, 3, 4 }, new List<int> { 1 } }, new List<List<int>> { new List<int> { 5, 7 }, new List<int> { 6 }, new List<int> { 7, 8, 9, 10 } } };
+            InitializingQuestions();
         }
 
 
-        private void AnswersListBox_Initialized(object sender, EventArgs e)
+
+        private void InitializingQuestions()
         {
-            ListBox ListBox = sender as ListBox;
-            ListBox.ItemsSource = ListBox.DataContext as List<List<int>>;
+            try
+            {
+                _questions = _game.GetQuestions.ToList();
+            }
+            catch
+            {
+                _questions = new List<Question>();
+
+                AddNewDefaultQuestion();
+            }
         }
 
 
-        private void AnswerTextBox_Initialized(object sender, EventArgs e)
+
+        private void DefaultQuestionListBoxSource()
         {
-            TextBox TextBox = sender as TextBox;
-            TextBox.Text = "Вариант ответа " + _answerNumber;
+            QuestionsListBox.ItemsSource = null;
 
-            _answerNumber++;
+            QuestionsListBox.ItemsSource = _questions;
         }
+
+        private void AddNewDefaultQuestion()
+        {
+            _questions.Add(DefaultQuestion());
+
+            DefaultQuestionListBoxSource();
+        }
+
+
+
+        private List<Influence> DefaultInfluences()
+        {
+            List<Influence> defaultInfluences = new List<Influence>();
+
+            foreach (var characteristic in _game.GetCharacteristics)
+            {
+                defaultInfluences.Add(new Influence()
+                {
+                    Characteristic = characteristic
+                });
+            }
+            
+            return defaultInfluences;
+        }
+
+        private Effect DefaultEffect()
+        {
+            return new Effect
+            {
+                Body = defaultEffectText,
+                Influences = DefaultInfluences()
+            };
+        }
+
+        private Answer DefaultAnswer()
+        {
+            return new Answer
+            {
+                Body = defaultAnswerText,
+                Effects = new List<Effect> { DefaultEffect() }
+            };
+        }
+
+        private Question DefaultQuestion()
+        {
+            return new Question
+            {
+                Body = defaultQuestionText,
+                Answers = new List<Answer> { DefaultAnswer() }
+            };
+        }
+
 
 
         private void QuestionTextBlock_Initialized(object sender, EventArgs e)
         {
-            TextBlock TextBlock = sender as TextBlock;
-            TextBlock.Text = "Вопрос " + _questionNumber;
+            TextBlock QuestionTextBlock = sender as TextBlock;
 
-            _questionNumber++;
+            Question currentQuestion = QuestionTextBlock.DataContext as Question;
 
-            _answerNumber = 1;
+            int questionIndex = _questions.IndexOf(currentQuestion);
+
+            QuestionTextBlock.Text = "Вопрос " + (questionIndex + 1).ToString();
         }
 
+        private void AnswersListBox_Initialized(object sender, EventArgs e)
+        {
+            ListBox AnswersListBox = sender as ListBox;
+
+            Question currentQuestion = AnswersListBox.DataContext as Question;
+
+            AnswersListBox.ItemsSource = currentQuestion.Answers;
+        }
+
+        private void AnswerTextBox_Initialized(object sender, EventArgs e)
+        {
+            TextBox AnswerTextBox = sender as TextBox;
+
+            Answer answer = AnswerTextBox.DataContext as Answer;
+
+            AnswerTextBox.Text = answer.Body;
+        }
 
         private void ReactionsListBox_Initialized(object sender, EventArgs e)
         {
-            ListBox ListBox = sender as ListBox;
-            ListBox.ItemsSource = ListBox.DataContext as List<int>;
-        }
+            ListBox ReactionsListBox = sender as ListBox;
 
+            Answer answer = ReactionsListBox.DataContext as Answer;
+
+            ReactionsListBox.ItemsSource = answer.Effects;
+        }
 
         private void ChangesOfCharacteristicListBox_Initialized(object sender, EventArgs e)
         {
-            (sender as ListBox).ItemsSource = new int[3] { 0, 0, 0 };
+            ListBox ChangingsOfCharacteristicsListBox = sender as ListBox;
+
+            Effect effect = ChangingsOfCharacteristicsListBox.DataContext as Effect;
+
+            ChangingsOfCharacteristicsListBox.ItemsSource = effect.Influences;
         }
+
 
 
         private void PreviousWindowButton_Click(object sender, RoutedEventArgs e)
