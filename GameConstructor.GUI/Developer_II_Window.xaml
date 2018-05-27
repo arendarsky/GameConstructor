@@ -18,7 +18,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
@@ -72,7 +72,7 @@
                                 <TextBlock Name="QuestionTextBlock" Margin="0 10 30 15" FontSize="18" Initialized="QuestionTextBlock_Initialized" FontFamily="Verdana">Hello World</TextBlock>
                                 <TextBox Name="QuestionTextBox" Width="Auto" Grid.Column="1" Margin="10 2 20 15" FontSize="16" HorizontalAlignment="Stretch" Padding="10 10" FontFamily="Verdana">Текст вопроса</TextBox>
 
-                                <Button Name="NewAnswerButton" Panel.ZIndex="1" Grid.Row="2" Grid.ColumnSpan="2" FontSize="16" Padding="8 5" HorizontalAlignment="Left" Margin="15 -15 10 90">Добавить вариант ответа</Button>
+                                <Button Name="NewAnswerButton" Panel.ZIndex="1" Grid.Row="2" Grid.ColumnSpan="2" FontSize="16" Padding="8 5" HorizontalAlignment="Left" Margin="15 -15 10 90" Click="NewAnswerButton_Click">Добавить вариант ответа</Button>
 
                                 <ListBox Name="AnswersListBox" Grid.Row="1" Grid.ColumnSpan="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 0 30 0" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Stretch" Initialized="AnswersListBox_Initialized">
                                     <ListBox.ItemTemplate>
@@ -89,7 +89,7 @@
                                                 <Button Name="NewReactionButton" Panel.ZIndex="1" FontSize="15" HorizontalAlignment="Right" Grid.Row="2" Margin="0 5 20 20" Padding="6 4">Новая реакция</Button>
 
                                                 <ListBox Name="ReactionsListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Stretch" Initialized="ReactionsListBox_Initialized" Margin="15 0 -7 0" Grid.Row="1">
-                                                    <ListBox.ItemTemplate> 
+                                                    <ListBox.ItemTemplate>
                                                         <DataTemplate>
                                                             <Grid>
                                                                 <Grid.ColumnDefinitions>
@@ -116,12 +116,10 @@
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
-                                
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-               
             </Grid>
         </ScrollViewer>
     </Grid>

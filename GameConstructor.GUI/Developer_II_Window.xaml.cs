@@ -26,7 +26,7 @@ namespace GameConstructor.GUI
         private const string defaultAnswerText = "Вариант ответа";
         private const string defaultEffectText = "Текст возможной реакции";
         private const string defaultInfluenceText = "Изменение характеристики";
-        
+
 
         IGame _game;
         List<Question> _questions;
@@ -36,7 +36,7 @@ namespace GameConstructor.GUI
         bool _goingToThePreviousDeveloperWindow = false;
 
         Context _context;
-        
+
 
 
         public Developer_II_Window(IGame game, Context context, bool wereThereAlreadySomeChangings)
@@ -76,11 +76,27 @@ namespace GameConstructor.GUI
             QuestionsListBox.ItemsSource = _questions;
         }
 
+        private void DefaultAnswersListBoxSource(ListBox AnswerListBox, Question question)
+        {
+            AnswerListBox.ItemsSource = null;
+
+            AnswerListBox.ItemsSource = question.Answers;
+        }
+
+
+
         private void AddNewDefaultQuestion()
         {
             _questions.Add(DefaultQuestion());
 
             DefaultQuestionListBoxSource();
+        }
+
+        private void AddNewDefaultAnswer(ListBox AnswerListBox, Question question)
+        {
+            question.Answers.Add(DefaultAnswer());
+
+            DefaultAnswersListBoxSource(AnswerListBox, question);
         }
 
 
@@ -146,7 +162,7 @@ namespace GameConstructor.GUI
 
             Question currentQuestion = AnswersListBox.DataContext as Question;
 
-            AnswersListBox.ItemsSource = currentQuestion.Answers;
+            DefaultAnswersListBoxSource(AnswersListBox, currentQuestion);
         }
 
         private void AnswerTextBox_Initialized(object sender, EventArgs e)
@@ -260,6 +276,19 @@ namespace GameConstructor.GUI
         private void NewQuestionButton_Click(object sender, RoutedEventArgs e)
         {
             AddNewDefaultQuestion();
+        }
+
+        private void NewAnswerButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button NewAnswerButton = sender as Button;
+
+            Grid QuestionGrid = NewAnswerButton.Parent as Grid;
+
+            ListBox AnswerListBox = QuestionGrid.Children[3] as ListBox;
+
+            Question question = NewAnswerButton.DataContext as Question;
+
+            AddNewDefaultAnswer(AnswerListBox, question);
         }
     }
 }
