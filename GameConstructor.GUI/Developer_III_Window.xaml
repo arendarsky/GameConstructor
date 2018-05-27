@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameConstructor.GUI"
         mc:Ignorable="d"
-        Title="Игровой конструктор - режим разработчика. Этап 3." Height="600" MinHeight="460" MinWidth="760" Width="805" MaxWidth="1060">
+        Title="Игровой конструктор - режим разработчика. Этап 3." Height="600" MinHeight="460" MinWidth="760" Width="805" MaxWidth="1060" Closing="Window_Closing">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

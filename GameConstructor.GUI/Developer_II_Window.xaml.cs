@@ -28,6 +28,9 @@ namespace GameConstructor.GUI
         IGame _game;
         bool _wereThereAlreadySomeChangings;
 
+        bool _goingToTheNextDeveloperWindow = false;
+        bool _goingToThePreviousDeveloperWindow = false;
+
         Context _context;
         
 
@@ -87,20 +90,79 @@ namespace GameConstructor.GUI
 
         private void PreviousWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_I_Window developer_I_Window = new Developer_I_Window(_game, _context, _wereThereAlreadySomeChangings);
+            if (GamePartialSave())
+            {
+                _goingToThePreviousDeveloperWindow = true;
 
-            developer_I_Window.Show();
-
-            Close();
+                Close();
+            }
         }
 
         private void NextWindowButton_Click(object sender, RoutedEventArgs e)
         {
+            if (GamePartialSave())
+            {
+                _goingToTheNextDeveloperWindow = true;
+
+                Close();
+            }
+        }
+
+        private bool GamePartialSave()
+        {
+            return true;
+        }
+
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!_goingToTheNextDeveloperWindow && !_goingToThePreviousDeveloperWindow)
+            {
+                if (IfThereWereAnyChangesMadeByUser())
+                {
+                    var messageBoxResult = MessageBox.Show("Вы уверены, что хотите покинуть окно разработки? Никакие текущие изменения не будут сохранены!",
+                    "Предупреждение!", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning, MessageBoxResult.No);
+
+                    if (messageBoxResult == MessageBoxResult.No || messageBoxResult == MessageBoxResult.Cancel || messageBoxResult == MessageBoxResult.None)
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
+
+            else if (_goingToTheNextDeveloperWindow)
+            {
+                GoingToTheNextDeveloperWindow();
+            }
+
+            else
+            {
+                GoingToThePreviousDeveloperWindow();
+            }
+        }
+
+        private void GoingToThePreviousDeveloperWindow()
+        {
+            Developer_I_Window developer_I_Window = new Developer_I_Window(_game, _context, _wereThereAlreadySomeChangings);
+
+            developer_I_Window.Show();
+        }
+
+        private void GoingToTheNextDeveloperWindow()
+        {
             Developer_III_Window developer_III_Window = new Developer_III_Window(_game, _context, _wereThereAlreadySomeChangings);
 
             developer_III_Window.Show();
+        }
 
-            Close();
+
+
+        private bool IfThereWereAnyChangesMadeByUser()
+        {
+            if (_wereThereAlreadySomeChangings) { return true; }
+
+            return false;
         }
     }
 }
