@@ -28,17 +28,29 @@ namespace GameConstructor.GUI
 
         Context _context = new Context();
 
-        IEnumerable<IGame> _games;
+        
+        List<IGame> _games;
+
         //int _userId = 1;
 
 
         public ProfileWindow()
         {
-            _games = _context.Games
+            IEnumerable<IGame> games = _context.Games
                 .Where(g => true);
             //  .Where(g => g.User.Id == _userId);
 
+            _games = games.ToList();
+
             InitializeComponent();
+
+            DefaultGameListBoxItemsSource();
+        }
+
+
+        private void DefaultGameListBoxItemsSource()
+        {
+            UserGamesListBox.ItemsSource = null;
 
             UserGamesListBox.ItemsSource = _games;
         }
@@ -111,6 +123,7 @@ namespace GameConstructor.GUI
         }
 
 
+
         private void UserGamesListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Game game = UserGamesListBox.SelectedItem as Game;
@@ -120,6 +133,25 @@ namespace GameConstructor.GUI
             developer_I_Window.Show();
 
             Close();
+        }
+
+
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var messageBoxResult = MessageBox.Show("Вы уверены, что хотите удалить данную игру? Это действие нельзя будет отменить и все изменения будут утеряны!",
+                    "Предупреждение!", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning, MessageBoxResult.No);
+
+            if (messageBoxResult != MessageBoxResult.No && messageBoxResult != MessageBoxResult.Cancel && messageBoxResult != MessageBoxResult.None)
+            {
+                Button deleteButton = sender as Button;
+
+                Game currentGame = deleteButton.DataContext as Game;
+
+                _games.Remove(currentGame);
+
+                DefaultGameListBoxItemsSource();
+            }
         }
     }
 }
