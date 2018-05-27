@@ -1,6 +1,8 @@
 ﻿using GameConstructor.Core;
 using GameConstructor.Core.Interfaces;
 using GameConstructor.Core.Models;
+using GameConstructor.Core.SpecialMethods;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -181,7 +183,7 @@ namespace GameConstructor.GUI
 
             try
             {                        
-                EditAvatarImage.Source = new BitmapImage(new Uri("Images/" + _picture.ImageSource, UriKind.Relative));
+                EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(_picture.ImageSource, "Images"))); ;
 
                 if (_picture.IsBorderRequired)
                 {
@@ -196,7 +198,7 @@ namespace GameConstructor.GUI
 
             catch
             {
-                EditAvatarImage.Source = new BitmapImage(new Uri("Images" + defaultImageSource, UriKind.Relative));
+                EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(defaultImageSource, "Images"))); ;
 
                 imageBorder.BorderThickness = new Thickness(defaultBorderThickness);
             }            
@@ -206,7 +208,13 @@ namespace GameConstructor.GUI
 
         private void UploadImageButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("К сожалению, эта возможность ещё не реализована. Ожидайте ближайших обновлений.", "Ошибка!");
+            ImageUploaded imageUploadingProcess = new ImageUploaded();
+
+            imageUploadingProcess.UploadImageAndSave();
+
+            _picture = imageUploadingProcess.Picture;
+
+            EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(_picture.ImageSource, "Images")));            
         }
 
 

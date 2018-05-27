@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using GameConstructor.Core;
 using GameConstructor.Core.Interfaces;
 using GameConstructor.Core.Models;
+using GameConstructor.Core.SpecialMethods;
 
 namespace GameConstructor.GUI
 {
@@ -71,7 +72,7 @@ namespace GameConstructor.GUI
 
             try
             {
-                image.Source = new BitmapImage(new Uri("Images/" + game.Picture.ImageSource, UriKind.Relative));
+                image.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(game.Picture.ImageSource, "Images"))); ;
 
                 if (game.Picture.IsBorderRequired)
                 {
@@ -86,7 +87,7 @@ namespace GameConstructor.GUI
 
             catch
             {
-                image.Source = new BitmapImage(new Uri("Images/gamepad.png", UriKind.Relative));
+                image.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath("gamepad.png", "Images"))); ;
                 border.BorderThickness = new Thickness(defaultBorderThickness);
             }
         }

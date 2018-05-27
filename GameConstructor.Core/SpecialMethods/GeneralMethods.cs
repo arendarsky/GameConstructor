@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameConstructor.Core
+namespace GameConstructor.Core.SpecialMethods
 {
     public class GeneralMethods
     {
