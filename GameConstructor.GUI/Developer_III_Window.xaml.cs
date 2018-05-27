@@ -45,11 +45,18 @@ namespace GameConstructor.GUI
 
         private void SaveGameButton_Click(object sender, RoutedEventArgs e)
         {
+            SaveGame();
+
             LoginWindow mainWindow = new LoginWindow();
 
             mainWindow.Show();
 
             Close();
+        }
+
+        private void SaveGame()
+        {
+
         }
     }
 }

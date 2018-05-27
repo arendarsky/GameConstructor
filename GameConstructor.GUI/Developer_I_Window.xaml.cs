@@ -37,7 +37,11 @@ namespace GameConstructor.GUI
         Picture _picture;
         List<Characteristic> _characteristics;
 
+        bool _goingToTheNextDeveloperWindow = false;
+        bool _goingBackToProfileWondow = false;
+
         Context _context;
+
 
 
         public Developer_I_Window()
@@ -64,6 +68,7 @@ namespace GameConstructor.GUI
         }
 
 
+
         private void DefaultCharacteristicsListBoxSource()
         {
             CharacteristicsListBox.ItemsSource = null;
@@ -87,20 +92,41 @@ namespace GameConstructor.GUI
 
         private void BackToProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            ProfileWindow profileWindow = new ProfileWindow();
-
-            profileWindow.Show();
+            _goingBackToProfileWondow = true;
 
             Close();
         }
 
         private void NextWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_II_Window developer_II_Window = new Developer_II_Window(_game, _context);
+            if (GamePartialSave())
+            {
+                _goingToTheNextDeveloperWindow = true;
 
-            developer_II_Window.Show();
+                Close();
+            }
+        }
 
-            Close();
+        private bool GamePartialSave()
+        {
+            if (CheckingIfEveryFieldIsFilledCorrectly())
+            {
+                string sourceText = SourceTextBox.Text;
+
+                if (sourceText == defaultSourceName)
+                {
+                    sourceText = "";
+                }
+
+                _game.UpdateName(GameNameTextBox.Text);
+                _game.UpdateSource(sourceText);
+                _game.UpdatePicture(_picture);
+                _game.UpdateCharacteristics(_characteristics);
+
+                return true;
+            }
+
+            return false;
         }
 
 
@@ -157,28 +183,6 @@ namespace GameConstructor.GUI
         private void UploadImageButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("К сожалению, эта возможность ещё не реализована. Ожидайте ближайших обновлений.", "Ошибка!");
-        }
-
-
-
-        private void SaveGameButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (CheckingIfEveryFieldIsFilledCorrectly())
-            {
-                string sourceText = SourceTextBox.Text;
-
-                if (sourceText == defaultSourceName)
-                {
-                    sourceText = "";
-                }
-
-                _game.UpdateName(GameNameTextBox.Text);
-                _game.UpdateSource(sourceText);
-                _game.UpdatePicture(_picture);
-                _game.UpdateCharacteristics(_characteristics);
-
-                _game.SaveGame(_context);
-            }
         }
 
 
@@ -291,6 +295,7 @@ namespace GameConstructor.GUI
         }
 
 
+
         private bool CheckingIfEveryFieldIsFilledCorrectly()
         {
             if (GameNameTextBox.Text == defaultGameName)
@@ -314,7 +319,7 @@ namespace GameConstructor.GUI
 
                     if (CharacteristicNameTextBox.Text == defaultCharacteristicName)
                     {
-                        MessageBox.Show("Название характеристики — обязательный аттрибут. Заполните все поля либо удалите ненужные характеристики");
+                        MessageBox.Show("Название характеристики — обязательный аттрибут. Заполните все поля либо удалите ненужные характеристики.", "Ошибка!");
                         CharacteristicNameTextBox.Focus();
                         return false;
                     }
@@ -322,6 +327,46 @@ namespace GameConstructor.GUI
             }
 
             return true;
+        }
+
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!_goingToTheNextDeveloperWindow)
+            {
+                var messageBoxResult = MessageBox.Show("Вы уверены, что хотите покинуть окно разработки? Никакие текущие изменения не будут сохранены!",
+                    "Предупреждение!", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning, MessageBoxResult.No);
+
+                if (messageBoxResult == MessageBoxResult.No || messageBoxResult == MessageBoxResult.Cancel || messageBoxResult == MessageBoxResult.None)
+                {
+                    e.Cancel = true;
+                }
+
+                else if (_goingBackToProfileWondow)
+                {
+                    GoingBackToProfileWindow();
+                }
+            }
+
+            else
+            {
+                GoingToTheNextDeveloperWindow();
+            }
+        }
+
+        private void GoingToTheNextDeveloperWindow()
+        {
+            Developer_II_Window developer_II_Window = new Developer_II_Window(_game, _context);
+
+            developer_II_Window.Show();
+        }
+
+        private void GoingBackToProfileWindow()
+        {
+            ProfileWindow profileWindow = new ProfileWindow();
+
+            profileWindow.Show();
         }
     }
 }
