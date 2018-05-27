@@ -15,7 +15,6 @@ namespace GameConstructor.Core.SpecialMethods
 {
     public class ImageUploaded
     {
-        ImageSource _image;
         string _fullImagePath;
 
         Picture _picture;
@@ -23,13 +22,12 @@ namespace GameConstructor.Core.SpecialMethods
 
         public Picture Picture => _picture;
 
-        public ImageSource ImageSource => _image;
-
 
         public ImageUploaded()
         {
             _picture = new Picture();
         }
+
 
 
         public void UploadImageAndSave()
@@ -52,19 +50,37 @@ namespace GameConstructor.Core.SpecialMethods
 
             if (uploadingImageDialog.ShowDialog() == DialogResult.OK)
             {
-                _image = new BitmapImage(new Uri(uploadingImageDialog.FileName));
                 _fullImagePath = uploadingImageDialog.FileName;
 
                 string[] partsOfFileName = _fullImagePath.Split('\\');
 
                 _picture.ImageSource = partsOfFileName[partsOfFileName.Length - 1];
-                _picture.IsBorderRequired = false;
+
+                StateOfTheBorderWithDependencyOfType();
                 
                 return true;
             }
 
             return false;
         }
+
+        private void StateOfTheBorderWithDependencyOfType()
+        {
+            string[] imageNameParts = _picture.ImageSource.Split('.');
+
+            string imageTypeFormat = imageNameParts[imageNameParts.Length - 1];
+
+            if (imageTypeFormat == "png")
+            {
+                _picture.IsBorderRequired = false;
+            }
+
+            else
+            {
+                _picture.IsBorderRequired = true;
+            }
+        }
+
 
 
         public static string GetDestinationPath(string fileName, string folderName)
@@ -79,8 +95,7 @@ namespace GameConstructor.Core.SpecialMethods
 
             appStartPath = string.Format(appStartPath + "\\{0}\\" + fileName, folderName);
 
-            return appStartPath;
-            
+            return appStartPath;            
         }
     }
 }

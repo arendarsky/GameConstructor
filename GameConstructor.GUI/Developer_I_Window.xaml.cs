@@ -214,7 +214,17 @@ namespace GameConstructor.GUI
 
             _picture = imageUploadingProcess.Picture;
 
-            EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(_picture.ImageSource, "Images")));            
+            EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(_picture.ImageSource, "Images"))); 
+            
+            if (_picture.IsBorderRequired)
+            {
+                (EditAvatarImage.Parent as Border).BorderThickness = new Thickness(defaultBorderThickness);
+            }
+
+            else
+            {
+                (EditAvatarImage.Parent as Border).BorderThickness = new Thickness(0);
+            }
         }
 
 
