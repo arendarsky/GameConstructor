@@ -19,7 +19,6 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
-                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -49,6 +48,30 @@
 
                     <Button Name="PreviousWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="PreviousWindowButton_Click">Назад</Button>
                     <Button Name="SaveGameButton" HorizontalAlignment="Center" Padding="12 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="SaveGameButton_Click">Сохранить</Button>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Margin="20 25" FontSize="16.5" FontFamily="Verdana">Возможные текстовые результаты</TextBlock>
+
+                    <ListBox Name="PossibleResultTextsListBox" Grid.Row="1"  BorderBrush="Transparent" Margin="20 0 20 30" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>                        
+                    </ListBox>
                 </Grid>
             </Grid>
         </ScrollViewer>
