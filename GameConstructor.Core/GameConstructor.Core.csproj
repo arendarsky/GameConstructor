@@ -61,6 +61,10 @@
     <Compile Include="Migrations\201805271924545_EffectChanged.Designer.cs">
       <DependentUpon>201805271924545_EffectChanged.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805280830482_SomeModeslsChanged.cs" />
+    <Compile Include="Migrations\201805280830482_SomeModeslsChanged.Designer.cs">
+      <DependentUpon>201805280830482_SomeModeslsChanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpecialMethods\GeneralMethods.cs" />
     <Compile Include="SpecialMethods\ImagesUploaded.cs" />
     <Compile Include="Interfaces\IGame.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805271924545_EffectChanged.resx">
       <DependentUpon>201805271924545_EffectChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805280830482_SomeModeslsChanged.resx">
+      <DependentUpon>201805280830482_SomeModeslsChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

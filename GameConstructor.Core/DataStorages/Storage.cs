@@ -92,10 +92,8 @@ namespace GameConstructor.Core.DataStorages
                 g.Questions = _questions.Items.Where(q => q.GameId == g.Id).ToList();
                 g.Picture = _pictures.Items.First(p => p.Id == g.PictureId);
                 g.Characteristics = _characteristics.Items.Where(c => c.GameId == g.Id).ToList();
+                g.User = _users.Items.First(u => u.Id == g.UserId);
             }
-            foreach (var u in _users.Items)
-                u.Games = _games.Items.Where(g => g.UserId == u.Id).ToList();
-            _loaded = true;
         }
         public void SaveAll()
         {
@@ -152,6 +150,17 @@ namespace GameConstructor.Core.DataStorages
             {
                 Game _game = context.Games.First(g => g.Id == game.Id);
                 
+            }
+        }
+        public Game LoadGame(Game _game)
+        {
+            using (Context context = new Context())
+            {
+                Game game = context.Games.First(g => g.Id == _game.Id);
+                context.Entry(game).Collection(g => g.Characteristics).Load();
+                context.Entry(game).Collection(g => g.Questions).Load();
+                context.Entry(game).Reference(g => g.Picture).Load();
+                return game;
             }
         }
     }

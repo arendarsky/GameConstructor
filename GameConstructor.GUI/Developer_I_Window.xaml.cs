@@ -37,6 +37,7 @@ namespace GameConstructor.GUI
 
         IGame _game;
         Picture _picture;
+        User _user;
         List<Characteristic> _characteristics;
         bool _wereThereAlreadySomeChangings;
 
@@ -47,9 +48,10 @@ namespace GameConstructor.GUI
 
 
 
-        public Developer_I_Window()
+        public Developer_I_Window(User user)
         {
-            _game = Factory.Instance.GetGame;
+            _user = user;
+            _game = Factory.Instance.GetGame(_user);
             _picture = new Picture(defaultImageSource, defaultStateOfBorder);
             _characteristics = new List<Characteristic>();
             _wereThereAlreadySomeChangings = false;
@@ -68,10 +70,10 @@ namespace GameConstructor.GUI
 
             _context = context;
 
-            if (_picture == null)
-            {
-                _picture = new Picture(defaultImageSource, defaultStateOfBorder);
-            }
+            //if (_picture == null)
+            //{
+            //    _picture = new Picture(defaultImageSource, defaultStateOfBorder);
+            //}
 
             InitializeComponent();
 
@@ -133,10 +135,10 @@ namespace GameConstructor.GUI
                 {
                     sourceText = null;
                 }
-                if (picture.ImageSource == defaultImageSource && picture.IsBorderRequired == defaultStateOfBorder)
-                {
-                    picture = null;
-                }
+                //if (picture.ImageSource == defaultImageSource && picture.IsBorderRequired == defaultStateOfBorder)
+                //{
+                //    picture = null;
+                //}
 
                 _game.UpdateName(GameNameTextBox.Text);
                 _game.UpdateSource(sourceText);

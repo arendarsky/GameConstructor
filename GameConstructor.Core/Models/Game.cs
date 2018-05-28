@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameConstructor.Core.DataStorages;
 using Newtonsoft.Json;
+using System.Data.Entity.Migrations;
 
 namespace GameConstructor.Core.Models
 {
@@ -21,6 +22,8 @@ namespace GameConstructor.Core.Models
         public virtual Picture Picture { get; set; }
         public int UserId { get; set; }
         [JsonIgnore]
+        public User User { get; set; }
+        [JsonIgnore]
         public List<Question> Questions { get; set; }
         [JsonIgnore]
         public List<Characteristic> Characteristics { get; set; }
@@ -28,7 +31,14 @@ namespace GameConstructor.Core.Models
 
         public IEnumerable<Question> GetQuestions => Questions;
         public IEnumerable<Characteristic> GetCharacteristics => Characteristics;
+        public Game(User user)
+        {
+            User = user;
+        }
+        public Game()
+        {
 
+        }
         public Game Load()
         {
             using (Context context = new Context())
@@ -36,6 +46,7 @@ namespace GameConstructor.Core.Models
                 Game game = context.Games.First(g => g.Id == Id);
                 context.Entry(game).Collection(g => g.Characteristics).Load();
                 context.Entry(game).Collection(g => g.Questions).Load();
+                context.Entry(game).Reference(g => g.Picture).Load();
                 return game;
             }
         }
@@ -65,20 +76,13 @@ namespace GameConstructor.Core.Models
         }
         
 
-        public void SaveGame(Context context)
+        public void SaveGame()
         {
-            if (context == null)
-            {
                 using (Context contextNew = new Context())
                 {
-                    contextNew.Games.Add(this);
+                    contextNew.Games.AddOrUpdate(g => g.Name, this);
                     contextNew.SaveChanges();
                 }
-            }
-            else
-            {
-                context.SaveChanges();
-            }
         }
     }
 }

@@ -70,7 +70,7 @@ namespace GameConstructor.GUI
 
         private void SaveGame()
         {
-            _game.SaveGame(_context);
+            _game.SaveGame();
         }
 
 
