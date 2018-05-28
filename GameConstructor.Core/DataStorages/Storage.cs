@@ -102,5 +102,58 @@ namespace GameConstructor.Core.DataStorages
             
         }
     }
+    internal class DatabaseStorage: IStorage
+    {
+        IRepository<Game> _games;
+        IRepository<User> _users;
+        IRepository<Question> _questions;
+        IRepository<Answer> _answers;
+        IRepository<Influence> _influences;
+        IRepository<Effect> _effects;
+        IRepository<Picture> _pictures;
+        IRepository<Characteristic> _characteristics;
+        bool _loaded;
+        Context context;
+        public DatabaseStorage()
+        {
+            Load();
+        }
+        private void Load()
+        {
+            using(context = new Context())
+            {
+                if (_loaded)
+                    return;
+                foreach (var g in context.Games)
+                    _games.Add(g);
+                foreach (var u in context.Users)
+                    _users.Add(u);
+            }
+        }
+        public IRepository<Game> Games
+        {
+            get
+            {
+                Load();
+                return _games;
+            }
+        }
+        public IRepository<User> Users
+        {
+            get
+            {
+                Load();
+                return _users;
+            }
+        }
+        public void SaveGame(Game game)
+        {
+            using (context = new Context())
+            {
+                Game _game = context.Games.First(g => g.Id == game.Id);
+                
+            }
+        }
+    }
     
 }
