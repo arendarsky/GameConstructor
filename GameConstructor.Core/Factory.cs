@@ -17,17 +17,7 @@ namespace GameConstructor.Core
 
         private Factory () { }
 
-
-        private static Context _context = new Context();
-
-
-        private User GetUser = _context.Users.FirstOrDefault(u => u.Login == "test");
-
-
-        public IGame GetGame => new Game()
-        {
-            User = Factory.Instance.GetUser
-        };
+        public IGame GetGame(User user) => new Game(user);
 
 
         //private IRepository _repository;

@@ -37,6 +37,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -57,6 +60,10 @@
     <Compile Include="Migrations\201805271924545_EffectChanged.cs" />
     <Compile Include="Migrations\201805271924545_EffectChanged.Designer.cs">
       <DependentUpon>201805271924545_EffectChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805280830482_SomeModeslsChanged.cs" />
+    <Compile Include="Migrations\201805280830482_SomeModeslsChanged.Designer.cs">
+      <DependentUpon>201805280830482_SomeModeslsChanged.cs</DependentUpon>
     </Compile>
     <Compile Include="SpecialMethods\GeneralMethods.cs" />
     <Compile Include="SpecialMethods\ImagesUploaded.cs" />
@@ -103,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805271924545_EffectChanged.resx">
       <DependentUpon>201805271924545_EffectChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805280830482_SomeModeslsChanged.resx">
+      <DependentUpon>201805280830482_SomeModeslsChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

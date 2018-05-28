@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using GameConstructor.Core.Models;
 using GameConstructor.Core.Interfaces;
 using System.Data.Entity;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace GameConstructor.Core.DataStorages
 {
@@ -22,6 +24,43 @@ namespace GameConstructor.Core.DataStorages
         {
             _items.Remove(item);
         }
+        public abstract void Save();
     }
+    internal class FileRepository<T>: BaseRepository<T>
+    {
+        string _fileName;
+
+        public FileRepository(string fileName)
+        {
+            _fileName = fileName;
+            Restore();
+        }
+
+        private void Restore()
+        {
+            using (var sr = new StreamReader(_fileName))
+            {
+                using (var jsonReader = new JsonTextReader(sr))
+                {
+                    var serializer = new JsonSerializer();
+                    _items = serializer.Deserialize<List<T>>(jsonReader);
+                }
+            }
+        }
+
+        public override void Save()
+        {
+            using (var sw = new StreamWriter(_fileName))
+            {
+                using (var jsonWriter = new JsonTextWriter(sw))
+                {
+                    jsonWriter.Formatting = Formatting.Indented;
+
+                    var serializer = new JsonSerializer();
+                    serializer.Serialize(jsonWriter, _items);
+                }
+            }
+        }
+    } 
    
 }

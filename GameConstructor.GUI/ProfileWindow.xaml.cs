@@ -30,6 +30,7 @@ namespace GameConstructor.GUI
 
         
         List<IGame> _games;
+        User _user;
 
         //int _userId = 1;
 
@@ -39,7 +40,7 @@ namespace GameConstructor.GUI
             IEnumerable<IGame> games = _context.Games
                 .Where(g => true);
             //  .Where(g => g.User.Id == _userId);
-
+            _user = _context.Users.First();
             _games = games.ToList();
 
             InitializeComponent();
@@ -106,7 +107,7 @@ namespace GameConstructor.GUI
 
         private void NewGameButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_I_Window developer_I_Window = new Developer_I_Window();
+            Developer_I_Window developer_I_Window = new Developer_I_Window(_user);
 
             developer_I_Window.Show();
 
