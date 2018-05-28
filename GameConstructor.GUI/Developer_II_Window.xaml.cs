@@ -25,7 +25,8 @@ namespace GameConstructor.GUI
         private const string defaultQuestionText = "Текст вопроса";
         private const string defaultAnswerText = "Вариант ответа";
         private const string defaultEffectText = "Текст возможной реакции";
-        private const string defaultInfluenceText = "Изменение характеристики";
+        private const string defaultInfluenceText = " изменяется?";
+        private const int defaultInfluenceValue = 0;
 
 
         IGame _game;
@@ -170,6 +171,20 @@ namespace GameConstructor.GUI
             QuestionTextBlock.Text = "Вопрос " + (questionIndex + 1).ToString();
         }
 
+        private void QuestionTextBox_Initialized(object sender, EventArgs e)
+        {
+            TextBox QuestionTextBox = sender as TextBox;
+
+            Question currentQuestion = QuestionTextBox.DataContext as Question;
+
+            QuestionTextBox.Text = currentQuestion.Body;
+
+            if (currentQuestion.Body == defaultQuestionText)
+            {
+                QuestionTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
         private void AnswersListBox_Initialized(object sender, EventArgs e)
         {
             ListBox AnswersListBox = sender as ListBox;
@@ -186,6 +201,11 @@ namespace GameConstructor.GUI
             Answer answer = AnswerTextBox.DataContext as Answer;
 
             AnswerTextBox.Text = answer.Body;
+
+            if (answer.Body == defaultAnswerText)
+            {
+                AnswerTextBox.Foreground = Brushes.Gray;
+            }
         }
 
         private void ReactionsListBox_Initialized(object sender, EventArgs e)
@@ -197,6 +217,20 @@ namespace GameConstructor.GUI
             DefaultReactionsListBoxSource(ReactionsListBox, answer);
         }
 
+        private void ReactionTextBox_Initialized(object sender, EventArgs e)
+        {
+            TextBox ReactionTextBox = sender as TextBox;
+
+            Effect reaction = ReactionTextBox.DataContext as Effect;
+
+            ReactionTextBox.Text = reaction.Body;
+
+            if (reaction.Body == defaultEffectText)
+            {
+                ReactionTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
         private void ChangesOfCharacteristicListBox_Initialized(object sender, EventArgs e)
         {
             ListBox ChangingsOfCharacteristicsListBox = sender as ListBox;
@@ -204,6 +238,99 @@ namespace GameConstructor.GUI
             Effect effect = ChangingsOfCharacteristicsListBox.DataContext as Effect;
 
             ChangingsOfCharacteristicsListBox.ItemsSource = effect.Influences;
+        }
+
+        private void ChangeOfCharacteristicLTextBox_Initialized(object sender, EventArgs e)
+        {
+            TextBox ChangeOfCharacteristicTextBox = sender as TextBox;
+
+            Influence influence = ChangeOfCharacteristicTextBox.DataContext as Influence;
+
+            if (influence.Value == defaultInfluenceValue)
+            {
+                ChangeOfCharacteristicTextBox.Text = influence.Characteristic.Name + defaultInfluenceText;
+
+                ChangeOfCharacteristicTextBox.Foreground = Brushes.Gray;
+            }
+
+            else
+            {
+                ChangeOfCharacteristicTextBox.Text = influence.Value.ToString();
+            }
+        }
+
+
+
+        private void QuestionTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox QuestionTextBox = sender as TextBox;
+
+            if (QuestionTextBox.Text == defaultQuestionText)
+            {
+                QuestionTextBox.Text = "";
+
+                QuestionTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void QuestionTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox QuestionTextBox = sender as TextBox;
+
+            if (QuestionTextBox.Text == "")
+            {
+                QuestionTextBox.Text = defaultQuestionText;
+
+                QuestionTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void AnswerTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox AnswerTextBox = sender as TextBox;
+
+            if (AnswerTextBox.Text == defaultAnswerText)
+            {
+                AnswerTextBox.Text = "";
+
+                AnswerTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void AnswerTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox AnswerTextBox = sender as TextBox;
+
+            if (AnswerTextBox.Text == "")
+            {
+                AnswerTextBox.Text = defaultAnswerText;
+
+                AnswerTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void ReactionTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox ReactionTextBox = sender as TextBox;
+
+            if (ReactionTextBox.Text == defaultEffectText)
+            {
+                ReactionTextBox.Text = "";
+
+                ReactionTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void ReactionTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox ReactionTextBox = sender as TextBox;
+
+            if (ReactionTextBox.Text == "")
+            {
+                ReactionTextBox.Text = defaultEffectText;
+
+                ReactionTextBox.Foreground = Brushes.Gray;
+            }
         }
 
 
@@ -317,5 +444,7 @@ namespace GameConstructor.GUI
 
             AddNewDefaultReaction(ReactionsListBox, answer);
         }
+
+        
     }
 }
