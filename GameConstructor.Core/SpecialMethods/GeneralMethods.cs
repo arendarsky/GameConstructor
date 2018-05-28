@@ -23,8 +23,9 @@ namespace GameConstructor.Core.SpecialMethods
             else
             {
                 IEnumerable<T> exception = collection1.Except(collection2);
+                IEnumerable<T> reverseException = collection2.Except(collection1);
 
-                if (exception == null || exception.Count() == 0)
+                if ((exception == null || exception.Count() == 0) && (reverseException == null || reverseException.Count() == 0))
                 {
                     return true;
                 }

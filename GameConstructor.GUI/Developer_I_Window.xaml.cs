@@ -453,5 +453,18 @@ namespace GameConstructor.GUI
 
             profileWindow.Show();
         }
+
+
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button DeleteButton = sender as Button;
+
+            Characteristic characteristic = DeleteButton.DataContext as Characteristic;
+
+            _characteristics.Remove(characteristic);
+
+            DefaultCharacteristicsListBoxSource();
+        }
     }
 }
