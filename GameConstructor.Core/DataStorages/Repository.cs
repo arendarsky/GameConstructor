@@ -61,6 +61,22 @@ namespace GameConstructor.Core.DataStorages
                 }
             }
         }
-    } 
-   
+    }
+    internal class DatabaseRepository<T>: BaseRepository<T>
+    {
+        List<T> items;
+        public DatabaseRepository(List<T> Items)
+        {
+            items = Items;
+            Restore();
+        }
+        private void Restore()
+        {
+            _items = items;
+        }
+        public override void Save()
+        {
+            
+        }
+    }
 }

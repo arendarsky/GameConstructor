@@ -11,9 +11,8 @@ namespace GameConstructor.Core.Models
     {
         public int Id { get; set; }
         public string Body { get; set; }
-        public int QuestionId { get; set; }
         [JsonIgnore]
-        public List<Effect> Effects { get; set; }
+        public virtual List<Effect> Effects { get; set; }
         public void Answered()
         {
             foreach(var effect in Effects)

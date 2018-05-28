@@ -23,8 +23,5 @@ namespace GameConstructor.Core.Interfaces
         void UpdatePicture(Picture picture);
         void UpdateQuestions(List<Question> questions);
         void UpdateCharacteristics(List<Characteristic> characteristics);
-        
-        void SaveGame();
-        Game Load();
     }
 }

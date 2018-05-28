@@ -32,20 +32,20 @@ namespace GameConstructor.GUI
         IGame _game;
         List<Question> _questions;
         bool _wereThereAlreadySomeChangings;
-
+        User _user;
         bool _goingToTheNextDeveloperWindow = false;
         bool _goingToThePreviousDeveloperWindow = false;
 
-        Context _context;
+        IStorage storage;
 
 
 
-        public Developer_II_Window(IGame game, Context context, bool wereThereAlreadySomeChangings)
+        public Developer_II_Window(User user, IGame game, IStorage storage, bool wereThereAlreadySomeChangings)
         {
+            _user = user;
+            this.storage = storage;
             _game = game;
             _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
-
-            _context = context;
 
             InitializeComponent();
 
@@ -391,14 +391,14 @@ namespace GameConstructor.GUI
 
         private void GoingToThePreviousDeveloperWindow()
         {
-            Developer_I_Window developer_I_Window = new Developer_I_Window(_game, _context, _wereThereAlreadySomeChangings);
+            Developer_I_Window developer_I_Window = new Developer_I_Window(_user, _game, storage, _wereThereAlreadySomeChangings);
 
             developer_I_Window.Show();
         }
 
         private void GoingToTheNextDeveloperWindow()
         {
-            Developer_III_Window developer_III_Window = new Developer_III_Window(_game, _context, _wereThereAlreadySomeChangings);
+            Developer_III_Window developer_III_Window = new Developer_III_Window(_user, _game, storage, _wereThereAlreadySomeChangings);
 
             developer_III_Window.Show();
         }

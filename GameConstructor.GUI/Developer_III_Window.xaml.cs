@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GameConstructor.Core.Models;
 
 namespace GameConstructor.GUI
 {
@@ -23,19 +24,20 @@ namespace GameConstructor.GUI
     {
         IGame _game;
         bool _wereThereAlreadySomeChangings;
-
+        User _user;
         bool _savingTheGame = false;
         bool _goingToThePreviousDeveloperWindow = false;
 
-        Context _context;
+        IStorage storage;
 
 
-        public Developer_III_Window(IGame game, Context context, bool wereThereAlreadySomeChangings)
+        public Developer_III_Window(User user, IGame game, IStorage storage, bool wereThereAlreadySomeChangings)
         {
+            _user = user;
             _game = game;
             _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings; ;
 
-            _context = context;
+            this.storage = storage;
 
             InitializeComponent();
         }
@@ -70,7 +72,7 @@ namespace GameConstructor.GUI
 
         private void SaveGame()
         {
-            _game.SaveGame();
+            storage.SaveGame(_user, _game);
         }
 
 
@@ -104,7 +106,7 @@ namespace GameConstructor.GUI
 
         private void GoingToThePreviousDeveloperWindow()
         {
-            Developer_II_Window developer_II_Window = new Developer_II_Window(_game, _context, _wereThereAlreadySomeChangings);
+            Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, storage, _wereThereAlreadySomeChangings);
 
             developer_II_Window.Show();
         }
@@ -113,7 +115,7 @@ namespace GameConstructor.GUI
         {
             SaveGame();
 
-            ProfileWindow profileWindow = new ProfileWindow();
+            ProfileWindow profileWindow = new ProfileWindow(storage, _user);
 
             profileWindow.Show();
         }

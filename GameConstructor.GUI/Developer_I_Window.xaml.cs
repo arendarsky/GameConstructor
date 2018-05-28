@@ -38,20 +38,22 @@ namespace GameConstructor.GUI
         IGame _game;
         Picture _picture;
         User _user;
+        bool _gameOpened;
         List<Characteristic> _characteristics;
         bool _wereThereAlreadySomeChangings;
 
         bool _goingToTheNextDeveloperWindow = false;
         bool _goingBackToProfileWondow = false;
 
-        Context _context;
+        IStorage storage;
 
 
 
-        public Developer_I_Window(User user)
+        public Developer_I_Window(IStorage storage, User user)
         {
             _user = user;
-            _game = Factory.Instance.GetGame(_user);
+            this.storage = storage;
+            _game = Factory.Instance.GetGame();
             _picture = new Picture(defaultImageSource, defaultStateOfBorder);
             _characteristics = new List<Characteristic>();
             _wereThereAlreadySomeChangings = false;
@@ -61,14 +63,21 @@ namespace GameConstructor.GUI
             AddNewDefaultCharacteristic();
         }
 
-        public Developer_I_Window(IGame game, Context context, bool wereThereAlreadySomeChangings)
+        public Developer_I_Window(User user, IGame game, IStorage storage, bool wereThereAlreadySomeChangings)
         {
-            _game = game.Load();
+            this.storage = storage;
+            _user = user;
+            if (wereThereAlreadySomeChangings)
+                _game = game;
+            else
+                _game = storage.OpenGame(game);
             _picture = _game.Picture;
+            if (_picture == null)
+            {
+                _picture = new Picture(defaultImageSource, defaultStateOfBorder);
+            }
             _characteristics = _game.GetCharacteristics.ToList();
             _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
-
-            _context = context;
 
             //if (_picture == null)
             //{
@@ -80,7 +89,7 @@ namespace GameConstructor.GUI
             DefaultCharacteristicsListBoxSource();
         }
 
-        public Developer_I_Window(IGame game, Context context) : this(game, context, false) { }
+        public Developer_I_Window(User user, IGame game, IStorage storage) : this(user, game, storage, false) { }
 
 
 
@@ -135,10 +144,10 @@ namespace GameConstructor.GUI
                 {
                     sourceText = null;
                 }
-                //if (picture.ImageSource == defaultImageSource && picture.IsBorderRequired == defaultStateOfBorder)
-                //{
-                //    picture = null;
-                //}
+                if (picture.ImageSource == defaultImageSource && picture.IsBorderRequired == defaultStateOfBorder)
+                {
+                    picture = null;
+                }
 
                 _game.UpdateName(GameNameTextBox.Text);
                 _game.UpdateSource(sourceText);
@@ -185,7 +194,7 @@ namespace GameConstructor.GUI
 
             try
             {                        
-                EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(_picture.ImageSource, "Images"))); ;
+                EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(_picture.ImageSource, "../GameConstructor.Core/Images"))); ;
 
                 if (_picture.IsBorderRequired)
                 {
@@ -200,7 +209,7 @@ namespace GameConstructor.GUI
 
             catch
             {
-                EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(defaultImageSource, "Images"))); ;
+                EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(defaultImageSource, "../GameConstructor.Core/Images"))); ;
 
                 imageBorder.BorderThickness = new Thickness(defaultBorderThickness);
             }            
@@ -216,7 +225,7 @@ namespace GameConstructor.GUI
 
             _picture = imageUploadingProcess.Picture;
 
-            EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(_picture.ImageSource, "Images"))); 
+            EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(_picture.ImageSource, "../GameConstructor.Core/Images"))); 
             
             if (_picture.IsBorderRequired)
             {
@@ -444,14 +453,14 @@ namespace GameConstructor.GUI
 
         private void GoingToTheNextDeveloperWindow()
         {
-            Developer_II_Window developer_II_Window = new Developer_II_Window(_game, _context, _wereThereAlreadySomeChangings);
+            Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, storage, _wereThereAlreadySomeChangings);
 
             developer_II_Window.Show();
         }
 
         private void GoingBackToProfileWindow()
         {
-            ProfileWindow profileWindow = new ProfileWindow();
+            ProfileWindow profileWindow = new ProfileWindow(storage, _user);
 
             profileWindow.Show();
         }
@@ -465,8 +474,6 @@ namespace GameConstructor.GUI
             Characteristic characteristic = DeleteButton.DataContext as Characteristic;
 
             _characteristics.Remove(characteristic);
-            _context.Characteristics.Remove(characteristic);
-            _context.SaveChanges();
 
             DefaultCharacteristicsListBoxSource();
         }

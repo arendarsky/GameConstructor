@@ -65,6 +65,26 @@
     <Compile Include="Migrations\201805280830482_SomeModeslsChanged.Designer.cs">
       <DependentUpon>201805280830482_SomeModeslsChanged.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805281207305_PictureChanged.cs" />
+    <Compile Include="Migrations\201805281207305_PictureChanged.Designer.cs">
+      <DependentUpon>201805281207305_PictureChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805282135456_UpdatingModels.cs" />
+    <Compile Include="Migrations\201805282135456_UpdatingModels.Designer.cs">
+      <DependentUpon>201805282135456_UpdatingModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805282235469_UpdatingModels1.cs" />
+    <Compile Include="Migrations\201805282235469_UpdatingModels1.Designer.cs">
+      <DependentUpon>201805282235469_UpdatingModels1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805282238101_UpdatingModels2.cs" />
+    <Compile Include="Migrations\201805282238101_UpdatingModels2.Designer.cs">
+      <DependentUpon>201805282238101_UpdatingModels2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805282250510_UpdatingModels3.cs" />
+    <Compile Include="Migrations\201805282250510_UpdatingModels3.Designer.cs">
+      <DependentUpon>201805282250510_UpdatingModels3.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpecialMethods\GeneralMethods.cs" />
     <Compile Include="SpecialMethods\ImagesUploaded.cs" />
     <Compile Include="Interfaces\IGame.cs" />
@@ -114,6 +134,42 @@
     <EmbeddedResource Include="Migrations\201805280830482_SomeModeslsChanged.resx">
       <DependentUpon>201805280830482_SomeModeslsChanged.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281207305_PictureChanged.resx">
+      <DependentUpon>201805281207305_PictureChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805282135456_UpdatingModels.resx">
+      <DependentUpon>201805282135456_UpdatingModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805282235469_UpdatingModels1.resx">
+      <DependentUpon>201805282235469_UpdatingModels1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805282238101_UpdatingModels2.resx">
+      <DependentUpon>201805282238101_UpdatingModels2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805282250510_UpdatingModels3.resx">
+      <DependentUpon>201805282250510_UpdatingModels3.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\delete_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gamepad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\img_199922.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\книга.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

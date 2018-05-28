@@ -11,7 +11,6 @@ namespace GameConstructor.Core.Models
     {
         public int Id { get; set; }
         public int CharacteristicId { get; set; }
-        public int EffectId { get; set; }
         [JsonIgnore]
         public Characteristic Characteristic { get; set; }
         public int Value { get; set; }

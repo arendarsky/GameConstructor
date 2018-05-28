@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using GameConstructor.Core.Models;
+using GameConstructor.Core.Interfaces;
 
 namespace GameConstructor.Core
 {

@@ -13,6 +13,7 @@ namespace GameConstructor.Core.Models
         public string Login { get; set; }
         public int Id { get; set; }
         public string Password { get; set; }
+        public virtual List<Game> Games { get; set; }
         public static string GetHash(string password)
         {
             var md5 = MD5.Create();

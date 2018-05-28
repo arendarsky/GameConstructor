@@ -26,23 +26,18 @@ namespace GameConstructor.GUI
         private const double defaultBorderThickness = 1.1;
 
 
-        Context _context = new Context();
+        IStorage storage;
 
-        
-        List<IGame> _games;
         User _user;
 
         //int _userId = 1;
 
 
-        public ProfileWindow()
+        public ProfileWindow(IStorage storage, User user)
         {
-            IEnumerable<IGame> games = _context.Games
-                .Where(g => true);
-            //  .Where(g => g.User.Id == _userId);
-            _user = _context.Users.First();
-            _games = games.ToList();
-
+            this.storage = storage;
+            _user = storage.LoadUsersGames(user);
+        
             InitializeComponent();
 
             DefaultGameListBoxItemsSource();
@@ -53,7 +48,7 @@ namespace GameConstructor.GUI
         {
             UserGamesListBox.ItemsSource = null;
 
-            UserGamesListBox.ItemsSource = _games;
+            UserGamesListBox.ItemsSource = _user.Games;
         }
 
 
@@ -69,7 +64,7 @@ namespace GameConstructor.GUI
 
             try
             {
-                image.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(game.Picture.ImageSource, "Images"))); ;
+                image.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(game.Picture.ImageSource, "../GameConstructor.Core/Images"))); ;
 
                 if (game.Picture.IsBorderRequired)
                 {
@@ -84,7 +79,8 @@ namespace GameConstructor.GUI
 
             catch
             {
-                image.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath("gamepad.png", "Images"))); ;
+                image.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(
+                    "gamepad.png", "../GameConstructor.Core/Images"))); ;
                 border.BorderThickness = new Thickness(defaultBorderThickness);
             }
         }
@@ -107,7 +103,7 @@ namespace GameConstructor.GUI
 
         private void NewGameButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_I_Window developer_I_Window = new Developer_I_Window(_user);
+            Developer_I_Window developer_I_Window = new Developer_I_Window(storage, _user);
 
             developer_I_Window.Show();
 
@@ -129,7 +125,7 @@ namespace GameConstructor.GUI
         {
             Game game = UserGamesListBox.SelectedItem as Game;
 
-            Developer_I_Window developer_I_Window = new Developer_I_Window(game, _context);
+            Developer_I_Window developer_I_Window = new Developer_I_Window(_user, game, storage);
 
             developer_I_Window.Show();
 
@@ -149,10 +145,10 @@ namespace GameConstructor.GUI
 
                 Game currentGame = deleteButton.DataContext as Game;
 
-                _games.Remove(currentGame);
+                //_games.Remove(currentGame);
 
-                _context.Games.Remove(currentGame);
-                _context.SaveChanges();
+                //_context.Games.Remove(currentGame);
+                //_context.SaveChanges();
 
                 DefaultGameListBoxItemsSource();
             }

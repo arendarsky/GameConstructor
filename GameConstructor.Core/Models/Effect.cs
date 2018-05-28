@@ -10,10 +10,9 @@ namespace GameConstructor.Core.Models
     public class Effect
     {
         public int Id { get; set; }
-        public int AnswerId { get; set; }
         public string Body { get; set; }
         [JsonIgnore]
-        public List<Influence> Influences { get; set; }
+        public virtual List<Influence> Influences { get; set; }
 
         public int Value { get; set; }
 

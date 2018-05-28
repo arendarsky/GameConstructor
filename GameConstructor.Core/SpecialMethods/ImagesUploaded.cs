@@ -33,7 +33,8 @@ namespace GameConstructor.Core.SpecialMethods
         {
             if (UploadImage())
             {
-                string originDestinationPath = GetDestinationPath(_picture.ImageSource, "Images");                
+                string originDestinationPath = GetDestinationPath(
+                    _picture.ImageSource, "../GameConstructor.Core/Images");                
 
                 try
                 {
