@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameConstructor.Core.Models;
 
 namespace GameConstructor.Core.SpecialMethods
 {
@@ -32,6 +33,20 @@ namespace GameConstructor.Core.SpecialMethods
 
                 return false;
             }
+        }
+
+
+
+        public static Dictionary<string, string> FormingTheDictionary(IEnumerable<string> stringCollection)
+        {
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+
+            foreach (var str in stringCollection)
+            {
+                dictionary.Add(str, str);
+            }
+
+            return dictionary;
         }
     }
 }
