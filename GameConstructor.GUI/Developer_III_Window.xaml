@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameConstructor.GUI"
         mc:Ignorable="d"
-        Title="Игровой конструктор - режим разработчика. Этап 3." Height="600" MinHeight="460" MinWidth="760" Width="805" MaxWidth="1060" Closing="Window_Closing">
+        Title="Игровой конструктор - режим разработчика. Этап 3." Height="600" MinHeight="460" MinWidth="790" Width="835" MaxWidth="1090" Closing="Window_Closing">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -19,7 +19,6 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
-                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -49,6 +48,38 @@
 
                     <Button Name="PreviousWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="PreviousWindowButton_Click">Назад</Button>
                     <Button Name="SaveGameButton" HorizontalAlignment="Center" Padding="12 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="SaveGameButton_Click">Сохранить</Button>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Margin="35 25 20 25" FontSize="17" FontFamily="Verdana">Возможные текстовые результаты</TextBlock>
+
+                    <ListBox Name="PossibleResultTextsListBox" Grid.Row="1"  BorderBrush="Transparent" Background="Transparent" Margin="28 0 30 30" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="PossibleResultTextsListBox_Initialized">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    
+                                    <TextBlock Name="ResultTextBlock" FontFamily="Verdana" Margin="0 10 10 5" HorizontalAlignment="Left" FontSize="14.5" Initialized="ResultTextBlock_Initialized">Результат №</TextBlock>
+
+                                    <TextBox Name="ResultTextBox" Padding="10 7" Grid.Row="1" FontFamily="Verdana" Margin="0 5 10 15" FontSize="13" HorizontalAlignment="Stretch" TextWrapping="Wrap" Height="85"></TextBox>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>                        
+                    </ListBox>
                 </Grid>
             </Grid>
         </ScrollViewer>

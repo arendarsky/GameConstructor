@@ -1,5 +1,6 @@
 ﻿using GameConstructor.Core;
 using GameConstructor.Core.Interfaces;
+using GameConstructor.Core.SpecialMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,18 +30,32 @@ namespace GameConstructor.GUI
         bool _goingToThePreviousDeveloperWindow = false;
 
         IStorage storage;
+        Dictionary<string, string> _characteristicDictionary;
+
 
 
         public Developer_III_Window(User user, IGame game, IStorage storage, bool wereThereAlreadySomeChangings)
         {
             _user = user;
             _game = game;
-            _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings; ;
+            _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
 
             this.storage = storage;
+            FormingCharacteristicDictionary();
+
 
             InitializeComponent();
         }
+
+
+
+        private void FormingCharacteristicDictionary()
+        {
+            IEnumerable<string> stringCharacteristics = _game.GetCharacteristics.Select(ch => ch.Name);
+
+            _characteristicDictionary = GeneralMethods.FormingTheDictionary(stringCharacteristics);
+        }
+
 
 
         private void PreviousWindowButton_Click(object sender, RoutedEventArgs e)
@@ -127,6 +142,20 @@ namespace GameConstructor.GUI
             if (_wereThereAlreadySomeChangings) { return true; }
 
             return false;
+        }
+
+
+
+        private void PossibleResultTextsListBox_Initialized(object sender, EventArgs e)
+        {
+            PossibleResultTextsListBox.ItemsSource = new List<int> { 1, 2, 3 };
+        }
+
+        private void ResultTextBlock_Initialized(object sender, EventArgs e)
+        {
+            TextBlock ResultTextBlock = sender as TextBlock;
+
+            ResultTextBlock.Text += ((int)ResultTextBlock.DataContext).ToString();
         }
     }
 }
