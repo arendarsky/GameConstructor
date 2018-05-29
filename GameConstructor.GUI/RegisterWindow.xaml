@@ -1,0 +1,35 @@
+﻿<Window x:Class="GameConstructor.GUI.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameConstructor.GUI"
+        mc:Ignorable="d"
+        Title="Игровой конструктор - Регистрация" Height="430" MinHeight="410" MaxHeight="500" Width="550" MinWidth="510" MaxWidth="850" FontFamily="Verdana">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFAF875A" Offset="1"/>
+                <GradientStop Color="#FFFEF4C9"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Margin="30 40 30 25" FontSize="17" FontFamily="Verdana">Регистрация</TextBlock>
+
+        <TextBox Name="LoginTextBox" Margin="30 10 100 10" FontSize="14.5" FontFamily="Verdana" HorizontalAlignment="Stretch" Grid.Row="1" Padding="14 7">Введите логин</TextBox>
+        <TextBox Name="HintTextBox" Margin="30 10 100 10" FontSize="14.5" FontFamily="Verdana" HorizontalAlignment="Stretch" Grid.Row="2" Padding="14 7">Введите пароль</TextBox>
+        <TextBox Name="PasswordTextBox" Margin="30 10 100 10" FontSize="14.5" FontFamily="Verdana" HorizontalAlignment="Stretch" Grid.Row="3" Padding="14 7">Повторите пароль</TextBox>
+        <TextBox Name="RepeatPasswordTextBox" Margin="30 10 100 10" FontSize="14.5" FontFamily="Verdana" HorizontalAlignment="Stretch" Grid.Row="4" Padding="14 7">Введите подсказку для пароля</TextBox>
+
+        <Button Name="ConfirmButton" Grid.Row="5" Margin="30 30" FontSize="16" FontFamily="Verdana" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="14 7" >Подтвердить</Button>
+    </Grid>
+</Window>

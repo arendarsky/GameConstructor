@@ -41,7 +41,7 @@
 
                 <Button Name="LoginButton" Grid.ColumnSpan="1" HorizontalAlignment="Right" Padding="15 9" FontFamily="Verdana" FontSize="16" Margin="0 17 27 12" Click="LoginButton_Click">Войти</Button>
 
-                <TextBlock Name="RegisterTextBlock" Grid.Column="1" HorizontalAlignment="Left" Padding="15 9" FontFamily="Verdana" FontSize="14.5" Margin="-22 22 0 15" TextDecorations="Underline">Впервые у нас?</TextBlock>
+                <TextBlock Name="RegisterTextBlock" Grid.Column="1" HorizontalAlignment="Left" Padding="5 4" FontFamily="Verdana" FontSize="14.5" Margin="-12 27 10 20" TextDecorations="Underline" MouseLeftButtonDown="RegisterTextBlock_MouseLeftButtonDown">Впервые у нас?</TextBlock>
             </Grid>
         </Grid>
 

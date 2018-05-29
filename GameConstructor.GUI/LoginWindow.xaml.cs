@@ -70,6 +70,7 @@ namespace GameConstructor.GUI
         }
 
 
+
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (!_windowIsMaximized)
@@ -79,6 +80,7 @@ namespace GameConstructor.GUI
                 ChangingTheParametersOfTheWindowAndItsContent();
             }
         }
+
 
 
         private void Window_StateChanged(object sender, EventArgs e)
@@ -99,6 +101,7 @@ namespace GameConstructor.GUI
         }
 
 
+
         private void PlayingModeButton_Click(object sender, RoutedEventArgs e)
         {
             PlayingModeWindow playingModeWindow = new PlayingModeWindow();
@@ -108,7 +111,6 @@ namespace GameConstructor.GUI
             Close();
         }
 
-
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             User user = _storage.Users.Items.First();
@@ -117,6 +119,13 @@ namespace GameConstructor.GUI
             profileWindow.Show();
 
             Close();
+        }
+
+        private void RegisterTextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            RegisterWindow registerWindow = new RegisterWindow();
+
+            registerWindow.ShowDialog();
         }
     }
 }
