@@ -41,8 +41,8 @@ namespace GameConstructor.GUI
             _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
 
             _storage = storage;
-            FormingCharacteristicDictionary();
 
+            FormingCharacteristicDictionary();
 
             InitializeComponent();
         }
@@ -51,9 +51,9 @@ namespace GameConstructor.GUI
 
         private void FormingCharacteristicDictionary()
         {
-            IEnumerable<string> stringCharacteristics = _game.GetCharacteristics.Select(ch => ch.Name);
+            IEnumerable<string> stringCharacteristics = _game.GetCharacteristics.Select(ch => ch.Name.ToUpperInvariant());
 
-            _characteristicDictionary = GeneralMethods.FormingTheDictionary(stringCharacteristics);
+            _characteristicDictionary = GeneralMethods.FormingTheAbbreviationDictionary(stringCharacteristics);
         }
 
 

@@ -46,6 +46,7 @@ namespace GameConstructor.GUI
         bool _goingToTheNextDeveloperWindow = false;
         bool _goingBackToProfileWondow = false;
         bool _characteristicNameTextBoxShouldBeFocused = false;
+        bool _theSameCharacteristicsNamesErrorWasShown = false;
 
         
 
@@ -385,10 +386,28 @@ namespace GameConstructor.GUI
             }
 
             var namesOfCharacteristics = _characteristics.Select(ch => ch.Name);
+            var namesOfCharacteristicsWithOneRegister = _characteristics.Select(ch => ch.Name.ToUpperInvariant());
 
-            if (GeneralMethods.AreThereSameElementsInTheCollection(namesOfCharacteristics))
+            if (GeneralMethods.AreThereSameElementsInTheStringCollection(namesOfCharacteristics))
             {
-                MessageBox.Show("Две ваши характеристики имеют одинаковое название. Так нельзя — как же игроки будут их различать?", "Ошибка!");
+                MessageBox.Show("По крайней мере две ваши характеристики имеют одинаковое название. Так нельзя — как же игроки будут их различать?", "Ошибка!");
+
+                _theSameCharacteristicsNamesErrorWasShown = true;
+
+                return false;
+            }
+
+            else if (GeneralMethods.AreThereSameElementsInTheStringCollection(namesOfCharacteristicsWithOneRegister))
+            {
+                if (_theSameCharacteristicsNamesErrorWasShown)
+                {
+                    MessageBox.Show("Одинаковые названия в разном регистре  — не вариант, уж простите. Пожалуйста, измените названия.", "Ошибка!");
+                }
+
+                else
+                {
+                    MessageBox.Show("По крайней мере две ваши характеристики имеют одинаковое название. Без учета регистра. Пожалуйста, измените названия.", "Ошибка!");
+                }
 
                 return false;
             }
