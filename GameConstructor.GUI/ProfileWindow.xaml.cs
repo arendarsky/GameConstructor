@@ -26,16 +26,14 @@ namespace GameConstructor.GUI
         private const double defaultBorderThickness = 1.1;
 
 
-        IStorage storage;
+        IStorage _storage;
 
         User _user;
-
-        //int _userId = 1;
 
 
         public ProfileWindow(IStorage storage, User user)
         {
-            this.storage = storage;
+            _storage = storage;
             _user = storage.LoadUsersGames(user);
         
             InitializeComponent();
@@ -103,7 +101,7 @@ namespace GameConstructor.GUI
 
         private void NewGameButton_Click(object sender, RoutedEventArgs e)
         {
-            Developer_I_Window developer_I_Window = new Developer_I_Window(storage, _user);
+            Developer_I_Window developer_I_Window = new Developer_I_Window(_storage, _user);
 
             developer_I_Window.Show();
 
@@ -125,7 +123,7 @@ namespace GameConstructor.GUI
         {
             Game game = UserGamesListBox.SelectedItem as Game;
 
-            Developer_I_Window developer_I_Window = new Developer_I_Window(_user, game, storage);
+            Developer_I_Window developer_I_Window = new Developer_I_Window(_user, game, _storage);
 
             developer_I_Window.Show();
 

@@ -36,14 +36,14 @@ namespace GameConstructor.GUI
         bool _goingToTheNextDeveloperWindow = false;
         bool _goingToThePreviousDeveloperWindow = false;
 
-        IStorage storage;
+        IStorage _storage;
 
 
 
         public Developer_II_Window(User user, IGame game, IStorage storage, bool wereThereAlreadySomeChangings)
         {
             _user = user;
-            this.storage = storage;
+            _storage = storage;
             _game = game;
             _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
 
@@ -391,14 +391,14 @@ namespace GameConstructor.GUI
 
         private void GoingToThePreviousDeveloperWindow()
         {
-            Developer_I_Window developer_I_Window = new Developer_I_Window(_user, _game, storage, _wereThereAlreadySomeChangings);
+            Developer_I_Window developer_I_Window = new Developer_I_Window(_user, _game, _storage, _wereThereAlreadySomeChangings);
 
             developer_I_Window.Show();
         }
 
         private void GoingToTheNextDeveloperWindow()
         {
-            Developer_III_Window developer_III_Window = new Developer_III_Window(_user, _game, storage, _wereThereAlreadySomeChangings);
+            Developer_III_Window developer_III_Window = new Developer_III_Window(_user, _game, _storage, _wereThereAlreadySomeChangings);
 
             developer_III_Window.Show();
         }
@@ -443,8 +443,6 @@ namespace GameConstructor.GUI
             Answer answer = NewReactionButton.DataContext as Answer;
 
             AddNewDefaultReaction(ReactionsListBox, answer);
-        }
-
-        
+        }        
     }
 }

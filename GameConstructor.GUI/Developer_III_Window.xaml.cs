@@ -29,7 +29,7 @@ namespace GameConstructor.GUI
         bool _savingTheGame = false;
         bool _goingToThePreviousDeveloperWindow = false;
 
-        IStorage storage;
+        IStorage _storage;
         Dictionary<string, string> _characteristicDictionary;
 
 
@@ -40,9 +40,9 @@ namespace GameConstructor.GUI
             _game = game;
             _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
 
-            this.storage = storage;
-            FormingCharacteristicDictionary();
+            _storage = storage;
 
+            FormingCharacteristicDictionary();
 
             InitializeComponent();
         }
@@ -51,9 +51,9 @@ namespace GameConstructor.GUI
 
         private void FormingCharacteristicDictionary()
         {
-            IEnumerable<string> stringCharacteristics = _game.GetCharacteristics.Select(ch => ch.Name);
+            IEnumerable<string> stringCharacteristics = _game.GetCharacteristics.Select(ch => ch.Name.ToUpperInvariant());
 
-            _characteristicDictionary = GeneralMethods.FormingTheDictionary(stringCharacteristics);
+            _characteristicDictionary = GeneralMethods.FormingTheAbbreviationDictionary(stringCharacteristics);
         }
 
 
@@ -87,7 +87,7 @@ namespace GameConstructor.GUI
 
         private void SaveGame()
         {
-            storage.SaveGame(_user, _game);
+            _storage.SaveGame(_user, _game);
         }
 
 
@@ -121,7 +121,7 @@ namespace GameConstructor.GUI
 
         private void GoingToThePreviousDeveloperWindow()
         {
-            Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, storage, _wereThereAlreadySomeChangings);
+            Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, _storage, _wereThereAlreadySomeChangings);
 
             developer_II_Window.Show();
         }
@@ -130,7 +130,7 @@ namespace GameConstructor.GUI
         {
             SaveGame();
 
-            ProfileWindow profileWindow = new ProfileWindow(storage, _user);
+            ProfileWindow profileWindow = new ProfileWindow(_storage, _user);
 
             profileWindow.Show();
         }

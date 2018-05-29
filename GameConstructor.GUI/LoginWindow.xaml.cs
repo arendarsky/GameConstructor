@@ -32,14 +32,20 @@ namespace GameConstructor.GUI
 
         double _fontSize;
         Thickness _padding;
-        IStorage storage;
+        
         bool _windowIsMaximized = false;
+
+
+        IStorage _storage;
 
 
         public LoginWindow()
         {
             InitializeComponent();
-            storage = Factory.Instance.GetDatabaseStorage();
+
+            _storage = Factory.Instance.GetStorage();
+
+
             //_defaultWidthOfTheWindow = Width;
             //_defaultHeightOfTheWindow = Height;
             //_defaultPadding = PlayingModeButton.Padding;
