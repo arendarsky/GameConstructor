@@ -32,14 +32,20 @@ namespace GameConstructor.GUI
 
         double _fontSize;
         Thickness _padding;
-        IStorage storage;
+        
         bool _windowIsMaximized = false;
+
+
+        IStorage _storage;
 
 
         public LoginWindow()
         {
             InitializeComponent();
-            storage = Factory.Instance.GetDatabaseStorage();
+
+            _storage = Factory.Instance.GetStorage();
+
+
             //_defaultWidthOfTheWindow = Width;
             //_defaultHeightOfTheWindow = Height;
             //_defaultPadding = PlayingModeButton.Padding;
@@ -105,8 +111,8 @@ namespace GameConstructor.GUI
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            User user = storage.Users.Items.First();
-            ProfileWindow profileWindow = new ProfileWindow(storage, user);
+            User user = _storage.Users.Items.First();
+            ProfileWindow profileWindow = new ProfileWindow(_storage, user);
 
             profileWindow.Show();
 
