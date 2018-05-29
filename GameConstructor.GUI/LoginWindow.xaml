@@ -31,7 +31,7 @@
             <TextBlock HorizontalAlignment="Center" Grid.Row="2" FontSize="16.5" MaxWidth="450" FontFamily="Verdana" TextWrapping="Wrap" Margin="0 30 0 10">Либо создайте свою собственную:</TextBlock>
 
             <TextBox Name="LoginTextBox" Grid.Row="3" HorizontalAlignment="Stretch" Margin="120 5" Padding="12 4" FontFamily="Verdana" FontSize="14">Логин</TextBox>
-            <TextBox Name="PasswordTextBox" Grid.Row="4" HorizontalAlignment="Stretch" Margin="120 5" Padding="12 4" FontFamily="Verdana" FontSize="14">Пароль</TextBox>
+            <PasswordBox Name="PasswordTextBox" Grid.Row="4" HorizontalAlignment="Stretch" Margin="120 5" Padding="12 4" FontFamily="Verdana" FontSize="14"></PasswordBox>
 
             <Grid Grid.Row="5">
                 <Grid.ColumnDefinitions>
