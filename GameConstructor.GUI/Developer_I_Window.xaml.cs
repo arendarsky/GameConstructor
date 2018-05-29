@@ -384,6 +384,15 @@ namespace GameConstructor.GUI
                 return false;
             }
 
+            var namesOfCharacteristics = _characteristics.Select(ch => ch.Name);
+
+            if (GeneralMethods.AreThereSameElementsInTheCollection(namesOfCharacteristics))
+            {
+                MessageBox.Show("Две ваши характеристики имеют одинаковое название. Так нельзя — как же игроки будут их различать?", "Ошибка!");
+
+                return false;
+            }
+
             else
             {
                 for (int i = 0; i < CharacteristicsListBox.Items.Count; i++)

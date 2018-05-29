@@ -37,6 +37,23 @@ namespace GameConstructor.Core.SpecialMethods
 
 
 
+        public static bool AreThereSameElementsInTheCollection (IEnumerable<string> collection)
+        {
+            foreach (var str in collection)
+            {
+                int number = collection.Count(item => item == str);
+
+                if (number != 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+
         public static Dictionary<string, string> FormingTheDictionary(IEnumerable<string> stringCollection)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
