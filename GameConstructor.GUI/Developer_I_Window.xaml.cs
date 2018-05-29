@@ -219,23 +219,28 @@ namespace GameConstructor.GUI
 
         private void UploadImageButton_Click(object sender, RoutedEventArgs e)
         {
-            ImageUploaded imageUploadingProcess = new ImageUploaded();
-
-            imageUploadingProcess.UploadImageAndSave();
-
-            _picture = imageUploadingProcess.Picture;
-
-            EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(_picture.ImageSource, "../GameConstructor.Core/Images"))); 
-            
-            if (_picture.IsBorderRequired)
+            try
             {
-                (EditAvatarImage.Parent as Border).BorderThickness = new Thickness(defaultBorderThickness);
+                ImageUploaded imageUploadingProcess = new ImageUploaded();
+
+                imageUploadingProcess.UploadImageAndSave();
+
+                _picture = imageUploadingProcess.Picture;
+
+                EditAvatarImage.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(_picture.ImageSource, "../GameConstructor.Core/Images")));
+
+                if (_picture.IsBorderRequired)
+                {
+                    (EditAvatarImage.Parent as Border).BorderThickness = new Thickness(defaultBorderThickness);
+                }
+
+                else
+                {
+                    (EditAvatarImage.Parent as Border).BorderThickness = new Thickness(0);
+                }
             }
 
-            else
-            {
-                (EditAvatarImage.Parent as Border).BorderThickness = new Thickness(0);
-            }
+            catch { }
         }
 
 

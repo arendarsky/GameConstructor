@@ -145,5 +145,24 @@
       <Name>GameConstructor.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\close_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\delete_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gamepad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\img_199922.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
