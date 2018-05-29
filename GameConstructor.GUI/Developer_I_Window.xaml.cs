@@ -35,24 +35,23 @@ namespace GameConstructor.GUI
         private const double defaultBorderThickness = 1.2;
 
 
+        IStorage _storage;
+
         IGame _game;
         Picture _picture;
         User _user;
-        bool _gameOpened;
         List<Characteristic> _characteristics;
         bool _wereThereAlreadySomeChangings;
 
         bool _goingToTheNextDeveloperWindow = false;
         bool _goingBackToProfileWondow = false;
 
-        IStorage storage;
-
-
+        
 
         public Developer_I_Window(IStorage storage, User user)
         {
             _user = user;
-            this.storage = storage;
+            _storage = storage;
             _game = Factory.Instance.GetGame();
             _picture = new Picture(defaultImageSource, defaultStateOfBorder);
             _characteristics = new List<Characteristic>();
@@ -65,24 +64,28 @@ namespace GameConstructor.GUI
 
         public Developer_I_Window(User user, IGame game, IStorage storage, bool wereThereAlreadySomeChangings)
         {
-            this.storage = storage;
+            _storage = storage;
             _user = user;
-            if (wereThereAlreadySomeChangings)
+            _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
+
+            if (_wereThereAlreadySomeChangings)
+            {
                 _game = game;
+            }
+
             else
+            {
                 _game = storage.OpenGame(game);
+            }
+
+
+            _characteristics = _game.GetCharacteristics.ToList();
             _picture = _game.Picture;
+
             if (_picture == null)
             {
                 _picture = new Picture(defaultImageSource, defaultStateOfBorder);
-            }
-            _characteristics = _game.GetCharacteristics.ToList();
-            _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
-
-            //if (_picture == null)
-            //{
-            //    _picture = new Picture(defaultImageSource, defaultStateOfBorder);
-            //}
+            }            
 
             InitializeComponent();
 
@@ -458,14 +461,14 @@ namespace GameConstructor.GUI
 
         private void GoingToTheNextDeveloperWindow()
         {
-            Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, storage, _wereThereAlreadySomeChangings);
+            Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, _storage, _wereThereAlreadySomeChangings);
 
             developer_II_Window.Show();
         }
 
         private void GoingBackToProfileWindow()
         {
-            ProfileWindow profileWindow = new ProfileWindow(storage, _user);
+            ProfileWindow profileWindow = new ProfileWindow(_storage, _user);
 
             profileWindow.Show();
         }
