@@ -45,6 +45,7 @@ namespace GameConstructor.GUI
 
         bool _goingToTheNextDeveloperWindow = false;
         bool _goingBackToProfileWondow = false;
+        bool _characteristicNameTextBoxShouldBeFocused = false;
 
         
 
@@ -260,6 +261,13 @@ namespace GameConstructor.GUI
             {
                 CharacteristicNameTextBox.Foreground = Brushes.Gray;
             }
+
+            if (_characteristicNameTextBoxShouldBeFocused)
+            {
+                CharacteristicNameTextBox.Focus();
+
+                _characteristicNameTextBoxShouldBeFocused = false;
+            }
         }
 
         private void CharacteristicValueTextBox_Initialized(object sender, EventArgs e)
@@ -363,6 +371,16 @@ namespace GameConstructor.GUI
             {
                 MessageBox.Show("Название игры является обязательным полем!", "Ошибка!");
                 GameNameTextBox.Focus();
+                return false;
+            }
+
+            else if (CharacteristicsListBox.Items.Count == 0)
+            {
+                MessageBox.Show("В игре не может не быть характеристик вообще — добавьте, пожалуйста, хотя бы одну!", "Ошибка!");
+
+                AddNewDefaultCharacteristic();
+                _characteristicNameTextBoxShouldBeFocused = true;
+
                 return false;
             }
 
