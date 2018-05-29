@@ -123,11 +123,11 @@ namespace GameConstructor.GUI
             //    passwordBox.Focus();
             //    return;
             //}
-            var User = storage.Users.Items.FirstOrDefault(u => (
+            var User = _storage.Users.Items.FirstOrDefault(u => (
                 u.Login.ToLower() == login.ToLower() & u.Password == password));
             if (User != null)
             {
-                ProfileWindow profileWindow = new ProfileWindow(storage, User);
+                ProfileWindow profileWindow = new ProfileWindow(_storage, User);
 
                 profileWindow.Show();
 
@@ -135,9 +135,9 @@ namespace GameConstructor.GUI
             }
             else
             {
-                MessageBox.Show("Invalid login or password!");
-                User = storage.Users.Items.First();
-                ProfileWindow profileWindow = new ProfileWindow(storage, User);
+                MessageBox.Show("Неправильный логин или пароль!");
+                User = _storage.Users.Items.First();
+                ProfileWindow profileWindow = new ProfileWindow(_storage, User);
 
                 profileWindow.Show();
 
