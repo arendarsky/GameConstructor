@@ -105,12 +105,38 @@ namespace GameConstructor.GUI
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            User user = storage.Users.Items.First();
-            ProfileWindow profileWindow = new ProfileWindow(storage, user);
+            string login = LoginTextBox.Text;
+            string password = GameConstructor.Core.Models.User.GetHash("");
+            if (string.IsNullOrWhiteSpace(login))
+            {
+                LoginTextBox.Focus();
+                return;
+            }
+            //if (string.IsNullOrWhiteSpace(password))
+            //{
+            //    passwordBox.Focus();
+            //    return;
+            //}
+            var User = storage.Users.Items.FirstOrDefault(u => (
+                u.Login.ToLower() == login.ToLower() & u.Password == password));
+            if (User != null)
+            {
+                ProfileWindow profileWindow = new ProfileWindow(storage, User);
 
-            profileWindow.Show();
+                profileWindow.Show();
 
-            Close();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid login or password!");
+                User = storage.Users.Items.First();
+                ProfileWindow profileWindow = new ProfileWindow(storage, User);
+
+                profileWindow.Show();
+
+                Close();
+            }
         }
     }
 }
