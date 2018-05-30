@@ -70,7 +70,7 @@ namespace GameConstructor.Core.SpecialMethods
 
                 if (numberOfSimillarElements == 1)
                 {
-                    dictionary.Add(element[0].ToString(), element);
+                    dictionary.Add(element, element[0].ToString());
 
                     collectionListRepresentation.Remove(element);
                 }
@@ -92,7 +92,7 @@ namespace GameConstructor.Core.SpecialMethods
 
                     if (simillarElements.Count == 1)
                     {
-                        dictionary.Add(simillarElements[0].Substring(0, 2), simillarElements[0]);
+                        dictionary.Add(simillarElements[0], simillarElements[0].Substring(0, 2));
                     }
 
                     else
@@ -105,7 +105,7 @@ namespace GameConstructor.Core.SpecialMethods
 
                             if (numberOfVerySimillarElements == 1)
                             {
-                                dictionary.Add(simillarElement.Substring(0, 2), simillarElement);
+                                dictionary.Add(simillarElement, simillarElement.Substring(0, 2));
 
                                 simillarElements.Remove(simillarElement);
                             }
@@ -127,7 +127,7 @@ namespace GameConstructor.Core.SpecialMethods
                                 {
                                     if (simillarElements[i].Substring(0, 2) == simillarElement.Substring(0, 2))
                                     {
-                                        dictionary.Add(simillarElement.Substring(0, 2) + number.ToString(), simillarElements[i]);
+                                        dictionary.Add(simillarElements[i], simillarElement.Substring(0, 2) + number.ToString());
 
                                         simillarElements.RemoveAt(i);
 
@@ -143,13 +143,6 @@ namespace GameConstructor.Core.SpecialMethods
             }
 
             return dictionary;
-        }
-
-
-
-        private void ComparingTwoStringsForEqualityOfBeginings(string str1, string str2, out string result1, out string result2)
-        {
-            result1 = ""; result2 = null;
         }
     }
 }

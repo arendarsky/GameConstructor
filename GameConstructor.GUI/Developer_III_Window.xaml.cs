@@ -151,11 +151,28 @@ namespace GameConstructor.GUI
             PossibleResultTextsListBox.ItemsSource = new List<int> { 1, 2, 3 };
         }
 
+        private void CharacteristicAbbreviationsListBox_Initialized(object sender, EventArgs e)
+        {
+            IEnumerable<string> characteristicKeys = _characteristicDictionary.Keys
+                .OrderBy(key => key);
+
+            CharacteristicAbbreviationsListBox.ItemsSource = characteristicKeys;
+        }
+
         private void ResultTextBlock_Initialized(object sender, EventArgs e)
         {
             TextBlock ResultTextBlock = sender as TextBlock;
 
             ResultTextBlock.Text += ((int)ResultTextBlock.DataContext).ToString();
+        }
+
+        private void CharacteristicAbbreviationTextBlock_Initialized(object sender, EventArgs e)
+        {
+            //TextBlock CharacteristicAbbreviationTextBlock = sender as TextBlock;
+
+            //string key = CharacteristicAbbreviationsListBox.DataContext as string;
+
+            //CharacteristicAbbreviationTextBlock.Text = _characteristicDictionary[key];
         }
     }
 }
