@@ -180,6 +180,13 @@ namespace GameConstructor.GUI
             PossibleResultTextsListBox.ItemsSource = new List<int> { 1, 2, 3 };
         }
 
+        private void ResultTextBlock_Initialized(object sender, EventArgs e)
+        {
+            TextBlock ResultTextBlock = sender as TextBlock;
+
+            ResultTextBlock.Text += ((int)ResultTextBlock.DataContext).ToString();
+        }
+
         private void CharacteristicAbbreviationsListBox_Initialized(object sender, EventArgs e)
         {
             List<string> characteristicKeys = _characteristicDictionary.Keys
@@ -200,14 +207,7 @@ namespace GameConstructor.GUI
             List<string> defaultKeys = new List<string> { MathOperations, MathOperators, Brackets, Conjuction, Disjuction };
 
             CharacteristicAbbreviationsListBox.ItemsSource = defaultKeys.Concat(abbreviationStrings);
-        }
-
-        private void ResultTextBlock_Initialized(object sender, EventArgs e)
-        {
-            TextBlock ResultTextBlock = sender as TextBlock;
-
-            ResultTextBlock.Text += ((int)ResultTextBlock.DataContext).ToString();
-        }
+        }        
 
         private void CharacteristicAbbreviationTextBlock_Initialized(object sender, EventArgs e)
         {
@@ -216,6 +216,11 @@ namespace GameConstructor.GUI
             string text = CharacteristicAbbreviationTextBlock.DataContext as string;
 
             CharacteristicAbbreviationTextBlock.Text = text;
+        }
+
+        private void Constructor_Initialized(object sender, EventArgs e)
+        {
+            Constructor.ItemsSource = new List<int> { 1, 2, 3, 4 };
         }
     }
 }
