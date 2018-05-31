@@ -114,7 +114,7 @@ namespace GameConstructor.GUI
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string login = LoginTextBox.Text;
-            string password = GameConstructor.Core.Models.User.GetHash("");
+            string password = GameConstructor.Core.Models.User.GetHash(PasswordTextBox.Password);
             if (string.IsNullOrWhiteSpace(login))
             {
                 LoginTextBox.Focus();
@@ -138,18 +138,12 @@ namespace GameConstructor.GUI
             else
             {
                 MessageBox.Show("Неправильный логин или пароль!");
-                User = _storage.Users.Items.First();
-                ProfileWindow profileWindow = new ProfileWindow(_storage, User);
-
-                profileWindow.Show();
-
-                Close();
             }
         }
 
         private void RegisterTextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            RegisterWindow registerWindow = new RegisterWindow();
+            RegisterWindow registerWindow = new RegisterWindow(_storage);
 
             registerWindow.ShowDialog();
         }

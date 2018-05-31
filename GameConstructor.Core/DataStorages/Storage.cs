@@ -147,6 +147,14 @@ namespace GameConstructor.Core.DataStorages
             }
           
         }
+        public void SaveUser(User user)
+        {
+            using(context = new Context())
+            {
+                context.Users.Add(user);
+                context.SaveChanges();
+            }
+        }
         public Game OpenGame(IGame _game)
         {
             context = new Context();
