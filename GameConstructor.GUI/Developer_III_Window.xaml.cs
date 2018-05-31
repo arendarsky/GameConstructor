@@ -40,8 +40,8 @@ namespace GameConstructor.GUI
         private const string mathOperationSymbol = "+  -  *  /";
         private const string mathOperationName = "Математические операции";
 
-        private const string mathOperatorSymbol = "= > < >= <= !=";
-        private const string mathOperatorName = "Математические операторы";
+        private const string mathOperatorSymbol = "=  >  <  >=  <=  !=";
+        private const string mathOperatorName = "Операторы";
         private const string mathOperatorExplanation = "символ '!=' обозначает оператор 'не равно'";
 
 
@@ -59,7 +59,7 @@ namespace GameConstructor.GUI
         private string Disjuction => disjuctionSymbol + emDash + disjuctionName + " (" + disjuctionExplanation + ")";
         private string Brackets => bracketSymbol + emDash + bracketName + " (" + bracketExplanation + ")";
         private string MathOperations => mathOperationSymbol + emDash + mathOperationName;
-        private string MathOperators => mathOperatorSymbol + emDash + mathOperatorName + " (" + mathOperatorExplanation + ")";
+        private string MathOperators => mathOperatorSymbol + emDash + mathOperatorName; // + " (" + mathOperatorExplanation + ")";
 
 
 
