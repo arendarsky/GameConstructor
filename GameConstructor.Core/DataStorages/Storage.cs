@@ -102,8 +102,8 @@ namespace GameConstructor.Core.DataStorages
     }
     internal class DatabaseStorage: IStorage
     {
-        IRepository<User> _users;
         IRepository<Game> _playingGames;
+        IRepository<User> _users;
         bool _gameOpened;
         Context context;
         public IRepository<User> Users
@@ -117,6 +117,7 @@ namespace GameConstructor.Core.DataStorages
                 }
             }
         }
+       
         public IRepository<Game> PlayingGames
         {
             get
@@ -172,6 +173,46 @@ namespace GameConstructor.Core.DataStorages
                     context.Entry(g).Reference("Picture").Load();
                 return _user;
             }
+        }
+        public void RemoveItem<T>(T item) where T: class
+        {
+            if (_gameOpened)
+            {
+                
+            }
+        }
+        public void RemoveGame(Game game)
+        {
+            using (context = new Context())
+            {
+                Game Game = context.Games.First(g => g.Id == game.Id);
+                context.Games.Remove(Game);
+                context.SaveChanges();
+            }
+        }
+        public void RemoveCharacteristic(Characteristic characteristic)
+        {
+            characteristic = context.Characteristics.First(
+                c => c.Id == characteristic.Id);
+            context.Characteristics.Remove(characteristic);
+        }
+        public void RemoveQuestion(Question question)
+        {
+            question = context.Questions.First(
+                q => q.Id == question.Id);
+            context.Questions.Remove(question);
+        }
+        public void RemoveAnswer(Answer answer)
+        {
+            answer = context.Answers.First(
+                c => c.Id == answer.Id);
+            context.Answers.Remove(answer);
+        }
+        public void RemoveEffect(Effect effect)
+        {
+            effect = context.Effects.First(
+                c => c.Id == effect.Id);
+            context.Effects.Remove(effect);
         }
     }
     

@@ -124,7 +124,7 @@ namespace GameConstructor.GUI
             {
                 defaultInfluences.Add(new Influence()
                 {
-                    Characteristic = characteristic
+                    CharacteristicId = characteristic.Id
                 });
             }
             
@@ -248,7 +248,9 @@ namespace GameConstructor.GUI
 
             if (influence.Value == defaultInfluenceValue)
             {
-                ChangeOfCharacteristicTextBox.Text = influence.Characteristic.Name + defaultInfluenceText;
+                ChangeOfCharacteristicTextBox.Text = 
+                    _game.GetCharacteristics.First(c => c.Id == influence.CharacteristicId)
+                    .Name + defaultInfluenceText;
 
                 ChangeOfCharacteristicTextBox.Foreground = Brushes.Gray;
             }

@@ -15,5 +15,10 @@ namespace GameConstructor.Core.Interfaces
         void SaveGame(User user, IGame game);
         User LoadUsersGames(User user);
         void SaveUser(User user);
+        void RemoveGame(Game game);
+        void RemoveCharacteristic(Characteristic characteristic);
+        void RemoveQuestion(Question question);
+        void RemoveAnswer(Answer answer);
+        void RemoveEffect(Effect effect);
     }
 }

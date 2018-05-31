@@ -526,9 +526,8 @@ namespace GameConstructor.GUI
             Button DeleteButton = sender as Button;
 
             Characteristic characteristic = DeleteButton.DataContext as Characteristic;
-
+            _storage.RemoveCharacteristic(characteristic);
             _characteristics.Remove(characteristic);
-
             DefaultCharacteristicsListBoxSource();
         }
     }
