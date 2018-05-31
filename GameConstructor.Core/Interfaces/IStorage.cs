@@ -14,5 +14,6 @@ namespace GameConstructor.Core.Interfaces
         Game OpenGame(IGame _game);
         void SaveGame(User user, IGame game);
         User LoadUsersGames(User user);
+        void SaveUser(User user);
     }
 }
