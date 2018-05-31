@@ -5,8 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameConstructor.GUI"
         mc:Ignorable="d"
-        Title="PlayingModeWindow" Height="450" Width="800">
+        Title="Наши игры" Height="562.667" MinWidth="800" Width="480">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFAF875A" Offset="1"/>
+                <GradientStop Color="#FFFEF4C9"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <ScrollViewer>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="45 40 0 0" FontFamily="Verdana">Наши игры:</TextBlock>
+
+                <ListBox Name="OurGamesListBox" Grid.Row="3" Grid.ColumnSpan="2" Margin="45 10 45 100" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <DockPanel Grid.Column="0" Margin="17 10 10 10">
+                                    <Border BorderThickness="0" BorderBrush="#FF715C4E">
+                                        <Image Name="GameAvatarImage" Width="64" Height="64"  HorizontalAlignment="Left" ></Image>
+                                    </Border>
+                                </DockPanel>
+
+                                <Grid Grid.Column="1" VerticalAlignment="Top" Margin="9 0 15 0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Row="0" Name="NameOfTheGameTextBlock" FontSize="15" FontFamily="Verdana" Margin="0 15 0 0" >Название игры</TextBlock>
+
+                                    <TextBlock Grid.Row="1" Name="SourceOfTheGameTextBlock" FontSize="12" FontFamily="Verdana" Margin="0 10 0 0" >Источник здесь, если он есть</TextBlock>
+
+                                    <TextBlock Grid.Row="2" Name="RaitingOfTheGameTextBlock" FontSize="12" FontFamily="Verdana" Margin="0 5 0 0" >Рейтинг:</TextBlock>
+
+                                </Grid>
+
+
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25"  FontFamily="Verdana" Margin="71,0,80,37.333" Width="346"><Run Text="Ничего не понравилось"/><Run Text="?"/></TextBlock>
+
+                <Button Name="BackToCreateButton" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="25" Margin="45 30" Padding="12 8" >Создать свою!</Button>
+
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Window>
