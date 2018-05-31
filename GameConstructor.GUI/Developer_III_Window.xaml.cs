@@ -23,6 +23,28 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class Developer_III_Window : Window
     {
+        private const string emDash = " — ";
+
+        private const string conjuctionSymbol = "&";
+        private const string conjuctionName = "Конъюнкиция";
+        private const string conjuctionExplanation = "логическое И";
+
+        private const string disjuctionSymbol = "|";
+        private const string disjuctionName = "Дизъюнкция";
+        private const string disjuctionExplanation = "логическое ИЛИ";
+
+        private const string bracketSymbol = ")  (";
+        private const string bracketName = "Скобки";
+        private const string bracketExplanation = "очередность операций";
+
+        private const string mathOperationSymbol = "+  -  *  /";
+        private const string mathOperationName = "Математические операции";
+
+        private const string mathOperatorSymbol = "= > < >= <= !=";
+        private const string mathOperatorName = "Математические операторы";
+        private const string mathOperatorExplanation = "символ '!=' обозначает оператор 'не равно'";
+
+
         IGame _game;
         bool _wereThereAlreadySomeChangings;
         User _user;
@@ -31,6 +53,13 @@ namespace GameConstructor.GUI
 
         IStorage _storage;
         Dictionary<string, string> _characteristicDictionary;
+
+
+        private string Conjuction => conjuctionSymbol + emDash + conjuctionName + " (" + conjuctionExplanation + ")";
+        private string Disjuction => disjuctionSymbol + emDash + disjuctionName + " (" + disjuctionExplanation + ")";
+        private string Brackets => bracketSymbol + emDash + bracketName + " (" + bracketExplanation + ")";
+        private string MathOperations => mathOperationSymbol + emDash + mathOperationName;
+        private string MathOperators => mathOperatorSymbol + emDash + mathOperatorName + " (" + mathOperatorExplanation + ")";
 
 
 
@@ -153,10 +182,24 @@ namespace GameConstructor.GUI
 
         private void CharacteristicAbbreviationsListBox_Initialized(object sender, EventArgs e)
         {
-            IEnumerable<string> characteristicKeys = _characteristicDictionary.Keys
-                .OrderBy(key => key);
+            List<string> characteristicKeys = _characteristicDictionary.Keys
+                .OrderBy(key => key)
+                .ToList();
 
-            CharacteristicAbbreviationsListBox.ItemsSource = characteristicKeys;
+            List<string> abbreviationStrings = new List<string>();
+
+            foreach (var key in characteristicKeys)
+            {
+                string value = _characteristicDictionary[key];
+
+                string originalKey = GeneralMethods.ReturnOriginalRegisterConfiguration(key, _game.GetCharacteristics.Select(ch => ch.Name));
+
+                abbreviationStrings.Add(value + emDash + originalKey);
+            }
+
+            List<string> defaultKeys = new List<string> { MathOperations, MathOperators, Brackets, Conjuction, Disjuction };
+
+            CharacteristicAbbreviationsListBox.ItemsSource = defaultKeys.Concat(abbreviationStrings);
         }
 
         private void ResultTextBlock_Initialized(object sender, EventArgs e)
@@ -168,11 +211,11 @@ namespace GameConstructor.GUI
 
         private void CharacteristicAbbreviationTextBlock_Initialized(object sender, EventArgs e)
         {
-            //TextBlock CharacteristicAbbreviationTextBlock = sender as TextBlock;
+            TextBlock CharacteristicAbbreviationTextBlock = sender as TextBlock;
 
-            //string key = CharacteristicAbbreviationsListBox.DataContext as string;
+            string text = CharacteristicAbbreviationTextBlock.DataContext as string;
 
-            //CharacteristicAbbreviationTextBlock.Text = _characteristicDictionary[key];
+            CharacteristicAbbreviationTextBlock.Text = text;
         }
     }
 }

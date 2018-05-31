@@ -144,5 +144,17 @@ namespace GameConstructor.Core.SpecialMethods
 
             return dictionary;
         }
+
+
+
+        public static string ReturnOriginalRegisterConfiguration (string str, IEnumerable<string> collection)
+        {
+            foreach (var item in collection)
+            {
+                if (str.ToUpperInvariant() == item.ToUpperInvariant()) { return item; }
+            }
+
+            return null;
+        }
     }
 }
