@@ -100,7 +100,33 @@
 
                         <TextBlock Margin="10 0 20 8" FontSize="17" VerticalAlignment="Center" FontFamily="Verdana">Конструктор результатов</TextBlock>
 
-                        <TextBox Name="ConditionsTextBox" Padding="14 11" Grid.Row="1" FontFamily="Verdana" Margin="8.5 12 15 60" FontSize="15" HorizontalAlignment="Stretch" TextWrapping="Wrap" Foreground="Gray"  Height="120">Кликните на позицию в конструкторе, чтобы редактировать условия в этом поле</TextBox>
+                        <TextBox Name="ConditionsTextBox" Padding="14 11" Grid.Row="1" FontFamily="Verdana" Margin="8.5 12 15 20" FontSize="15" HorizontalAlignment="Stretch" TextWrapping="Wrap" Foreground="Gray"  Height="120">Кликните на позицию в конструкторе, чтобы редактировать условия результата в данном поле</TextBox>
+
+                        <ListBox Name="Constructor" Background="Transparent" BorderBrush="Transparent" Grid.Row="2" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="Constructor_Initialized" Margin="-10 5 5 60">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock FontFamily="Century" VerticalAlignment="Center" FontSize="14" Margin="10">ЕСЛИ</TextBlock>
+
+                                        <TextBox Grid.Column="1"  FontFamily="Century" VerticalAlignment="Center" FontSize="12" Margin="10">логическое условие</TextBox>
+
+                                        <TextBlock Grid.Column="2"  FontFamily="Century" VerticalAlignment="Center" FontSize="14" Margin="10">ПОКАЖИ РЕЗУЛЬТАТ №</TextBlock>
+
+                                        <ComboBox Grid.Column="3"></ComboBox>
+
+                                        <ComboBox Grid.Column="4"></ComboBox>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                     </Grid>
                 </Grid>
             </Grid>
