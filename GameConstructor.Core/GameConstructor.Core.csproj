@@ -89,6 +89,14 @@
     <Compile Include="Migrations\201805311705441_UserUpdated.Designer.cs">
       <DependentUpon>201805311705441_UserUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805311758415_CharacteristicUpdate.cs" />
+    <Compile Include="Migrations\201805311758415_CharacteristicUpdate.Designer.cs">
+      <DependentUpon>201805311758415_CharacteristicUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805311847125_UpdatModels.cs" />
+    <Compile Include="Migrations\201805311847125_UpdatModels.Designer.cs">
+      <DependentUpon>201805311847125_UpdatModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpecialMethods\GeneralMethods.cs" />
     <Compile Include="SpecialMethods\ImagesUploaded.cs" />
     <Compile Include="Interfaces\IGame.cs" />
@@ -155,6 +163,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805311705441_UserUpdated.resx">
       <DependentUpon>201805311705441_UserUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805311758415_CharacteristicUpdate.resx">
+      <DependentUpon>201805311758415_CharacteristicUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805311847125_UpdatModels.resx">
+      <DependentUpon>201805311847125_UpdatModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

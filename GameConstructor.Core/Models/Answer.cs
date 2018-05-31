@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,14 +12,9 @@ namespace GameConstructor.Core.Models
     {
         public int Id { get; set; }
         public string Body { get; set; }
+        //[Required]
+        //public int QuestionId { get; set; }
         [JsonIgnore]
         public virtual List<Effect> Effects { get; set; }
-        public void Answered()
-        {
-            foreach(var effect in Effects)
-            {
-                effect.Influenced();
-            }
-        }
     }
 }

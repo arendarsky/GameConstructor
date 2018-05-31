@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,6 +14,8 @@ namespace GameConstructor.Core.Models
         public string Login { get; set; }
         public int Id { get; set; }
         public string Password { get; set; }
+        [Required]
+        public int QuestionId { get; set; }
         public string Email { get; set; }
         public virtual List<Game> Games { get; set; }
         public static string GetHash(string password)
