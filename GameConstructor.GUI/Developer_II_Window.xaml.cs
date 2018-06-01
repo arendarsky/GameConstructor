@@ -60,10 +60,14 @@ namespace GameConstructor.GUI
             {
                 _questions = _game.GetQuestions.ToList();
             }
+
             catch
             {
                 _questions = new List<Question>();
+            }
 
+            if (_questions.Count == 0)
+            {
                 AddNewDefaultQuestion();
             }
         }
@@ -442,7 +446,7 @@ namespace GameConstructor.GUI
 
             Grid QuestionGrid = NewAnswerButton.Parent as Grid;
 
-            ListBox AnswerListBox = QuestionGrid.Children[3] as ListBox;
+            ListBox AnswerListBox = QuestionGrid.Children[4] as ListBox;
 
             Question question = NewAnswerButton.DataContext as Question;
 
@@ -455,7 +459,7 @@ namespace GameConstructor.GUI
 
             Grid AnswerGrid = NewReactionButton.Parent as Grid;
 
-            ListBox ReactionsListBox = AnswerGrid.Children[2] as ListBox;
+            ListBox ReactionsListBox = AnswerGrid.Children[3] as ListBox;
 
             Answer answer = NewReactionButton.DataContext as Answer;
 

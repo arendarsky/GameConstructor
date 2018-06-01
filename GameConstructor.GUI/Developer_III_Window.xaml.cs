@@ -47,7 +47,7 @@ namespace GameConstructor.GUI
 
         private const string defaultNumberResultComboBoxText = "номер";
 
-        private const string defaultConstructorBuildingComboBox = "Выберете продолжение";
+        private const string defaultConstructorBuildingComboBox = "Выберите продолжение";
         private const string constructorBuildingComboBoxNewCondition = "Новое условие";
         private const string constructorBuildingComboBoxOtherVariants = "Остальные варианты";
 
