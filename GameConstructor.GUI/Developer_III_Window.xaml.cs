@@ -134,6 +134,11 @@ namespace GameConstructor.GUI
                     {
                         e.Cancel = true;
                     }
+
+                    else
+                    {
+                        GoingBackToProfileWindow();
+                    }
                 }
             }
 
@@ -153,6 +158,13 @@ namespace GameConstructor.GUI
             Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, _storage, _wereThereAlreadySomeChangings);
 
             developer_II_Window.Show();
+        }
+
+        private void GoingBackToProfileWindow()
+        {
+            ProfileWindow profileWindow = new ProfileWindow(_storage, _user);
+
+            profileWindow.Show();
         }
 
         private void SavingTheGameAndReturningToProfile()

@@ -23,6 +23,10 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private const string defaultLoginText = "Введите логин";
+        private const string defaultPasswordText = "Введите пароль";
+
+
         double _defaultWidthOfTheWindow;
         double _defaultHeightOfTheWindow;
         double _defaultFontSize;
@@ -41,9 +45,11 @@ namespace GameConstructor.GUI
 
         public LoginWindow()
         {
+            _storage = Factory.Instance.GetStorage();
+
             InitializeComponent();
 
-            _storage = Factory.Instance.GetStorage();
+            RestartTheWindow();           
 
 
             //_defaultWidthOfTheWindow = Width;
@@ -113,31 +119,35 @@ namespace GameConstructor.GUI
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            string login = LoginTextBox.Text;
-            string password = GameConstructor.Core.Models.User.GetHash(PasswordTextBox.Password);
-            if (string.IsNullOrWhiteSpace(login))
+            if (IfSomeValuesAreDefault())
             {
-                LoginTextBox.Focus();
-                return;
+                MessageBox.Show("Заполните, пожалуйста, все поля.", "Ошибка!");
             }
-            //if (string.IsNullOrWhiteSpace(password))
-            //{
-            //    passwordBox.Focus();
-            //    return;
-            //}
-            var User = _storage.Users.Items.FirstOrDefault(u => (
-                u.Login.ToLower() == login.ToLower() & u.Password == password));
-            if (User != null)
-            {
-                ProfileWindow profileWindow = new ProfileWindow(_storage, User);
 
-                profileWindow.Show();
-
-                Close();
-            }
             else
             {
-                MessageBox.Show("Неправильный логин или пароль!");
+                string login = LoginTextBox.Text;
+
+                string password = User.GetHash(PasswordBox.Password);
+
+                User user = _storage.Users.Items.FirstOrDefault(u => (
+                    u.Login.ToLower() == login.ToLower() & u.Password == password));
+
+                if (user != null)
+                {
+                    ProfileWindow profileWindow = new ProfileWindow(_storage, user);
+
+                    profileWindow.Show();
+
+                    Close();
+                }
+
+                else
+                {
+                    MessageBox.Show("Неправильный логин или пароль!", "Ошибка!");
+
+                    RestartTheWindow();
+                }
             }
         }
 
@@ -146,6 +156,82 @@ namespace GameConstructor.GUI
             RegisterWindow registerWindow = new RegisterWindow(_storage);
 
             registerWindow.ShowDialog();
+        }
+
+
+
+        private void LoginTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (LoginTextBox.Text == defaultLoginText)
+            {
+                LoginTextBox.Text = "";
+
+                LoginTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void LoginTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (LoginTextBox.Text == "")
+            {
+                LoginTextBox.Text = defaultLoginText;
+
+                LoginTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void PasswordTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            PasswordTextBox.Visibility = Visibility.Hidden;
+
+            PasswordBox.Visibility = Visibility.Visible;
+
+            PasswordBox.Focus();
+        }
+
+        private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (PasswordBox.Password == null || PasswordBox.Password == "")
+            {
+                PasswordBox.Visibility = Visibility.Hidden;
+
+                PasswordTextBox.Visibility = Visibility.Visible;
+            }            
+        }
+
+
+
+        private bool IfSomeValuesAreDefault()
+        {
+            if (LoginTextBox.Text == defaultLoginText || PasswordBox.Password == null || PasswordBox.Password == "")
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private void RestartTheWindow()
+        {
+            LoginTextBox.Text = defaultLoginText;
+            LoginTextBox.Foreground = Brushes.Gray;
+
+            PasswordTextBox.Text = defaultPasswordText;
+            PasswordTextBox.Foreground = Brushes.Gray;
+            PasswordTextBox.Visibility = Visibility.Visible;
+
+            PasswordBox.Password = "";
+            PasswordBox.Visibility = Visibility.Hidden;
+        }
+
+
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                LoginButton_Click(null, null);
+            }
         }
     }
 }

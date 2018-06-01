@@ -44,7 +44,6 @@ namespace GameConstructor.GUI
         bool _wereThereAlreadySomeChangings;
 
         bool _goingToTheNextDeveloperWindow = false;
-        bool _goingBackToProfileWondow = false;
         bool _characteristicNameTextBoxShouldBeFocused = false;
         bool _theSameCharacteristicsNamesErrorWasShown = false;
 
@@ -121,8 +120,6 @@ namespace GameConstructor.GUI
 
         private void BackToProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            _goingBackToProfileWondow = true;
-
             Close();
         }
 
@@ -493,7 +490,7 @@ namespace GameConstructor.GUI
                     }
                 }
 
-                if (_goingBackToProfileWondow && !cancellation)
+                if (!cancellation)
                 {
                     GoingBackToProfileWindow();
                 }
