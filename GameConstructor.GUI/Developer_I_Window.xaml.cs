@@ -515,6 +515,7 @@ namespace GameConstructor.GUI
         private void GoingBackToProfileWindow()
         {
             ProfileWindow profileWindow = new ProfileWindow(_storage, _user);
+            _storage.CloseGame();
 
             profileWindow.Show();
         }
