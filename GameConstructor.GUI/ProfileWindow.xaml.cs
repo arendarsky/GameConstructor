@@ -148,6 +148,7 @@ namespace GameConstructor.GUI
                 //_context.Games.Remove(currentGame);
                 //_context.SaveChanges();
                 _storage.RemoveGame(currentGame);
+                _user.Games.RemoveAll(g => g.Id == currentGame.Id);
                 DefaultGameListBoxItemsSource();
             }
         }
