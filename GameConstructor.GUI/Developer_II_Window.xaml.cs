@@ -365,6 +365,8 @@ namespace GameConstructor.GUI
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            bool cancelation = false;
+
             if (!_goingToTheNextDeveloperWindow && !_goingToThePreviousDeveloperWindow)
             {
                 if (IfThereWereAnyChangesMadeByUser())
@@ -375,12 +377,14 @@ namespace GameConstructor.GUI
                     if (messageBoxResult == MessageBoxResult.No || messageBoxResult == MessageBoxResult.Cancel || messageBoxResult == MessageBoxResult.None)
                     {
                         e.Cancel = true;
-                    }
 
-                    else
-                    {
-                        GoingBackToProfileWindow();
+                        cancelation = true;
                     }
+                }
+
+                if (!cancelation)
+                {
+                    GoingBackToProfileWindow();
                 }
             }
 
