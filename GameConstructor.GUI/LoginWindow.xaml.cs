@@ -232,6 +232,13 @@ namespace GameConstructor.GUI
             {
                 LoginButton_Click(null, null);
             }
+            
+            else if (!LoginTextBox.IsFocused && e.Key == Key.Tab)
+            {
+                LoginTextBox.Focus();
+
+                e.Handled = true;
+            }
         }
     }
 }
