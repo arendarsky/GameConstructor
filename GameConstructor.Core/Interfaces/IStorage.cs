@@ -20,5 +20,6 @@ namespace GameConstructor.Core.Interfaces
         void RemoveQuestion(Question question);
         void RemoveAnswer(Answer answer);
         void RemoveEffect(Effect effect);
+        void CloseGame();
     }
 }

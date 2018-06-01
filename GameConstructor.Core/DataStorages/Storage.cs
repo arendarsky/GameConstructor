@@ -130,6 +130,11 @@ namespace GameConstructor.Core.DataStorages
                 }
             }
         }
+        public void CloseGame()
+        {
+            context.Dispose();
+            _gameOpened = false;
+        }
         public void SaveGame(User user, IGame game)
         {
             if (_gameOpened)
@@ -187,14 +192,26 @@ namespace GameConstructor.Core.DataStorages
             {
                 Game Game = context.Games.First(g => g.Id == game.Id);
                 context.Games.Remove(Game);
+                if (Game.Picture != null)
+                {
+                    Picture picture = context.Pictures.First(p => p.Id == Game.Picture.Id);
+                    context.Pictures.Remove(picture);
+                }
                 context.SaveChanges();
             }
         }
         public void RemoveCharacteristic(Characteristic characteristic)
         {
-            characteristic = context.Characteristics.First(
-                c => c.Id == characteristic.Id);
-            context.Characteristics.Remove(characteristic);
+            try
+            {
+                characteristic = context.Characteristics.First(
+                    c => c.Id == characteristic.Id);
+                context.Characteristics.Remove(characteristic);
+            }
+            catch
+            {
+                return;
+            }
         }
         public void RemoveQuestion(Question question)
         {
