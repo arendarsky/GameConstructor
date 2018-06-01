@@ -62,9 +62,9 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Margin="35 25 20 5" VerticalAlignment="Top" FontSize="17" FontFamily="Verdana">Возможные текстовые результаты</TextBlock>
+                    <TextBlock Margin="35 25 40 5" VerticalAlignment="Top" FontSize="17" FontFamily="Verdana">Возможные текстовые результаты</TextBlock>
 
-                    <ListBox Name="PossibleResultTextsListBox" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" BorderBrush="Transparent" Background="Transparent" Margin="28 20 30 30" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="PossibleResultTextsListBox_Initialized">
+                    <ListBox Name="PossibleResultTextsListBox" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" BorderBrush="Transparent" Background="Transparent" Margin="28 20 45 30" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="PossibleResultTextsListBox_Initialized">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -75,15 +75,15 @@
                                     
                                     <TextBlock Name="ResultTextBlock" FontFamily="Verdana" Margin="0 10 10 5" HorizontalAlignment="Left" FontSize="14.5" Initialized="ResultTextBlock_Initialized">Результат №</TextBlock>
 
-                                    <TextBox Name="ResultTextBox" Padding="10 7" Grid.Row="1" FontFamily="Verdana" Margin="0 5 10 15" FontSize="13" HorizontalAlignment="Stretch" TextWrapping="Wrap" Height="85"></TextBox>
+                                    <TextBox Name="ResultTextBox" Padding="10 7" Grid.Row="1" FontFamily="Verdana" Margin="0 5 10 15" FontSize="13" HorizontalAlignment="Stretch" TextWrapping="Wrap" Height="95"></TextBox>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>                        
                     </ListBox>
 
-                    <TextBlock Grid.Column="1" Margin="40 25 20 8" FontSize="17" FontFamily="Verdana">Используемые символы</TextBlock>
+                    <TextBlock Grid.Column="1" Margin="25 25 20 8" FontSize="17" FontFamily="Verdana">Используемые символы</TextBlock>
 
-                    <ListBox Name="CharacteristicAbbreviationsListBox" Grid.Column="1" Grid.Row="1" BorderBrush="Transparent" Background="Transparent" Margin="33 15 30 0" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="CharacteristicAbbreviationsListBox_Initialized">
+                    <ListBox Name="CharacteristicAbbreviationsListBox" Grid.Column="1" Grid.Row="1" BorderBrush="Transparent" Background="Transparent" Margin="18 15 30 0" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="CharacteristicAbbreviationsListBox_Initialized">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Name="CharacteristicAbbreviationTextBlock" TextWrapping="Wrap" Margin="0 0 10 15" FontSize="14.5" FontFamily="Verdana" Initialized="CharacteristicAbbreviationTextBlock_Initialized">Подсказка</TextBlock>
@@ -91,7 +91,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
 
-                    <Grid Grid.Column="1" Grid.Row="2" Margin="30 45 30 30">
+                    <Grid Grid.Column="1" Grid.Row="2" Margin="15 45 30 30">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
