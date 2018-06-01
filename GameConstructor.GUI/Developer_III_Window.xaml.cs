@@ -45,6 +45,13 @@ namespace GameConstructor.GUI
         private const string mathOperatorExplanation = "символ '!=' обозначает оператор 'не равно'";
 
 
+        private const string defaultNumberResultComboBoxText = "номер";
+
+        private const string defaultConstructorBuildingComboBox = "Выберете продолжение";
+        private const string constructorBuildingComboBoxNewCondition = "Новое условие";
+        private const string constructorBuildingComboBoxOtherVariants = "Остальные варианты";
+
+
         IGame _game;
         bool _wereThereAlreadySomeChangings;
         User _user;
@@ -134,6 +141,11 @@ namespace GameConstructor.GUI
                     {
                         e.Cancel = true;
                     }
+
+                    else
+                    {
+                        GoingBackToProfileWindow();
+                    }
                 }
             }
 
@@ -153,6 +165,13 @@ namespace GameConstructor.GUI
             Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, _storage, _wereThereAlreadySomeChangings);
 
             developer_II_Window.Show();
+        }
+
+        private void GoingBackToProfileWindow()
+        {
+            ProfileWindow profileWindow = new ProfileWindow(_storage, _user);
+
+            profileWindow.Show();
         }
 
         private void SavingTheGameAndReturningToProfile()
@@ -187,6 +206,8 @@ namespace GameConstructor.GUI
             ResultTextBlock.Text += ((int)ResultTextBlock.DataContext).ToString();
         }
 
+
+
         private void CharacteristicAbbreviationsListBox_Initialized(object sender, EventArgs e)
         {
             List<string> characteristicKeys = _characteristicDictionary.Keys
@@ -218,9 +239,45 @@ namespace GameConstructor.GUI
             CharacteristicAbbreviationTextBlock.Text = text;
         }
 
+
+
         private void Constructor_Initialized(object sender, EventArgs e)
         {
-            Constructor.ItemsSource = new List<int> { 1, 2, 3, 4 };
+            Constructor.ItemsSource = new List<int> { 1, 2, 3 };
+        }
+
+
+
+        private void ResultNumberCombobox_Initialized(object sender, EventArgs e)
+        {
+            ComboBox ResultNumberCombobox = sender as ComboBox;
+
+            List<string> comboBoxSource = new List<string> { defaultNumberResultComboBoxText };
+
+            foreach (var textResult in PossibleResultTextsListBox.ItemsSource)
+            {
+                comboBoxSource.Add(textResult.ToString());
+            }
+
+            ResultNumberCombobox.ItemsSource = comboBoxSource;
+
+            ResultNumberCombobox.SelectedIndex = 0;
+        }
+
+        private void ConstructorBuildingCombobox_Initialized(object sender, EventArgs e)
+        {
+            ComboBox ConstructorBuildingComboBox = sender as ComboBox;
+
+            List<string> comboBoxSource = new List<string> { defaultConstructorBuildingComboBox, constructorBuildingComboBoxNewCondition, constructorBuildingComboBoxOtherVariants };
+
+            ConstructorBuildingComboBox.ItemsSource = comboBoxSource;
+                        
+            ConstructorBuildingComboBox.SelectedIndex = 1;
+
+            if ((int)ConstructorBuildingComboBox.DataContext == 3)
+            {
+                ConstructorBuildingComboBox.SelectedIndex = 0;
+            }
         }
     }
 }
