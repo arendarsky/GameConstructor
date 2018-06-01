@@ -305,7 +305,7 @@ namespace GameConstructor.GUI
 
         private void AddNewPossibleTextResult()
         {
-            _possibleTextResults.Add(_possibleTextResults.Count);
+            _possibleTextResults.Add(_possibleTextResults.Count + 1);
 
             DefaultPossibleTextResultsItemsSource();
 

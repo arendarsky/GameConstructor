@@ -58,93 +58,120 @@
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Margin="35 25 40 5" VerticalAlignment="Top" FontSize="17" FontFamily="Verdana">Возможные текстовые результаты</TextBlock>
-
-                    <ListBox Name="PossibleResultTextsListBox" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" BorderBrush="Transparent" Background="Transparent" Margin="28 20 45 30" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="PossibleResultTextsListBox_Initialized">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-                                    
-                                    <TextBlock Name="ResultTextBlock" FontFamily="Verdana" Margin="0 10 10 5" HorizontalAlignment="Left" FontSize="14.5" Initialized="ResultTextBlock_Initialized">Результат №</TextBlock>
-
-                                    <TextBox Name="ResultTextBox" Padding="10 7" Grid.Row="1" FontFamily="Verdana" Margin="0 5 10 15" FontSize="13" HorizontalAlignment="Stretch" TextWrapping="Wrap" Height="95"></TextBox>
-                                </Grid>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>                        
-                    </ListBox>
-
-                    <Button Grid.Row="3" Name="NewTextResultButton" Margin="35 -23 35 35" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14" Padding="10 5.5" Click="NewTextResultButton_Click">Новый текстовый результат</Button>
-
-                    <TextBlock Grid.Column="1" Margin="25 25 20 8" FontSize="17" FontFamily="Verdana">Используемые символы</TextBlock>
-
-                    <ListBox Name="CharacteristicAbbreviationsListBox" Grid.Column="1" Grid.Row="1" BorderBrush="Transparent" Background="Transparent" Margin="18 15 30 0" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="CharacteristicAbbreviationsListBox_Initialized">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Name="CharacteristicAbbreviationTextBlock" TextWrapping="Wrap" Margin="0 0 10 15" FontSize="14.5" FontFamily="Verdana" Initialized="CharacteristicAbbreviationTextBlock_Initialized">Подсказка</TextBlock>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-
-                    <Grid Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Margin="15 45 30 30">
+                    <Grid Grid.Column="0" Grid.Row="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Margin="10 0 20 8" FontSize="17" VerticalAlignment="Center" FontFamily="Verdana">Конструктор результатов</TextBlock>
+                        <TextBlock Margin="35 25 40 5" VerticalAlignment="Top" FontSize="17" FontFamily="Verdana">Возможные текстовые результаты</TextBlock>
 
-                        <TextBox Name="ConditionsTextBox" Padding="14 11" Grid.Row="1" FontFamily="Verdana" Margin="8.5 12 15 20" FontSize="15" HorizontalAlignment="Stretch" TextWrapping="Wrap" Foreground="Gray"  Height="120">Кликните на позицию в конструкторе ниже, чтобы редактировать условия результата в данном поле</TextBox>
- 
-                        <ListBox Name="Constructor" Background="Transparent" HorizontalAlignment="Center" BorderBrush="Transparent" Grid.Row="2" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="Constructor_Initialized" Margin="-7 3 10 60">
+                        <ListBox Name="PossibleResultTextsListBox" Grid.Row="1" VerticalAlignment="Top" BorderBrush="Transparent" Background="Transparent" Margin="28 20 45 30" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="PossibleResultTextsListBox_Initialized">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="Auto"/>
-                                            <RowDefinition/>
                                         </Grid.RowDefinitions>
+                                    
+                                        <TextBlock Name="ResultTextBlock" FontFamily="Verdana" Margin="0 10 10 5" HorizontalAlignment="Left" FontSize="14.5" Initialized="ResultTextBlock_Initialized">Результат №</TextBlock>
 
-                                        <Grid Grid.Row="0">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition/>
-                                            </Grid.ColumnDefinitions>
-
-                                            <TextBlock FontFamily="Century Gothic" VerticalAlignment="Top" FontSize="18" Margin="10 12 10 6">ЕСЛИ</TextBlock>
-
-                                            <TextBox Name="ConstructorConditionTextBox" Grid.Column="1" FontFamily="Century Gothic" Foreground="#CC423535" Padding="10 5" Background="#66E0CBAA" VerticalAlignment="Top" FontSize="15" Margin="8 8 0 6" BorderBrush="#CC443830">логическое условие</TextBox>
-
-                                            <TextBlock Grid.Column="2" FontFamily="Century Gothic"  VerticalAlignment="Top" FontSize="22" Margin="10 14 10 4">,</TextBlock>
-                                        </Grid>
-
-                                        <Grid Grid.Row="1">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition/>
-                                            </Grid.ColumnDefinitions>
-                                            
-                                            <TextBlock Grid.Column="0"  FontFamily="Century Gothic" VerticalAlignment="Top" FontSize="18" Margin="10 9.5 10 10">ПОКАЖИ РЕЗУЛЬТАТ</TextBlock>
-
-                                            <ComboBox Name="ResultNumberCombobox" Margin="5 6" VerticalAlignment="Top" FontSize="14" Padding="10 5" FontFamily="Century Gothic" Grid.Column="1" Initialized="ResultNumberCombobox_Initialized"></ComboBox>
-                                        </Grid>
-
-                                        <ComboBox Name="ConstructorBuildingCombobox" Margin="10 6 5 25" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" Padding="12 5" FontFamily="Century Gothic" Grid.Row="2" Initialized="ConstructorBuildingCombobox_Initialized"></ComboBox>
+                                        <TextBox Name="ResultTextBox" Padding="10 7" Grid.Row="1" FontFamily="Verdana" Margin="0 5 10 15" FontSize="13" HorizontalAlignment="Stretch" TextWrapping="Wrap" Height="95"></TextBox>
                                     </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>                        
+                        </ListBox>
+
+                        <Button Grid.Row="2" Name="NewTextResultButton" Margin="35 -23 35 35" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14" Padding="10 5.5" Click="NewTextResultButton_Click">Новый текстовый результат</Button>
+                    </Grid>
+
+                                        
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Grid.Column="1" Margin="25 25 20 8" FontSize="17" FontFamily="Verdana">Используемые символы</TextBlock>
+
+                        <ListBox Name="CharacteristicAbbreviationsListBox" Grid.Column="1" Grid.Row="1" BorderBrush="Transparent" Background="Transparent" Margin="18 15 30 0" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="CharacteristicAbbreviationsListBox_Initialized">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Name="CharacteristicAbbreviationTextBlock" TextWrapping="Wrap" Margin="0 0 10 15" FontSize="14.5" FontFamily="Verdana" Initialized="CharacteristicAbbreviationTextBlock_Initialized">Подсказка</TextBlock>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
+
+                        <Grid Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Margin="15 45 30 20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Margin="10 0 20 8" FontSize="17" VerticalAlignment="Center" FontFamily="Verdana">Конструктор результатов</TextBlock>
+
+                            <TextBox Name="ConditionsTextBox" Padding="14 11" Grid.Row="1" FontFamily="Verdana" Margin="8.5 12 15 20" FontSize="15" HorizontalAlignment="Stretch" TextWrapping="Wrap" Foreground="Gray"  Height="120">Кликните на позицию в конструкторе ниже, чтобы редактировать условия результата в данном поле</TextBox>
+ 
+                            <ListBox Name="Constructor" Background="Transparent" HorizontalAlignment="Center" BorderBrush="Transparent" Grid.Row="2" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="Constructor_Initialized" Margin="-7 3 10 10">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid Grid.Row="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock FontFamily="Century Gothic" VerticalAlignment="Top" FontSize="18" Margin="10 12 10 6">ЕСЛИ</TextBlock>
+
+                                                <TextBox Name="ConstructorConditionTextBox" Grid.Column="1" FontFamily="Century Gothic" Foreground="#CC423535" Padding="10 5" Background="#66E0CBAA" VerticalAlignment="Top" FontSize="15" Margin="8 8 0 6" BorderBrush="#CC443830">логическое условие</TextBox>
+
+                                                <TextBlock Grid.Column="2" FontFamily="Century Gothic"  VerticalAlignment="Top" FontSize="22" Margin="10 14 10 4">,</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                            
+                                                <TextBlock Grid.Column="0"  FontFamily="Century Gothic" VerticalAlignment="Top" FontSize="18" Margin="10 9.5 10 10">ПОКАЖИ РЕЗУЛЬТАТ</TextBlock>
+
+                                                <ComboBox Name="ResultNumberCombobox" Margin="5 6" VerticalAlignment="Top" FontSize="14" Padding="10 5" FontFamily="Century Gothic" Grid.Column="1" Initialized="ResultNumberCombobox_Initialized"></ComboBox>
+                                            </Grid>
+
+                                            <ComboBox Name="ConstructorBuildingCombobox" Margin="10 6 5 25" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" Padding="12 5" FontFamily="Century Gothic" Grid.Row="2" Initialized="ConstructorBuildingCombobox_Initialized"></ComboBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </Grid>
+
+                    
+                    <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="40 0 30 55" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Name="SaveGameButton2"  Padding="24 13"  Margin="27 25" Grid.Column="0" FontSize="20" Click="SaveGameButton_Click">Сохранить</Button>
+
+                        <Button Name="TestGameButton"  Padding="17 13"  Margin="27 25" Grid.Column="1" FontSize="20" Click="SaveGameButton_Click">Тестировать</Button>
                     </Grid>
                 </Grid>
             </Grid>
