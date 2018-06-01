@@ -60,6 +60,7 @@ namespace GameConstructor.GUI
 
         IStorage _storage;
         Dictionary<string, string> _characteristicDictionary;
+        List<int> _possibleTextResults;
 
 
         private string Conjuction => conjuctionSymbol + emDash + conjuctionName + " (" + conjuctionExplanation + ")";
@@ -196,7 +197,9 @@ namespace GameConstructor.GUI
 
         private void PossibleResultTextsListBox_Initialized(object sender, EventArgs e)
         {
-            PossibleResultTextsListBox.ItemsSource = new List<int> { 1, 2, 3 };
+            _possibleTextResults = new List<int>();
+
+            AddNewPossibleTextResult();
         }
 
         private void ResultTextBlock_Initialized(object sender, EventArgs e)
@@ -243,7 +246,7 @@ namespace GameConstructor.GUI
 
         private void Constructor_Initialized(object sender, EventArgs e)
         {
-            Constructor.ItemsSource = new List<int> { 1, 2, 3 };
+            DefaultConstructorItemsSource();
         }
 
 
@@ -278,6 +281,40 @@ namespace GameConstructor.GUI
             {
                 ConstructorBuildingComboBox.SelectedIndex = 0;
             }
+        }
+
+
+
+        private void NewTextResultButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewPossibleTextResult();
+        }
+
+
+
+        private void DefaultPossibleTextResultsItemsSource()
+        {
+            PossibleResultTextsListBox.ItemsSource = null;
+
+            PossibleResultTextsListBox.ItemsSource = _possibleTextResults;
+        }
+
+        private void AddNewPossibleTextResult()
+        {
+            _possibleTextResults.Add(_possibleTextResults.Count);
+
+            DefaultPossibleTextResultsItemsSource();
+
+            if (Constructor != null) { DefaultConstructorItemsSource(); }            
+        }
+
+
+
+        private void DefaultConstructorItemsSource()
+        {
+            Constructor.ItemsSource = null;
+
+            Constructor.ItemsSource = new List<int> { 1, 2, 3 };
         }
     }
 }

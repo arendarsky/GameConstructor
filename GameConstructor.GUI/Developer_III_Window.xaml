@@ -59,6 +59,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
@@ -81,6 +82,8 @@
                         </ListBox.ItemTemplate>                        
                     </ListBox>
 
+                    <Button Grid.Row="3" Name="NewTextResultButton" Margin="35 -23 35 35" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14" Padding="10 5.5" Click="NewTextResultButton_Click">Новый текстовый результат</Button>
+
                     <TextBlock Grid.Column="1" Margin="25 25 20 8" FontSize="17" FontFamily="Verdana">Используемые символы</TextBlock>
 
                     <ListBox Name="CharacteristicAbbreviationsListBox" Grid.Column="1" Grid.Row="1" BorderBrush="Transparent" Background="Transparent" Margin="18 15 30 0" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="CharacteristicAbbreviationsListBox_Initialized">
@@ -91,7 +94,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
 
-                    <Grid Grid.Column="1" Grid.Row="2" Margin="15 45 30 30">
+                    <Grid Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Margin="15 45 30 30">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
