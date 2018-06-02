@@ -2,7 +2,7 @@
   {
     "Games": [],
     "Login": "login2",
-    "Id": 1,
+    "Id": 9,
     "Password": "bLdfZSqbUnmOts8iAQV8cw==",
     "Email": "Введите Email"
   },
@@ -11,26 +11,37 @@
       {
         "Characteristics": [
           {
-            "Id": 1,
-            "Name": "Хуевкость",
-            "GameId": 1,
+            "Id": 5,
+            "Name": "Характеристика",
+            "GameId": 5,
             "Value": 0,
+            "Influences": []
+          },
+          {
+            "Id": 6,
+            "Name": "Пары",
+            "GameId": 5,
+            "Value": 7,
             "Influences": []
           }
         ],
-        "Picture": null,
+        "Picture": {
+          "Id": 1,
+          "ImageSource": "рассказы юрия саночкина 3.jpg",
+          "IsBorderRequired": true
+        },
         "Questions": [],
-        "Id": 1,
-        "Name": "asdasd",
+        "Id": 5,
+        "Name": "Лучшая игра",
         "Source": null,
         "DisplayingInGameMode": false,
-        "UserId": 2,
+        "UserId": 10,
         "Popularity": 0,
         "Results": []
       }
     ],
     "Login": "login",
-    "Id": 2,
+    "Id": 10,
     "Password": "X03MO1qnZdYdgyfeuILPmQ==",
     "Email": "Введите Email"
   }
