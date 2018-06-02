@@ -10,7 +10,7 @@ namespace GameConstructor.Core.Interfaces
     public interface IStorage
     {
         IRepository<User> Users { get; }
-        IRepository<Game> PlayingGames { get; }
+        IRepository<Game> PlayableGames { get; }
         IGame OpenGame(IGame _game);
         void SaveGame(User user, IGame game);
         User LoadUsersGames(User user);
