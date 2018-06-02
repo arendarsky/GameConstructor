@@ -105,7 +105,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Data\Games.json" />
     <None Include="Data\Users.json" />
     <None Include="packages.config" />
   </ItemGroup>
