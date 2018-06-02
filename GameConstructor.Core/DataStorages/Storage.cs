@@ -13,16 +13,16 @@ namespace GameConstructor.Core.DataStorages
     {
         IRepository<Game> _playingGames;
         IRepository<User> _users;
-        bool ForDb;
+        bool _forDb;
         bool _gameOpened;
         public FileStorage(bool forDb)
         {
-            ForDb = forDb;
-            Load();
+            _forDb = forDb;
+            LoadFromDatabase();
         }
         private void Load()
         {
-            if (ForDb)
+            if (_forDb)
             {
                 _users = new FileRepository<User>("GameConstructor.Core/Data/Users.json");
 
@@ -66,6 +66,52 @@ namespace GameConstructor.Core.DataStorages
         public User LoadUsersGames(User user)
         {
             return user;
+        }
+        private void LoadFromDatabase()
+        {
+            using (Context context = new Context())
+            {
+                IRepository<User> usersFromDatabase = new DatabaseRepository<User>(context.Users.ToList());
+                foreach (var u in usersFromDatabase.Items)
+                {
+                    foreach (var g in u.Games)
+                    {
+                        foreach (var c in g.Characteristics)
+                            context.Entry(c).Collection(ch => ch.Influences).Load();
+                        foreach (var q in g.Questions)
+                        {
+                            foreach (var a in q.Answers)
+                            {
+                                foreach (var e in a.Effects)
+                                {
+                                    foreach (var i in e.Influences)
+                                        context.Entry(i).Reference(inf => inf.Characteristic).Load();
+                                    context.Entry(e).Collection(ef => ef.Influences).Load();
+                                }
+                                context.Entry(a).Collection(an => an.Effects).Load();
+                            }
+                            context.Entry(q).Collection(qu => qu.Answers).Load();
+                        }
+                        context.Entry(g).Collection(gm => gm.Questions).Load();
+                        context.Entry(g).Reference(gm => gm.Picture).Load();
+                        context.Entry(g).Collection(gm => gm.Results).Load();
+                    }
+                }
+                _users = new FileRepository<User>("../../../GameConstructor.Core/Data/Users.json");
+                foreach (var u in usersFromDatabase.Items)
+                {
+                    if (_users.Items.FirstOrDefault(us => us.Login == u.Login) == null)
+                        _users.Add(u);
+                    else
+                    {
+                        User user = _users.Items.First(us => us.Login == u.Login);
+                        _users.Remove(user);
+                        _users.Add(u);
+                    }
+                }
+                _users.Save();
+            }
+
         }
         public void SaveGame(User user, IGame game)
         {

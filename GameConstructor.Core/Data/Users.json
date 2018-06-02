@@ -1,37 +1,77 @@
 [
   {
-    "Login": "login",
-    "Id": 0,
-    "Password": "X03MO1qnZdYdgyfeuILPmQ==",
-    "Email": "Введите Email",
     "Games": [
       {
-        "Id": 0,
-        "Name": "ФЫВв",
-        "Source": null,
-        "DisplayingInGameMode": false,
-        "UserId": 0,
-        "Popularity": 0,
-        "Picture": null,
-        "Questions": null,
         "Characteristics": [
           {
-            "Id": 0,
+            "Id": 1,
             "Name": "Ловкость",
-            "GameId": 0,
+            "GameId": 1,
             "Value": 0,
-            "Influences": null
-          },
-          {
-            "Id": 0,
-            "Name": "фывфывфыв",
-            "GameId": 0,
-            "Value": 0,
-            "Influences": null
+            "Influences": []
           }
         ],
-        "Results": null
+        "Picture": null,
+        "Questions": [],
+        "Id": 1,
+        "Name": "asdasd",
+        "Source": null,
+        "DisplayingInGameMode": false,
+        "UserId": 1,
+        "Popularity": 0,
+        "Results": []
+      },
+      {
+        "Characteristics": [
+          {
+            "Id": 2,
+            "Name": "Ловкость",
+            "GameId": 2,
+            "Value": 0,
+            "Influences": []
+          },
+          {
+            "Id": 3,
+            "Name": "Хз",
+            "GameId": 2,
+            "Value": 0,
+            "Influences": []
+          }
+        ],
+        "Picture": null,
+        "Questions": [],
+        "Id": 2,
+        "Name": "GAmeTEst",
+        "Source": null,
+        "DisplayingInGameMode": false,
+        "UserId": 1,
+        "Popularity": 0,
+        "Results": []
+      },
+      {
+        "Characteristics": [
+          {
+            "Id": 4,
+            "Name": "фывфыв",
+            "GameId": 3,
+            "Value": 0,
+            "Influences": []
+          }
+        ],
+        "Picture": null,
+        "Questions": [],
+        "Id": 3,
+        "Name": "ПфьуЕуые",
+        "Source": null,
+        "DisplayingInGameMode": false,
+        "UserId": 1,
+        "Popularity": 0,
+        "Results": []
       }
-    ]
+    ],
+    "Login": "login",
+    "Id": 1,
+    "Password": "X03MO1qnZdYdgyfeuILPmQ==",
+    "Email": "Введите Email"
   }
 ]

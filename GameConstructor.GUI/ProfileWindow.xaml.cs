@@ -152,5 +152,10 @@ namespace GameConstructor.GUI
                 DefaultGameListBoxItemsSource();
             }
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Factory.Instance.GetFileStorage();
+        }
     }
 }
