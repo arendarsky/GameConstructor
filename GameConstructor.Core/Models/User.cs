@@ -15,7 +15,6 @@ namespace GameConstructor.Core.Models
         public int Id { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        [JsonIgnore]
         public virtual List<Game> Games { get; set; }
         public static string GetHash(string password)
         {

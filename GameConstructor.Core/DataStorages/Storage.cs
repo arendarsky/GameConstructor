@@ -11,7 +11,6 @@ namespace GameConstructor.Core.DataStorages
 {
     internal class FileStorage: IStorage
     {
-        IRepository<Game> _games;
         IRepository<Game> _playingGames;
         IRepository<User> _users;
         bool ForDb;
@@ -25,21 +24,21 @@ namespace GameConstructor.Core.DataStorages
         {
             if (ForDb)
             {
-                _games = new FileRepository<Game>("GameConstructor.Core/Data/Games.json");
                 _users = new FileRepository<User>("GameConstructor.Core/Data/Users.json");
 
             }
             else
             {
-                _games = new FileRepository<Game>("../../../GameConstructor.Core/Data/Games.json");
                 _users = new FileRepository<User>("../../../GameConstructor.Core/Data/Users.json");
             }
             try
             {
-                foreach (var g in _games.Items)
-                    foreach (var c in g.Characteristics)
-                        foreach (var i in c.Influences)
-                            i.Characteristic = c;
+                foreach (var u in _users.Items)
+                    foreach (var g in u.Games)
+                        foreach (var c in g.Characteristics)
+                            foreach (var i in c.Influences)
+                                i.Characteristic = c;
+                    
             }
             catch
             {
@@ -57,37 +56,33 @@ namespace GameConstructor.Core.DataStorages
         {
             get
             {
-                _playingGames = new DatabaseRepository<Game>(
-                    _games.Items.Where(g => g.DisplayingInGameMode == true).ToList());
+                List<Game> playingGames = new List<Game>();
+                foreach (var u in _users.Items)
+                    playingGames.AddRange(u.Games.Where(g => g.DisplayingInGameMode == true));
+                _playingGames = new DatabaseRepository<Game>(playingGames);
                 return _playingGames;
             }
         }
         public User LoadUsersGames(User user)
         {
-            List<Game> games = new List<Game>();
-            foreach (var g in _games.Items.Where(g => g.UserId == user.Id))
-            {
-                games.Add(g);
-            }
-            user.Games = games;
             return user;
         }
         public void SaveGame(User user, IGame game)
         {
             if (!_gameOpened)
             {
-                _games.Add(game as Game);
-                _games.Save();
+                user.Games.Add(game as Game);
+                _users.Save();
             }
             else
             {
-                _games.Save();
+                _users.Save();
             }
             _gameOpened = false;
         }
         public void CloseGame()
         {
-            _games = new FileRepository<Game>("../../../GameConstructor.Core/Data/Games.json");
+            _users = new FileRepository<User>("../../../GameConstructor.Core/Data/Users.json");
             _gameOpened = false;
         }
         public void SaveUser(User user)
@@ -103,9 +98,10 @@ namespace GameConstructor.Core.DataStorages
    
         public void RemoveGame(IGame game)
         {
-            Game Game = _games.Items.First(g => g.Name == game.Name);
-            _games.Remove(Game);
-            _games.Save();
+            User user = _users.Items.First(u => u.Games.FirstOrDefault(g => g.Name == game.Name) != null);
+            Game Game = user.Games.First(g => g.Name == game.Name);
+            user.Games.Remove(Game);
+            _users.Save();
         }
         public void RemoveCharacteristic(Characteristic characteristic)
         {

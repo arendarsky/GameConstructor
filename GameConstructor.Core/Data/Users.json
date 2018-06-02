@@ -3,6 +3,35 @@
     "Login": "login",
     "Id": 0,
     "Password": "X03MO1qnZdYdgyfeuILPmQ==",
-    "Email": "Введите Email"
+    "Email": "Введите Email",
+    "Games": [
+      {
+        "Id": 0,
+        "Name": "ФЫВв",
+        "Source": null,
+        "DisplayingInGameMode": false,
+        "UserId": 0,
+        "Popularity": 0,
+        "Picture": null,
+        "Questions": null,
+        "Characteristics": [
+          {
+            "Id": 0,
+            "Name": "Ловкость",
+            "GameId": 0,
+            "Value": 0,
+            "Influences": null
+          },
+          {
+            "Id": 0,
+            "Name": "фывфывфыв",
+            "GameId": 0,
+            "Value": 0,
+            "Influences": null
+          }
+        ],
+        "Results": null
+      }
+    ]
   }
 ]
