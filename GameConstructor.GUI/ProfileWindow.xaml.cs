@@ -121,6 +121,7 @@ namespace GameConstructor.GUI
 
         private void UserGamesListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+
             Game game = UserGamesListBox.SelectedItem as Game;
 
             Developer_I_Window developer_I_Window = new Developer_I_Window(_user, game, _storage);

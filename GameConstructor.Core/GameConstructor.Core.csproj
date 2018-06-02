@@ -61,6 +61,10 @@
     <Compile Include="Migrations\201806022003574_InitialCreate.Designer.cs">
       <DependentUpon>201806022003574_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806022309054_EffectUpdate.cs" />
+    <Compile Include="Migrations\201806022309054_EffectUpdate.Designer.cs">
+      <DependentUpon>201806022309054_EffectUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="SpecialMethods\GeneralMethods.cs" />
@@ -90,6 +94,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201806022003574_InitialCreate.resx">
       <DependentUpon>201806022003574_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806022309054_EffectUpdate.resx">
+      <DependentUpon>201806022309054_EffectUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

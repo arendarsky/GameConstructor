@@ -15,7 +15,5 @@ namespace GameConstructor.Core.Models
         [Required]
         public int AnswerId { get; set; }
         public virtual List<Influence> Influences { get; set; }
-
-        public int Value { get; set; }
     }
 }

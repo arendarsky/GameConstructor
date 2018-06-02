@@ -1,236 +1,37 @@
 [
   {
-    "Games": [],
-    "Login": "login2",
-    "Id": 19,
-    "Password": "bLdfZSqbUnmOts8iAQV8cw==",
-    "Email": "Введите Email"
-  },
-  {
     "Games": [
       {
         "Characteristics": [
           {
-            "Id": 19,
-            "Name": "Характеристика",
-            "GameId": 12,
-            "Value": 0,
+            "Id": 6,
+            "Name": "СИлА",
+            "GameId": 6,
+            "Value": 123,
             "Influences": []
           },
           {
-            "Id": 20,
-            "Name": "Пары",
-            "GameId": 12,
-            "Value": 7,
+            "Id": 7,
+            "Name": "Ещё что-то",
+            "GameId": 6,
+            "Value": 0,
             "Influences": []
           }
         ],
-        "Picture": {
-          "Id": 8,
-          "ImageSource": "рассказы юрия саночкина 3.jpg",
-          "IsBorderRequired": true
-        },
+        "Picture": null,
         "Questions": [],
-        "Id": 12,
-        "Name": "Лучшая игра",
+        "Id": 6,
+        "Name": "Game Test",
         "Source": null,
         "DisplayingInGameMode": false,
-        "UserId": 20,
-        "Popularity": 0,
-        "Results": []
-      },
-      {
-        "Characteristics": [
-          {
-            "Id": 23,
-            "Name": "Доброта",
-            "GameId": 14,
-            "Value": 0,
-            "Influences": [
-              {
-                "Id": 71,
-                "EffectId": 22,
-                "Value": 10
-              },
-              {
-                "Id": 73,
-                "EffectId": 23,
-                "Value": -10
-              },
-              {
-                "Id": 75,
-                "EffectId": 24,
-                "Value": -1
-              },
-              {
-                "Id": 77,
-                "EffectId": 25,
-                "Value": 7
-              }
-            ]
-          },
-          {
-            "Id": 24,
-            "Name": "Честность",
-            "GameId": 14,
-            "Value": 0,
-            "Influences": [
-              {
-                "Id": 72,
-                "EffectId": 22,
-                "Value": 10
-              },
-              {
-                "Id": 74,
-                "EffectId": 23,
-                "Value": -5
-              },
-              {
-                "Id": 76,
-                "EffectId": 24,
-                "Value": 7
-              },
-              {
-                "Id": 78,
-                "EffectId": 25,
-                "Value": 50
-              }
-            ]
-          }
-        ],
-        "Picture": {
-          "Id": 10,
-          "ImageSource": "рассказы юрия саночкина 3(1).jpg",
-          "IsBorderRequired": true
-        },
-        "Questions": [
-          {
-            "Answers": [
-              {
-                "Effects": [
-                  {
-                    "Influences": [
-                      {
-                        "Id": 71,
-                        "EffectId": 22,
-                        "Value": 10
-                      },
-                      {
-                        "Id": 72,
-                        "EffectId": 22,
-                        "Value": 10
-                      }
-                    ],
-                    "Id": 22,
-                    "Body": "Вы -- молодец",
-                    "AnswerId": 19,
-                    "Value": 0
-                  }
-                ],
-                "Id": 19,
-                "Body": "Да",
-                "QuestionId": 10
-              },
-              {
-                "Effects": [
-                  {
-                    "Influences": [
-                      {
-                        "Id": 73,
-                        "EffectId": 23,
-                        "Value": -10
-                      },
-                      {
-                        "Id": 74,
-                        "EffectId": 23,
-                        "Value": -5
-                      }
-                    ],
-                    "Id": 23,
-                    "Body": "Как так можно?",
-                    "AnswerId": 20,
-                    "Value": 0
-                  }
-                ],
-                "Id": 20,
-                "Body": "Нет",
-                "QuestionId": 10
-              },
-              {
-                "Effects": [
-                  {
-                    "Influences": [
-                      {
-                        "Id": 75,
-                        "EffectId": 24,
-                        "Value": -1
-                      },
-                      {
-                        "Id": 76,
-                        "EffectId": 24,
-                        "Value": 7
-                      }
-                    ],
-                    "Id": 24,
-                    "Body": "Вы ответили честно, но вряд ли добро",
-                    "AnswerId": 21,
-                    "Value": 0
-                  }
-                ],
-                "Id": 21,
-                "Body": "Не знаю",
-                "QuestionId": 10
-              }
-            ],
-            "Id": 10,
-            "Body": "Вы поможете бабушке перейти дорогу?",
-            "GameId": 14
-          },
-          {
-            "Answers": [
-              {
-                "Effects": [
-                  {
-                    "Influences": [
-                      {
-                        "Id": 77,
-                        "EffectId": 25,
-                        "Value": 7
-                      },
-                      {
-                        "Id": 78,
-                        "EffectId": 25,
-                        "Value": 50
-                      }
-                    ],
-                    "Id": 25,
-                    "Body": "Ура",
-                    "AnswerId": 22,
-                    "Value": 0
-                  }
-                ],
-                "Id": 22,
-                "Body": "Конечно",
-                "QuestionId": 11
-              }
-            ],
-            "Id": 11,
-            "Body": "Вы поможете детям-инвалидам?",
-            "GameId": 14
-          }
-        ],
-        "Id": 14,
-        "Name": "Игра с вопросами",
-        "Source": null,
-        "DisplayingInGameMode": false,
-        "UserId": 20,
+        "UserId": 7,
         "Popularity": 0,
         "Results": []
       }
     ],
-    "Login": "login",
-    "Id": 20,
-    "Password": "X03MO1qnZdYdgyfeuILPmQ==",
+    "Login": "Arendarsky",
+    "Id": 7,
+    "Password": "Ip0iGRTyQ9suUjDi8+RRTg==",
     "Email": "Введите Email"
   }
 ]
