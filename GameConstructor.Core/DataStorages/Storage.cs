@@ -78,7 +78,8 @@ namespace GameConstructor.Core.DataStorages
             using(Context context = new Context())
             {
                 User user;
-                foreach (var u in _users.Items)
+                foreach (var u in _users.Items.Where(
+                    us => us.Login == "Sanochkin" || us.Login == "Arendarsky"))
                 {
                     try
                     {
@@ -100,31 +101,32 @@ namespace GameConstructor.Core.DataStorages
         {
             using (Context context = new Context())
             {
-                IRepository<User> usersFromDatabase = new DatabaseRepository<User>(context.Users.ToList());
+                IRepository<User> usersFromDatabase = new DatabaseRepository<User>(context.Users
+                    .Where(u => u.Login == "Sanochkin" || u.Login == "Arendarsky").ToList());
                 foreach (var u in usersFromDatabase.Items)
                 {
-                    foreach (var g in u.Games)
-                    {
-                        foreach (var c in g.Characteristics)
-                            context.Entry(c).Collection(ch => ch.Influences).Load();
-                        foreach (var q in g.Questions)
+                        foreach (var g in u.Games)
                         {
-                            foreach (var a in q.Answers)
+                            foreach (var c in g.Characteristics)
+                                context.Entry(c).Collection(ch => ch.Influences).Load();
+                            foreach (var q in g.Questions)
                             {
-                                foreach (var e in a.Effects)
+                                foreach (var a in q.Answers)
                                 {
-                                    foreach (var i in e.Influences)
-                                        context.Entry(i).Reference(inf => inf.Characteristic).Load();
-                                    context.Entry(e).Collection(ef => ef.Influences).Load();
+                                    foreach (var e in a.Effects)
+                                    {
+                                        foreach (var i in e.Influences)
+                                            context.Entry(i).Reference(inf => inf.Characteristic).Load();
+                                        context.Entry(e).Collection(ef => ef.Influences).Load();
+                                    }
+                                    context.Entry(a).Collection(an => an.Effects).Load();
                                 }
-                                context.Entry(a).Collection(an => an.Effects).Load();
+                                context.Entry(q).Collection(qu => qu.Answers).Load();
                             }
-                            context.Entry(q).Collection(qu => qu.Answers).Load();
+                            context.Entry(g).Collection(gm => gm.Questions).Load();
+                            context.Entry(g).Reference(gm => gm.Picture).Load();
+                            context.Entry(g).Collection(gm => gm.Results).Load();
                         }
-                        context.Entry(g).Collection(gm => gm.Questions).Load();
-                        context.Entry(g).Reference(gm => gm.Picture).Load();
-                        context.Entry(g).Collection(gm => gm.Results).Load();
-                    }
                 }
                 foreach (var u in usersFromDatabase.Items)
                 {

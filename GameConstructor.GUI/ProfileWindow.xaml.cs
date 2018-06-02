@@ -158,5 +158,10 @@ namespace GameConstructor.GUI
         {
             Factory.Instance.SynchronizeFileStorage();
         }
+
+        private void SaveDBButton_Click(object sender, RoutedEventArgs e)
+        {
+            Factory.Instance.LoadFromFileToDatabase();
+        }
     }
 }

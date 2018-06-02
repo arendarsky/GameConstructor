@@ -45,11 +45,6 @@ namespace GameConstructor.GUI
 
         public LoginWindow()
         {
-           if (MessageBox.Show("Загрузить данные из файла?", "Внимание!", MessageBoxButton.YesNo)
-                == MessageBoxResult.Yes)
-            {
-                Factory.Instance.LoadFromFileToDatabase();
-            }
             _storage = Factory.Instance.GetDatabaseStorage();
 
             InitializeComponent();

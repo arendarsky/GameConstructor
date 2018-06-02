@@ -1,37 +1,37 @@
 [
   {
-    "Games": [],
-    "Login": "login2",
-    "Id": 1,
-    "Password": "bLdfZSqbUnmOts8iAQV8cw==",
-    "Email": "Введите Email"
-  },
-  {
     "Games": [
       {
         "Characteristics": [
           {
-            "Id": 1,
-            "Name": "Хуевкость",
-            "GameId": 1,
+            "Id": 6,
+            "Name": "СИлА",
+            "GameId": 6,
+            "Value": 123,
+            "Influences": []
+          },
+          {
+            "Id": 7,
+            "Name": "Ещё что-то",
+            "GameId": 6,
             "Value": 0,
             "Influences": []
           }
         ],
         "Picture": null,
         "Questions": [],
-        "Id": 1,
-        "Name": "asdasd",
+        "Id": 6,
+        "Name": "Game Test",
         "Source": null,
         "DisplayingInGameMode": false,
-        "UserId": 2,
+        "UserId": 7,
         "Popularity": 0,
         "Results": []
       }
     ],
-    "Login": "login",
-    "Id": 2,
-    "Password": "X03MO1qnZdYdgyfeuILPmQ==",
+    "Login": "Arendarsky",
+    "Id": 7,
+    "Password": "Ip0iGRTyQ9suUjDi8+RRTg==",
     "Email": "Введите Email"
   }
 ]
