@@ -67,6 +67,8 @@ namespace GameConstructor.GUI
                 _questions = new List<Question>();
             }
 
+            DefaultQuestionListBoxSource();
+
             if (_questions.Count == 0)
             {
                 AddNewDefaultQuestion();
@@ -298,6 +300,10 @@ namespace GameConstructor.GUI
 
                 QuestionTextBox.Foreground = Brushes.Gray;
             }
+
+            Question question = QuestionTextBox.DataContext as Question;
+
+            question.Body = QuestionTextBox.Text;
         }
 
         private void AnswerTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -322,6 +328,10 @@ namespace GameConstructor.GUI
 
                 AnswerTextBox.Foreground = Brushes.Gray;
             }
+            
+            Answer answer = AnswerTextBox.DataContext as Answer;
+
+            answer.Body = AnswerTextBox.Text;
         }
 
         private void ReactionTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -346,6 +356,33 @@ namespace GameConstructor.GUI
 
                 ReactionTextBox.Foreground = Brushes.Gray;
             }
+
+            Effect reaction = ReactionTextBox.DataContext as Effect;
+
+            reaction.Body = ReactionTextBox.Text;
+        }
+
+        private void ChangeOfCharacteristicLTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox ChangeOfCharacteristicLTextBox = sender as TextBox;
+
+            Influence influence = ChangeOfCharacteristicLTextBox.DataContext as Influence;
+
+            ChangeOfCharacteristicLTextBox.Text = influence.Value.ToString();
+
+            ChangeOfCharacteristicLTextBox.Foreground = Brushes.Black;
+        }
+
+        private void ChangeOfCharacteristicLTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox ChangeOfCharacteristicLTextBox = sender as TextBox;
+
+            Influence influence = ChangeOfCharacteristicLTextBox.DataContext as Influence;
+
+            try { influence.Value = int.Parse(ChangeOfCharacteristicLTextBox.Text); }
+            catch { }
+
+            ChangeOfCharacteristicLTextBox.Text = influence.Value.ToString();
         }
 
 
@@ -370,7 +407,23 @@ namespace GameConstructor.GUI
             }
         }
 
+
+
         private bool GamePartialSave()
+        {
+            if (CheckingIfEveryFieldIsFilledCorrectly())
+            {
+                IfThereWereAnyChangesMadeByUser();
+
+                _game.UpdateQuestions(_questions);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool CheckingIfEveryFieldIsFilledCorrectly()
         {
             return true;
         }
@@ -474,6 +527,8 @@ namespace GameConstructor.GUI
             Answer answer = NewReactionButton.DataContext as Answer;
 
             AddNewDefaultReaction(ReactionsListBox, answer);
-        }        
+        }
+
+        
     }
 }

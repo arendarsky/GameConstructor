@@ -133,6 +133,8 @@ namespace GameConstructor.GUI
             }
         }
 
+
+
         private bool GamePartialSave()
         {
             if (CheckingIfEveryFieldIsFilledCorrectly())
