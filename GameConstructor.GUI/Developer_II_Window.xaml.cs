@@ -26,6 +26,7 @@ namespace GameConstructor.GUI
         private const string defaultAnswerText = "Вариант ответа";
         private const string defaultEffectText = "Текст возможной реакции";
         private const string defaultInfluenceText = " изменяется?";
+        private const string defaultInfluenceTextPlural = " изменяются?";
         private const int defaultInfluenceValue = 0;
 
 
@@ -252,8 +253,17 @@ namespace GameConstructor.GUI
 
             if (influence.Value == defaultInfluenceValue)
             {
-                ChangeOfCharacteristicTextBox.Text = 
-                    influence.Characteristic.Name + defaultInfluenceText;
+                var characeristicName = influence.Characteristic.Name;
+
+                if (characeristicName[characeristicName.Length - 1] == 'ы')
+                {
+                    ChangeOfCharacteristicTextBox.Text = characeristicName + defaultInfluenceTextPlural;
+                }
+
+                else
+                {
+                    ChangeOfCharacteristicTextBox.Text = characeristicName + defaultInfluenceText;
+                }
 
                 ChangeOfCharacteristicTextBox.Foreground = Brushes.Gray;
             }

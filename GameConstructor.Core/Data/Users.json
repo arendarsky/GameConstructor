@@ -33,5 +33,44 @@
         "Results": null
       }
     ]
+  },
+  {
+    "Login": "1",
+    "Id": 0,
+    "Password": "xMpCOKC5I4INzFCab3WEmw==",
+    "Email": "1",
+    "Games": [
+      {
+        "Id": 0,
+        "Name": "Yura's game",
+        "Source": "vk.com/yury_sanochkin",
+        "DisplayingInGameMode": false,
+        "UserId": 0,
+        "Popularity": 0,
+        "Picture": {
+          "Id": 0,
+          "ImageSource": "Рассказы Юрия Саночкина 5.jpg",
+          "IsBorderRequired": true
+        },
+        "Questions": null,
+        "Characteristics": [
+          {
+            "Id": 0,
+            "Name": "Правильные ответы",
+            "GameId": 0,
+            "Value": 0,
+            "Influences": null
+          },
+          {
+            "Id": 0,
+            "Name": "Любовь автора",
+            "GameId": 0,
+            "Value": 100,
+            "Influences": null
+          }
+        ],
+        "Results": null
+      }
+    ]
   }
 ]
