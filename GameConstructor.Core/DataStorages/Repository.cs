@@ -38,13 +38,20 @@ namespace GameConstructor.Core.DataStorages
 
         private void Restore()
         {
-            using (var sr = new StreamReader(_fileName))
+            try
             {
-                using (var jsonReader = new JsonTextReader(sr))
+                using (var sr = new StreamReader(_fileName))
                 {
-                    var serializer = new JsonSerializer();
-                    _items = serializer.Deserialize<List<T>>(jsonReader);
+                    using (var jsonReader = new JsonTextReader(sr))
+                    {
+                        var serializer = new JsonSerializer();
+                        _items = serializer.Deserialize<List<T>>(jsonReader);
+                    }
                 }
+            }
+            catch
+            {
+                _items = new List<T>();
             }
         }
 

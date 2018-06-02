@@ -11,11 +11,11 @@ namespace GameConstructor.Core.Interfaces
     {
         IRepository<User> Users { get; }
         IRepository<Game> PlayingGames { get; }
-        Game OpenGame(IGame _game);
+        IGame OpenGame(IGame _game);
         void SaveGame(User user, IGame game);
         User LoadUsersGames(User user);
         void SaveUser(User user);
-        void RemoveGame(Game game);
+        void RemoveGame(IGame game);
         void RemoveCharacteristic(Characteristic characteristic);
         void RemoveQuestion(Question question);
         void RemoveAnswer(Answer answer);

@@ -57,63 +57,40 @@
     <Compile Include="Context.cs" />
     <Compile Include="DataStorages\Storage.cs" />
     <Compile Include="Factory.cs" />
-    <Compile Include="Migrations\201805271924545_EffectChanged.cs" />
-    <Compile Include="Migrations\201805271924545_EffectChanged.Designer.cs">
-      <DependentUpon>201805271924545_EffectChanged.cs</DependentUpon>
+    <Compile Include="Migrations\201806012342294_InitialCreate.cs" />
+    <Compile Include="Migrations\201806012342294_InitialCreate.Designer.cs">
+      <DependentUpon>201806012342294_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805280830482_SomeModeslsChanged.cs" />
-    <Compile Include="Migrations\201805280830482_SomeModeslsChanged.Designer.cs">
-      <DependentUpon>201805280830482_SomeModeslsChanged.cs</DependentUpon>
+    <Compile Include="Migrations\201806012344364_UpdateUser.cs" />
+    <Compile Include="Migrations\201806012344364_UpdateUser.Designer.cs">
+      <DependentUpon>201806012344364_UpdateUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805281207305_PictureChanged.cs" />
-    <Compile Include="Migrations\201805281207305_PictureChanged.Designer.cs">
-      <DependentUpon>201805281207305_PictureChanged.cs</DependentUpon>
+    <Compile Include="Migrations\201806012348362_Updatefect.cs" />
+    <Compile Include="Migrations\201806012348362_Updatefect.Designer.cs">
+      <DependentUpon>201806012348362_Updatefect.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805282135456_UpdatingModels.cs" />
-    <Compile Include="Migrations\201805282135456_UpdatingModels.Designer.cs">
-      <DependentUpon>201805282135456_UpdatingModels.cs</DependentUpon>
+    <Compile Include="Migrations\201806012350495_UpdateInf.cs" />
+    <Compile Include="Migrations\201806012350495_UpdateInf.Designer.cs">
+      <DependentUpon>201806012350495_UpdateInf.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805282235469_UpdatingModels1.cs" />
-    <Compile Include="Migrations\201805282235469_UpdatingModels1.Designer.cs">
-      <DependentUpon>201805282235469_UpdatingModels1.cs</DependentUpon>
+    <Compile Include="Migrations\201806012351385_UpdateInfluences.cs" />
+    <Compile Include="Migrations\201806012351385_UpdateInfluences.Designer.cs">
+      <DependentUpon>201806012351385_UpdateInfluences.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805282238101_UpdatingModels2.cs" />
-    <Compile Include="Migrations\201805282238101_UpdatingModels2.Designer.cs">
-      <DependentUpon>201805282238101_UpdatingModels2.cs</DependentUpon>
+    <Compile Include="Migrations\201806012354320_UpdateInfluence.cs" />
+    <Compile Include="Migrations\201806012354320_UpdateInfluence.Designer.cs">
+      <DependentUpon>201806012354320_UpdateInfluence.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805282250510_UpdatingModels3.cs" />
-    <Compile Include="Migrations\201805282250510_UpdatingModels3.Designer.cs">
-      <DependentUpon>201805282250510_UpdatingModels3.cs</DependentUpon>
+    <Compile Include="Migrations\201806012357360_AddResult.cs" />
+    <Compile Include="Migrations\201806012357360_AddResult.Designer.cs">
+      <DependentUpon>201806012357360_AddResult.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805311705441_UserUpdated.cs" />
-    <Compile Include="Migrations\201805311705441_UserUpdated.Designer.cs">
-      <DependentUpon>201805311705441_UserUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805311758415_CharacteristicUpdate.cs" />
-    <Compile Include="Migrations\201805311758415_CharacteristicUpdate.Designer.cs">
-      <DependentUpon>201805311758415_CharacteristicUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805311847125_UpdatModels.cs" />
-    <Compile Include="Migrations\201805311847125_UpdatModels.Designer.cs">
-      <DependentUpon>201805311847125_UpdatModels.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Result.cs" />
     <Compile Include="SpecialMethods\GeneralMethods.cs" />
     <Compile Include="SpecialMethods\ImagesUploaded.cs" />
     <Compile Include="Interfaces\IGame.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IStorage.cs" />
-    <Compile Include="Migrations\201805261656285_InitialCreate.cs" />
-    <Compile Include="Migrations\201805261656285_InitialCreate.Designer.cs">
-      <DependentUpon>201805261656285_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805261705497_NewCreate.cs" />
-    <Compile Include="Migrations\201805261705497_NewCreate.Designer.cs">
-      <DependentUpon>201805261705497_NewCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805262211492_GameModelChanged.cs" />
-    <Compile Include="Migrations\201805262211492_GameModelChanged.Designer.cs">
-      <DependentUpon>201805262211492_GameModelChanged.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Characteristic.cs" />
@@ -131,48 +108,30 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805261656285_InitialCreate.resx">
-      <DependentUpon>201805261656285_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805261705497_NewCreate.resx">
-      <DependentUpon>201805261705497_NewCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805262211492_GameModelChanged.resx">
-      <DependentUpon>201805262211492_GameModelChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805271924545_EffectChanged.resx">
-      <DependentUpon>201805271924545_EffectChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805280830482_SomeModeslsChanged.resx">
-      <DependentUpon>201805280830482_SomeModeslsChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805281207305_PictureChanged.resx">
-      <DependentUpon>201805281207305_PictureChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805282135456_UpdatingModels.resx">
-      <DependentUpon>201805282135456_UpdatingModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805282235469_UpdatingModels1.resx">
-      <DependentUpon>201805282235469_UpdatingModels1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805282238101_UpdatingModels2.resx">
-      <DependentUpon>201805282238101_UpdatingModels2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805282250510_UpdatingModels3.resx">
-      <DependentUpon>201805282250510_UpdatingModels3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805311705441_UserUpdated.resx">
-      <DependentUpon>201805311705441_UserUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805311758415_CharacteristicUpdate.resx">
-      <DependentUpon>201805311758415_CharacteristicUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805311847125_UpdatModels.resx">
-      <DependentUpon>201805311847125_UpdatModels.cs</DependentUpon>
-    </EmbeddedResource>
+    <Resource Include="Images\gamepad.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\gamepad.png" />
+    <EmbeddedResource Include="Migrations\201806012342294_InitialCreate.resx">
+      <DependentUpon>201806012342294_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806012344364_UpdateUser.resx">
+      <DependentUpon>201806012344364_UpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806012348362_Updatefect.resx">
+      <DependentUpon>201806012348362_Updatefect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806012350495_UpdateInf.resx">
+      <DependentUpon>201806012350495_UpdateInf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806012351385_UpdateInfluences.resx">
+      <DependentUpon>201806012351385_UpdateInfluences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806012354320_UpdateInfluence.resx">
+      <DependentUpon>201806012354320_UpdateInfluence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806012357360_AddResult.resx">
+      <DependentUpon>201806012357360_AddResult.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace GameConstructor.Core.Models
 {
@@ -15,6 +16,7 @@ namespace GameConstructor.Core.Models
         [Required]
         public int GameId { get; set; }
         public int Value { get; set; }
+        [JsonIgnore]
         public List<Influence> Influences { get; set; }
         public Characteristic(string name, int value)
         {

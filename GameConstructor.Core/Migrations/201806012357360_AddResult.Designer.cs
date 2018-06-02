@@ -7,13 +7,13 @@ namespace GameConstructor.Core.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UpdatingModels2 : IMigrationMetadata
+    public sealed partial class AddResult : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatingModels2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddResult));
         
         string IMigrationMetadata.Id
         {
-            get { return "201805282238101_UpdatingModels2"; }
+            get { return "201806012357360_AddResult"; }
         }
         
         string IMigrationMetadata.Source

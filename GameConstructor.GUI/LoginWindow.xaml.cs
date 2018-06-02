@@ -45,8 +45,7 @@ namespace GameConstructor.GUI
 
         public LoginWindow()
         {
-            _storage = Factory.Instance.GetStorage();
-
+            _storage = Factory.Instance.GetDatabaseStorage();
             InitializeComponent();
 
             RestartTheWindow();           

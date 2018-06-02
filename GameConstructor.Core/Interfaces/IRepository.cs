@@ -12,5 +12,6 @@ namespace GameConstructor.Core.Interfaces
         IEnumerable<T> Items { get; }
         void Add(T item);
         void Remove(T item);
+        void Save();
     }
 }
