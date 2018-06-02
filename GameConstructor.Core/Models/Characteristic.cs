@@ -16,7 +16,6 @@ namespace GameConstructor.Core.Models
         [Required]
         public int GameId { get; set; }
         public int Value { get; set; }
-        [JsonIgnore]
         public List<Influence> Influences { get; set; }
         public Characteristic(string name, int value)
         {

@@ -21,15 +21,13 @@ namespace GameConstructor.Core.Models
         public int UserId { get; set; }
         public int Popularity { get; set; }
         public virtual Picture Picture { get; set; }
-        [JsonIgnore]
         public virtual List<Question> Questions { get; set; }
-        [JsonIgnore]
         public virtual List<Characteristic> Characteristics { get; set; }
-        [JsonIgnore]
         public List<Result> Results { get; set; }
 
-
+        [JsonIgnore]
         public IEnumerable<Question> GetQuestions => Questions;
+        [JsonIgnore]
         public IEnumerable<Characteristic> GetCharacteristics => Characteristics;
         public Game()
         {

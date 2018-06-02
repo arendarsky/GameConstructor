@@ -14,12 +14,6 @@ namespace GameConstructor.Core.DataStorages
         IRepository<Game> _games;
         IRepository<Game> _playingGames;
         IRepository<User> _users;
-        IRepository<Question> _questions;
-        IRepository<Answer> _answers;
-        IRepository<Influence> _influences;
-        IRepository<Effect> _effects;
-        IRepository<Characteristic> _characteristics;
-        IRepository<Result> _results;
         bool ForDb;
         bool _gameOpened;
         public FileStorage(bool forDb)
@@ -33,35 +27,23 @@ namespace GameConstructor.Core.DataStorages
             {
                 _games = new FileRepository<Game>("GameConstructor.Core/Data/Games.json");
                 _users = new FileRepository<User>("GameConstructor.Core/Data/Users.json");
-                _questions = new FileRepository<Question>(
-                    "GameConstructor.Core/Data/Questions.json");
-                _answers = new FileRepository<Answer>(
-                    "GameConstructor.Core/Data/Answers.json");
-                _effects = new FileRepository<Effect>(
-                    "GameConstructor.Core/Data/Effects.json");
-                _influences = new FileRepository<Influence>(
-                    "GameConstructor.Core/Data/Influences.json");
-                _characteristics = new FileRepository<Characteristic>(
-                    "GameConstructor.Core/Data/Characteristics.json");
-                _results = new FileRepository<Result>(
-                    "GameConstructor.Core/Data/Results.json");
+
             }
             else
             {
                 _games = new FileRepository<Game>("../../../GameConstructor.Core/Data/Games.json");
                 _users = new FileRepository<User>("../../../GameConstructor.Core/Data/Users.json");
-                _questions = new FileRepository<Question>(
-                    "../../../GameConstructor.Core/Data/Questions.json");
-                _answers = new FileRepository<Answer>(
-                    "../../../GameConstructor.Core/Data/Answers.json");
-                _effects = new FileRepository<Effect>(
-                    "../../../GameConstructor.Core/Data/Effects.json");
-                _influences = new FileRepository<Influence>(
-                    "../../../GameConstructor.Core/Data/Influences.json");
-                _characteristics = new FileRepository<Characteristic>(
-                    "../../../GameConstructor.Core/Data/Characteristics.json");
-                _results = new FileRepository<Result>(
-                    "../../../GameConstructor.Core/Data/Results.json");
+            }
+            try
+            {
+                foreach (var g in _games.Items)
+                    foreach (var c in g.Characteristics)
+                        foreach (var i in c.Influences)
+                            i.Characteristic = c;
+            }
+            catch
+            {
+
             }
         }
         public IRepository<User> Users
@@ -82,10 +64,12 @@ namespace GameConstructor.Core.DataStorages
         }
         public User LoadUsersGames(User user)
         {
+            List<Game> games = new List<Game>();
             foreach (var g in _games.Items.Where(g => g.UserId == user.Id))
             {
-                user.Games.Add(g);
+                games.Add(g);
             }
+            user.Games = games;
             return user;
         }
         public void SaveGame(User user, IGame game)
@@ -113,53 +97,31 @@ namespace GameConstructor.Core.DataStorages
         }
         public IGame OpenGame(IGame _game)
         {
-            List<Question> questions = new List<Question>();
-            List<Characteristic> characteristics = new List<Characteristic>();
-            foreach (var q in _questions.Items.Where(c => c.GameId == _game.Id))
-            {
-                foreach (var a in _answers.Items.Where(c => c.QuestionId == q.Id))
-                {
-                    foreach (var e in _effects.Items.Where(c => c.AnswerId == a.Id))
-                    {
-                        foreach (var i in _influences.Items.Where(c => c.EffectId == e.Id))
-                            e.Influences.Add(i);
-                        a.Effects.Add(e);
-                    }
-                    q.Answers.Add(a);
-                }
-                questions.Add(q);
-            }
-            foreach (var c in _characteristics.Items.Where(c => c.GameId == _game.Id))
-                characteristics.Add(c);
-            _game.UpdateQuestions(questions);
-            _game.UpdateCharacteristics(characteristics);
             _gameOpened = true;
             return _game;
         }
+   
         public void RemoveGame(IGame game)
         {
-            _games.Remove(game as Game);
+            Game Game = _games.Items.First(g => g.Name == game.Name);
+            _games.Remove(Game);
             _games.Save();
         }
         public void RemoveCharacteristic(Characteristic characteristic)
         {
-            _characteristics.Remove(characteristic);
-            _characteristics.Save();
+
         }
         public void RemoveQuestion(Question question)
         {
-            _questions.Remove(question);
-            _questions.Save();
+
         }
         public void RemoveAnswer(Answer answer)
         {
-            _answers.Remove(answer);
-            _answers.Save();
+
         }
         public void RemoveEffect(Effect effect)
         {
-            _effects.Remove(effect);
-            _effects.Save();
+
         }
 
     }

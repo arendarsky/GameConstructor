@@ -15,7 +15,6 @@ namespace GameConstructor.Core.Models
         public string Body { get; set; }
         [Required]
         public int GameId { get; set; }
-        [JsonIgnore]
         public virtual List<Answer> Answers { get; set; }
 
 
