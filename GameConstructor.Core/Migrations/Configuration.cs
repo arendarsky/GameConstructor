@@ -4,6 +4,7 @@ namespace GameConstructor.Core.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using GameConstructor.Core.Interfaces;
 
     internal sealed class Configuration : DbMigrationsConfiguration<GameConstructor.Core.Context>
     {
@@ -18,6 +19,9 @@ namespace GameConstructor.Core.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+            //IStorage _fileStorage = Factory.Instance.GetFileStorageForDb();
+            //foreach (var u in _fileStorage.Users.Items)
+            //    context.Users.AddOrUpdate(c => c.Login, u);
         }
     }
 }

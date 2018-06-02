@@ -155,7 +155,7 @@ namespace GameConstructor.GUI
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Factory.Instance.GetFileStorage();
+            Factory.Instance.SynchronizeFileStorage();
         }
     }
 }

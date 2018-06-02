@@ -26,12 +26,13 @@ namespace GameConstructor.Core
         private IStorage _storage;
 
         public IStorage GetDatabaseStorage() => _storage ?? (_storage = new DatabaseStorage());
-        public void GetFileStorage()
+        public void SynchronizeFileStorage()
         {
-            new FileStorage(false);
+            FileStorage _fileStorage = new FileStorage(false);
+            _fileStorage.Synchronize();
         }
             
-        public IStorage GetFileDbStorage() => _storage ?? (_storage = new FileStorage(true));
+        public IStorage GetFileStorageForDb() => _storage ?? (_storage = new FileStorage(true));
 
         //private IRepository _repository;
 

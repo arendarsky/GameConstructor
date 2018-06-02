@@ -18,13 +18,13 @@ namespace GameConstructor.Core.DataStorages
         public FileStorage(bool forDb)
         {
             _forDb = forDb;
-            LoadFromDatabase();
+            Load();
         }
         private void Load()
         {
             if (_forDb)
             {
-                _users = new FileRepository<User>("GameConstructor.Core/Data/Users.json");
+                _users = new FileRepository<User>("../GameConstructor.Core/Data/Users.json");
 
             }
             else
@@ -67,7 +67,7 @@ namespace GameConstructor.Core.DataStorages
         {
             return user;
         }
-        private void LoadFromDatabase()
+        public void Synchronize()
         {
             using (Context context = new Context())
             {
@@ -97,7 +97,6 @@ namespace GameConstructor.Core.DataStorages
                         context.Entry(g).Collection(gm => gm.Results).Load();
                     }
                 }
-                _users = new FileRepository<User>("../../../GameConstructor.Core/Data/Users.json");
                 foreach (var u in usersFromDatabase.Items)
                 {
                     if (_users.Items.FirstOrDefault(us => us.Login == u.Login) == null)
