@@ -31,6 +31,11 @@ namespace GameConstructor.Core
             FileStorage _fileStorage = new FileStorage(false);
             _fileStorage.Synchronize();
         }
+        public void LoadFromFileToDatabase()
+        {
+            FileStorage _fileStorage = new FileStorage(false);
+            _fileStorage.LoadToDatabase();
+        }
             
         public IStorage GetFileStorageForDb() => _storage ?? (_storage = new FileStorage(true));
 

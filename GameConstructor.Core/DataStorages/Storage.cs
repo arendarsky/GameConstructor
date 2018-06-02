@@ -73,6 +73,29 @@ namespace GameConstructor.Core.DataStorages
         {
             return user;
         }
+        public void LoadToDatabase()
+        {
+            using(Context context = new Context())
+            {
+                User user;
+                foreach (var u in _users.Items)
+                {
+                    try
+                    {
+                        user = context.Users.First(us => us.Login == u.Login);
+                        context.Users.Remove(user);
+                    }
+                    catch
+                    {
+
+                    }
+                    context.Users.Add(u);
+                }
+                    
+                    
+                context.SaveChanges();
+            }
+        }
         public void Synchronize()
         {
             using (Context context = new Context())
