@@ -57,41 +57,17 @@
     <Compile Include="Context.cs" />
     <Compile Include="DataStorages\Storage.cs" />
     <Compile Include="Factory.cs" />
-    <Compile Include="Migrations\201806012342294_InitialCreate.cs" />
-    <Compile Include="Migrations\201806012342294_InitialCreate.Designer.cs">
-      <DependentUpon>201806012342294_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201806022003574_InitialCreate.cs" />
+    <Compile Include="Migrations\201806022003574_InitialCreate.Designer.cs">
+      <DependentUpon>201806022003574_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806012344364_UpdateUser.cs" />
-    <Compile Include="Migrations\201806012344364_UpdateUser.Designer.cs">
-      <DependentUpon>201806012344364_UpdateUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806012348362_Updatefect.cs" />
-    <Compile Include="Migrations\201806012348362_Updatefect.Designer.cs">
-      <DependentUpon>201806012348362_Updatefect.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806012350495_UpdateInf.cs" />
-    <Compile Include="Migrations\201806012350495_UpdateInf.Designer.cs">
-      <DependentUpon>201806012350495_UpdateInf.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806012351385_UpdateInfluences.cs" />
-    <Compile Include="Migrations\201806012351385_UpdateInfluences.Designer.cs">
-      <DependentUpon>201806012351385_UpdateInfluences.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806012354320_UpdateInfluence.cs" />
-    <Compile Include="Migrations\201806012354320_UpdateInfluence.Designer.cs">
-      <DependentUpon>201806012354320_UpdateInfluence.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806012357360_AddResult.cs" />
-    <Compile Include="Migrations\201806012357360_AddResult.Designer.cs">
-      <DependentUpon>201806012357360_AddResult.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="SpecialMethods\GeneralMethods.cs" />
     <Compile Include="SpecialMethods\ImagesUploaded.cs" />
     <Compile Include="Interfaces\IGame.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IStorage.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Characteristic.cs" />
     <Compile Include="Models\Effect.cs" />
@@ -112,26 +88,8 @@
     <Resource Include="Images\gamepad.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806012342294_InitialCreate.resx">
-      <DependentUpon>201806012342294_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806012344364_UpdateUser.resx">
-      <DependentUpon>201806012344364_UpdateUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806012348362_Updatefect.resx">
-      <DependentUpon>201806012348362_Updatefect.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806012350495_UpdateInf.resx">
-      <DependentUpon>201806012350495_UpdateInf.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806012351385_UpdateInfluences.resx">
-      <DependentUpon>201806012351385_UpdateInfluences.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806012354320_UpdateInfluence.resx">
-      <DependentUpon>201806012354320_UpdateInfluence.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806012357360_AddResult.resx">
-      <DependentUpon>201806012357360_AddResult.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806022003574_InitialCreate.resx">
+      <DependentUpon>201806022003574_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

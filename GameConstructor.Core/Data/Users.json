@@ -2,7 +2,7 @@
   {
     "Games": [],
     "Login": "login2",
-    "Id": 6,
+    "Id": 1,
     "Password": "bLdfZSqbUnmOts8iAQV8cw==",
     "Email": "Введите Email"
   },
@@ -11,26 +11,26 @@
       {
         "Characteristics": [
           {
-            "Id": 8,
+            "Id": 1,
             "Name": "Хуевкость",
-            "GameId": 7,
+            "GameId": 1,
             "Value": 0,
             "Influences": []
           }
         ],
         "Picture": null,
         "Questions": [],
-        "Id": 7,
+        "Id": 1,
         "Name": "asdasd",
         "Source": null,
         "DisplayingInGameMode": false,
-        "UserId": 7,
+        "UserId": 2,
         "Popularity": 0,
         "Results": []
       }
     ],
     "Login": "login",
-    "Id": 7,
+    "Id": 2,
     "Password": "X03MO1qnZdYdgyfeuILPmQ==",
     "Email": "Введите Email"
   }
