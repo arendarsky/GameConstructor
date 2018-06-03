@@ -368,7 +368,10 @@ namespace GameConstructor.GUI
 
             Influence influence = ChangeOfCharacteristicLTextBox.DataContext as Influence;
 
-            ChangeOfCharacteristicLTextBox.Text = influence.Value.ToString();
+            if (influence.Value == defaultInfluenceValue)
+            {
+                ChangeOfCharacteristicLTextBox.Text = "";
+            }           
 
             ChangeOfCharacteristicLTextBox.Foreground = Brushes.Black;
         }
