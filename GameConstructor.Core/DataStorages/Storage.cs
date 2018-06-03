@@ -43,7 +43,13 @@ namespace GameConstructor.Core.DataStorages
                     foreach (var g in u.Games)
                         foreach (var c in g.Characteristics)
                             foreach (var i in c.Influences)
+                            {
                                 i.Characteristic = c;
+                                foreach (var q in g.Questions)
+                                    foreach (var a in q.Answers)
+                                        a.Effects.First(e => e.Id == i.EffectId).Influences.Add(i);
+                            }
+                                
                     
             }
 
