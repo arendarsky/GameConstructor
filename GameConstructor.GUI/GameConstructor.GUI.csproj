@@ -79,6 +79,7 @@
     <Compile Include="ResultAfterQuestionWindow.xaml.cs">
       <DependentUpon>ResultAfterQuestionWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UICore\UIMethods.cs" />
     <Page Include="Developer_III_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -37,14 +37,18 @@ namespace GameConstructor.Core.SpecialMethods
 
 
 
-        public static bool AreThereSameElementsInTheStringCollection (IEnumerable<string> collection)
+        public static bool AreThereSameElementsInTheStringCollection (IEnumerable<string> collection, out string element)
         {
+            element = null;
+
             foreach (var str in collection)
             {
                 int number = collection.Count(item => item == str);
 
                 if (number != 1)
                 {
+                    element = str;
+
                     return true;
                 }
             }

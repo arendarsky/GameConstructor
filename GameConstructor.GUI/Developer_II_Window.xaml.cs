@@ -2,6 +2,7 @@
 using GameConstructor.Core.Interfaces;
 using GameConstructor.Core.Models;
 using GameConstructor.Core.SpecialMethods;
+using GameConstructor.GUI.UICore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -448,58 +449,53 @@ namespace GameConstructor.GUI
 
         private bool AreTheObligatoryFieldsFilled()
         {
-            for (int i = 0; i < QuestionsListBox.Items.Count; i++)
+            if (UIMethods.FindCurrentTextInTextBoxesOfTheListBox(QuestionsListBox, 1, defaultQuestionText, "Текст вопроса — обязательный аттрибут. Заполните все пустые поля либо удалите ненужные вопросы."))
             {
-                ListBoxItem itemContainer = QuestionsListBox.ItemContainerGenerator.ContainerFromIndex(i) as ListBoxItem;
-
-                Border itemContainerBorder = VisualTreeHelper.GetChild(itemContainer, 0) as Border;
-                ContentPresenter itemContainerContentPresenter = VisualTreeHelper.GetChild(itemContainerBorder, 0) as ContentPresenter;
-                Grid itemUIParent = VisualTreeHelper.GetChild(itemContainerContentPresenter, 0) as Grid;
-
-                TextBox QuestionTextBox = itemUIParent.Children[1] as TextBox;
-
-                if (QuestionTextBox.Text == defaultQuestionText)
-                {
-                    MessageBox.Show("Текст вопроса — обязательный аттрибут. Заполните все пустые поля либо удалите ненужные вопросы.", "Ошибка!");
-
-                    QuestionTextBox.Focus();
-
-                    return false;
-                }
+                return false;
             }
 
             return true;
         }
 
+
+
         private bool AreTheFieldsFilledDifferently()
         {
             var questionsBodies = _questions.Select(qu => qu.Body.ToUpperInvariant());
 
-            if (GeneralMethods.AreThereSameElementsInTheStringCollection(questionsBodies))
+            if (GeneralMethods.AreThereSameElementsInTheStringCollection(questionsBodies, out string questionElement))
             {
-                MessageBox.Show("По крайней мере два ваших вопроса совпадают. Так нельзя — как же игроки будут их различать?", "Ошибка!");
+                UIMethods.FindCurrentTextInTextBoxesOfTheListBox(QuestionsListBox, 1, questionElement, "По крайней мере два ваших вопроса совпадают. Так нельзя — как же игроки будут их различать?");
 
                 return false;
             }
 
             foreach (var question in _questions)
             {
+                int questionIndex = _questions.IndexOf(question);
+
                 var answerBodies = question.Answers.Select(an => an.Body.ToUpperInvariant());
 
-                if (GeneralMethods.AreThereSameElementsInTheStringCollection(answerBodies))
+                ListBox AnswerListBox = UIMethods.GetUIElementChildByNumberFromListBox(QuestionsListBox, questionIndex, 4) as ListBox;
+
+                if (GeneralMethods.AreThereSameElementsInTheStringCollection(answerBodies, out string answerElement))
                 {
-                    MessageBox.Show($"В вопросе {(_questions.IndexOf(question) + 1).ToString()} есть одинаковые ответы. Измените их либо удалите ненужные.", "Ошибка!");
+                    UIMethods.FindCurrentTextInTextBoxesOfTheListBox(AnswerListBox, 0, answerElement, $"В вопросе {(questionIndex + 1).ToString()} есть одинаковые ответы. Измените их либо удалите ненужные.");
 
                     return false;
                 }
 
                 foreach (var answer in question.Answers)
                 {
+                    int answerIndex = question.Answers.IndexOf(answer);
+
                     var reactionBodies = answer.Effects.Select(re => re.Body.ToUpperInvariant());
 
-                    if (GeneralMethods.AreThereSameElementsInTheStringCollection(reactionBodies))
+                    if (GeneralMethods.AreThereSameElementsInTheStringCollection(reactionBodies, out string reactionElement))
                     {
-                        MessageBox.Show($"В вопросе {(_questions.IndexOf(question) + 1).ToString()} есть реакции с совпадающим текстом. Измените их либо удалите ненужные.", "Ошибка!");
+                        ListBox ReactionListBox = UIMethods.GetUIElementChildByNumberFromListBox(AnswerListBox, answerIndex, 3) as ListBox;
+
+                        UIMethods.FindCurrentTextInTextBoxesOfTheListBox(ReactionListBox, 0, reactionElement, $"В вопросе {(questionIndex + 1).ToString()} есть реакции с совпадающим текстом. Измените их либо удалите ненужные.");
 
                         return false;
                     }
