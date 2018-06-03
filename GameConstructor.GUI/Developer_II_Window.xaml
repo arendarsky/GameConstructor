@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameConstructor.GUI"
         mc:Ignorable="d"
-        Title="Игровой конструктор - режим разработчика. Этап 2." Height="600" MinHeight="460" MinWidth="740" Width="795" MaxWidth="1040" Closing="Window_Closing">
+        Title="Игровой конструктор - режим разработчика. Этап 2." Height="630" MinHeight="490" MinWidth="820" Width="875" MaxWidth="1120" Closing="Window_Closing">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -28,13 +28,13 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Margin="20 35 10 20" FontSize="18" FontFamily="Verdana">Разработайте игру с нашим конструктором</TextBlock>
+                <TextBlock Margin="30 35 10 20" FontSize="18" FontFamily="Verdana">Разработайте игру с нашим конструктором</TextBlock>
 
                 <Button Name="HelpButton" BorderBrush="Transparent" Background="Transparent" Grid.Column="1" Height="Auto" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 32">
                     <Image Source="Images/img_199922.png" Height="25" Width="25"></Image>
                 </Button>
 
-                <Grid Grid.Column="2" Margin="20 15 40 20">
+                <Grid Grid.Column="2" Margin="20 15 50 20">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition/>
@@ -54,7 +54,7 @@
 
                 <Button Name="NewQuestionButton" Panel.ZIndex="1" Grid.Row="2" Grid.ColumnSpan="3" FontSize="18" Padding="30 0" Margin="0 -90 0 35" HorizontalAlignment="Center" Click="NewQuestionButton_Click">Добавить вопрос</Button>
 
-                <ListBox Name="QuestionsListBox" Grid.Row="1" Grid.ColumnSpan="3" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderBrush="Transparent" Margin="25 10 25 30" HorizontalContentAlignment="Stretch">
+                <ListBox Name="QuestionsListBox" Grid.Row="1" Grid.ColumnSpan="3" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderBrush="Transparent" Margin="65 10 50 30" HorizontalContentAlignment="Stretch">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -71,13 +71,13 @@
                                 </Grid.RowDefinitions>
 
                                 <TextBlock Name="QuestionTextBlock" Margin="0 20 30 6" FontSize="18" Initialized="QuestionTextBlock_Initialized" FontFamily="Verdana">Hello World</TextBlock>
-                                <TextBox Name="QuestionTextBox" Width="Auto" Grid.Column="1" Margin="10 12 20 12" FontSize="16" HorizontalAlignment="Stretch" Padding="10 10" FontFamily="Verdana" Initialized="QuestionTextBox_Initialized" GotFocus="QuestionTextBox_GotFocus" LostFocus="QuestionTextBox_LostFocus">Текст вопроса</TextBox>
+                                <TextBox Name="QuestionTextBox" Width="Auto" Grid.Column="1" Margin="10 12 20 12" FontSize="16" HorizontalAlignment="Stretch" Padding="10 10" FontFamily="Verdana" TextWrapping="Wrap" Initialized="QuestionTextBox_Initialized" GotFocus="QuestionTextBox_GotFocus" LostFocus="QuestionTextBox_LostFocus">Текст вопроса</TextBox>
 
                                 <Button Name="DeleteQuestionButton" Grid.Column="2" Margin="0 0 5 0" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto">
                                     <Image Source="Images/delete_icon.png" Height="22" Width="22"></Image>
                                 </Button>
 
-                                <Button Name="NewAnswerButton" Panel.ZIndex="1" Grid.Row="2" Grid.ColumnSpan="2" FontSize="16" Padding="8 5" HorizontalAlignment="Left" Margin="15 -15 10 90" Click="NewAnswerButton_Click">Добавить вариант ответа</Button>
+                                <Button Name="NewAnswerButton" Panel.ZIndex="1" Grid.Row="2" Grid.ColumnSpan="2" FontSize="16" Padding="8 5" HorizontalAlignment="Left" Margin="17.5 -15 10 90" Click="NewAnswerButton_Click">Добавить вариант ответа</Button>
 
                                 <ListBox Name="AnswersListBox" Grid.Row="1" Grid.ColumnSpan="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 0 30 0" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Stretch" Initialized="AnswersListBox_Initialized">
                                     <ListBox.ItemTemplate>
@@ -94,13 +94,13 @@
                                                     <ColumnDefinition Width="Auto"/>
                                                 </Grid.ColumnDefinitions>
 
-                                                <TextBox Name="AnswerTextBox" Margin="10 7 10 -1" FontSize="15" HorizontalAlignment="Stretch" Padding="10 6" FontFamily="Verdana" Initialized="AnswerTextBox_Initialized" GotFocus="AnswerTextBox_GotFocus" LostFocus="AnswerTextBox_LostFocus" >Hello World</TextBox>
+                                                <TextBox Name="AnswerTextBox" Margin="10 7 10 -1" FontSize="15" HorizontalAlignment="Stretch" Padding="10 6" TextWrapping="Wrap" FontFamily="Verdana" Initialized="AnswerTextBox_Initialized" GotFocus="AnswerTextBox_GotFocus" LostFocus="AnswerTextBox_LostFocus" >Hello World</TextBox>
 
                                                 <Button Name="DeleteAnswerButton" Grid.Column="2" Margin="0 -3 15 0" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto">
                                                     <Image Source="Images/delete_icon.png" Height="18" Width="18"></Image>
                                                 </Button>
 
-                                                <Button Name="NewReactionButton" Panel.ZIndex="1" FontSize="15" HorizontalAlignment="Right" Grid.Row="2" Margin="0 5 20 20" Padding="6 4" Click="NewReactionButton_Click">Новая реакция</Button>
+                                                <Button Name="NewReactionButton" Panel.ZIndex="1" FontSize="15" HorizontalAlignment="Right" Grid.Row="2" Margin="0 5 29 20" Padding="6 4" Click="NewReactionButton_Click">Новая реакция</Button>
 
                                                 <ListBox Name="ReactionsListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Stretch" Initialized="ReactionsListBox_Initialized" Margin="15 6 -7 0" Grid.Row="1">
                                                     <ListBox.ItemTemplate>
