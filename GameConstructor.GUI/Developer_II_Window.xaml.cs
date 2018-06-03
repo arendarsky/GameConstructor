@@ -1,6 +1,7 @@
 ﻿using GameConstructor.Core;
 using GameConstructor.Core.Interfaces;
 using GameConstructor.Core.Models;
+using GameConstructor.Core.SpecialMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -428,6 +429,15 @@ namespace GameConstructor.GUI
 
         private bool CheckingIfEveryFieldIsFilledCorrectly()
         {
+            var questionsBodies = _questions.Select(qu => qu.Body.ToUpperInvariant());
+
+            if (GeneralMethods.AreThereSameElementsInTheStringCollection(questionsBodies))
+            {
+                MessageBox.Show("По крайней мере два ваших вопроса совпадают. Так нельзя — как же игроки будут их различать?", "Ошибка!");
+
+                return false;
+            }
+
             return true;
         }
 
