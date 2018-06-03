@@ -157,12 +157,12 @@ namespace GameConstructor.GUI
 
         private void SaveJsonButton_Click(object sender, RoutedEventArgs e)
         {
-            Factory.Instance.SynchronizeFileStorage();
+            Factory.Instance.SynchronizeFileStorage(_user);
         }
 
         private void SaveDBButton_Click(object sender, RoutedEventArgs e)
         {
-            Factory.Instance.LoadFromFileToDatabase();
+            Factory.Instance.LoadFromFileToDatabase(_user);
         }
     }
 }
