@@ -155,14 +155,19 @@ namespace GameConstructor.GUI
         }
 
 
-        private void SaveJsonButton_Click(object sender, RoutedEventArgs e)
-        {
-            Factory.Instance.SynchronizeFileStorage();
-        }
 
-        private void SaveDBButton_Click(object sender, RoutedEventArgs e)
+        private void BrowseGamesFromJsonTextBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Factory.Instance.LoadFromFileToDatabase();
+
+            MessageBox.Show("Данные успешно загружены!");
+        }
+
+        private void SaveGamesToJsonTextBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Factory.Instance.SynchronizeFileStorage();
+
+            MessageBox.Show("Данные успешно сохранены!");
         }
     }
 }
