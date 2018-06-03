@@ -26,6 +26,7 @@ namespace GameConstructor.GUI
         private const string defaultAnswerText = "Вариант ответа";
         private const string defaultEffectText = "Текст возможной реакции";
         private const string defaultInfluenceText = " изменяется?";
+        private const string defaultInfluenceTextPlural = " изменяются?";
         private const int defaultInfluenceValue = 0;
 
 
@@ -60,10 +61,16 @@ namespace GameConstructor.GUI
             {
                 _questions = _game.GetQuestions.ToList();
             }
+
             catch
             {
                 _questions = new List<Question>();
+            }
 
+            DefaultQuestionListBoxSource();
+
+            if (_questions.Count == 0)
+            {
                 AddNewDefaultQuestion();
             }
         }
@@ -124,7 +131,7 @@ namespace GameConstructor.GUI
             {
                 defaultInfluences.Add(new Influence()
                 {
-                    CharacteristicId = characteristic.Id
+                    Characteristic = characteristic
                 });
             }
             
@@ -248,9 +255,17 @@ namespace GameConstructor.GUI
 
             if (influence.Value == defaultInfluenceValue)
             {
-                ChangeOfCharacteristicTextBox.Text = 
-                    _game.GetCharacteristics.First(c => c.Id == influence.CharacteristicId)
-                    .Name + defaultInfluenceText;
+                var characeristicName = influence.Characteristic.Name;
+
+                if (characeristicName[characeristicName.Length - 1] == 'ы')
+                {
+                    ChangeOfCharacteristicTextBox.Text = characeristicName + defaultInfluenceTextPlural;
+                }
+
+                else
+                {
+                    ChangeOfCharacteristicTextBox.Text = characeristicName + defaultInfluenceText;
+                }
 
                 ChangeOfCharacteristicTextBox.Foreground = Brushes.Gray;
             }
@@ -285,6 +300,10 @@ namespace GameConstructor.GUI
 
                 QuestionTextBox.Foreground = Brushes.Gray;
             }
+
+            Question question = QuestionTextBox.DataContext as Question;
+
+            question.Body = QuestionTextBox.Text;
         }
 
         private void AnswerTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -309,6 +328,10 @@ namespace GameConstructor.GUI
 
                 AnswerTextBox.Foreground = Brushes.Gray;
             }
+            
+            Answer answer = AnswerTextBox.DataContext as Answer;
+
+            answer.Body = AnswerTextBox.Text;
         }
 
         private void ReactionTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -333,6 +356,36 @@ namespace GameConstructor.GUI
 
                 ReactionTextBox.Foreground = Brushes.Gray;
             }
+
+            Effect reaction = ReactionTextBox.DataContext as Effect;
+
+            reaction.Body = ReactionTextBox.Text;
+        }
+
+        private void ChangeOfCharacteristicLTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox ChangeOfCharacteristicLTextBox = sender as TextBox;
+
+            Influence influence = ChangeOfCharacteristicLTextBox.DataContext as Influence;
+
+            if (influence.Value == defaultInfluenceValue)
+            {
+                ChangeOfCharacteristicLTextBox.Text = "";
+            }           
+
+            ChangeOfCharacteristicLTextBox.Foreground = Brushes.Black;
+        }
+
+        private void ChangeOfCharacteristicLTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox ChangeOfCharacteristicLTextBox = sender as TextBox;
+
+            Influence influence = ChangeOfCharacteristicLTextBox.DataContext as Influence;
+
+            try { influence.Value = int.Parse(ChangeOfCharacteristicLTextBox.Text); }
+            catch { }
+
+            ChangeOfCharacteristicLTextBox.Text = influence.Value.ToString();
         }
 
 
@@ -357,7 +410,23 @@ namespace GameConstructor.GUI
             }
         }
 
+
+
         private bool GamePartialSave()
+        {
+            if (CheckingIfEveryFieldIsFilledCorrectly())
+            {
+                IfThereWereAnyChangesMadeByUser();
+
+                _game.UpdateQuestions(_questions);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool CheckingIfEveryFieldIsFilledCorrectly()
         {
             return true;
         }
@@ -366,6 +435,8 @@ namespace GameConstructor.GUI
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            bool cancelation = false;
+
             if (!_goingToTheNextDeveloperWindow && !_goingToThePreviousDeveloperWindow)
             {
                 if (IfThereWereAnyChangesMadeByUser())
@@ -376,7 +447,14 @@ namespace GameConstructor.GUI
                     if (messageBoxResult == MessageBoxResult.No || messageBoxResult == MessageBoxResult.Cancel || messageBoxResult == MessageBoxResult.None)
                     {
                         e.Cancel = true;
+
+                        cancelation = true;
                     }
+                }
+
+                if (!cancelation)
+                {
+                    GoingBackToProfileWindow();
                 }
             }
 
@@ -405,6 +483,13 @@ namespace GameConstructor.GUI
             developer_III_Window.Show();
         }
 
+        private void GoingBackToProfileWindow()
+        {
+            ProfileWindow profileWindow = new ProfileWindow(_storage, _user);
+
+            profileWindow.Show();
+        }
+
 
 
         private bool IfThereWereAnyChangesMadeByUser()
@@ -427,7 +512,7 @@ namespace GameConstructor.GUI
 
             Grid QuestionGrid = NewAnswerButton.Parent as Grid;
 
-            ListBox AnswerListBox = QuestionGrid.Children[3] as ListBox;
+            ListBox AnswerListBox = QuestionGrid.Children[4] as ListBox;
 
             Question question = NewAnswerButton.DataContext as Question;
 
@@ -440,11 +525,13 @@ namespace GameConstructor.GUI
 
             Grid AnswerGrid = NewReactionButton.Parent as Grid;
 
-            ListBox ReactionsListBox = AnswerGrid.Children[2] as ListBox;
+            ListBox ReactionsListBox = AnswerGrid.Children[3] as ListBox;
 
             Answer answer = NewReactionButton.DataContext as Answer;
 
             AddNewDefaultReaction(ReactionsListBox, answer);
-        }        
+        }
+
+        
     }
 }

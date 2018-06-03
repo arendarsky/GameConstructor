@@ -121,6 +121,7 @@ namespace GameConstructor.GUI
 
         private void UserGamesListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+
             Game game = UserGamesListBox.SelectedItem as Game;
 
             Developer_I_Window developer_I_Window = new Developer_I_Window(_user, game, _storage);
@@ -148,8 +149,25 @@ namespace GameConstructor.GUI
                 //_context.Games.Remove(currentGame);
                 //_context.SaveChanges();
                 _storage.RemoveGame(currentGame);
+                _user.Games.RemoveAll(g => g.Name == currentGame.Name);
                 DefaultGameListBoxItemsSource();
             }
+        }
+
+
+
+        private void BrowseGamesFromJsonTextBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Factory.Instance.LoadFromFileToDatabase();
+
+            MessageBox.Show("Данные успешно загружены!");
+        }
+
+        private void SaveGamesToJsonTextBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Factory.Instance.SynchronizeFileStorage();
+
+            MessageBox.Show("Данные успешно сохранены!");
         }
     }
 }

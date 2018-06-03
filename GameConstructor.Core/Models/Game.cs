@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using GameConstructor.Core.DataStorages;
 using Newtonsoft.Json;
 using System.Data.Entity.Migrations;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameConstructor.Core.Models
 {
@@ -16,16 +17,17 @@ namespace GameConstructor.Core.Models
         public string Name { get; set; }
         public string Source { get; set; }
         public bool DisplayingInGameMode { get; set; }
+        [Required]
+        public int UserId { get; set; }
         public int Popularity { get; set; }
-        [JsonIgnore]
         public virtual Picture Picture { get; set; }
-        [JsonIgnore]
         public virtual List<Question> Questions { get; set; }
-        [JsonIgnore]
         public virtual List<Characteristic> Characteristics { get; set; }
+        public List<Result> Results { get; set; }
 
-
+        [JsonIgnore]
         public IEnumerable<Question> GetQuestions => Questions;
+        [JsonIgnore]
         public IEnumerable<Characteristic> GetCharacteristics => Characteristics;
         public Game()
         {

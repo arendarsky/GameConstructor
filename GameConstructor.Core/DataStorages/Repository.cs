@@ -16,16 +16,22 @@ namespace GameConstructor.Core.DataStorages
         protected List<T> _items;
         public IEnumerable<T> Items => _items;
         
+
         public void Add(T item)
         {
             _items.Add(item);
         }
+
         public void Remove(T item)
         {
             _items.Remove(item);
         }
+
         public abstract void Save();
     }
+
+
+
     internal class FileRepository<T>: BaseRepository<T>
     {
         string _fileName;
@@ -38,15 +44,24 @@ namespace GameConstructor.Core.DataStorages
 
         private void Restore()
         {
-            using (var sr = new StreamReader(_fileName))
+            try
             {
-                using (var jsonReader = new JsonTextReader(sr))
+                using (var sr = new StreamReader(_fileName))
                 {
-                    var serializer = new JsonSerializer();
-                    _items = serializer.Deserialize<List<T>>(jsonReader);
+                    using (var jsonReader = new JsonTextReader(sr))
+                    {
+                        var serializer = new JsonSerializer();
+                        _items = serializer.Deserialize<List<T>>(jsonReader);
+                    }
                 }
             }
+
+            catch
+            {
+                _items = new List<T>();
+            }
         }
+
 
         public override void Save()
         {
@@ -62,18 +77,25 @@ namespace GameConstructor.Core.DataStorages
             }
         }
     }
+
+
+
     internal class DatabaseRepository<T>: BaseRepository<T>
     {
         List<T> items;
-        public DatabaseRepository(List<T> Items)
+
+
+        public DatabaseRepository(List<T> items)
         {
-            items = Items;
+            this.items = items;
             Restore();
         }
+
         private void Restore()
         {
             _items = items;
         }
+
         public override void Save()
         {
             

@@ -12,9 +12,8 @@ namespace GameConstructor.Core.Models
     {
         public int Id { get; set; }
         public string Body { get; set; }
-        //[Required]
-        //public int QuestionId { get; set; }
-        [JsonIgnore]
+        [Required]
+        public int QuestionId { get; set; }
         public virtual List<Effect> Effects { get; set; }
     }
 }

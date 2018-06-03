@@ -10,15 +10,16 @@ namespace GameConstructor.Core.Interfaces
     public interface IStorage
     {
         IRepository<User> Users { get; }
-        IRepository<Game> PlayingGames { get; }
-        Game OpenGame(IGame _game);
+        IRepository<Game> PlayableGames { get; }
+        IGame OpenGame(IGame _game);
         void SaveGame(User user, IGame game);
         User LoadUsersGames(User user);
         void SaveUser(User user);
-        void RemoveGame(Game game);
+        void RemoveGame(IGame game);
         void RemoveCharacteristic(Characteristic characteristic);
         void RemoveQuestion(Question question);
         void RemoveAnswer(Answer answer);
         void RemoveEffect(Effect effect);
+        void CloseGame();
     }
 }

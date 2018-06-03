@@ -9,211 +9,354 @@ using GameConstructor.Core.Models;
 
 namespace GameConstructor.Core.DataStorages
 {
-    internal class FileStorage 
+    internal class FileStorage : IStorage
     {
-        IRepository<Game> _games;
+        IRepository<Game> _playingGames;
         IRepository<User> _users;
-        IRepository<Question> _questions;
-        IRepository<Answer> _answers;
-        IRepository<Influence> _influences;
-        IRepository<Effect> _effects;
-        IRepository<Picture> _pictures;
-        IRepository<Characteristic> _characteristics;
-        bool _loaded;
-        bool ForDb;
+        bool _forDb;
+        bool _gameOpened;
+
+
         public FileStorage(bool forDb)
         {
-            ForDb = forDb;
+            _forDb = forDb;
+            Load();
         }
-        public IRepository<Game> Games
-        {
-            get
-            {
-                Load();
-                return _games;
-            }
-        }
-        public IRepository<User> Users
-        {
-            get
-            {
-                Load();
-                return _users;
-            }
-        }
+
+
         private void Load()
         {
-            if (_loaded)
-                return;
-            if (ForDb)
+            if (_forDb)
             {
-                _games = new FileRepository<Game>("GameConstructor.Core/Data/Games.json");
-                _users = new FileRepository<User>("GameConstructor.Core/Data/Users.json");
-                _questions = new FileRepository<Question>(
-                    "GameConstructor.Core/Data/Questions.json");
-                _answers = new FileRepository<Answer>(
-                    "GameConstructor.Core/Data/Answers.json");
-                _effects = new FileRepository<Effect>(
-                    "GameConstructor.Core/Data/Effects.json");
-                _influences = new FileRepository<Influence>(
-                    "GameConstructor.Core/Data/Influences.json");
-                _characteristics = new FileRepository<Characteristic>(
-                    "GameConstructor.Core/Data/Characteristics.json");
-                _pictures = new FileRepository<Picture>(
-                    "GameConstructor.Core/Data/Pictures.json");
+                _users = new FileRepository<User>("../GameConstructor.Core/Data/Users.json");
+
             }
+
             else
             {
-                _games = new FileRepository<Game>("../../../GameConstructor.Core/Data/Games.json");
                 _users = new FileRepository<User>("../../../GameConstructor.Core/Data/Users.json");
-                _questions = new FileRepository<Question>(
-                    "../../../GameConstructor.Core/Data/Questions.json");
-                _answers = new FileRepository<Answer>(
-                    "../../../GameConstructor.Core/Data/Answers.json");
-                _effects = new FileRepository<Effect>(
-                    "../../../GameConstructor.Core/Data/Effects.json");
-                _influences = new FileRepository<Influence>(
-                    "../../../GameConstructor.Core/Data/Influences.json");
-                _characteristics = new FileRepository<Characteristic>(
-                    "../../../GameConstructor.Core/Data/Characteristics.json");
-                _pictures = new FileRepository<Picture>(
-                    "../../../GameConstructor.Core/Data/Pictures.json");
             }
-            //foreach (var i in _influences.Items)
-            //    i.Characteristic = _characteristics.Items.First(c => c.Id == i.CharacteristicId);
-            //foreach (var e in _effects.Items)
-            //    e.Influences = _influences.Items.Where(i => i.EffectId == e.Id).ToList();
-            //foreach (var a in _answers.Items)
-            //    a.Effects = _effects.Items.Where(e => e.AnswerId == a.Id).ToList();
-            //foreach (var q in _questions.Items)
-            //    q.Answers = _answers.Items.Where(a => a.QuestionId == q.Id).ToList();
-            //foreach (var g in _games.Items)
-            //{
-            //    g.Questions = _questions.Items.Where(q => q.GameId == g.Id).ToList();
-            //    //g.Picture = _pictures.Items.First(p => p.Id == g.PictureId);
-            //    g.Characteristics = _characteristics.Items.Where(c => c.GameId == g.Id).ToList();
-            //    //g.User = _users.Items.First(u => u.Id == g.UserId);
-            //}
+
+            try
+            {
+                foreach (var u in _users.Items)
+                    foreach (var g in u.Games)
+                        foreach (var c in g.Characteristics)
+                            foreach (var i in c.Influences)
+                            {
+                                i.Characteristic = c;
+                                foreach (var q in g.Questions)
+                                    foreach (var a in q.Answers)
+                                        a.Effects.First(e => e.Id == i.EffectId).Influences.Add(i);
+                            }
+                                
+                    
+            }
+
+            catch
+            {
+
+            }
         }
-        public void SaveAll()
+
+
+        public IRepository<User> Users => _users;
+         
+        public IRepository<Game> PlayableGames
         {
-            
+            get
+            {
+                List<Game> playingGames = new List<Game>();
+                foreach (var u in _users.Items)
+                    playingGames.AddRange(u.Games.Where(g => g.DisplayingInGameMode == true));
+                _playingGames = new DatabaseRepository<Game>(playingGames);
+                return _playingGames;
+            }
+        }
+
+
+        public User LoadUsersGames(User user)
+        {
+            return user;
+        }
+        public void LoadToDatabase()
+        {
+            using(Context context = new Context())
+            {
+                User user;
+                foreach (var u in _users.Items.Where(
+                    us => us.Login == "Sanochkin" || us.Login == "Arendarsky"))
+                {
+                    try
+                    {
+                        user = context.Users.First(us => us.Login == u.Login);
+                        context.Users.Remove(user);
+                    }
+                    catch
+                    {
+
+                    }
+                    context.Users.Add(u);
+                }
+                    
+                    
+                context.SaveChanges();
+            }
+        }
+        public void Synchronize()
+        {
+            using (Context context = new Context())
+            {
+                IRepository<User> usersFromDatabase = new DatabaseRepository<User>(context.Users
+                    .Where(u => u.Login == "Sanochkin" || u.Login == "Arendarsky").ToList());
+                foreach (var u in usersFromDatabase.Items)
+                {
+                        foreach (var g in u.Games)
+                        {
+                            foreach (var c in g.Characteristics)
+                                context.Entry(c).Collection(ch => ch.Influences).Load();
+                            foreach (var q in g.Questions)
+                            {
+                                foreach (var a in q.Answers)
+                                {
+                                    foreach (var e in a.Effects)
+                                    {
+                                        foreach (var i in e.Influences)
+                                            context.Entry(i).Reference(inf => inf.Characteristic).Load();
+                                        context.Entry(e).Collection(ef => ef.Influences).Load();
+                                    }
+                                    context.Entry(a).Collection(an => an.Effects).Load();
+                                }
+                                context.Entry(q).Collection(qu => qu.Answers).Load();
+                            }
+                            context.Entry(g).Collection(gm => gm.Questions).Load();
+                            context.Entry(g).Reference(gm => gm.Picture).Load();
+                            context.Entry(g).Collection(gm => gm.Results).Load();
+                        }
+                }
+                foreach (var u in usersFromDatabase.Items)
+                {
+                    if (_users.Items.FirstOrDefault(us => us.Login == u.Login) == null)
+                        _users.Add(u);
+                    else
+                    {
+                        User user = _users.Items.First(us => us.Login == u.Login);
+                        _users.Remove(user);
+                        _users.Add(u);
+                    }
+                }
+
+                _users.Save();
+            }
+        }
+
+
+        public void SaveGame(User user, IGame game)
+        {
+            if (!_gameOpened)
+            {
+                user.Games.Add(game as Game);
+                _users.Save();
+            }
+
+            else
+            {
+                _users.Save();
+            }
+
+            _gameOpened = false;
+        }
+
+        public void CloseGame()
+        {
+            _users = new FileRepository<User>("../../../GameConstructor.Core/Data/Users.json");
+            _gameOpened = false;
+        }
+
+        public void SaveUser(User user)
+        {
+            _users.Add(user);
+            _users.Save();
+        }
+
+        public IGame OpenGame(IGame _game)
+        {
+            _gameOpened = true;
+            return _game;
+        }
+   
+        public void RemoveGame(IGame game)
+        {
+            User user = _users.Items.First(u => u.Games.FirstOrDefault(g => g.Name == game.Name) != null);
+            Game Game = user.Games.First(g => g.Name == game.Name);
+            user.Games.Remove(Game);
+            _users.Save();
+        }
+
+        public void RemoveCharacteristic(Characteristic characteristic)
+        {
+
+        }
+
+        public void RemoveQuestion(Question question)
+        {
+
+        }
+
+        public void RemoveAnswer(Answer answer)
+        {
+
+        }
+
+        public void RemoveEffect(Effect effect)
+        {
+
         }
     }
+
+
+
     internal class DatabaseStorage: IStorage
     {
         IRepository<Game> _playingGames;
         IRepository<User> _users;
         bool _gameOpened;
-        Context context;
+        Context _context;
+
+
         public IRepository<User> Users
         {
             get
             {
-                using(context = new Context())
+                using(_context = new Context())
                 {
-                    _users = new DatabaseRepository<User>(context.Users.ToList());
+                    _users = new DatabaseRepository<User>(_context.Users.ToList());
                     return _users;
                 }
             }
         }
        
-        public IRepository<Game> PlayingGames
+        public IRepository<Game> PlayableGames
         {
             get
             {
-                using(context = new Context())
+                using(_context = new Context())
                 {
-                    _playingGames = new DatabaseRepository<Game>(context.Games.Where(
+                    _playingGames = new DatabaseRepository<Game>(_context.Games.Where(
                         g => g.DisplayingInGameMode == true).ToList());
                     return _playingGames;
                 }
             }
         }
+
+
+        public void CloseGame()
+        {
+            _context.Dispose();
+            _gameOpened = false;
+        }
+
         public void SaveGame(User user, IGame game)
         {
             if (_gameOpened)
             {
-                context.SaveChanges();
-                context.Dispose();
+                _context.SaveChanges();
+                _context.Dispose();
                 _gameOpened = false;
             }
+
             else
             {
-                using (context = new Context())
+                using (_context = new Context())
                 {
-                    context.Users.First(u => u.Id == user.Id).Games.Add(game as Game);
-                    context.SaveChanges();
+                    _context.Users.First(u => u.Id == user.Id).Games.Add(game as Game);
+                    _context.SaveChanges();
                 }
             }
           
         }
+
+
         public void SaveUser(User user)
         {
-            using(context = new Context())
+            using(_context = new Context())
             {
-                context.Users.Add(user);
-                context.SaveChanges();
+                _context.Users.Add(user);
+                _context.SaveChanges();
             }
         }
-        public Game OpenGame(IGame _game)
+
+
+        public IGame OpenGame(IGame _game)
         {
-            context = new Context();
-            Game game = context.Games.First(g => g.Id == _game.Id);
+            _context = new Context();
+            IGame game = _context.Games.First(g => g.Id == _game.Id);
             _gameOpened = true;
             return game;
         }
+
+
         public User LoadUsersGames(User user)
         {
-            using(context = new Context())
+            using(_context = new Context())
             {
-                User _user = context.Users.First(u => u.Id == user.Id);
-                context.Entry(_user).Collection("Games").Load();
+                User _user = _context.Users.First(u => u.Id == user.Id);
+                _context.Entry(_user).Collection("Games").Load();
                 foreach (var g in _user.Games)
-                    context.Entry(g).Reference("Picture").Load();
+                    _context.Entry(g).Reference("Picture").Load();
                 return _user;
             }
         }
-        public void RemoveItem<T>(T item) where T: class
+
+        public void RemoveGame(IGame game)
         {
-            if (_gameOpened)
+            using (_context = new Context())
             {
-                
+                Game Game = _context.Games.First(g => g.Id == game.Id);
+                _context.Games.Remove(Game);
+                if (Game.Picture != null)
+                {
+                    Picture picture = _context.Pictures.First(p => p.Id == Game.Picture.Id);
+                    _context.Pictures.Remove(picture);
+                }
+                _context.SaveChanges();
             }
         }
-        public void RemoveGame(Game game)
-        {
-            using (context = new Context())
-            {
-                Game Game = context.Games.First(g => g.Id == game.Id);
-                context.Games.Remove(Game);
-                context.SaveChanges();
-            }
-        }
+
         public void RemoveCharacteristic(Characteristic characteristic)
         {
-            characteristic = context.Characteristics.First(
-                c => c.Id == characteristic.Id);
-            context.Characteristics.Remove(characteristic);
+            try
+            {
+                characteristic = _context.Characteristics.First(
+                    c => c.Id == characteristic.Id);
+                _context.Characteristics.Remove(characteristic);
+            }
+
+            catch
+            {
+                return;
+            }
         }
+
         public void RemoveQuestion(Question question)
         {
-            question = context.Questions.First(
+            question = _context.Questions.First(
                 q => q.Id == question.Id);
-            context.Questions.Remove(question);
+            _context.Questions.Remove(question);
         }
+
         public void RemoveAnswer(Answer answer)
         {
-            answer = context.Answers.First(
+            answer = _context.Answers.First(
                 c => c.Id == answer.Id);
-            context.Answers.Remove(answer);
+            _context.Answers.Remove(answer);
         }
+
         public void RemoveEffect(Effect effect)
         {
-            effect = context.Effects.First(
+            effect = _context.Effects.First(
                 c => c.Id == effect.Id);
-            context.Effects.Remove(effect);
+            _context.Effects.Remove(effect);
         }
-    }
-    
+    }    
 }

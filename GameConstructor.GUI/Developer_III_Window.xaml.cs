@@ -45,6 +45,13 @@ namespace GameConstructor.GUI
         private const string mathOperatorExplanation = "символ '!=' обозначает оператор 'не равно'";
 
 
+        private const string defaultNumberResultComboBoxText = "номер";
+
+        private const string defaultConstructorBuildingComboBox = "Выберите продолжение";
+        private const string constructorBuildingComboBoxNewCondition = "Новое условие";
+        private const string constructorBuildingComboBoxOtherVariants = "Остальные варианты";
+
+
         IGame _game;
         bool _wereThereAlreadySomeChangings;
         User _user;
@@ -53,6 +60,7 @@ namespace GameConstructor.GUI
 
         IStorage _storage;
         Dictionary<string, string> _characteristicDictionary;
+        List<int> _possibleTextResults;
 
 
         private string Conjuction => conjuctionSymbol + emDash + conjuctionName + " (" + conjuctionExplanation + ")";
@@ -123,6 +131,8 @@ namespace GameConstructor.GUI
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            bool cancelation = false;
+
             if (!_goingToThePreviousDeveloperWindow && !_savingTheGame)
             {
                 if (IfThereWereAnyChangesMadeByUser())
@@ -133,7 +143,14 @@ namespace GameConstructor.GUI
                     if (messageBoxResult == MessageBoxResult.No || messageBoxResult == MessageBoxResult.Cancel || messageBoxResult == MessageBoxResult.None)
                     {
                         e.Cancel = true;
+
+                        cancelation = true;
                     }
+                }
+
+                if (!cancelation)
+                {
+                    GoingBackToProfileWindow();
                 }
             }
 
@@ -153,6 +170,13 @@ namespace GameConstructor.GUI
             Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, _storage, _wereThereAlreadySomeChangings);
 
             developer_II_Window.Show();
+        }
+
+        private void GoingBackToProfileWindow()
+        {
+            ProfileWindow profileWindow = new ProfileWindow(_storage, _user);
+
+            profileWindow.Show();
         }
 
         private void SavingTheGameAndReturningToProfile()
@@ -177,7 +201,9 @@ namespace GameConstructor.GUI
 
         private void PossibleResultTextsListBox_Initialized(object sender, EventArgs e)
         {
-            PossibleResultTextsListBox.ItemsSource = new List<int> { 1, 2, 3 };
+            _possibleTextResults = new List<int>();
+
+            AddNewPossibleTextResult();
         }
 
         private void ResultTextBlock_Initialized(object sender, EventArgs e)
@@ -186,6 +212,8 @@ namespace GameConstructor.GUI
 
             ResultTextBlock.Text += ((int)ResultTextBlock.DataContext).ToString();
         }
+
+
 
         private void CharacteristicAbbreviationsListBox_Initialized(object sender, EventArgs e)
         {
@@ -218,9 +246,79 @@ namespace GameConstructor.GUI
             CharacteristicAbbreviationTextBlock.Text = text;
         }
 
+
+
         private void Constructor_Initialized(object sender, EventArgs e)
         {
-            Constructor.ItemsSource = new List<int> { 1, 2, 3, 4 };
+            DefaultConstructorItemsSource();
+        }
+
+
+
+        private void ResultNumberCombobox_Initialized(object sender, EventArgs e)
+        {
+            ComboBox ResultNumberCombobox = sender as ComboBox;
+
+            List<string> comboBoxSource = new List<string> { defaultNumberResultComboBoxText };
+
+            foreach (var textResult in PossibleResultTextsListBox.ItemsSource)
+            {
+                comboBoxSource.Add(textResult.ToString());
+            }
+
+            ResultNumberCombobox.ItemsSource = comboBoxSource;
+
+            ResultNumberCombobox.SelectedIndex = 0;
+        }
+
+        private void ConstructorBuildingCombobox_Initialized(object sender, EventArgs e)
+        {
+            ComboBox ConstructorBuildingComboBox = sender as ComboBox;
+
+            List<string> comboBoxSource = new List<string> { defaultConstructorBuildingComboBox, constructorBuildingComboBoxNewCondition, constructorBuildingComboBoxOtherVariants };
+
+            ConstructorBuildingComboBox.ItemsSource = comboBoxSource;
+                        
+            ConstructorBuildingComboBox.SelectedIndex = 1;
+
+            if ((int)ConstructorBuildingComboBox.DataContext == 3)
+            {
+                ConstructorBuildingComboBox.SelectedIndex = 0;
+            }
+        }
+
+
+
+        private void NewTextResultButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewPossibleTextResult();
+        }
+
+
+
+        private void DefaultPossibleTextResultsItemsSource()
+        {
+            PossibleResultTextsListBox.ItemsSource = null;
+
+            PossibleResultTextsListBox.ItemsSource = _possibleTextResults;
+        }
+
+        private void AddNewPossibleTextResult()
+        {
+            _possibleTextResults.Add(_possibleTextResults.Count + 1);
+
+            DefaultPossibleTextResultsItemsSource();
+
+            if (Constructor != null) { DefaultConstructorItemsSource(); }            
+        }
+
+
+
+        private void DefaultConstructorItemsSource()
+        {
+            Constructor.ItemsSource = null;
+
+            Constructor.ItemsSource = new List<int> { 1, 2, 3 };
         }
     }
 }
