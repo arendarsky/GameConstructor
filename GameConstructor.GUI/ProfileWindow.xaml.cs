@@ -121,15 +121,31 @@ namespace GameConstructor.GUI
 
         private void UserGamesListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            if (UserGamesListBox.SelectedItem is Game game)
+            {
+                Developer_I_Window developer_I_Window = new Developer_I_Window(_user, game, _storage);
 
-            Game game = UserGamesListBox.SelectedItem as Game;
+                developer_I_Window.Show();
 
-            Developer_I_Window developer_I_Window = new Developer_I_Window(_user, game, _storage);
-
-            developer_I_Window.Show();
-
-            Close();
+                Close();
+            }
         }
+
+        //private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    if (e.ClickCount >= 2)
+        //    {
+        //        Grid item = sender as Grid;
+
+        //        Game game = item.DataContext as Game;
+
+        //        Developer_I_Window developer_I_Window = new Developer_I_Window(_user, game, _storage);
+
+        //        developer_I_Window.Show();
+
+        //        Close();
+        //    }
+        //}
 
 
 
