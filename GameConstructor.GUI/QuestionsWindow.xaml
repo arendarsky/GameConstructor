@@ -1,0 +1,70 @@
+﻿<Window x:Class="GameConstructor.GUI.QuestionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameConstructor.GUI"
+        mc:Ignorable="d"
+        Title="Название игры" MinHeight="500" MinWidth="800" Height="500" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFAF875A" Offset="1"/>
+                <GradientStop Color="#FFFEF4C9"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <ScrollViewer>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="45,45,143,45" FontFamily="Verdana" Height="37" Width="193">Вопрос №N</TextBlock>
+
+                <ListBox Name="CharacteristicsListBox" Grid.Row="0" Grid.Column="1" Margin="45,10,45,9.667" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Name="NumberOfCharacteristic" FontSize="15" FontFamily="Verdana" Margin="0 0 0 0" >1</TextBlock>
+
+                                <TextBlock Grid.Column="1" Name="DiscriptionOfCharacteristic" FontSize="15" FontFamily="Verdana" Margin="0 0 0 0" >показатель</TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Name="Question" FontSize="20" FontFamily="Verdana" Margin="45 20 45 20" TextWrapping="Wrap" >Текст Вопроса </TextBlock>
+
+                <ListBox Name="AnswersListBox" Grid.Row="2" Grid.ColumnSpan="2" Margin="45,9.667,45,-242.333" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Name="NomberOfAnswer" FontSize="15" FontFamily="Verdana" Margin="10 10 0 0" >1</TextBlock>
+
+                                <TextBlock Grid.Column="1" Name="DiscriptionOfAnswer" FontSize="15" FontFamily="Verdana" Margin="10 10 0 0" TextWrapping="Wrap" >вариант ответа</TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>

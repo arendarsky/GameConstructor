@@ -13,29 +13,18 @@ namespace GameConstructor.Core.DataStorages
     {
         IRepository<Game> _playingGames;
         IRepository<User> _users;
-        bool _forDb;
+        User _user;
         bool _gameOpened;
 
-
-        public FileStorage(bool forDb)
+        public FileStorage(User user)
         {
-            _forDb = forDb;
+            _user = user;
             Load();
         }
-
-
         private void Load()
         {
-            if (_forDb)
-            {
-                _users = new FileRepository<User>("../GameConstructor.Core/Data/Users.json");
 
-            }
-
-            else
-            {
-                _users = new FileRepository<User>("../../../GameConstructor.Core/Data/Users.json");
-            }
+            _users = new FileRepository<User>($"../../../GameConstructor.Core/Data/{_user.Login}.json");
 
             try
             {
@@ -49,8 +38,8 @@ namespace GameConstructor.Core.DataStorages
                                     foreach (var a in q.Answers)
                                         a.Effects.First(e => e.Id == i.EffectId).Influences.Add(i);
                             }
-                                
-                    
+
+
             }
 
             catch
@@ -84,68 +73,49 @@ namespace GameConstructor.Core.DataStorages
             using(Context context = new Context())
             {
                 User user;
-                foreach (var u in _users.Items.Where(
-                    us => us.Login == "Sanochkin" || us.Login == "Arendarsky"))
+                try
                 {
-                    try
-                    {
-                        user = context.Users.First(us => us.Login == u.Login);
-                        context.Users.Remove(user);
-                    }
-                    catch
-                    {
-
-                    }
-                    context.Users.Add(u);
+                    user = context.Users.First(us => us.Login == _user.Login);
+                    context.Users.Remove(user);
                 }
-                    
-                    
+                catch
+                {
+
+                }
+                context.Users.Add(_user);                                        
                 context.SaveChanges();
             }
         }
-        public void Synchronize()
+        public void LoadToFile()
         {
             using (Context context = new Context())
             {
-                IRepository<User> usersFromDatabase = new DatabaseRepository<User>(context.Users
-                    .Where(u => u.Login == "Sanochkin" || u.Login == "Arendarsky").ToList());
-                foreach (var u in usersFromDatabase.Items)
+                User user = context.Users.First(u => u.Login == _user.Login);
+                foreach (var g in user.Games)
                 {
-                        foreach (var g in u.Games)
-                        {
-                            foreach (var c in g.Characteristics)
-                                context.Entry(c).Collection(ch => ch.Influences).Load();
-                            foreach (var q in g.Questions)
-                            {
-                                foreach (var a in q.Answers)
-                                {
-                                    foreach (var e in a.Effects)
-                                    {
-                                        foreach (var i in e.Influences)
-                                            context.Entry(i).Reference(inf => inf.Characteristic).Load();
-                                        context.Entry(e).Collection(ef => ef.Influences).Load();
-                                    }
-                                    context.Entry(a).Collection(an => an.Effects).Load();
-                                }
-                                context.Entry(q).Collection(qu => qu.Answers).Load();
-                            }
-                            context.Entry(g).Collection(gm => gm.Questions).Load();
-                            context.Entry(g).Reference(gm => gm.Picture).Load();
-                            context.Entry(g).Collection(gm => gm.Results).Load();
-                        }
-                }
-                foreach (var u in usersFromDatabase.Items)
-                {
-                    if (_users.Items.FirstOrDefault(us => us.Login == u.Login) == null)
-                        _users.Add(u);
-                    else
+                    foreach (var c in g.Characteristics)
+                        context.Entry(c).Collection(ch => ch.Influences).Load();
+                    foreach (var q in g.Questions)
                     {
-                        User user = _users.Items.First(us => us.Login == u.Login);
-                        _users.Remove(user);
-                        _users.Add(u);
+                        foreach (var a in q.Answers)
+                        {
+                            foreach (var e in a.Effects)
+                            {
+                                foreach (var i in e.Influences)
+                                    context.Entry(i).Reference(inf => inf.Characteristic).Load();
+                                context.Entry(e).Collection(ef => ef.Influences).Load();
+                            }
+                            context.Entry(a).Collection(an => an.Effects).Load();
+                        }
+                        context.Entry(q).Collection(qu => qu.Answers).Load();
                     }
+                    context.Entry(g).Collection(gm => gm.Questions).Load();
+                    context.Entry(g).Reference(gm => gm.Picture).Load();
+                    context.Entry(g).Collection(gm => gm.Results).Load();
                 }
-
+                _user = _users.Items.First(u => u.Login == _user.Login);
+                _users.Remove(_user);
+                _users.Add(user);
                 _users.Save();
             }
         }

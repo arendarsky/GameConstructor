@@ -1,0 +1,42 @@
+﻿<Window x:Class="GameConstructor.GUI.EndOfGameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameConstructor.GUI"
+        mc:Ignorable="d"
+        Title="Конец/Название игры" MinHeight="500" MinWidth="800" Height="500" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFAF875A" Offset="1"/>
+                <GradientStop Color="#FFFEF4C9"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <ScrollViewer>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto" MinWidth="390"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="312,45,271,45" FontFamily="Verdana" Height="37" Width="193">Конец игры!</TextBlock>
+
+                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"  FontFamily="Verdana" Margin="218,67,208,9.333" Height="31" Width="350" >Описание результата игры</TextBlock>
+
+                <Button Name="PlayToDifferentGames" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Margin="48,0,0,29.667" Padding="12 8" Height="52" Width="190" >Другие игры</Button>
+
+                <Button Name="PlayAgain" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Margin="48,0,0,29.667" Padding="12 8" Height="52" Width="190" >Играть снова</Button>
+
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
