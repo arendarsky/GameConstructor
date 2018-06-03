@@ -427,7 +427,51 @@ namespace GameConstructor.GUI
             return false;
         }
 
+
+
         private bool CheckingIfEveryFieldIsFilledCorrectly()
+        {
+            if (!AreTheFieldsFilledDifferently())
+            {
+                return false;
+            }
+
+            else if (!AreTheObligatoryFieldsFilled())
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+
+        private bool AreTheObligatoryFieldsFilled()
+        {
+            for (int i = 0; i < QuestionsListBox.Items.Count; i++)
+            {
+                ListBoxItem itemContainer = QuestionsListBox.ItemContainerGenerator.ContainerFromIndex(i) as ListBoxItem;
+
+                Border itemContainerBorder = VisualTreeHelper.GetChild(itemContainer, 0) as Border;
+                ContentPresenter itemContainerContentPresenter = VisualTreeHelper.GetChild(itemContainerBorder, 0) as ContentPresenter;
+                Grid itemUIParent = VisualTreeHelper.GetChild(itemContainerContentPresenter, 0) as Grid;
+
+                TextBox QuestionTextBox = itemUIParent.Children[1] as TextBox;
+
+                if (QuestionTextBox.Text == defaultQuestionText)
+                {
+                    MessageBox.Show("Текст вопроса — обязательный аттрибут. Заполните все пустые поля либо удалите ненужные вопросы.", "Ошибка!");
+
+                    QuestionTextBox.Focus();
+
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool AreTheFieldsFilledDifferently()
         {
             var questionsBodies = _questions.Select(qu => qu.Body.ToUpperInvariant());
 
@@ -436,6 +480,30 @@ namespace GameConstructor.GUI
                 MessageBox.Show("По крайней мере два ваших вопроса совпадают. Так нельзя — как же игроки будут их различать?", "Ошибка!");
 
                 return false;
+            }
+
+            foreach (var question in _questions)
+            {
+                var answerBodies = question.Answers.Select(an => an.Body.ToUpperInvariant());
+
+                if (GeneralMethods.AreThereSameElementsInTheStringCollection(answerBodies))
+                {
+                    MessageBox.Show($"В вопросе {(_questions.IndexOf(question) + 1).ToString()} есть одинаковые ответы. Измените их либо удалите ненужные.", "Ошибка!");
+
+                    return false;
+                }
+
+                foreach (var answer in question.Answers)
+                {
+                    var reactionBodies = answer.Effects.Select(re => re.Body.ToUpperInvariant());
+
+                    if (GeneralMethods.AreThereSameElementsInTheStringCollection(reactionBodies))
+                    {
+                        MessageBox.Show($"В вопросе {(_questions.IndexOf(question) + 1).ToString()} есть реакции с совпадающим текстом. Измените их либо удалите ненужные.", "Ошибка!");
+
+                        return false;
+                    }
+                }
             }
 
             return true;

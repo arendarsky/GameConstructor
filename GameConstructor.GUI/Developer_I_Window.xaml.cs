@@ -68,7 +68,17 @@ namespace GameConstructor.GUI
             _storage = storage;
             _user = user;
             _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
-            _game = game;
+
+            if (_wereThereAlreadySomeChangings)
+            {
+                _game = game;
+            }
+
+            else
+            {
+                _game = storage.OpenGame(game);
+            }
+
 
             _characteristics = _game.GetCharacteristics.ToList();
             _picture = _game.Picture;
@@ -82,7 +92,6 @@ namespace GameConstructor.GUI
 
             DefaultCharacteristicsListBoxSource();
         }
-
 
         public Developer_I_Window(User user, IGame game, IStorage storage) : this(user, game, storage, false) { }
 
