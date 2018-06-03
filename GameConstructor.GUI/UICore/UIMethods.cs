@@ -11,7 +11,7 @@ namespace GameConstructor.GUI.UICore
 {
     public class UIMethods
     {
-        public static UIElement GetUIElementChildByNumberFromListBox(ListBox listBox, int listBoxIndex, int childNumber)
+        public static UIElement GetUIElementChildByNumberFromTemplatedListBox(ListBox listBox, int listBoxIndex, int childNumber)
         {
             ListBoxItem itemContainer = listBox.ItemContainerGenerator.ContainerFromIndex(listBoxIndex) as ListBoxItem;
 
@@ -23,11 +23,11 @@ namespace GameConstructor.GUI.UICore
         }
 
 
-        public static bool FindCurrentTextInTextBoxesOfTheListBox(ListBox listBox, int childNumber, string wantedStringValue, string messageBoxText)
+        public static bool FindCurrentTextInTextBoxesOfTheTemplatedListBox(ListBox listBox, int childNumber, string wantedStringValue, string messageBoxText)
         {
             for (int i = 0; i < listBox.Items.Count; i++)
             {
-                TextBox TextBox = GetUIElementChildByNumberFromListBox(listBox, i, childNumber) as TextBox;
+                TextBox TextBox = GetUIElementChildByNumberFromTemplatedListBox(listBox, i, childNumber) as TextBox;
 
                 if (TextBox.Text.ToUpperInvariant() == wantedStringValue.ToUpperInvariant())
                 {

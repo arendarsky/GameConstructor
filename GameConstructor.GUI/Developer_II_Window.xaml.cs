@@ -432,12 +432,12 @@ namespace GameConstructor.GUI
 
         private bool CheckingIfEveryFieldIsFilledCorrectly()
         {
-            if (!AreTheFieldsFilledDifferently())
+            if (!AreTheObligatoryFieldsFilled())
             {
                 return false;
             }
 
-            else if (!AreTheObligatoryFieldsFilled())
+            else if (!AreTheFieldsFilledDifferently())
             {
                 return false;
             }
@@ -449,9 +449,39 @@ namespace GameConstructor.GUI
 
         private bool AreTheObligatoryFieldsFilled()
         {
-            if (UIMethods.FindCurrentTextInTextBoxesOfTheListBox(QuestionsListBox, 1, defaultQuestionText, "Текст вопроса — обязательный аттрибут. Заполните все пустые поля либо удалите ненужные вопросы."))
+            if (UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(QuestionsListBox, 1, defaultQuestionText, "Текст вопроса — обязательный аттрибут. Заполните все пустые поля либо удалите ненужные вопросы."))
             {
                 return false;
+            }
+
+            else
+            {
+                foreach (var question in _questions)
+                {
+                    int questionIndex = _questions.IndexOf(question);
+
+                    ListBox AnswerListBox = UIMethods.GetUIElementChildByNumberFromTemplatedListBox(QuestionsListBox, questionIndex, 4) as ListBox;
+
+                    if (UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(AnswerListBox, 0, defaultAnswerText, "Текст ответа — обязательный аттрибут. Заполните все пустые поля либо удалите ненужные ответы."))
+                    {
+                        return false;
+                    }
+
+                    else
+                    {
+                        foreach (var answer in question.Answers)
+                        {
+                            int answerIndex = question.Answers.IndexOf(answer);
+
+                            ListBox ReactionListBox = UIMethods.GetUIElementChildByNumberFromTemplatedListBox(AnswerListBox, answerIndex, 3) as ListBox;
+
+                            if (UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(ReactionListBox, 0, defaultEffectText, "Текст возможной реакции — обязательный аттрибут. Заполните все пустые поля либо удалите ненужные реакции."))
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
             }
 
             return true;
@@ -465,7 +495,7 @@ namespace GameConstructor.GUI
 
             if (GeneralMethods.AreThereSameElementsInTheStringCollection(questionsBodies, out string questionElement))
             {
-                UIMethods.FindCurrentTextInTextBoxesOfTheListBox(QuestionsListBox, 1, questionElement, "По крайней мере два ваших вопроса совпадают. Так нельзя — как же игроки будут их различать?");
+                UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(QuestionsListBox, 1, questionElement, "По крайней мере два ваших вопроса совпадают. Так нельзя — как же игроки будут их различать?");
 
                 return false;
             }
@@ -476,11 +506,11 @@ namespace GameConstructor.GUI
 
                 var answerBodies = question.Answers.Select(an => an.Body.ToUpperInvariant());
 
-                ListBox AnswerListBox = UIMethods.GetUIElementChildByNumberFromListBox(QuestionsListBox, questionIndex, 4) as ListBox;
+                ListBox AnswerListBox = UIMethods.GetUIElementChildByNumberFromTemplatedListBox(QuestionsListBox, questionIndex, 4) as ListBox;
 
                 if (GeneralMethods.AreThereSameElementsInTheStringCollection(answerBodies, out string answerElement))
                 {
-                    UIMethods.FindCurrentTextInTextBoxesOfTheListBox(AnswerListBox, 0, answerElement, $"В вопросе {(questionIndex + 1).ToString()} есть одинаковые ответы. Измените их либо удалите ненужные.");
+                    UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(AnswerListBox, 0, answerElement, $"В вопросе {(questionIndex + 1).ToString()} есть одинаковые ответы. Измените их либо удалите ненужные.");
 
                     return false;
                 }
@@ -493,9 +523,9 @@ namespace GameConstructor.GUI
 
                     if (GeneralMethods.AreThereSameElementsInTheStringCollection(reactionBodies, out string reactionElement))
                     {
-                        ListBox ReactionListBox = UIMethods.GetUIElementChildByNumberFromListBox(AnswerListBox, answerIndex, 3) as ListBox;
+                        ListBox ReactionListBox = UIMethods.GetUIElementChildByNumberFromTemplatedListBox(AnswerListBox, answerIndex, 3) as ListBox;
 
-                        UIMethods.FindCurrentTextInTextBoxesOfTheListBox(ReactionListBox, 0, reactionElement, $"В вопросе {(questionIndex + 1).ToString()} есть реакции с совпадающим текстом. Измените их либо удалите ненужные.");
+                        UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(ReactionListBox, 0, reactionElement, $"В вопросе {(questionIndex + 1).ToString()} есть реакции с совпадающим текстом. Измените их либо удалите ненужные.");
 
                         return false;
                     }

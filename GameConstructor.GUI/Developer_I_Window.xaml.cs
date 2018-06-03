@@ -385,7 +385,7 @@ namespace GameConstructor.GUI
                 return false;
             }
 
-            else if (UIMethods.FindCurrentTextInTextBoxesOfTheListBox(CharacteristicsListBox, 0, defaultCharacteristicName, "Название характеристики — обязательный аттрибут. Заполните все поля либо удалите ненужные характеристики."))
+            else if (UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(CharacteristicsListBox, 0, defaultCharacteristicName, "Название характеристики — обязательный аттрибут. Заполните все поля либо удалите ненужные характеристики."))
             {
                 return false;
             }            
@@ -395,7 +395,7 @@ namespace GameConstructor.GUI
 
             if (GeneralMethods.AreThereSameElementsInTheStringCollection(namesOfCharacteristics, out string element))
             {
-                UIMethods.FindCurrentTextInTextBoxesOfTheListBox(CharacteristicsListBox, 0, element, "По крайней мере две ваши характеристики имеют одинаковое название. Так нельзя — как же игроки будут их различать?");
+                UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(CharacteristicsListBox, 0, element, "По крайней мере две ваши характеристики имеют одинаковое название. Так нельзя — как же игроки будут их различать?");
 
                 _theSameCharacteristicsNamesErrorWasShown = true;
 
@@ -406,12 +406,12 @@ namespace GameConstructor.GUI
             {
                 if (_theSameCharacteristicsNamesErrorWasShown)
                 {
-                    UIMethods.FindCurrentTextInTextBoxesOfTheListBox(CharacteristicsListBox, 0, element, "Одинаковые названия в разном регистре  — не вариант, уж простите. Пожалуйста, измените названия.");
+                    UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(CharacteristicsListBox, 0, element, "Одинаковые названия в разном регистре  — не вариант, уж простите. Пожалуйста, измените названия.");
                 }
 
                 else
                 {
-                    UIMethods.FindCurrentTextInTextBoxesOfTheListBox(CharacteristicsListBox, 0, element, "По крайней мере две ваши характеристики имеют одинаковое название. Без учета регистра. Пожалуйста, измените названия.");
+                    UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(CharacteristicsListBox, 0, element, "По крайней мере две ваши характеристики имеют одинаковое название. Без учета регистра. Пожалуйста, измените названия.");
                 }
 
                 return false;
