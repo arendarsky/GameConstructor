@@ -67,8 +67,17 @@
     <Compile Include="DiscriptionOfGameWindow.xaml.cs">
       <DependentUpon>DiscriptionOfGameWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EndOfGameWindow.xaml.cs">
+      <DependentUpon>EndOfGameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionsWindow.xaml.cs">
+      <DependentUpon>QuestionsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ResultAfterQuestionWindow.xaml.cs">
+      <DependentUpon>ResultAfterQuestionWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Developer_III_Window.xaml">
       <SubType>Designer</SubType>
@@ -83,6 +92,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DiscriptionOfGameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EndOfGameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,7 +128,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="QuestionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResultAfterQuestionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
