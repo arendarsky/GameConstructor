@@ -158,14 +158,14 @@ namespace GameConstructor.GUI
 
         private void BrowseGamesFromJsonTextBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Factory.Instance.LoadFromFileToDatabase();
+            Factory.Instance.LoadFromFileToDatabase(_user);
 
             MessageBox.Show("Данные успешно загружены!");
         }
 
         private void SaveGamesToJsonTextBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Factory.Instance.SynchronizeFileStorage();
+            Factory.Instance.SynchronizeFileStorage(_user);
 
             MessageBox.Show("Данные успешно сохранены!");
         }
