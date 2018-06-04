@@ -16,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GameConstructor.GUI.UICore;
 
 namespace GameConstructor.GUI
 {
@@ -384,56 +385,42 @@ namespace GameConstructor.GUI
                 return false;
             }
 
+            else if (UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(CharacteristicsListBox, 0, defaultCharacteristicName, "Название характеристики — обязательный аттрибут. Заполните все поля либо удалите ненужные характеристики."))
+            {
+                return false;
+            }            
+
             var namesOfCharacteristics = _characteristics.Select(ch => ch.Name);
             var namesOfCharacteristicsWithOneRegister = _characteristics.Select(ch => ch.Name.ToUpperInvariant());
 
-            if (GeneralMethods.AreThereSameElementsInTheStringCollection(namesOfCharacteristics))
+            if (GeneralMethods.AreThereSameElementsInTheStringCollection(namesOfCharacteristics, out string element))
             {
-                MessageBox.Show("По крайней мере две ваши характеристики имеют одинаковое название. Так нельзя — как же игроки будут их различать?", "Ошибка!");
+                UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(CharacteristicsListBox, 0, element, "По крайней мере две ваши характеристики имеют одинаковое название. Так нельзя — как же игроки будут их различать?");
 
                 _theSameCharacteristicsNamesErrorWasShown = true;
 
                 return false;
             }
 
-            else if (GeneralMethods.AreThereSameElementsInTheStringCollection(namesOfCharacteristicsWithOneRegister))
+            else if (GeneralMethods.AreThereSameElementsInTheStringCollection(namesOfCharacteristicsWithOneRegister, out element))
             {
                 if (_theSameCharacteristicsNamesErrorWasShown)
                 {
-                    MessageBox.Show("Одинаковые названия в разном регистре  — не вариант, уж простите. Пожалуйста, измените названия.", "Ошибка!");
+                    UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(CharacteristicsListBox, 0, element, "Одинаковые названия в разном регистре  — не вариант, уж простите. Пожалуйста, измените названия.");
                 }
 
                 else
                 {
-                    MessageBox.Show("По крайней мере две ваши характеристики имеют одинаковое название. Без учета регистра. Пожалуйста, измените названия.", "Ошибка!");
+                    UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(CharacteristicsListBox, 0, element, "По крайней мере две ваши характеристики имеют одинаковое название. Без учета регистра. Пожалуйста, измените названия.");
                 }
 
                 return false;
             }
 
-            else
-            {
-                for (int i = 0; i < CharacteristicsListBox.Items.Count; i++)
-                {
-                    ListBoxItem itemContainer = CharacteristicsListBox.ItemContainerGenerator.ContainerFromIndex(i) as ListBoxItem;
-
-                    Border itemContainerBorder = VisualTreeHelper.GetChild(itemContainer, 0) as Border;
-                    ContentPresenter itemContainerContentPresenter = VisualTreeHelper.GetChild(itemContainerBorder, 0) as ContentPresenter;
-                    Grid itemUIParent = VisualTreeHelper.GetChild(itemContainerContentPresenter, 0) as Grid;
-
-                    TextBox CharacteristicNameTextBox = itemUIParent.Children[0] as TextBox;
-
-                    if (CharacteristicNameTextBox.Text == defaultCharacteristicName)
-                    {
-                        MessageBox.Show("Название характеристики — обязательный аттрибут. Заполните все поля либо удалите ненужные характеристики.", "Ошибка!");
-                        CharacteristicNameTextBox.Focus();
-                        return false;
-                    }
-                }
-            }
-
             return true;
         }
+
+
 
         private bool IfThereWereAnyChangesMadeByUser()
         {
@@ -526,8 +513,11 @@ namespace GameConstructor.GUI
             Button DeleteButton = sender as Button;
 
             Characteristic characteristic = DeleteButton.DataContext as Characteristic;
+
             _storage.RemoveCharacteristic(characteristic);
+
             _characteristics.Remove(characteristic);
+
             DefaultCharacteristicsListBoxSource();
         }
     }
