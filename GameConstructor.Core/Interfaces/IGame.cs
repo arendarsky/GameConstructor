@@ -17,6 +17,7 @@ namespace GameConstructor.Core.Interfaces
         Picture Picture { get; }
         IEnumerable<Question> GetQuestions { get; }
         IEnumerable<Characteristic> GetCharacteristics { get; }
+        IEnumerable<Result> GetResults { get; }
 
         void UpdateName(string name);
         void UpdateSource(string source);

@@ -29,6 +29,8 @@ namespace GameConstructor.Core.Models
         public IEnumerable<Question> GetQuestions => Questions;
         [JsonIgnore]
         public IEnumerable<Characteristic> GetCharacteristics => Characteristics;
+        [JsonIgnore]
+        public IEnumerable<Result> GetResults => Results;
         public Game()
         {
 
