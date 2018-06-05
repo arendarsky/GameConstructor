@@ -25,8 +25,10 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class Developer_I_Window : Window
     {
-        private const string defaultGameName = "Введите название вашей игры";
+        private const string defaultGameName = "Введите название Вашей игры";
         private const string defaultSource = "Укажите оригинальный источник (ссылку), если имеется";
+        private const string defaultDescription = "Здесь приведите краткое описание — пользователям оно будет показано, когда они захотят опробовать Вашу игру";
+
         private const string defaultCharacteristicName = "Название характеристики";
         private const int defaultValueOfCharacteristic = 0;
 
@@ -191,6 +193,15 @@ namespace GameConstructor.GUI
             }
         }
 
+        private void GameDescriptionTextBox_Initialized(object sender, EventArgs e)
+        {
+            GameDescriptionTextBox.Text = defaultDescription;
+
+            GameDescriptionTextBox.Foreground = Brushes.Gray;
+        }
+
+
+
         private void EditAvatarImage_Initialized(object sender, EventArgs e)
         {
             Border imageBorder = EditAvatarImage.Parent as Border;
@@ -328,6 +339,8 @@ namespace GameConstructor.GUI
             CharacteristicValueTextBox.Text = characteristic.Value.ToString();
         }
 
+
+
         private void GameNameTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             if (GameNameTextBox.Text == defaultGameName)
@@ -361,6 +374,24 @@ namespace GameConstructor.GUI
             {
                 SourceTextBox.Text = defaultSource;
                 SourceTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void GameDescriptionTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (GameDescriptionTextBox.Text == defaultDescription)
+            {
+                GameDescriptionTextBox.Text = "";
+                GameDescriptionTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void GameDescriptionTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (GameDescriptionTextBox.Text == "")
+            {
+                GameDescriptionTextBox.Text = defaultDescription;
+                GameDescriptionTextBox.Foreground = Brushes.Gray;
             }
         }
 
