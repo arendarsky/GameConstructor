@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201806022309054_EffectUpdate.Designer.cs">
       <DependentUpon>201806022309054_EffectUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806051734394_AddResultsAndConditions.cs" />
+    <Compile Include="Migrations\201806051734394_AddResultsAndConditions.Designer.cs">
+      <DependentUpon>201806051734394_AddResultsAndConditions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Condition.cs" />
     <Compile Include="Models\Result.cs" />
@@ -99,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806022309054_EffectUpdate.resx">
       <DependentUpon>201806022309054_EffectUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806051734394_AddResultsAndConditions.resx">
+      <DependentUpon>201806051734394_AddResultsAndConditions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

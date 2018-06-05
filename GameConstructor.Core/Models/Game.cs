@@ -23,7 +23,9 @@ namespace GameConstructor.Core.Models
         public virtual Picture Picture { get; set; }
         public virtual List<Question> Questions { get; set; }
         public virtual List<Characteristic> Characteristics { get; set; }
-        public List<Result> Results { get; set; }
+        public string Description { get; set; }
+        public virtual List<Condition> Conditions { get; set; }
+        public virtual List<Result> Results { get; set; }
 
         [JsonIgnore]
         public IEnumerable<Question> GetQuestions => Questions;

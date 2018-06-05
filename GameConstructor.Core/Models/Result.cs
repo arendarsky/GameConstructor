@@ -13,6 +13,6 @@ namespace GameConstructor.Core.Models
         public string Body { get; set; }
         [Required]
         public int GameId { get; set; }
-        public List<string> Conditions { get; set; }
+        public virtual List<Condition> Conditions { get; set; }
     }
 }
