@@ -684,6 +684,7 @@ namespace GameConstructor.GUI
             Question question = DeleteQuestionButton.DataContext as Question;
 
             _questions.Remove(question);
+            _storage.RemoveQuestion(question);
 
             DefaultQuestionListBoxSource();
         }
@@ -702,6 +703,8 @@ namespace GameConstructor.GUI
 
             question.Answers.Remove(answer);
 
+            _storage.RemoveAnswer(answer);
+
             DefaultAnswersListBoxSource(AnswersListBox, question);
         }
 
@@ -718,6 +721,8 @@ namespace GameConstructor.GUI
             Answer answer = ReactionsListBox.DataContext as Answer;
 
             answer.Effects.Remove(effect);
+
+            _storage.RemoveEffect(effect);
 
             DefaultReactionsListBoxSource(ReactionsListBox, answer);
         }

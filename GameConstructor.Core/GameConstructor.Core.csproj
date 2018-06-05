@@ -66,6 +66,7 @@
       <DependentUpon>201806022309054_EffectUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Condition.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="SpecialMethods\GeneralMethods.cs" />
     <Compile Include="SpecialMethods\ImagesUploaded.cs" />
