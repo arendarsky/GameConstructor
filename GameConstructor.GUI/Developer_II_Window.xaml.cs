@@ -432,7 +432,12 @@ namespace GameConstructor.GUI
 
         private bool CheckingIfEveryFieldIsFilledCorrectly()
         {
-            if (!AreTheObligatoryFieldsFilled())
+            if (!AreThereAtLeastOneFieldOfEveryType())
+            {
+                return false;
+            }
+
+            else if (!AreTheObligatoryFieldsFilled())
             {
                 return false;
             }
@@ -443,6 +448,40 @@ namespace GameConstructor.GUI
             }
 
             return true;
+        }
+
+
+
+        private bool AreThereAtLeastOneFieldOfEveryType()
+        {
+            if (_questions == null || _questions.Count == 0)
+            {
+                MessageBox.Show("Вопросов не может вообще не быть. Добавьте хотя бы один.", "Ошибка!");
+
+                return false;
+            }
+            
+            foreach (var question in _questions)
+            {
+                if (question.Answers == null || question.Answers.Count == 0)
+                {
+                    MessageBox.Show($"В вопросе {_questions.IndexOf(question) + 1} нет вариантов ответа. Так нельзя, добавьте хотя бы один.", "Ошибка!");
+
+                    return false;
+                }
+
+                foreach (var answer in question.Answers)
+                {
+                    if (answer.Effects == null || answer.Effects.Count == 0)
+                    {
+                        MessageBox.Show($"В вопросе {_questions.IndexOf(question) + 1} есть вариант ответа с нулевым числом реакций. Исправьте это. По крайней мере одна реакция должна быть в каждом ответе.", "Ошибка!");
+
+                        return false;
+                    }
+                }
+            }
+
+            return true;            
         }
 
 
