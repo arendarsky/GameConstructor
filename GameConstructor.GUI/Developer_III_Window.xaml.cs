@@ -320,5 +320,12 @@ namespace GameConstructor.GUI
 
             Constructor.ItemsSource = new List<int> { 1, 2, 3 };
         }
+
+
+
+        private void ConstructorBuildingCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -154,7 +154,7 @@
                                                 <ComboBox Name="ResultNumberCombobox" Margin="5 6" VerticalAlignment="Top" FontSize="14" Padding="10 5" FontFamily="Century Gothic" Grid.Column="1" Initialized="ResultNumberCombobox_Initialized"></ComboBox>
                                             </Grid>
 
-                                            <ComboBox Name="ConstructorBuildingCombobox" Margin="10 6 5 25" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" Padding="12 5" FontFamily="Century Gothic" Grid.Row="2" Initialized="ConstructorBuildingCombobox_Initialized"></ComboBox>
+                                            <ComboBox Name="ConstructorBuildingCombobox" Margin="10 6 5 25" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" Padding="12 5" FontFamily="Century Gothic" Grid.Row="2" Initialized="ConstructorBuildingCombobox_Initialized" SelectionChanged="ConstructorBuildingCombobox_SelectionChanged"></ComboBox>
                                         </Grid>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
