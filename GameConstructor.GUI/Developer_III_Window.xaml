@@ -117,7 +117,7 @@
 
                             <TextBlock Margin="10 0 20 8" FontSize="17" VerticalAlignment="Center" FontFamily="Verdana">Конструктор результатов</TextBlock>
 
-                            <TextBox Name="ConditionsTextBox" Padding="14 11" Grid.Row="1" FontFamily="Verdana" Margin="8.5 12 15 20" FontSize="15" HorizontalAlignment="Stretch" TextWrapping="Wrap" Foreground="Gray"  Height="120">Кликните на позицию в конструкторе ниже, чтобы редактировать условия результата в данном поле</TextBox>
+                            <TextBox Name="ConditionsTextBox" Padding="14 11" Grid.Row="1" FontFamily="Verdana" Margin="8.5 12 15 20" FontSize="15" HorizontalAlignment="Stretch" TextWrapping="Wrap" Foreground="Gray" Height="120" Initialized="ConditionsTextBox_Initialized" TextChanged="ConditionsTextBox_TextChanged" LostFocus="ConditionsTextBox_LostFocus">Кликните на позицию в конструкторе ниже, чтобы редактировать условия результата в данном поле</TextBox>
  
                             <ListBox Name="Constructor" Background="Transparent" HorizontalAlignment="Center" BorderBrush="Transparent" Grid.Row="2" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="Constructor_Initialized" Margin="-7 3 10 10">
                                 <ListBox.ItemTemplate>
@@ -138,7 +138,7 @@
 
                                                 <TextBlock FontFamily="Century Gothic" VerticalAlignment="Top" FontSize="18" Margin="10 12 10 6">ЕСЛИ</TextBlock>
 
-                                                <TextBox Name="ConstructorConditionTextBox" Grid.Column="1" FontFamily="Century Gothic" Foreground="#CC423535" Padding="10 5" Background="#66E0CBAA" VerticalAlignment="Top" FontSize="15" Margin="8 8 0 6" BorderBrush="#CC443830">логическое условие</TextBox>
+                                                <TextBox Name="ConstructorConditionTextBox" Width="180" Grid.Column="1" FontFamily="Century Gothic" Foreground="#CC423535" Padding="10 5" Background="#66E0CBAA" VerticalAlignment="Top" FontSize="15" Margin="8 8 0 6" BorderBrush="#CC443830" GotFocus="ConstructorConditionTextBox_GotFocus">логическое условие</TextBox>
 
                                                 <TextBlock Grid.Column="2" FontFamily="Century Gothic"  VerticalAlignment="Top" FontSize="22" Margin="10 14 10 4">,</TextBlock>
                                             </Grid>
@@ -154,7 +154,7 @@
                                                 <ComboBox Name="ResultNumberCombobox" Margin="5 6" VerticalAlignment="Top" FontSize="14" Padding="10 5" FontFamily="Century Gothic" Grid.Column="1" Initialized="ResultNumberCombobox_Initialized"></ComboBox>
                                             </Grid>
 
-                                            <ComboBox Name="ConstructorBuildingCombobox" Margin="10 6 5 25" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" Padding="12 5" FontFamily="Century Gothic" Grid.Row="2" Initialized="ConstructorBuildingCombobox_Initialized"></ComboBox>
+                                            <ComboBox Name="ConstructorBuildingCombobox" Margin="10 6 5 25" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" Padding="12 5" FontFamily="Century Gothic" Grid.Row="2" Initialized="ConstructorBuildingCombobox_Initialized" SelectionChanged="ConstructorBuildingCombobox_SelectionChanged"></ComboBox>
                                         </Grid>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>

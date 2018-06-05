@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GameConstructor.Core.Models;
+using GameConstructor.GUI.UICore;
 
 namespace GameConstructor.GUI
 {
@@ -23,6 +24,9 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class Developer_III_Window : Window
     {
+        private const string defaultConditionTextBoxText = "Кликните на позицию в конструкторе ниже, чтобы редактировать условия результата в данном поле";
+        private const string constructorConditionText = "логическое условие";
+
         private const string emDash = " — ";
 
         private const string conjuctionSymbol = "&";
@@ -52,11 +56,16 @@ namespace GameConstructor.GUI
         private const string constructorBuildingComboBoxOtherVariants = "Остальные варианты";
 
 
+        private const string defaultConditionTextBoxBorderBrush = "#CC443830";
+
+
         IGame _game;
         bool _wereThereAlreadySomeChangings;
         User _user;
+
         bool _savingTheGame = false;
         bool _goingToThePreviousDeveloperWindow = false;
+        int _indexOfConstructorTextBoxEdittedByTheMoment = -1;
 
         IStorage _storage;
         Dictionary<string, string> _characteristicDictionary;
@@ -319,6 +328,80 @@ namespace GameConstructor.GUI
             Constructor.ItemsSource = null;
 
             Constructor.ItemsSource = new List<int> { 1, 2, 3 };
+        }
+
+
+
+        private void ConstructorBuildingCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
+
+        private void ConditionsTextBox_Initialized(object sender, EventArgs e)
+        {
+            DefaultConditionTextBoxState();
+        }
+
+        private void DefaultConditionTextBoxState()
+        {
+            ConditionsTextBox.Text = defaultConditionTextBoxText;
+
+            ConditionsTextBox.Foreground = Brushes.Gray;
+
+            ConditionsTextBox.IsReadOnly = true;
+        }
+
+
+
+        private void ConstructorConditionTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox ConstructorConditionTextBox = sender as TextBox;
+
+            int dataContext = (int)ConstructorConditionTextBox.DataContext;
+
+            if (ConstructorConditionTextBox.Text == constructorConditionText)
+            {
+                ConstructorConditionTextBox.Text = "";
+            }
+
+            List<int> itemsSource = Constructor.Items.SourceCollection as List<int>;
+
+            _indexOfConstructorTextBoxEdittedByTheMoment = itemsSource.IndexOf(dataContext);
+
+            ConditionsTextBox.Text = ConstructorConditionTextBox.Text;
+            ConditionsTextBox.IsReadOnly = false;
+            ConditionsTextBox.Focus();
+
+            ConstructorConditionTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF00C7FF"));
+        }
+
+        private void ConditionsTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (_indexOfConstructorTextBoxEdittedByTheMoment != -1)
+            {
+                Grid ConstructorConditionGrid =
+                    UIMethods.GetUIElementChildByNumberFromTemplatedListBox(Constructor, _indexOfConstructorTextBoxEdittedByTheMoment, 0) as Grid;
+
+                TextBox ConstructorConditionTextBox = ConstructorConditionGrid.Children[1] as TextBox;
+
+                ConstructorConditionTextBox.Text = ConditionsTextBox.Text;
+            }
+        }
+
+        private void ConditionsTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Grid ConstructorConditionGrid =
+                    UIMethods.GetUIElementChildByNumberFromTemplatedListBox(Constructor, _indexOfConstructorTextBoxEdittedByTheMoment, 0) as Grid;
+
+            TextBox ConstructorConditionTextBox = ConstructorConditionGrid.Children[1] as TextBox;
+
+            ConstructorConditionTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(defaultConditionTextBoxBorderBrush));
+
+            _indexOfConstructorTextBoxEdittedByTheMoment = -1;
+            
+            DefaultConditionTextBoxState();
         }
     }
 }

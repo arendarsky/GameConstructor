@@ -639,7 +639,18 @@ namespace GameConstructor.GUI
         {
             if (_wereThereAlreadySomeChangings) { return true; }
 
-            return false;
+            List<Question> questions = _questions;
+
+            if (questions.Count == 1 && questions[0] == DefaultQuestion()) { questions = null; }
+
+            if (GeneralMethods.CheckingWhetherCollectionsHaveTheSameValues<Question>(questions, _game.GetQuestions))
+            {
+                return false;
+            }
+
+            _wereThereAlreadySomeChangings = true;
+
+            return true;
         }
 
 
