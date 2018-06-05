@@ -177,6 +177,9 @@ namespace GameConstructor.GUI
             Factory.Instance.LoadFromFileToDatabase(_user);
 
             MessageBox.Show("Данные успешно загружены!");
+
+            _user = _storage.LoadUsersGames(_user);
+            DefaultGameListBoxItemsSource();
         }
 
         private void SaveGamesToJsonTextBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

@@ -46,6 +46,7 @@ namespace GameConstructor.Core.DataStorages
             {
 
             }
+            _user = _users.Items.First();
         }
 
 
@@ -270,7 +271,7 @@ namespace GameConstructor.Core.DataStorages
         {
             using(_context = new Context())
             {
-                User _user = _context.Users.First(u => u.Id == user.Id);
+                User _user = _context.Users.First(u => u.Login == user.Login);
                 _context.Entry(_user).Collection("Games").Load();
                 foreach (var g in _user.Games)
                     _context.Entry(g).Reference("Picture").Load();
