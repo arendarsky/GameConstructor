@@ -636,6 +636,51 @@ namespace GameConstructor.GUI
             AddNewDefaultReaction(ReactionsListBox, answer);
         }
 
-        
+
+
+        private void DeleteQuestionButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button DeleteQuestionButton = sender as Button;
+
+            Question question = DeleteQuestionButton.DataContext as Question;
+
+            _questions.Remove(question);
+
+            DefaultQuestionListBoxSource();
+        }
+
+        private void DeleteAnswerButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button DeleteAnswerButton = sender as Button;
+
+            Answer answer = DeleteAnswerButton.DataContext as Answer;
+
+            Grid AnswerUIGrid = DeleteAnswerButton.Parent as Grid;
+
+            ListBox AnswersListBox = UIMethods.GettingTemplatedListBoxByListBoxItemsGrid(AnswerUIGrid);
+
+            Question question = AnswersListBox.DataContext as Question;
+
+            question.Answers.Remove(answer);
+
+            DefaultAnswersListBoxSource(AnswersListBox, question);
+        }
+
+        private void DeleteReactionButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button DeleteReactionButton = sender as Button;
+
+            Effect effect = DeleteReactionButton.DataContext as Effect;
+
+            Grid ReactionUIGrid = DeleteReactionButton.Parent as Grid;
+
+            ListBox ReactionsListBox = UIMethods.GettingTemplatedListBoxByListBoxItemsGrid(ReactionUIGrid);
+
+            Answer answer = ReactionsListBox.DataContext as Answer;
+
+            answer.Effects.Remove(effect);
+
+            DefaultReactionsListBoxSource(ReactionsListBox, answer);
+        }
     }
 }

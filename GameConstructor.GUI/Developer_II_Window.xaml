@@ -73,7 +73,7 @@
                                 <TextBlock Name="QuestionTextBlock" Margin="0 20 30 6" FontSize="18" Initialized="QuestionTextBlock_Initialized" FontFamily="Verdana">Hello World</TextBlock>
                                 <TextBox Name="QuestionTextBox" Width="Auto" Grid.Column="1" Margin="10 12 20 12" FontSize="16" HorizontalAlignment="Stretch" Padding="10 10" FontFamily="Verdana" TextWrapping="Wrap" Initialized="QuestionTextBox_Initialized" GotFocus="QuestionTextBox_GotFocus" LostFocus="QuestionTextBox_LostFocus">Текст вопроса</TextBox>
 
-                                <Button Name="DeleteQuestionButton" Grid.Column="2" Margin="0 0 5 0" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto">
+                                <Button Name="DeleteQuestionButton" Grid.Column="2" Margin="0 0 5 0" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto" Click="DeleteQuestionButton_Click">
                                     <Image Source="Images/delete_icon.png" Height="22" Width="22"></Image>
                                 </Button>
 
@@ -96,7 +96,7 @@
 
                                                 <TextBox Name="AnswerTextBox" Margin="10 7 10 -1" FontSize="15" HorizontalAlignment="Stretch" Padding="10 6" TextWrapping="Wrap" FontFamily="Verdana" Initialized="AnswerTextBox_Initialized" GotFocus="AnswerTextBox_GotFocus" LostFocus="AnswerTextBox_LostFocus" >Hello World</TextBox>
 
-                                                <Button Name="DeleteAnswerButton" Grid.Column="2" Margin="0 -3 15 0" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto">
+                                                <Button Name="DeleteAnswerButton" Grid.Column="2" Margin="0 -3 15 0" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto" Click="DeleteAnswerButton_Click">
                                                     <Image Source="Images/delete_icon.png" Height="18" Width="18"></Image>
                                                 </Button>
 
@@ -114,7 +114,7 @@
 
                                                                 <TextBox Name="ReactionTextBox" Margin="15 2 20 5" FontSize="14" HorizontalAlignment="Stretch" Padding="10 4" FontFamily="Verdana" TextWrapping="Wrap" Initialized="ReactionTextBox_Initialized" GotFocus="ReactionTextBox_GotFocus" LostFocus="ReactionTextBox_LostFocus">Текст возможной реакции на ответ</TextBox>
 
-                                                                <Button Name="DeleteReactionButton" Grid.Column="2" Margin="0 -3 5 0" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto">
+                                                                <Button Name="DeleteReactionButton" Grid.Column="2" Margin="0 -3 5 0" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto" Click="DeleteReactionButton_Click">
                                                                     <Image Source="Images/delete_icon.png" Height="15" Width="15"></Image>
                                                                 </Button>
 

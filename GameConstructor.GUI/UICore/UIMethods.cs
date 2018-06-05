@@ -41,5 +41,22 @@ namespace GameConstructor.GUI.UICore
 
             return false;
         }
+
+
+
+        public static ListBox GettingTemplatedListBoxByListBoxItemsGrid(Grid ChildGrid)
+        {
+            ContentPresenter itemContentPresenter = VisualTreeHelper.GetParent(ChildGrid) as ContentPresenter;
+            Border itemContainerBorder = VisualTreeHelper.GetParent(itemContentPresenter) as Border;
+            ListBoxItem itemContainer = VisualTreeHelper.GetParent(itemContainerBorder) as ListBoxItem;
+            VirtualizingStackPanel itemVisualParent = VisualTreeHelper.GetParent(itemContainer) as VirtualizingStackPanel;
+            ItemsPresenter listBoxItemsPresenter = VisualTreeHelper.GetParent(itemVisualParent) as ItemsPresenter;
+            ScrollContentPresenter itemsScrollContentPresenter = VisualTreeHelper.GetParent(listBoxItemsPresenter) as ScrollContentPresenter;
+            Grid itemsScrollRepresentation = VisualTreeHelper.GetParent(itemsScrollContentPresenter) as Grid;
+            ScrollViewer itemsScrollViewer = VisualTreeHelper.GetParent(itemsScrollRepresentation) as ScrollViewer;
+            Border parentListBoxBorder = VisualTreeHelper.GetParent(itemsScrollViewer) as Border;
+
+            return VisualTreeHelper.GetParent(parentListBoxBorder) as ListBox;
+        }
     }
 }
