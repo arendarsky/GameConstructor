@@ -13,6 +13,7 @@ namespace GameConstructor.Core.Interfaces
         int Popularity { get; }
         string Name { get; }
         string Source { get; }
+        string Description { get; }
         bool DisplayingInGameMode { get; }
         Picture Picture { get; }
         IEnumerable<Question> GetQuestions { get; }
@@ -21,6 +22,7 @@ namespace GameConstructor.Core.Interfaces
 
         void UpdateName(string name);
         void UpdateSource(string source);
+        void UpdateDescription(string description);
         void UpdatePicture(Picture picture);
         void UpdateQuestions(List<Question> questions);
         void UpdateCharacteristics(List<Characteristic> characteristics);

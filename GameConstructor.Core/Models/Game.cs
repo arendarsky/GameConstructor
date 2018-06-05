@@ -47,6 +47,11 @@ namespace GameConstructor.Core.Models
             Source = source;
         }
 
+        public void UpdateDescription(string description)
+        {
+            Description = description;
+        }
+
         public void UpdatePicture(Picture picture)
         {
             Picture = picture;

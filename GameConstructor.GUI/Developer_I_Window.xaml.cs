@@ -158,6 +158,7 @@ namespace GameConstructor.GUI
 
                 _game.UpdateName(GameNameTextBox.Text);
                 _game.UpdateSource(sourceText);
+                _game.UpdateDescription(GameDescriptionTextBox.Text);
                 _game.UpdatePicture(picture);
                 _game.UpdateCharacteristics(_characteristics);
 
@@ -195,9 +196,14 @@ namespace GameConstructor.GUI
 
         private void GameDescriptionTextBox_Initialized(object sender, EventArgs e)
         {
-            GameDescriptionTextBox.Text = defaultDescription;
+            GameDescriptionTextBox.Text = _game.Description;
 
-            GameDescriptionTextBox.Foreground = Brushes.Gray;
+            if (_game.Description == null || _game.Description == "")
+            {
+                GameDescriptionTextBox.Text = defaultDescription;
+
+                GameDescriptionTextBox.Foreground = Brushes.Gray;
+            }            
         }
 
 
@@ -406,6 +412,13 @@ namespace GameConstructor.GUI
                 return false;
             }
 
+            else if (GameDescriptionTextBox.Text == defaultDescription)
+            {
+                MessageBox.Show("Описание должно присутствовать у каждой игры. Не оставляйте это поле пустым.", "Ошибка!");
+                GameDescriptionTextBox.Focus();
+                return false;
+            }
+
             else if (CharacteristicsListBox.Items.Count == 0)
             {
                 MessageBox.Show("В игре не может не быть характеристик вообще — добавьте, пожалуйста, хотя бы одну!", "Ошибка!");
@@ -459,6 +472,7 @@ namespace GameConstructor.GUI
 
             string name = GameNameTextBox.Text;
             string source = SourceTextBox.Text;
+            string description = GameDescriptionTextBox.Text;
             Picture picture = _picture;
             List<Characteristic> characteristics = _characteristics;
 
@@ -470,6 +484,10 @@ namespace GameConstructor.GUI
             {
                 source = null;
             }
+            if (description == defaultDescription)
+            {
+                description = null;
+            }
             if (picture.ImageSource == defaultImageSource && picture.IsBorderRequired == defaultStateOfBorder)
             {
                 picture = null;
@@ -479,7 +497,7 @@ namespace GameConstructor.GUI
                 characteristics = null;
             }
 
-            if (name == _game.Name && source == _game.Source && picture == _game.Picture && GeneralMethods.CheckingWhetherCollectionsHaveTheSameValues(characteristics, _game.GetCharacteristics))
+            if (name == _game.Name && source == _game.Source && description == _game.Description && picture == _game.Picture && GeneralMethods.CheckingWhetherCollectionsHaveTheSameValues(characteristics, _game.GetCharacteristics))
             {
                 return false;
             }
