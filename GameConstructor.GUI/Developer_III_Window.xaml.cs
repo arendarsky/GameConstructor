@@ -174,9 +174,46 @@ namespace GameConstructor.GUI
 
         private bool CheckingIfEveryFieldIsFilledCorrectly()
         {
+            if (!AreThereAtLeastOneFieldOfEveryType())
+            {
+                return false;
+            }
+
+            else if (!AreTheObligatoryFieldsFilled())
+            {
+                return false;
+            }
+
+            else if (!AreTheFieldsFilledDifferently())
+            {
+                return false;
+            }
+
             return true;
         }
 
+                
+
+        private bool AreThereAtLeastOneFieldOfEveryType()
+        {
+            return true;
+        }
+
+        private bool AreTheObligatoryFieldsFilled()
+        {
+            if (UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(PossibleResultTextsListBox, 1, defaultTextResult, "В списке возможных текстовых результатов остались пустые поля. Пожалуйста, заполните их либо удалите ненужные."))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool AreTheFieldsFilledDifferently()
+        {
+            return true;
+        }
+        
 
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
