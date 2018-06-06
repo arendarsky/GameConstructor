@@ -151,7 +151,7 @@
                                             
                                                 <TextBlock Grid.Column="0"  FontFamily="Century Gothic" VerticalAlignment="Top" FontSize="18" Margin="10 9.5 10 10">ПОКАЗАТЬ РЕЗУЛЬТАТ</TextBlock>
 
-                                                <ComboBox Name="ResultNumberCombobox" Margin="5 6" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14" Padding="10 5" MaxWidth="85" FontFamily="Century Gothic" Grid.Column="1" Initialized="ResultNumberCombobox_Initialized"></ComboBox>
+                                                <ComboBox Name="ResultNumberCombobox" Margin="5 6" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14" Padding="10 5" MaxWidth="85" FontFamily="Century Gothic" Grid.Column="1" Initialized="ResultNumberCombobox_Initialized" SelectionChanged="ResultNumberCombobox_SelectionChanged"></ComboBox>
                                             </Grid>
 
                                             <ComboBox Name="ConstructorBuildingCombobox" Margin="10 6 5 25" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" Padding="12 5" FontFamily="Century Gothic" Grid.Row="2" Initialized="ConstructorBuildingCombobox_Initialized" SelectionChanged="ConstructorBuildingCombobox_SelectionChanged"></ComboBox>

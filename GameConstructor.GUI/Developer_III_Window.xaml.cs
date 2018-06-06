@@ -149,6 +149,11 @@ namespace GameConstructor.GUI
             {
                 AddNewCondition();
             }
+
+            else if (_conditions.Count != 1)
+            {
+                _lastConstructorConditionContinuingIsElse = true;
+            }
         }
 
 
@@ -531,7 +536,19 @@ namespace GameConstructor.GUI
 
             ResultNumberCombobox.ItemsSource = comboBoxSource;
 
-            ResultNumberCombobox.SelectedIndex = 0;
+            var condition = ResultNumberCombobox.DataContext as Core.Models.Condition;
+
+            if (condition.Result == null)
+            {
+                ResultNumberCombobox.SelectedIndex = 0;
+            }
+
+            else
+            {
+                int index = _textResults.IndexOf(condition.Result) + 1;
+
+                ResultNumberCombobox.SelectedIndex = index;
+            }
         }
 
         private void ConstructorBuildingCombobox_Initialized(object sender, EventArgs e)
@@ -594,6 +611,32 @@ namespace GameConstructor.GUI
             Constructor.ItemsSource = _conditions;
         }
 
+
+        private void ResultNumberCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_userSelectionChanging)
+            {
+                ComboBox ResultNumberComboBox = sender as ComboBox;
+
+                var condition = ResultNumberComboBox.DataContext as Core.Models.Condition;
+
+                if (ResultNumberComboBox.SelectedIndex == 0)
+                {
+                    condition.Result = null;
+                    condition.ResultId = 0;
+                }
+
+                else
+                {
+                    var index = int.Parse(ResultNumberComboBox.SelectedItem as string) - 1;
+
+                    var textResult = _textResults[index];
+
+                    condition.Result = textResult;
+                    condition.ResultId = textResult.Id;
+                }
+            }
+        }
 
         private void ConstructorBuildingCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
