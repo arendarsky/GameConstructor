@@ -534,7 +534,7 @@ namespace GameConstructor.GUI
 
             if (GeneralMethods.AreThereSameElementsInTheStringCollection(questionsBodies, out string questionElement))
             {
-                UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(QuestionsListBox, 1, questionElement, "По крайней мере два ваших вопроса совпадают. Так нельзя — как же игроки будут их различать?");
+                UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(QuestionsListBox, 1, questionElement, "По крайней мере два Ваших вопроса совпадают. Так нельзя — как же игроки будут их различать?");
 
                 return false;
             }

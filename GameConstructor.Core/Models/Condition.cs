@@ -16,5 +16,12 @@ namespace GameConstructor.Core.Models
         public int ResultId { get; set; }
         [JsonIgnore]
         public Result Result { get; set; }
+
+        public Condition(string text)
+        {
+            Text = text;
+        }
+
+        public Condition() { }
     }
 }

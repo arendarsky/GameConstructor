@@ -58,6 +58,10 @@ namespace GameConstructor.GUI
         private const string constructorBuildingComboBoxNewCondition = "Новое условие";
         private const string constructorBuildingComboBoxOtherVariants = "Остальные варианты";
 
+        private const string ifCondition = "ЕСЛИ";
+        private const string elseIfCondition = "ИНАЧЕ ЕСЛИ";
+        private const string elseCondition = "ВО ВСЕХ ОСТАЛЬНЫХ СЛУЧАЯХ";
+
 
         private const string defaultConditionTextBoxBorderBrush = "#CC443830";
 
@@ -68,12 +72,16 @@ namespace GameConstructor.GUI
 
         bool _savingTheGame = false;
         bool _goingToThePreviousDeveloperWindow = false;
+        bool _lastConstructorConditionContinuingIsElse = false;
+        bool _userSelectionChanging = false;
+
         int _indexOfConstructorTextBoxEdittedByTheMoment = -1;
 
         IStorage _storage;
         Dictionary<string, string> _characteristicDictionary;
         List<Result> _textResults;
-
+        List<Core.Models.Condition> _conditions;
+        
 
         private string Conjuction => conjuctionSymbol + emDash + conjuctionName + " (" + conjuctionExplanation + ")";
         private string Disjuction => disjuctionSymbol + emDash + disjuctionName + " (" + disjuctionExplanation + ")";
@@ -96,6 +104,7 @@ namespace GameConstructor.GUI
             InitializeComponent();
 
             InitializingTextResults();
+            InitializingConditions();
         }
 
 
@@ -119,6 +128,39 @@ namespace GameConstructor.GUI
                 AddNewPossibleTextResult();
             }
         }
+
+        private void InitializingConditions()
+        {
+            try
+            {
+                _conditions = _game.GetConditions.ToList();
+            }
+
+            catch
+            {
+                _conditions = new List<Core.Models.Condition>();
+
+                _lastConstructorConditionContinuingIsElse = false;
+            }
+
+            DefaultConstructorItemsSource();
+
+            if (_conditions.Count == 0)
+            {
+                AddNewCondition();
+            }
+        }
+
+
+
+        private void AddNewCondition()
+        {
+            _conditions.Add(new Core.Models.Condition(constructorConditionText));
+
+            DefaultConstructorItemsSource();
+        }
+
+
 
         private void FormingCharacteristicDictionary()
         {
@@ -211,6 +253,15 @@ namespace GameConstructor.GUI
 
         private bool AreTheFieldsFilledDifferently()
         {
+            var textResultsBodies = _textResults.Select(textR => textR.Body.ToUpperInvariant());
+
+            if (GeneralMethods.AreThereSameElementsInTheStringCollection(textResultsBodies, out string textResultElement))
+            {
+                UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(PossibleResultTextsListBox, 1, textResultElement, "По крайней мере два текстовых результата совпадают. Удалите ненужные либо переименуйте.");
+
+                return false;
+            }
+
             return true;
         }
         
@@ -345,6 +396,29 @@ namespace GameConstructor.GUI
         }
 
 
+        private void NewTextResultButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewPossibleTextResult();
+        }
+
+
+        private void DefaultPossibleTextResultsItemsSource()
+        {
+            PossibleResultTextsListBox.ItemsSource = null;
+
+            PossibleResultTextsListBox.ItemsSource = _textResults;
+        }
+
+        private void AddNewPossibleTextResult()
+        {
+            _textResults.Add(new Result(defaultTextResult));
+
+            DefaultPossibleTextResultsItemsSource();
+
+            if (Constructor != null) { DefaultConstructorItemsSource(); }
+        }
+
+
 
         private void CharacteristicAbbreviationsListBox_Initialized(object sender, EventArgs e)
         {
@@ -385,6 +459,62 @@ namespace GameConstructor.GUI
         }
 
 
+        private void ConstructorConditionTextBox_Initialized(object sender, EventArgs e)
+        {
+            TextBox ConstructorConditionTextBox = sender as TextBox;
+
+            var condition = ConstructorConditionTextBox.DataContext as Core.Models.Condition;
+
+            int index = _conditions.IndexOf(condition);
+
+            if (index == _conditions.Count - 1 && _lastConstructorConditionContinuingIsElse)
+            {
+                ConstructorConditionTextBox.Visibility = Visibility.Hidden;
+            }
+
+            else
+            {
+                ConstructorConditionTextBox.Text = condition.Text;
+            }
+        }
+
+        private void ConstructorConditionTextBlock_Initialized(object sender, EventArgs e)
+        {
+            TextBlock ConstructorConditionTextBlock = sender as TextBlock;
+
+            var condition = ConstructorConditionTextBlock.DataContext as Core.Models.Condition;
+
+            int index = _conditions.IndexOf(condition);
+
+            if (index == 0)
+            {
+                ConstructorConditionTextBlock.Text = ifCondition;
+            }
+
+            else if (index == _conditions.Count - 1 && _lastConstructorConditionContinuingIsElse)
+            {
+                ConstructorConditionTextBlock.Text = elseCondition;
+            }
+
+            else
+            {
+                ConstructorConditionTextBlock.Text = elseIfCondition;
+            }
+        }
+
+        private void ComaTextBlock_Initialized(object sender, EventArgs e)
+        {
+            TextBlock ComaTextBlock = sender as TextBlock;
+
+            var condition = ComaTextBlock.DataContext as Core.Models.Condition;
+
+            int index = _conditions.IndexOf(condition);
+
+            if (index == _conditions.Count - 1 && _lastConstructorConditionContinuingIsElse)
+            {
+                ComaTextBlock.Visibility = Visibility.Hidden;
+            }
+        }
 
         private void ResultNumberCombobox_Initialized(object sender, EventArgs e)
         {
@@ -392,9 +522,11 @@ namespace GameConstructor.GUI
 
             List<string> comboBoxSource = new List<string> { defaultNumberResultComboBoxText };
 
-            foreach (var textResult in PossibleResultTextsListBox.ItemsSource)
+            foreach (var result in _textResults)
             {
-                comboBoxSource.Add(textResult.ToString());
+                int index = _textResults.IndexOf(result) + 1;
+
+                comboBoxSource.Add(index.ToString());
             }
 
             ResultNumberCombobox.ItemsSource = comboBoxSource;
@@ -404,61 +536,97 @@ namespace GameConstructor.GUI
 
         private void ConstructorBuildingCombobox_Initialized(object sender, EventArgs e)
         {
+            _userSelectionChanging = false;
+
             ComboBox ConstructorBuildingComboBox = sender as ComboBox;
 
             List<string> comboBoxSource = new List<string> { defaultConstructorBuildingComboBox, constructorBuildingComboBoxNewCondition, constructorBuildingComboBoxOtherVariants };
 
             ConstructorBuildingComboBox.ItemsSource = comboBoxSource;
-                        
-            ConstructorBuildingComboBox.SelectedIndex = 1;
 
-            if ((int)ConstructorBuildingComboBox.DataContext == 3)
+            var condition = ConstructorBuildingComboBox.DataContext as Core.Models.Condition;
+
+            int index = _conditions.IndexOf(condition);
+
+            if (!_lastConstructorConditionContinuingIsElse)
             {
-                ConstructorBuildingComboBox.SelectedIndex = 0;
+                if (index == _conditions.Count - 1)
+                {
+                    ConstructorBuildingComboBox.SelectedIndex = 0;
+                }
+
+                else
+                {
+                    ConstructorBuildingComboBox.SelectedIndex = 1;
+                }
             }
+
+            else
+            {
+                if (index == _conditions.Count - 1)
+                {
+                    ConstructorBuildingComboBox.Visibility = Visibility.Hidden;
+
+                    Grid parentGrid = ConstructorBuildingComboBox.Parent as Grid;
+
+                    parentGrid.RowDefinitions[2].Height = new GridLength(0);
+                }
+
+                else if (index == _conditions.Count - 2)
+                {
+                    ConstructorBuildingComboBox.SelectedIndex = 2;
+                }
+
+                else
+                {
+                    ConstructorBuildingComboBox.SelectedIndex = 1;
+                }
+            }
+
+            _userSelectionChanging = true;
         }
-
-
-
-        private void NewTextResultButton_Click(object sender, RoutedEventArgs e)
-        {
-            AddNewPossibleTextResult();
-        }
-
-
-
-        private void DefaultPossibleTextResultsItemsSource()
-        {
-            PossibleResultTextsListBox.ItemsSource = null;
-
-            PossibleResultTextsListBox.ItemsSource = _textResults;
-        }
-
-        private void AddNewPossibleTextResult()
-        {
-            _textResults.Add(new Result(defaultTextResult));
-
-            DefaultPossibleTextResultsItemsSource();
-
-            if (Constructor != null) { DefaultConstructorItemsSource(); }            
-        }
-
-
+        
 
         private void DefaultConstructorItemsSource()
         {
             Constructor.ItemsSource = null;
 
-            Constructor.ItemsSource = new List<int> { 1, 2, 3 };
+            Constructor.ItemsSource = _conditions;
         }
-
 
 
         private void ConstructorBuildingCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (_userSelectionChanging)
+            {
+                _lastConstructorConditionContinuingIsElse = false;
 
+                ComboBox ConstructorBuildingCombobox = sender as ComboBox;
+
+                var condition = ConstructorBuildingCombobox.DataContext as Core.Models.Condition;
+
+                int index = _conditions.IndexOf(condition);
+
+                _conditions = _conditions.Take(index + 1).ToList();
+
+                if (ConstructorBuildingCombobox.SelectedIndex == 0)
+                {
+                    DefaultConstructorItemsSource();
+                }
+
+                else if (ConstructorBuildingCombobox.SelectedIndex == 1)
+                {
+                    AddNewCondition();
+                }
+
+                else
+                {
+                    _lastConstructorConditionContinuingIsElse = true;
+
+                    AddNewCondition();
+                }
+            }
         }
-
 
 
         private void ConditionsTextBox_Initialized(object sender, EventArgs e)
@@ -481,16 +649,14 @@ namespace GameConstructor.GUI
         {
             TextBox ConstructorConditionTextBox = sender as TextBox;
 
-            int dataContext = (int)ConstructorConditionTextBox.DataContext;
+            var dataContext = ConstructorConditionTextBox.DataContext as Core.Models.Condition;
 
             if (ConstructorConditionTextBox.Text == constructorConditionText)
             {
                 ConstructorConditionTextBox.Text = "";
             }
 
-            List<int> itemsSource = Constructor.Items.SourceCollection as List<int>;
-
-            _indexOfConstructorTextBoxEdittedByTheMoment = itemsSource.IndexOf(dataContext);
+            _indexOfConstructorTextBoxEdittedByTheMoment = _conditions.IndexOf(dataContext);
 
             ConditionsTextBox.Text = ConstructorConditionTextBox.Text;
             ConditionsTextBox.IsReadOnly = false;
@@ -520,8 +686,20 @@ namespace GameConstructor.GUI
                         UIMethods.GetUIElementChildByNumberFromTemplatedListBox(Constructor, _indexOfConstructorTextBoxEdittedByTheMoment, 0) as Grid;
 
                 TextBox ConstructorConditionTextBox = ConstructorConditionGrid.Children[1] as TextBox;
-
+                
                 ConstructorConditionTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(defaultConditionTextBoxBorderBrush));
+                
+                if (ConstructorConditionTextBox.Text == "")
+                {
+                    ConstructorConditionTextBox.Text = constructorConditionText;
+                }
+
+                else
+                {
+                    var condition = ConstructorConditionTextBox.DataContext as Core.Models.Condition;
+
+                    condition.Text = ConstructorConditionTextBox.Text;
+                }
 
                 _indexOfConstructorTextBoxEdittedByTheMoment = -1;
 
