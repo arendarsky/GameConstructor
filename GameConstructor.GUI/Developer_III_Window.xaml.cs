@@ -210,6 +210,7 @@ namespace GameConstructor.GUI
                 IfThereWereAnyChangesMadeByUser();
 
                 _game.UpdateResults(_textResults);
+                _game.UpdateConditions(_conditions);
 
                 return true;
             }
