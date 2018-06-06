@@ -392,16 +392,19 @@ namespace GameConstructor.GUI
 
         private void ConditionsTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            Grid ConstructorConditionGrid =
-                    UIMethods.GetUIElementChildByNumberFromTemplatedListBox(Constructor, _indexOfConstructorTextBoxEdittedByTheMoment, 0) as Grid;
+            if (!ConditionsTextBox.IsReadOnly)
+            {
+                Grid ConstructorConditionGrid =
+                        UIMethods.GetUIElementChildByNumberFromTemplatedListBox(Constructor, _indexOfConstructorTextBoxEdittedByTheMoment, 0) as Grid;
 
-            TextBox ConstructorConditionTextBox = ConstructorConditionGrid.Children[1] as TextBox;
+                TextBox ConstructorConditionTextBox = ConstructorConditionGrid.Children[1] as TextBox;
 
-            ConstructorConditionTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(defaultConditionTextBoxBorderBrush));
+                ConstructorConditionTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(defaultConditionTextBoxBorderBrush));
 
-            _indexOfConstructorTextBoxEdittedByTheMoment = -1;
-            
-            DefaultConditionTextBoxState();
+                _indexOfConstructorTextBoxEdittedByTheMoment = -1;
+
+                DefaultConditionTextBoxState();
+            }
         }
     }
 }
