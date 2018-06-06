@@ -40,6 +40,8 @@ namespace GameConstructor.Core.Models
         {
 
         }
+
+
         public void UpdateName(string name)
         {
             Name = name;
@@ -69,6 +71,15 @@ namespace GameConstructor.Core.Models
         {
             Questions = questions;
         }
+
+        public void UpdateResults(List<Result> results)
+        {
+            Results = results;
+        }
         
+        public void UpdateConditions(List<Condition> conditions)
+        {
+            Conditions = conditions;
+        }
     }
 }

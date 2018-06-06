@@ -149,16 +149,32 @@ namespace GameConstructor.GUI
             }
         }
 
-        private bool GamePartialSave()
+        private void SaveGame()
         {
-            return true;
+            _storage.SaveGame(_user, _game);
         }
 
 
 
-        private void SaveGame()
+        private bool GamePartialSave()
         {
-            _storage.SaveGame(_user, _game);
+            if (CheckingIfEveryFieldIsFilledCorrectly())
+            {
+                IfThereWereAnyChangesMadeByUser();
+
+                _game.UpdateResults(_textResults);
+
+                return true;
+            }
+
+            return false;
+        }
+
+
+
+        private bool CheckingIfEveryFieldIsFilledCorrectly()
+        {
+            return true;
         }
 
 

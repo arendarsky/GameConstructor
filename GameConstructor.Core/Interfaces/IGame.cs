@@ -16,10 +16,12 @@ namespace GameConstructor.Core.Interfaces
         string Description { get; }
         bool DisplayingInGameMode { get; }
         Picture Picture { get; }
+
         IEnumerable<Question> GetQuestions { get; }
         IEnumerable<Characteristic> GetCharacteristics { get; }
         IEnumerable<Result> GetResults { get; }
         IEnumerable<Condition> GetConditions { get; }
+
 
         void UpdateName(string name);
         void UpdateSource(string source);
@@ -27,5 +29,7 @@ namespace GameConstructor.Core.Interfaces
         void UpdatePicture(Picture picture);
         void UpdateQuestions(List<Question> questions);
         void UpdateCharacteristics(List<Characteristic> characteristics);
+        void UpdateResults(List<Result> results);
+        void UpdateConditions(List<Condition> conditions);
     }
 }
