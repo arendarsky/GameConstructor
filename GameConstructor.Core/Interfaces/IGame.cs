@@ -19,6 +19,7 @@ namespace GameConstructor.Core.Interfaces
         IEnumerable<Question> GetQuestions { get; }
         IEnumerable<Characteristic> GetCharacteristics { get; }
         IEnumerable<Result> GetResults { get; }
+        IEnumerable<Condition> GetConditions { get; }
 
         void UpdateName(string name);
         void UpdateSource(string source);

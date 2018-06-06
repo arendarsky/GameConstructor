@@ -49,6 +49,9 @@ namespace GameConstructor.GUI
         private const string mathOperatorExplanation = "символ '!=' обозначает оператор 'не равно'";
 
 
+        private const string defaultResultTextBlockText = "Результат №";
+        private const string defaultTextResult = "Введите здесь текст возможного результата";
+
         private const string defaultNumberResultComboBoxText = "номер";
 
         private const string defaultConstructorBuildingComboBox = "Выберите продолжение";
@@ -69,7 +72,7 @@ namespace GameConstructor.GUI
 
         IStorage _storage;
         Dictionary<string, string> _characteristicDictionary;
-        List<int> _possibleTextResults;
+        List<Result> _textResults;
 
 
         private string Conjuction => conjuctionSymbol + emDash + conjuctionName + " (" + conjuctionExplanation + ")";
@@ -91,9 +94,31 @@ namespace GameConstructor.GUI
             FormingCharacteristicDictionary();
 
             InitializeComponent();
+
+            InitializingTextResults();
         }
 
 
+
+        private void InitializingTextResults()
+        {
+            try
+            {
+                _textResults = _game.GetResults.ToList();
+            }
+
+            catch
+            {
+                _textResults = new List<Result>();
+            }
+
+            DefaultPossibleTextResultsItemsSource();
+
+            if (_textResults.Count == 0)
+            {
+                AddNewPossibleTextResult();
+            }
+        }
 
         private void FormingCharacteristicDictionary()
         {
@@ -210,16 +235,60 @@ namespace GameConstructor.GUI
 
         private void PossibleResultTextsListBox_Initialized(object sender, EventArgs e)
         {
-            _possibleTextResults = new List<int>();
-
-            AddNewPossibleTextResult();
+            DefaultPossibleTextResultsItemsSource();
         }
 
         private void ResultTextBlock_Initialized(object sender, EventArgs e)
         {
             TextBlock ResultTextBlock = sender as TextBlock;
 
-            ResultTextBlock.Text += ((int)ResultTextBlock.DataContext).ToString();
+            Result result = ResultTextBlock.DataContext as Result;
+
+            int index = _textResults.IndexOf(result) + 1;
+
+            ResultTextBlock.Text = defaultResultTextBlockText + index.ToString();
+        }
+
+        private void ResultTextBox_Initialized(object sender, EventArgs e)
+        {
+            TextBox ResultTextBox = sender as TextBox;
+
+            Result result = ResultTextBox.DataContext as Result;
+
+            ResultTextBox.Text = result.Body;
+
+            if (result.Body == defaultTextResult)
+            {
+                ResultTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void ResultTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox ResultTextBox = sender as TextBox;
+
+            if (ResultTextBox.Text == defaultTextResult)
+            {
+                ResultTextBox.Text = "";
+
+                ResultTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void ResultTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox ResultTextBox = sender as TextBox;
+
+            if (ResultTextBox.Text == "")
+            {
+                ResultTextBox.Text = defaultTextResult;
+
+                ResultTextBox.Foreground = Brushes.Gray;
+            }
+
+            Result result = ResultTextBox.DataContext as Result;
+
+            result.Body = ResultTextBox.Text;
         }
 
 
@@ -309,12 +378,12 @@ namespace GameConstructor.GUI
         {
             PossibleResultTextsListBox.ItemsSource = null;
 
-            PossibleResultTextsListBox.ItemsSource = _possibleTextResults;
+            PossibleResultTextsListBox.ItemsSource = _textResults;
         }
 
         private void AddNewPossibleTextResult()
         {
-            _possibleTextResults.Add(_possibleTextResults.Count + 1);
+            _textResults.Add(new Result(defaultTextResult));
 
             DefaultPossibleTextResultsItemsSource();
 

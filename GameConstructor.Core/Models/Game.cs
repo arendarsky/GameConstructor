@@ -33,6 +33,9 @@ namespace GameConstructor.Core.Models
         public IEnumerable<Characteristic> GetCharacteristics => Characteristics;
         [JsonIgnore]
         public IEnumerable<Result> GetResults => Results;
+        [JsonIgnore]
+        public IEnumerable<Condition> GetConditions => Conditions;
+
         public Game()
         {
 
