@@ -81,7 +81,6 @@ namespace GameConstructor.GUI
         Dictionary<string, string> _characteristicDictionary;
         List<Result> _textResults;
         List<Core.Models.Condition> _conditions;
-        
 
         private string Conjuction => conjuctionSymbol + emDash + conjuctionName + " (" + conjuctionExplanation + ")";
         private string Disjuction => disjuctionSymbol + emDash + disjuctionName + " (" + disjuctionExplanation + ")";
@@ -222,17 +221,29 @@ namespace GameConstructor.GUI
 
         private bool CheckingIfEveryFieldIsFilledCorrectly()
         {
-            if (!AreThereAtLeastOneFieldOfEveryType())
+            if (!NonNullTextResultsForConditions())
             {
                 return false;
             }
 
-            else if (!AreTheObligatoryFieldsFilled())
+            else if (!_lastConstructorConditionContinuingIsElse)
+            {
+                MessageBox.Show("Сетка условий конструктора не завершена! Пожалуйста, добавьте в конец карточку с полем 'во всех остальных случаях', иначе программа может некорректно отображать пользователю текстовый результат игры после ее прохождения.", "Ошибка!");
+
+                return false;
+            }
+
+            else if (!AreThereAtLeastOneTextField())
             {
                 return false;
             }
 
-            else if (!AreTheFieldsFilledDifferently())
+            else if (!AreTheObligatoryTextFieldsFilled())
+            {
+                return false;
+            }
+
+            else if (!AreTheTextFieldsFilledDifferently())
             {
                 return false;
             }
@@ -240,14 +251,14 @@ namespace GameConstructor.GUI
             return true;
         }
 
-                
 
-        private bool AreThereAtLeastOneFieldOfEveryType()
+
+        private bool AreThereAtLeastOneTextField()
         {
             return true;
         }
 
-        private bool AreTheObligatoryFieldsFilled()
+        private bool AreTheObligatoryTextFieldsFilled()
         {
             if (UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(PossibleResultTextsListBox, 1, defaultTextResult, "В списке возможных текстовых результатов остались пустые поля. Пожалуйста, заполните их либо удалите ненужные."))
             {
@@ -257,7 +268,7 @@ namespace GameConstructor.GUI
             return true;
         }
 
-        private bool AreTheFieldsFilledDifferently()
+        private bool AreTheTextFieldsFilledDifferently()
         {
             var textResultsBodies = _textResults.Select(textR => textR.Body.ToUpperInvariant());
 
@@ -270,7 +281,29 @@ namespace GameConstructor.GUI
 
             return true;
         }
-        
+
+
+        private bool NonNullTextResultsForConditions()
+        {
+            for (int i = 0; i < _conditions.Count; i++)
+            {
+                Grid ConditionGrid = UIMethods.GetUIElementChildByNumberFromTemplatedListBox(Constructor, i, 1) as Grid;
+
+                ComboBox TextResultNumberComboBox = ConditionGrid.Children[1] as ComboBox;
+
+                if (TextResultNumberComboBox.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Каждое условие в конструкторе должно быть связано с одним текстовым результатом. Настройте все ссылки либо измените сетку условий, удалив ненужные.", "Ошибка!");
+
+                    TextResultNumberComboBox.Focus();
+
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
 
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
