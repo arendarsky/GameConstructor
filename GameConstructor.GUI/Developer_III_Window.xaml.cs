@@ -221,7 +221,12 @@ namespace GameConstructor.GUI
 
         private bool CheckingIfEveryFieldIsFilledCorrectly()
         {
-            if (!NonNullTextResultsForConditions())
+            if (!AllTextConditionsAreValid())
+            {
+                return false;
+            }
+
+            else if (!NonNullTextResultsForConditions())
             {
                 return false;
             }
@@ -251,8 +256,7 @@ namespace GameConstructor.GUI
             return true;
         }
 
-
-
+        
         private bool AreThereAtLeastOneTextField()
         {
             return true;
@@ -298,6 +302,40 @@ namespace GameConstructor.GUI
                     TextResultNumberComboBox.Focus();
 
                     return false;
+                }
+            }
+
+            return true;
+        }
+
+
+        private bool AllTextConditionsAreValid()
+        {
+            for (int i = 0; i < _conditions.Count; i++)
+            {
+                Grid ConditionGrid = UIMethods.GetUIElementChildByNumberFromTemplatedListBox(Constructor, i, 0) as Grid;
+
+                TextBox TextConditionTextBox = ConditionGrid.Children[1] as TextBox;
+
+                var condition = TextConditionTextBox.DataContext as Core.Models.Condition;
+
+                int index = _conditions.IndexOf(condition);
+
+                if (!(index == _conditions.Count - 1 && _lastConstructorConditionContinuingIsElse))
+                {
+                    if (TextConditionTextBox.Text == constructorConditionText)
+                    {
+                        MessageBox.Show("Поле с условием не может оставаться пустым. Заполните его или переформатируйте конструктор, чтобы избавиться от ненужных карточек.", "Ошибка!");
+
+                        TextConditionTextBox.Focus();
+
+                        return false;
+                    }
+
+                    else
+                    {
+
+                    }
                 }
             }
 

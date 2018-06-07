@@ -9,6 +9,10 @@ namespace GameConstructor.Core.SpecialMethods
 {
     public class GeneralMethods
     {
+        public static string[] MathOperators = new string[] { ">", "<", ">=", "<=", "=", "!=" };
+        public static char[] MathOperations = new char[] { '+', '-', '/', '*' };
+
+
         public static bool CheckingWhetherCollectionsHaveTheSameValues<T>(IEnumerable<T> collection1, IEnumerable<T> collection2)
         {
             if (collection1 == null && collection2 == null)
@@ -159,6 +163,39 @@ namespace GameConstructor.Core.SpecialMethods
             }
 
             return null;
+        }
+
+
+
+        public static string MathConditionWithValidSpaces(string str)
+        {
+            str = str.Replace(" ", "");
+
+            int i = 0;
+
+            while (i < str.Length)
+            {
+                if (MathOperations.Contains(str[i]) || MathOperators.Contains(str[i].ToString()))
+                {
+                    str = str.Substring(0, i) + " " + str[i] + " " + str.Substring(i + 1);
+
+                    i += 3;
+                }
+
+                else if (i != str.Length - 1 && MathOperators.Contains((str[i] + str[i + 1]).ToString()))
+                {
+                    str = str.Substring(0, i) + " " + str[i] + str[i + 1] + " " + str.Substring(i + 2);
+
+                    i += 4;
+                }
+
+                else
+                {
+                    i++;
+                }
+            }
+
+            return str;
         }
     }
 }
