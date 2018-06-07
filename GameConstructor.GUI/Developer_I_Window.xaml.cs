@@ -68,35 +68,39 @@ namespace GameConstructor.GUI
 
         public Developer_I_Window(User user, IGame game, IStorage storage, bool wereThereAlreadySomeChangings)
         {
+            _game = game;
             _storage = storage;
             _user = user;
             _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
 
-            if (_wereThereAlreadySomeChangings)
-            {
-                _game = game;
-            }
+            Constructor();
+        }
 
-            else
-            {
-                _game = storage.OpenGame(game);
-            }
+        public Developer_I_Window(User user, IGame game, IStorage storage)
+        {
+            _game = storage.OpenGame(game);
+            _storage = storage;
+            _user = user;
+            _wereThereAlreadySomeChangings = false;
+
+            Constructor();
+        }
 
 
+        private void Constructor()
+        {
             _characteristics = _game.GetCharacteristics.ToList();
             _picture = _game.Picture;
 
             if (_picture == null)
             {
                 _picture = new Picture(defaultImageSource, defaultStateOfBorder);
-            }            
+            }
 
             InitializeComponent();
 
             DefaultCharacteristicsListBoxSource();
         }
-
-        public Developer_I_Window(User user, IGame game, IStorage storage) : this(user, game, storage, false) { }
 
 
 
