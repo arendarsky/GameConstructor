@@ -331,12 +331,10 @@ namespace GameConstructor.GUI
 
                         return false;
                     }
-
-                    else
-                    {
-
-                    }
                 }
+
+                TextConditionTextBox.Text = GeneralMethods.MathConditionWithValidSpaces(TextConditionTextBox.Text);
+                condition.Text = TextConditionTextBox.Text;
             }
 
             return true;
