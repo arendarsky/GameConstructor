@@ -319,6 +319,9 @@ namespace GameConstructor.GUI
 
                 var condition = TextConditionTextBox.DataContext as Core.Models.Condition;
 
+                TextConditionTextBox.Text = GeneralMethods.MathConditionWithValidSpaces(TextConditionTextBox.Text);
+                condition.Text = TextConditionTextBox.Text;
+
                 int index = _conditions.IndexOf(condition);
 
                 if (!(index == _conditions.Count - 1 && _lastConstructorConditionContinuingIsElse))
@@ -331,10 +334,25 @@ namespace GameConstructor.GUI
 
                         return false;
                     }
-                }
 
-                TextConditionTextBox.Text = GeneralMethods.MathConditionWithValidSpaces(TextConditionTextBox.Text);
-                condition.Text = TextConditionTextBox.Text;
+                    else
+                    {
+                        var stringCopyWithoutBrackets = TextConditionTextBox.Text
+                            .Replace("(", "")
+                            .Replace(")", "");
+
+                        var elements = stringCopyWithoutBrackets.Split(' ');
+
+                        if (elements.Count() % 4 != 3)
+                        {
+                            MessageBox.Show("Возникла ошибка при попытке интерпретировать Ваше условие как математическую комбинацию из логических высказываний. Проверьте, что вы используете верные обозначения, а синтаксис не нарушен, и после этого повторите попытку.", "Ошибка!");
+
+                            TextConditionTextBox.Focus();
+
+                            return false;
+                        }
+                    }
+                }
             }
 
             return true;
@@ -512,7 +530,7 @@ namespace GameConstructor.GUI
                 abbreviationStrings.Add(value + emDash + originalKey);
             }
 
-            List<string> defaultKeys = new List<string> { MathOperations, MathOperators, Brackets, Conjuction, Disjuction };
+            List<string> defaultKeys = new List<string> { MathOperators, Brackets, Conjuction, Disjuction };
 
             CharacteristicAbbreviationsListBox.ItemsSource = defaultKeys.Concat(abbreviationStrings);
         }        

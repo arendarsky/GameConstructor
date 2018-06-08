@@ -179,7 +179,7 @@ namespace GameConstructor.Core.SpecialMethods
 
             while (i < str.Length)
             {
-                if (MathOperations.Contains(str[i]) || MathOperators.Contains(str[i]) || LogicalOperators.Contains(str[i]))
+                if (MathOperators.Contains(str[i]) || LogicalOperators.Contains(str[i]))
                 {
                     str = str.Substring(0, i) + " " + str[i] + " " + str.Substring(i + 1);
 
