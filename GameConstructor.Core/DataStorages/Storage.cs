@@ -298,6 +298,9 @@ namespace GameConstructor.Core.DataStorages
         {
             try
             {
+                foreach (var i in _context.Influences.Where(
+                    inf => inf.Characteristic.Id == characteristic.Id))
+                    _context.Influences.Remove(i);
                 characteristic = _context.Characteristics.First(
                     c => c.Id == characteristic.Id);
                 _context.Characteristics.Remove(characteristic);
@@ -311,23 +314,44 @@ namespace GameConstructor.Core.DataStorages
 
         public void RemoveQuestion(Question question)
         {
-            question = _context.Questions.First(
-                q => q.Id == question.Id);
-            _context.Questions.Remove(question);
+            try
+            {
+                question = _context.Questions.First(
+                    q => q.Id == question.Id);
+                _context.Questions.Remove(question);
+            }
+            catch
+            {
+
+            }
         }
 
         public void RemoveAnswer(Answer answer)
         {
-            answer = _context.Answers.First(
-                c => c.Id == answer.Id);
-            _context.Answers.Remove(answer);
+            try
+            {
+                answer = _context.Answers.First(
+                    c => c.Id == answer.Id);
+                _context.Answers.Remove(answer);
+            }
+            catch
+            {
+
+            }
         }
 
         public void RemoveEffect(Effect effect)
         {
-            effect = _context.Effects.First(
-                c => c.Id == effect.Id);
-            _context.Effects.Remove(effect);
+            try
+            {
+                effect = _context.Effects.First(
+                    c => c.Id == effect.Id);
+                _context.Effects.Remove(effect);
+            }
+            catch
+            {
+
+            }
         }
     }    
 }
