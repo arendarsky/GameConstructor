@@ -336,7 +336,7 @@ namespace GameConstructor.GUI
 
                     else
                     {
-                        TextConditionTextBox.Text = GeneralMethods.MathConditionWithValidSpaces(TextConditionTextBox.Text);
+                        TextConditionTextBox.Text = (GeneralMethods.MathConditionWithValidSpaces(TextConditionTextBox.Text)).ToUpperInvariant();
                         condition.Text = TextConditionTextBox.Text;
 
                         var stringCopyWithoutBrackets = TextConditionTextBox.Text
@@ -356,7 +356,7 @@ namespace GameConstructor.GUI
 
                         else
                         {
-                            for (int j = 1; j < elements.Length; j+=4)
+                            for (int j = 1; j < elements.Length; j += 4)
                             {
                                 if (GeneralMethods.MathOperatorsContains(elements[j]) == false)
                                 {
@@ -368,11 +368,50 @@ namespace GameConstructor.GUI
                                 }
                             }
 
-                            for (int j = 3; j < elements.Length; j+=4)
+                            for (int j = 3; j < elements.Length; j += 4)
                             {
                                 if (GeneralMethods.LogicalOperatorsContains(elements[j]) == false)
                                 {
                                     MessageBox.Show(conditionEnterpretationError, "Ошибка!");
+
+                                    TextConditionTextBox.Focus();
+
+                                    return false;
+                                }
+                            }
+
+                            for (int j = 0; j < elements.Length; j += 4)
+                            {
+                                if (int.TryParse(elements[j], out int t) && int.TryParse(elements[j + 2], out t))
+                                {
+                                    MessageBox.Show("Оператор не может связывать два числа. Пожалуйста, внесите параметры характеристик во все условия, в которых они отсутствуют.", "Ошибка!");
+
+                                    TextConditionTextBox.Focus();
+
+                                    return false;
+                                }                               
+                            }
+
+                            for (int j = 0; j < elements.Length; j+=4)
+                            {
+                                for (int k = 0; k <= 2; k += 2)
+                                {
+                                    if (!int.TryParse(elements[j + k], out int t) && !_characteristicDictionary.Values.Contains(elements[j + k].ToUpperInvariant()))
+                                    {
+                                        MessageBox.Show($"Название переменной '{elements[j + k]}' в выражении — невалидное. Пожалуйста, проверьте, что это и все другие названия переменных согласуются с приведенными в верхней части окна программными сокращениями и вслед за этим повторите попытку.", "Ошибка!");
+
+                                        TextConditionTextBox.Focus();
+
+                                        return false;
+                                    }
+                                }                                
+                            }
+
+                            for (int j = 0; j < elements.Length; j+=4)
+                            {
+                                if (elements[j] == elements[j + 2])
+                                {
+                                    MessageBox.Show($"Переменная '{elements[j]}' сравнивается сама с собой. Подобные сравнения не несут смысловой нагрузки, поскольку возвращают всегда одно и то же значение (либо true, либо false — зависит от оператора). Пожалуйста, избегайте таких конструкций.", "Ошибка!");
 
                                     TextConditionTextBox.Focus();
 
@@ -384,7 +423,7 @@ namespace GameConstructor.GUI
                 }
             }
 
-            return true;
+            return true;            
         }
 
 
