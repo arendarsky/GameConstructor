@@ -46,7 +46,7 @@
 
                 <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Name="IntermediateResult" FontSize="20" FontFamily="Verdana" Margin="45 20 45 20" TextWrapping="Wrap" >Комментарий к ответу на вопрос</TextBlock>
 
-                <Button Name="Continue" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Margin="45,0,45,20" Padding="12 8" Height="52" Width="268" >Следующий вопрос</Button>
+                <Button Name="Continue" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Margin="45,0,45,20" Padding="12 8" Height="52" Width="268" Click="Continue_Click" >Следующий вопрос</Button>
 
             </Grid>
         </ScrollViewer>

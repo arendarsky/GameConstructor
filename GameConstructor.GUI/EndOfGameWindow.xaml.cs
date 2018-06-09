@@ -23,5 +23,23 @@ namespace GameConstructor.GUI
         {
             InitializeComponent();
         }
+
+        private void PlayToDifferentGames_Click(object sender, RoutedEventArgs e)
+        {
+            PlayingModeWindow playingModeWindow = new PlayingModeWindow();
+
+            playingModeWindow.Show();
+
+            Close();
+        }
+
+        private void PlayAgain_Click(object sender, RoutedEventArgs e)
+        {
+            DiscriptionOfGameWindow discriptionOfGameWindow = new DiscriptionOfGameWindow();
+
+            discriptionOfGameWindow.Show();
+
+            Close();
+        }
     }
 }

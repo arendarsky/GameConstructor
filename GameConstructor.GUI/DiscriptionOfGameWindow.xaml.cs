@@ -40,7 +40,7 @@ namespace GameConstructor.GUI
             playingModeWindow.Show();
 
             Close();
-             
+              
         }
     }
 }
