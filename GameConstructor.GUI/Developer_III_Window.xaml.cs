@@ -62,6 +62,8 @@ namespace GameConstructor.GUI
         private const string elseIfCondition = "ИНАЧЕ ЕСЛИ";
         private const string elseCondition = "ВО ВСЕХ ОСТАЛЬНЫХ СЛУЧАЯХ";
 
+        private const string conditionEnterpretationError = "Возникла ошибка при попытке интерпретировать Ваше условие как математическую комбинацию из логических высказываний. Проверьте, что вы используете верные обозначения, а синтаксис не нарушен, и после этого повторите попытку.";
+
 
         private const string defaultConditionTextBoxBorderBrush = "#CC443830";
 
@@ -319,9 +321,6 @@ namespace GameConstructor.GUI
 
                 var condition = TextConditionTextBox.DataContext as Core.Models.Condition;
 
-                TextConditionTextBox.Text = GeneralMethods.MathConditionWithValidSpaces(TextConditionTextBox.Text);
-                condition.Text = TextConditionTextBox.Text;
-
                 int index = _conditions.IndexOf(condition);
 
                 if (!(index == _conditions.Count - 1 && _lastConstructorConditionContinuingIsElse))
@@ -337,6 +336,9 @@ namespace GameConstructor.GUI
 
                     else
                     {
+                        TextConditionTextBox.Text = GeneralMethods.MathConditionWithValidSpaces(TextConditionTextBox.Text);
+                        condition.Text = TextConditionTextBox.Text;
+
                         var stringCopyWithoutBrackets = TextConditionTextBox.Text
                             .Replace("(", "")
                             .Replace(")", "");
@@ -345,11 +347,38 @@ namespace GameConstructor.GUI
 
                         if (elements.Count() % 4 != 3)
                         {
-                            MessageBox.Show("Возникла ошибка при попытке интерпретировать Ваше условие как математическую комбинацию из логических высказываний. Проверьте, что вы используете верные обозначения, а синтаксис не нарушен, и после этого повторите попытку.", "Ошибка!");
+                            MessageBox.Show(conditionEnterpretationError, "Ошибка!");
 
                             TextConditionTextBox.Focus();
 
                             return false;
+                        }
+
+                        else
+                        {
+                            for (int j = 1; j < elements.Length; j+=4)
+                            {
+                                if (GeneralMethods.MathOperatorsContains(elements[j]) == false)
+                                {
+                                    MessageBox.Show(conditionEnterpretationError, "Ошибка!");
+
+                                    TextConditionTextBox.Focus();
+
+                                    return false;
+                                }
+                            }
+
+                            for (int j = 3; j < elements.Length; j+=4)
+                            {
+                                if (GeneralMethods.LogicalOperatorsContains(elements[j]) == false)
+                                {
+                                    MessageBox.Show(conditionEnterpretationError, "Ошибка!");
+
+                                    TextConditionTextBox.Focus();
+
+                                    return false;
+                                }
+                            }
                         }
                     }
                 }
