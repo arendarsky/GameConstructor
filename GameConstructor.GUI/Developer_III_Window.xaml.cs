@@ -905,5 +905,13 @@ namespace GameConstructor.GUI
                 DefaultConditionTextBoxState();
             }
         }
+
+
+
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
