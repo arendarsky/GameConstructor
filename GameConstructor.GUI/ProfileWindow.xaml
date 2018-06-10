@@ -44,7 +44,7 @@
 
                 <TextBlock Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="18" Margin="45 40 10 10" FontFamily="Verdana">Редактировать существующую:</TextBlock>
 
-                <ListBox Name="UserGamesListBox" Grid.Row="3" Grid.ColumnSpan="2" Margin="45 10 45 30" Background="#7FE3D9AD" BorderBrush="#8C2B2723" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" MouseDoubleClick="UserGamesListBox_MouseDoubleClick">
+                <ListBox Name="UserGamesListBox" Grid.Row="3" Grid.ColumnSpan="2" Margin="45 10 45 30" Background="#7FE3D9AD" BorderBrush="#8C2B2723" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" MouseDoubleClick="UserGamesListBox_MouseDoubleClick" Style="{DynamicResource MouseOverListBox}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
