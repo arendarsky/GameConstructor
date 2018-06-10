@@ -34,8 +34,10 @@ namespace GameConstructor.GUI
 
         IGame _game;
         List<Question> _questions;
-        bool _wereThereAlreadySomeChangings;
         User _user;
+        bool _wereThereAlreadySomeChangings;
+        int _newCharacteristicsWereAdded;
+
         bool _goingToTheNextDeveloperWindow = false;
         bool _goingToThePreviousDeveloperWindow = false;
 
@@ -43,19 +45,20 @@ namespace GameConstructor.GUI
 
 
 
-        public Developer_II_Window(User user, IGame game, IStorage storage, bool wereThereAlreadySomeChangings)
+        public Developer_II_Window(User user, IGame game, IStorage storage, bool wereThereAlreadySomeChangings, int newCharacteristicsWereAdded)
         {
             _user = user;
             _storage = storage;
             _game = game;
             _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
+            _newCharacteristicsWereAdded = newCharacteristicsWereAdded;
 
             InitializeComponent();
 
             InitializingQuestions();
         }
 
-
+        
 
         private void InitializingQuestions()
         {
@@ -69,11 +72,41 @@ namespace GameConstructor.GUI
                 _questions = new List<Question>();
             }
 
+            FixingInfluences();
+
             DefaultQuestionListBoxSource();
 
             if (_questions.Count == 0)
             {
                 AddNewDefaultQuestion();
+            }
+        }
+
+
+        private void FixingInfluences()
+        {
+            if (_newCharacteristicsWereAdded > 0)
+            {
+                var characteristics = _game.GetCharacteristics.ToList();
+
+                foreach (var question in _questions)
+                {
+                    foreach (var answer in question.Answers)
+                    {
+                        foreach (var reaction in answer.Effects)
+                        {
+                            for (int i = characteristics.Count() - _newCharacteristicsWereAdded; i < characteristics.Count(); i++)
+                            {
+                                var characteristic = characteristics[i];
+
+                                reaction.Influences.Add(new Influence()
+                                {
+                                    Characteristic = characteristic
+                                });
+                            }
+                        }
+                    }
+                }
             }
         }
 

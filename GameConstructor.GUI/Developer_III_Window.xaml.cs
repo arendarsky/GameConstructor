@@ -466,7 +466,7 @@ namespace GameConstructor.GUI
 
         private void GoingToThePreviousDeveloperWindow()
         {
-            Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, _storage, _wereThereAlreadySomeChangings);
+            Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, _storage, _wereThereAlreadySomeChangings, 0);
 
             developer_II_Window.Show();
         }
