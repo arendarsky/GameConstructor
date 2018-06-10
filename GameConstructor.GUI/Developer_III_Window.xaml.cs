@@ -62,6 +62,8 @@ namespace GameConstructor.GUI
         private const string elseIfCondition = "ИНАЧЕ ЕСЛИ";
         private const string elseCondition = "ВО ВСЕХ ОСТАЛЬНЫХ СЛУЧАЯХ";
 
+        private const string conditionEnterpretationError = "Возникла ошибка при попытке интерпретировать Ваше условие как математическую комбинацию из логических высказываний. Проверьте, что вы используете верные обозначения, а синтаксис не нарушен, и после этого повторите попытку.";
+
 
         private const string defaultConditionTextBoxBorderBrush = "#CC443830";
 
@@ -319,9 +321,6 @@ namespace GameConstructor.GUI
 
                 var condition = TextConditionTextBox.DataContext as Core.Models.Condition;
 
-                TextConditionTextBox.Text = GeneralMethods.MathConditionWithValidSpaces(TextConditionTextBox.Text);
-                condition.Text = TextConditionTextBox.Text;
-
                 int index = _conditions.IndexOf(condition);
 
                 if (!(index == _conditions.Count - 1 && _lastConstructorConditionContinuingIsElse))
@@ -337,6 +336,9 @@ namespace GameConstructor.GUI
 
                     else
                     {
+                        TextConditionTextBox.Text = (GeneralMethods.MathConditionWithValidSpaces(TextConditionTextBox.Text)).ToUpperInvariant();
+                        condition.Text = TextConditionTextBox.Text;
+
                         var stringCopyWithoutBrackets = TextConditionTextBox.Text
                             .Replace("(", "")
                             .Replace(")", "");
@@ -345,17 +347,83 @@ namespace GameConstructor.GUI
 
                         if (elements.Count() % 4 != 3)
                         {
-                            MessageBox.Show("Возникла ошибка при попытке интерпретировать Ваше условие как математическую комбинацию из логических высказываний. Проверьте, что вы используете верные обозначения, а синтаксис не нарушен, и после этого повторите попытку.", "Ошибка!");
+                            MessageBox.Show(conditionEnterpretationError, "Ошибка!");
 
                             TextConditionTextBox.Focus();
 
                             return false;
                         }
+
+                        else
+                        {
+                            for (int j = 1; j < elements.Length; j += 4)
+                            {
+                                if (GeneralMethods.MathOperatorsContains(elements[j]) == false)
+                                {
+                                    MessageBox.Show(conditionEnterpretationError, "Ошибка!");
+
+                                    TextConditionTextBox.Focus();
+
+                                    return false;
+                                }
+                            }
+
+                            for (int j = 3; j < elements.Length; j += 4)
+                            {
+                                if (GeneralMethods.LogicalOperatorsContains(elements[j]) == false)
+                                {
+                                    MessageBox.Show(conditionEnterpretationError, "Ошибка!");
+
+                                    TextConditionTextBox.Focus();
+
+                                    return false;
+                                }
+                            }
+
+                            for (int j = 0; j < elements.Length; j += 4)
+                            {
+                                if (int.TryParse(elements[j], out int t) && int.TryParse(elements[j + 2], out t))
+                                {
+                                    MessageBox.Show("Оператор не может связывать два числа. Пожалуйста, внесите параметры характеристик во все условия, в которых они отсутствуют.", "Ошибка!");
+
+                                    TextConditionTextBox.Focus();
+
+                                    return false;
+                                }                               
+                            }
+
+                            for (int j = 0; j < elements.Length; j+=4)
+                            {
+                                for (int k = 0; k <= 2; k += 2)
+                                {
+                                    if (!int.TryParse(elements[j + k], out int t) && !_characteristicDictionary.Values.Contains(elements[j + k].ToUpperInvariant()))
+                                    {
+                                        MessageBox.Show($"Название переменной '{elements[j + k]}' в выражении — невалидное. Пожалуйста, проверьте, что это и все другие названия переменных согласуются с приведенными в верхней части окна программными сокращениями и вслед за этим повторите попытку.", "Ошибка!");
+
+                                        TextConditionTextBox.Focus();
+
+                                        return false;
+                                    }
+                                }                                
+                            }
+
+                            for (int j = 0; j < elements.Length; j+=4)
+                            {
+                                if (elements[j] == elements[j + 2])
+                                {
+                                    MessageBox.Show($"Переменная '{elements[j]}' сравнивается сама с собой. Подобные сравнения не несут смысловой нагрузки, поскольку возвращают всегда одно и то же значение (либо true, либо false — зависит от оператора). Пожалуйста, избегайте таких конструкций.", "Ошибка!");
+
+                                    TextConditionTextBox.Focus();
+
+                                    return false;
+                                }
+                            }
+                        }
                     }
                 }
             }
 
-            return true;
+            return true;            
         }
 
 
@@ -398,7 +466,7 @@ namespace GameConstructor.GUI
 
         private void GoingToThePreviousDeveloperWindow()
         {
-            Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, _storage, _wereThereAlreadySomeChangings);
+            Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, _storage, _wereThereAlreadySomeChangings, 0);
 
             developer_II_Window.Show();
         }
@@ -836,6 +904,30 @@ namespace GameConstructor.GUI
 
                 DefaultConditionTextBoxState();
             }
+        }
+
+
+
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button DeleteButton = sender as Button;
+
+            Result result = DeleteButton.DataContext as Result;
+
+            _textResults.Remove(result);
+
+            for (int i = 0; i < _conditions.Count; i++)
+            {
+                Grid ConditionResultGrid = UIMethods.GetUIElementChildByNumberFromTemplatedListBox(Constructor, i, 1) as Grid;
+
+                ComboBox ConditionTextResultComboBox = ConditionResultGrid.Children[1] as ComboBox;
+
+                ConditionTextResultComboBox.SelectedIndex = 0;
+            }
+
+            DefaultPossibleTextResultsItemsSource();
+            DefaultConstructorItemsSource();            
         }
     }
 }

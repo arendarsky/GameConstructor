@@ -78,10 +78,19 @@
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
                                     
                                         <TextBlock Name="ResultTextBlock" FontFamily="Verdana" Margin="3 10 10 7" HorizontalAlignment="Left" FontSize="14.5" Initialized="ResultTextBlock_Initialized">Результат №</TextBlock>
 
-                                        <TextBox Name="ResultTextBox" Padding="11 8" Grid.Row="1" FontFamily="Verdana" Margin="0 5 10 15" FontSize="13.5" HorizontalAlignment="Stretch" TextWrapping="Wrap" Height="95" Initialized="ResultTextBox_Initialized" GotFocus="ResultTextBox_GotFocus" LostFocus="ResultTextBox_LostFocus"></TextBox>
+                                        <TextBox Name="ResultTextBox" Padding="11 8" Grid.Row="1" FontFamily="Verdana" Margin="0 5 0 15" FontSize="13.5" HorizontalAlignment="Stretch" TextWrapping="Wrap" Height="95" Initialized="ResultTextBox_Initialized" GotFocus="ResultTextBox_GotFocus" LostFocus="ResultTextBox_LostFocus"></TextBox>
+
+                                        <Button Name="DeleteButton" Grid.Column="1" Margin="5 7.5 10 5" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto" Click="DeleteButton_Click">
+                                            <Image Source="Images/delete_icon.png" Height="20" Width="20"></Image>
+                                        </Button>
                                     </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>                        

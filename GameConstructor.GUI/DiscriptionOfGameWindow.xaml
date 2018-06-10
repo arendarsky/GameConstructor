@@ -28,7 +28,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="45.333,26,-35,9" FontFamily="Verdana" Grid.Column="1">Название игры</TextBlock>
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="261,25,49.333,9.333" FontFamily="Verdana">Название игры</TextBlock>
 
                 <DockPanel Grid.Column="0" Grid.Row="1" Margin="45 10 10 10">
                     <Border BorderThickness="0" BorderBrush="#FF715C4E">
@@ -42,9 +42,9 @@
 
                 <TextBlock Grid.Row="2"  Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="20" Margin="45,0,0,8.667" FontFamily="Verdana">Описание игры у м м м му муоатктактаутауталт</TextBlock>
 
-                <Button Name="BackToPlayModeWindowButton" Grid.Row="3" Grid.Column="0" Margin="30 30" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Bottom" Padding="14 7"  >Выбрать другую игру</Button>
+                <Button Name="BackToPlayModeWindowButton" Grid.Row="3" Grid.Column="0" Margin="45 30" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Bottom" Padding="14 7" Click="BackToPlayModeWindowButton_Click"  >Выбрать другую игру</Button>
 
-                <Button Name="PlayButton" Grid.Row="3" Grid.Column="1" Margin="30 30" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Bottom" Padding="14 7"  >Играть</Button>
+                <Button Name="PlayButton" Grid.Row="3" Margin="0,0,-185.667,29.667" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="14 7" Width="186" Grid.Column="1" Click="PlayButton_Click"  >Играть</Button>
 
 
 

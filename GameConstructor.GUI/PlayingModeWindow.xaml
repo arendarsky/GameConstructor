@@ -29,7 +29,7 @@
 
                 <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="45 40 0 0" FontFamily="Verdana">Наши игры:</TextBlock>
 
-                <ListBox Name="OurGamesListBox" Grid.Row="3" Grid.ColumnSpan="2" Margin="45 10 45 100" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+                <ListBox Name="OurGamesListBox" Grid.Row="3" Grid.ColumnSpan="2" Margin="45 10 45 100" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" MouseDoubleClick="OurGamesListBox_MouseDoubleClick">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -66,9 +66,9 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25"  FontFamily="Verdana" Margin="71,0,80,37.333" Width="346"><Run Text="Ничего не понравилось"/><Run Text="?"/></TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25"  FontFamily="Verdana" Margin="40,0,80,38.667" Width="371"><Run Text="Ничего не понравилось"/><Run Text="?"/></TextBlock>
 
-                <Button Name="BackToCreateButton" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="25" Margin="45 30" Padding="12 8" >Создать свою!</Button>
+                <Button Name="BackToCreateButton" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="25" Margin="45 30" Padding="12 8" Click="BackToCreateButton_Click" >Создать свою!</Button>
 
             </Grid>
         </ScrollViewer>

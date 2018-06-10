@@ -194,5 +194,43 @@ namespace GameConstructor.Core.SpecialMethods
 
             return str;
         }
+
+
+
+        public static bool? MathOperatorsContains(string element)
+        {
+            if (element.Length > 1)
+            {
+                return null;
+            }
+
+            else if (MathOperators.Contains(element[0]))
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }            
+        }
+
+        public static bool? LogicalOperatorsContains(string element)
+        {
+            if (element.Length > 1)
+            {
+                return null;
+            }
+
+            else if (LogicalOperators.Contains(element[0]))
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
     }
 }

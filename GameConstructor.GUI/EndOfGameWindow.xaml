@@ -31,9 +31,9 @@
 
                 <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"  FontFamily="Verdana" Margin="218,67,208,9.333" Height="31" Width="350" >Описание результата игры</TextBlock>
 
-                <Button Name="PlayToDifferentGames" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Margin="48,0,0,29.667" Padding="12 8" Height="52" Width="190" >Другие игры</Button>
+                <Button Name="PlayToDifferentGames" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Margin="48,0,0,29.667" Padding="12 8" Height="52" Width="190" Click="PlayToDifferentGames_Click" >Другие игры</Button>
 
-                <Button Name="PlayAgain" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Margin="48,0,0,29.667" Padding="12 8" Height="52" Width="190" >Играть снова</Button>
+                <Button Name="PlayAgain" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Margin="48,0,0,29.667" Padding="12 8" Height="52" Width="190" Click="PlayAgain_Click" >Играть снова</Button>
 
             </Grid>
         </ScrollViewer>

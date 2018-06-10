@@ -49,6 +49,7 @@ namespace GameConstructor.GUI
         bool _goingToTheNextDeveloperWindow = false;
         bool _characteristicNameTextBoxShouldBeFocused = false;
         bool _theSameCharacteristicsNamesErrorWasShown = false;
+        int _newCharacteristicsAdded = 0;
 
         
 
@@ -121,6 +122,8 @@ namespace GameConstructor.GUI
         private void NewCharacteristicButton_Click(object sender, RoutedEventArgs e)
         {
             AddNewDefaultCharacteristic();
+
+            _newCharacteristicsAdded++;
         }
 
 
@@ -546,7 +549,7 @@ namespace GameConstructor.GUI
 
         private void GoingToTheNextDeveloperWindow()
         {
-            Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, _storage, _wereThereAlreadySomeChangings);
+            Developer_II_Window developer_II_Window = new Developer_II_Window(_user, _game, _storage, _wereThereAlreadySomeChangings, _newCharacteristicsAdded);
 
             developer_II_Window.Show();
         }
@@ -566,6 +569,13 @@ namespace GameConstructor.GUI
             Button DeleteButton = sender as Button;
 
             Characteristic characteristic = DeleteButton.DataContext as Characteristic;
+
+            int indexPosition = _characteristics.IndexOf(characteristic);
+
+            if (indexPosition >= _characteristics.Count() - _newCharacteristicsAdded)
+            {
+                _newCharacteristicsAdded--;
+            }
 
             _storage.RemoveCharacteristic(characteristic);
 

@@ -48,7 +48,7 @@
 
                 <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Name="Question" FontSize="20" FontFamily="Verdana" Margin="45 20 45 20" TextWrapping="Wrap" >Текст Вопроса </TextBlock>
 
-                <ListBox Name="AnswersListBox" Grid.Row="2" Grid.ColumnSpan="2" Margin="45,9.667,45,-242.333" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+                <ListBox Name="AnswersListBox" Grid.Row="2" Grid.ColumnSpan="2" Margin="45,9.667,45,-242.333" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" MouseDoubleClick="AnswersListBox_MouseDoubleClick">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
