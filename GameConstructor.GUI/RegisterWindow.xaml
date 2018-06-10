@@ -30,6 +30,6 @@
         <PasswordBox x:Name="RepeatPasswordTextBox" Margin="30 10 100 10" FontSize="14.5" FontFamily="Verdana" HorizontalAlignment="Stretch" Grid.Row="3" Padding="14 7"></PasswordBox>
         <TextBox x:Name="EmailTextBox" Margin="30 10 100 10" FontSize="14.5" FontFamily="Verdana" HorizontalAlignment="Stretch" Grid.Row="4" Padding="14 7">Введите Email</TextBox>
 
-        <Button Name="ConfirmButton" Grid.Row="5" Margin="30 30" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="14 7" Click="ConfirmButton_Click" Style="{DynamicResource UsualButtonsStyle}">Подтвердить</Button>
+        <Button Name="ConfirmButton" Grid.Row="5" Margin="30 30" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="14 7" Click="ConfirmButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Подтвердить</Button>
     </Grid>
 </Window>

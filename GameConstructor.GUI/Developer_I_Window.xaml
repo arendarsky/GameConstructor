@@ -46,8 +46,8 @@
 
                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="17 5 20 5" FontSize="19" FontFamily="Segoe Script" HorizontalAlignment="Center" FontStyle="Italic">Шаг 1 из 3</TextBlock>
 
-                    <Button Name="BackToProfileButton" HorizontalAlignment="Center" Padding="11 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="BackToProfileButton_Click" Style="{DynamicResource UsualButtonsStyle}">В личный кабинет</Button>
-                    <Button Name="NextWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="NextWindowButton_Click" Style="{DynamicResource UsualButtonsStyle}">Далее</Button>
+                    <Button Name="BackToProfileButton" HorizontalAlignment="Center" Padding="11 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="BackToProfileButton_Click" Style="{DynamicResource AttentionButtonsStyle}">В личный кабинет</Button>
+                    <Button Name="NextWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="NextWindowButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Далее</Button>
 
                 </Grid>
 

@@ -46,8 +46,8 @@
 
                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="17 5 20 5" FontSize="19" FontFamily="Segoe Script" HorizontalAlignment="Center" FontStyle="Italic">Шаг 3 из 3</TextBlock>
 
-                    <Button Name="PreviousWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="PreviousWindowButton_Click" Style="{DynamicResource UsualButtonsStyle}">Назад</Button>
-                    <Button Name="SaveGameButton" HorizontalAlignment="Center" Padding="12 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="SaveGameButton_Click" Style="{DynamicResource UsualButtonsStyle}">Сохранить</Button>
+                    <Button Name="PreviousWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="PreviousWindowButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Назад</Button>
+                    <Button Name="SaveGameButton" HorizontalAlignment="Center" Padding="12 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="SaveGameButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Сохранить</Button>
                 </Grid>
 
                 <Grid Grid.Row="1" Grid.ColumnSpan="3">
