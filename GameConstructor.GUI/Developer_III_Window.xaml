@@ -70,7 +70,7 @@
 
                         <TextBlock Margin="35 25 40 5" VerticalAlignment="Top" FontSize="17" FontFamily="Verdana">Возможные текстовые результаты</TextBlock>
 
-                        <ListBox Name="PossibleResultTextsListBox" Grid.Row="1" VerticalAlignment="Top" BorderBrush="Transparent" Background="Transparent" Margin="28 20 45 30" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="PossibleResultTextsListBox_Initialized">
+                        <ListBox Name="PossibleResultTextsListBox" Grid.Row="1" VerticalAlignment="Top" BorderBrush="Transparent" Background="Transparent" Margin="28 20 45 30" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="PossibleResultTextsListBox_Initialized" Style="{DynamicResource TransparentListBox}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
@@ -109,7 +109,7 @@
                         
                         <TextBlock Grid.Column="1" Margin="25 25 20 8" FontSize="17" FontFamily="Verdana">Используемые символы</TextBlock>
 
-                        <ListBox Name="CharacteristicAbbreviationsListBox" Grid.Column="1" Grid.Row="1" BorderBrush="Transparent" Background="Transparent" Margin="18 15 30 0" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="CharacteristicAbbreviationsListBox_Initialized">
+                        <ListBox Name="CharacteristicAbbreviationsListBox" Grid.Column="1" Grid.Row="1" BorderBrush="Transparent" Background="Transparent" Margin="18 15 30 0" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="CharacteristicAbbreviationsListBox_Initialized" Style="{DynamicResource TransparentListBox}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Name="CharacteristicAbbreviationTextBlock" TextWrapping="Wrap" Margin="0 0 10 15" FontSize="14.5" FontFamily="Verdana" Initialized="CharacteristicAbbreviationTextBlock_Initialized">Подсказка</TextBlock>
@@ -128,7 +128,7 @@
 
                             <TextBox Name="ConditionsTextBox" Padding="14 11" Grid.Row="1" FontFamily="Verdana" Margin="8.5 12 15 20" FontSize="15" HorizontalAlignment="Stretch" TextWrapping="Wrap" Foreground="Gray" Height="120" Initialized="ConditionsTextBox_Initialized" TextChanged="ConditionsTextBox_TextChanged" LostFocus="ConditionsTextBox_LostFocus">Кликните на позицию в конструкторе ниже, чтобы редактировать условия результата в данном поле</TextBox>
  
-                            <ListBox Name="Constructor" Background="Transparent" HorizontalAlignment="Left" BorderBrush="Transparent" Grid.Row="2" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="Constructor_Initialized" Margin="3 3 10 10">
+                            <ListBox Name="Constructor" Background="Transparent" HorizontalAlignment="Left" BorderBrush="Transparent" Grid.Row="2" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Initialized="Constructor_Initialized" Margin="3 3 10 10" Style="{DynamicResource TransparentListBox}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <Grid>
