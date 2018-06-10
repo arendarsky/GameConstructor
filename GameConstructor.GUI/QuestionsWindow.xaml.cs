@@ -23,5 +23,20 @@ namespace GameConstructor.GUI
         {
             InitializeComponent();
         }
+
+        private void AnswersListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            //надо добавить вопросы, так ругается
+            //if (AnswersListBox.SelectedItem is Answer answer)
+            {
+                ResultAfterQuestionWindow resultAfterQuestionWindow = new ResultAfterQuestionWindow();
+
+                resultAfterQuestionWindow.Show();
+
+                Hide();
+
+            }
+
+        }
     }
 }

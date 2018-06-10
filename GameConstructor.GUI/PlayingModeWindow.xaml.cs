@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameConstructor.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,5 +24,29 @@ namespace GameConstructor.GUI
         {
             InitializeComponent();
         }
+
+        private void OurGamesListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (OurGamesListBox.SelectedItem is Game game)
+            {
+                DiscriptionOfGameWindow discriptionOfGameWindow = new DiscriptionOfGameWindow();
+
+                discriptionOfGameWindow.Show();
+
+                Close();
+
+            }
+        }
+
+        private void BackToCreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+
+            loginWindow.Show();
+
+            Close();
+
+        }
+
     }
 }

@@ -23,5 +23,24 @@ namespace GameConstructor.GUI
         {
             InitializeComponent();
         }
+
+        private void PlayButton_Click(object sender, RoutedEventArgs e)
+        {
+            QuestionsWindow questionsWindow = new QuestionsWindow();
+
+            questionsWindow.Show();
+
+            Close();
+        }
+
+        private void BackToPlayModeWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            PlayingModeWindow playingModeWindow = new PlayingModeWindow();
+
+            playingModeWindow.Show();
+
+            Close();
+              
+        }
     }
 }
