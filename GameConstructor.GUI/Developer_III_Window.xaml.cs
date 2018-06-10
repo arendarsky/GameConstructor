@@ -911,7 +911,23 @@ namespace GameConstructor.GUI
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
+            Button DeleteButton = sender as Button;
 
+            Result result = DeleteButton.DataContext as Result;
+
+            _textResults.Remove(result);
+
+            for (int i = 0; i < _conditions.Count; i++)
+            {
+                Grid ConditionResultGrid = UIMethods.GetUIElementChildByNumberFromTemplatedListBox(Constructor, i, 1) as Grid;
+
+                ComboBox ConditionTextResultComboBox = ConditionResultGrid.Children[1] as ComboBox;
+
+                ConditionTextResultComboBox.SelectedIndex = 0;
+            }
+
+            DefaultPossibleTextResultsItemsSource();
+            DefaultConstructorItemsSource();            
         }
     }
 }
