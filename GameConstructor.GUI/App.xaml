@@ -226,8 +226,8 @@
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>-->
         <LinearGradientBrush x:Key="AttentionButton.Static.Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-            <GradientStop Color="#FFE59557" Offset="1"/>
-            <GradientStop Color="#FFF6E2CB"/>
+            <GradientStop Color="#FFF5A364" Offset="1"/>
+            <GradientStop Color="#FFFDE9D2"/>
         </LinearGradientBrush>
         <SolidColorBrush x:Key="UsualButton.Static.Background" Color="#FFEBCFA1"></SolidColorBrush>
         <SolidColorBrush x:Key="AttentionButton.Static.Border" Color="#CC6F6252"/>
