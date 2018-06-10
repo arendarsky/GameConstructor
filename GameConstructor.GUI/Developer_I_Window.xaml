@@ -46,8 +46,8 @@
 
                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="17 5 20 5" FontSize="19" FontFamily="Segoe Script" HorizontalAlignment="Center" FontStyle="Italic">Шаг 1 из 3</TextBlock>
 
-                    <Button Name="BackToProfileButton" HorizontalAlignment="Center" Padding="11 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="BackToProfileButton_Click">В личный кабинет</Button>
-                    <Button Name="NextWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="NextWindowButton_Click">Далее</Button>
+                    <Button Name="BackToProfileButton" HorizontalAlignment="Center" Padding="11 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="BackToProfileButton_Click" Style="{DynamicResource UsualButtonsStyle}">В личный кабинет</Button>
+                    <Button Name="NextWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="NextWindowButton_Click" Style="{DynamicResource UsualButtonsStyle}">Далее</Button>
 
                 </Grid>
 
@@ -84,7 +84,7 @@
                             </Border>
                         </DockPanel>
 
-                        <Button Name="UploadImageButton" Grid.Row="1" HorizontalAlignment="Center" Margin="50 0 0 0" VerticalAlignment="Top" Padding="10 5" FontSize="13" Click="UploadImageButton_Click">Загрузите свою обложку</Button>
+                        <Button Name="UploadImageButton" Grid.Row="1" HorizontalAlignment="Center" Margin="50 0 0 0" VerticalAlignment="Top" Padding="10 5" FontSize="13" Click="UploadImageButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Загрузите свою обложку</Button>
                     </Grid>
 
                     <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30 40 50 0" FontSize="18" FontFamily="Verdana">Игровые характеристики</TextBlock>
@@ -110,7 +110,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
 
-                    <Button Name="NewCharacteristicButton" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="13 7" FontSize="15.5" Margin="0 5 20 60" Click="NewCharacteristicButton_Click">Добавить характеристику</Button>
+                    <Button Name="NewCharacteristicButton" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="13 7" FontSize="15.5" Margin="0 5 20 60" Click="NewCharacteristicButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Добавить характеристику</Button>
                 </Grid>                
             </Grid>
         </ScrollViewer>

@@ -47,12 +47,12 @@
 
                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="17 5 20 5" FontSize="19" FontFamily="Segoe Script" FontStyle="Italic">Шаг 2 из 3</TextBlock>
 
-                    <Button Name="PreviousWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="PreviousWindowButton_Click">Назад</Button>
-                    <Button Name="NextWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="NextWindowButton_Click">Далее</Button>
+                    <Button Name="PreviousWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="PreviousWindowButton_Click" Style="{DynamicResource UsualButtonsStyle}">Назад</Button>
+                    <Button Name="NextWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="NextWindowButton_Click" Style="{DynamicResource UsualButtonsStyle}">Далее</Button>
                     
                 </Grid>
 
-                <Button Name="NewQuestionButton" Panel.ZIndex="1" Grid.Row="2" Grid.ColumnSpan="3" FontSize="18" Padding="30 0" Margin="0 -90 0 35" HorizontalAlignment="Center" Click="NewQuestionButton_Click">Добавить вопрос</Button>
+                <Button Name="NewQuestionButton" Panel.ZIndex="1" Grid.Row="2" Grid.ColumnSpan="3" FontSize="18" Padding="30 0" Margin="0 -90 0 35" HorizontalAlignment="Center" Click="NewQuestionButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Добавить вопрос</Button>
 
                 <ListBox Name="QuestionsListBox" Grid.Row="1" Grid.ColumnSpan="3" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderBrush="Transparent" Margin="65 10 50 30" HorizontalContentAlignment="Stretch" Style="{DynamicResource TransparentListBox}">
                     <ListBox.ItemTemplate>
@@ -77,7 +77,7 @@
                                     <Image Source="Images/delete_icon.png" Height="22" Width="22"></Image>
                                 </Button>
 
-                                <Button Name="NewAnswerButton" Panel.ZIndex="1" Grid.Row="2" Grid.ColumnSpan="2" FontSize="16" Padding="8 5" HorizontalAlignment="Left" Margin="17.5 -15 10 90" Click="NewAnswerButton_Click">Добавить вариант ответа</Button>
+                                <Button Name="NewAnswerButton" Panel.ZIndex="1" Grid.Row="2" Grid.ColumnSpan="2" FontSize="16" Padding="8 5" HorizontalAlignment="Left" Margin="17.5 -15 10 90" Click="NewAnswerButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Добавить вариант ответа</Button>
 
                                 <ListBox Name="AnswersListBox" Grid.Row="1" Grid.ColumnSpan="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 0 30 0" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Stretch" Initialized="AnswersListBox_Initialized" Style="{DynamicResource TransparentListBox}">
                                     <ListBox.ItemTemplate>
@@ -100,7 +100,7 @@
                                                     <Image Source="Images/delete_icon.png" Height="18" Width="18"></Image>
                                                 </Button>
 
-                                                <Button Name="NewReactionButton" Panel.ZIndex="1" FontSize="15" HorizontalAlignment="Right" Grid.Row="2" Margin="0 5 29 20" Padding="6 4" Click="NewReactionButton_Click">Новая реакция</Button>
+                                                <Button Name="NewReactionButton" Panel.ZIndex="1" FontSize="15" HorizontalAlignment="Right" Grid.Row="2" Margin="0 5 29 20" Padding="6 4" Click="NewReactionButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Новая реакция</Button>
 
                                                 <ListBox Name="ReactionsListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Stretch" Initialized="ReactionsListBox_Initialized" Margin="15 6 -7 0" Grid.Row="1" Style="{DynamicResource TransparentListBox}">
                                                     <ListBox.ItemTemplate>

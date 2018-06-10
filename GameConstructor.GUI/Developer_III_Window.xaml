@@ -46,8 +46,8 @@
 
                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="17 5 20 5" FontSize="19" FontFamily="Segoe Script" HorizontalAlignment="Center" FontStyle="Italic">Шаг 3 из 3</TextBlock>
 
-                    <Button Name="PreviousWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="PreviousWindowButton_Click">Назад</Button>
-                    <Button Name="SaveGameButton" HorizontalAlignment="Center" Padding="12 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="SaveGameButton_Click">Сохранить</Button>
+                    <Button Name="PreviousWindowButton" HorizontalAlignment="Center" Padding="15 5" Margin="5" Grid.Column="0" Grid.Row="1" FontSize="14" Click="PreviousWindowButton_Click" Style="{DynamicResource UsualButtonsStyle}">Назад</Button>
+                    <Button Name="SaveGameButton" HorizontalAlignment="Center" Padding="12 5" Margin="5" Grid.Column="1" FontSize="14" Grid.Row="1" Click="SaveGameButton_Click" Style="{DynamicResource UsualButtonsStyle}">Сохранить</Button>
                 </Grid>
 
                 <Grid Grid.Row="1" Grid.ColumnSpan="3">
@@ -96,7 +96,7 @@
                             </ListBox.ItemTemplate>                        
                         </ListBox>
 
-                        <Button Grid.Row="2" Name="NewTextResultButton" Margin="35 -23 35 35" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14" Padding="10 5.5" Click="NewTextResultButton_Click">Новый текстовый результат</Button>
+                        <Button Grid.Row="2" Name="NewTextResultButton" Margin="35 -23 35 35" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14" Padding="10 5.5" Click="NewTextResultButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Новый текстовый результат</Button>
                     </Grid>
 
                                         
@@ -178,9 +178,9 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Name="SaveGameButton2"  Padding="24 13"  Margin="27 25" Grid.Column="0" FontSize="20" Click="SaveGameButton_Click">Сохранить</Button>
+                        <Button Name="SaveGameButton2"  Padding="24 13"  Margin="27 25" Grid.Column="0" FontSize="20" Click="SaveGameButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Сохранить</Button>
 
-                        <Button Name="TestGameButton"  Padding="17 13"  Margin="27 25" Grid.Column="1" FontSize="20" Click="SaveGameButton_Click">Тестировать</Button>
+                        <Button Name="TestGameButton"  Padding="17 13"  Margin="27 25" Grid.Column="1" FontSize="20" Click="SaveGameButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Тестировать</Button>
                     </Grid>
                 </Grid>
             </Grid>
