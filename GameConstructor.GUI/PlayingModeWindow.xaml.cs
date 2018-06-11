@@ -1,4 +1,5 @@
-﻿using GameConstructor.Core.Models;
+﻿using GameConstructor.Core.Interfaces;
+using GameConstructor.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,16 +21,19 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class PlayingModeWindow : Window
     {
-        public PlayingModeWindow()
+        IStorage _storage;
+        public PlayingModeWindow(IStorage storage)
         {
             InitializeComponent();
+            _storage = storage;
+            OurGamesListBox.ItemsSource = _storage.PlayableGames.Items;
         }
 
         private void OurGamesListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (OurGamesListBox.SelectedItem is Game game)
             {
-                DiscriptionOfGameWindow discriptionOfGameWindow = new DiscriptionOfGameWindow();
+                DiscriptionOfGameWindow discriptionOfGameWindow = new DiscriptionOfGameWindow(_storage, game);
 
                 discriptionOfGameWindow.Show();
 

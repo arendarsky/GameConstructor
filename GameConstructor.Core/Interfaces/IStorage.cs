@@ -22,5 +22,6 @@ namespace GameConstructor.Core.Interfaces
         void RemoveEffect(Effect effect);
         void CloseGame();
         void RemoveResult(Result result);
+        void RemoveCondition(Condition condition);
     }
 }

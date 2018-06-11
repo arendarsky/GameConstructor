@@ -187,6 +187,10 @@ namespace GameConstructor.Core.DataStorages
         {
 
         }
+        public void RemoveCondition(Condition condition)
+        {
+
+        }
     }
 
 
@@ -217,8 +221,8 @@ namespace GameConstructor.Core.DataStorages
             {
                 using(_context = new Context())
                 {
-                    _playingGames = new DatabaseRepository<Game>(_context.Games.Where(
-                        g => g.DisplayingInGameMode == true).ToList());
+                    _playingGames = new DatabaseRepository<Game>(_context.Games
+                        .Include("Picture").ToList());
                     return _playingGames;
                 }
             }
@@ -363,7 +367,20 @@ namespace GameConstructor.Core.DataStorages
             {
                 result = _context.Results.First(
                     c => c.Id == result.Id);
+                _context.Results.Remove(result);
                 
+            }
+            catch
+            {
+
+            }
+        }
+        public void RemoveCondition(Condition condition)
+        {
+            try
+            {
+                condition = _context.Conditions.First(c => c.Id == condition.Id);
+                _context.Conditions.Remove(condition);
             }
             catch
             {

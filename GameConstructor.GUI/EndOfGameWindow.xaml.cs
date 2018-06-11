@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameConstructor.Core.Interfaces;
+using GameConstructor.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,8 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class EndOfGameWindow : Window
     {
+        IStorage _storage;
+        Game _game;
         public EndOfGameWindow()
         {
             InitializeComponent();
@@ -26,7 +30,7 @@ namespace GameConstructor.GUI
 
         private void PlayToDifferentGames_Click(object sender, RoutedEventArgs e)
         {
-            PlayingModeWindow playingModeWindow = new PlayingModeWindow();
+            PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
 
             playingModeWindow.Show();
 
@@ -35,7 +39,7 @@ namespace GameConstructor.GUI
 
         private void PlayAgain_Click(object sender, RoutedEventArgs e)
         {
-            DiscriptionOfGameWindow discriptionOfGameWindow = new DiscriptionOfGameWindow();
+            DiscriptionOfGameWindow discriptionOfGameWindow = new DiscriptionOfGameWindow(_storage, _game);
 
             discriptionOfGameWindow.Show();
 
