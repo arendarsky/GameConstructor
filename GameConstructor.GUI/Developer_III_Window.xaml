@@ -147,7 +147,7 @@
 
                                                 <TextBlock Name="ConstructorConditionTextBlock" FontFamily="Century Gothic" VerticalAlignment="Top" FontSize="18" Margin="10 12 10 6" Initialized="ConstructorConditionTextBlock_Initialized">ЕСЛИ</TextBlock>
 
-                                                <TextBox Name="ConstructorConditionTextBox" Width="180" Grid.Column="1" FontFamily="Century Gothic" Foreground="#CC423535" Padding="10 5" Background="#66E0CBAA" VerticalAlignment="Top" FontSize="15" Margin="8 8 0 6" BorderBrush="#CC443830" Initialized="ConstructorConditionTextBox_Initialized" GotFocus="ConstructorConditionTextBox_GotFocus">логическое условие</TextBox>
+                                                <TextBox Name="ConstructorConditionTextBox" Width="180" Grid.Column="1" FontFamily="Century Gothic" Foreground="#CC423535" Padding="10 5" Background="#66E0CBAA" VerticalAlignment="Top" FontSize="15" Margin="8 8 0 6" BorderBrush="#CC443830" Initialized="ConstructorConditionTextBox_Initialized" GotFocus="ConstructorConditionTextBox_GotFocus" Style="{DynamicResource TextBoxConditionStyle}">логическое условие</TextBox>
 
                                                 <TextBlock Name="ComaTextBlock" Grid.Column="2" FontFamily="Century Gothic"  VerticalAlignment="Top" FontSize="22" Margin="10 14 10 4" Initialized="ComaTextBlock_Initialized" >,</TextBlock>
                                             </Grid>

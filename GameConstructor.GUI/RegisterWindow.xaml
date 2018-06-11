@@ -25,7 +25,7 @@
 
         <TextBlock Margin="30 40 30 25" FontSize="17" FontFamily="Verdana">Регистрация</TextBlock>
 
-        <TextBox Name="LoginTextBox" Margin="30 10 100 10" FontSize="14.5" FontFamily="Verdana" HorizontalAlignment="Stretch" Grid.Row="1" Padding="14 7">Введите логин</TextBox>
+        <TextBox Name="LoginTextBox" Margin="30 10 100 10" FontSize="14.5" FontFamily="Verdana" HorizontalAlignment="Stretch" Grid.Row="1" Padding="14 7" Style="{DynamicResource TextBoxConditionStyle}">Введите логин</TextBox>
         <PasswordBox x:Name="PasswordTextBox" Margin="30 10 100 10" FontSize="14.5" FontFamily="Verdana" HorizontalAlignment="Stretch" Grid.Row="2" Padding="14 7"></PasswordBox>
         <PasswordBox x:Name="RepeatPasswordTextBox" Margin="30 10 100 10" FontSize="14.5" FontFamily="Verdana" HorizontalAlignment="Stretch" Grid.Row="3" Padding="14 7"></PasswordBox>
         <TextBox x:Name="EmailTextBox" Margin="30 10 100 10" FontSize="14.5" FontFamily="Verdana" HorizontalAlignment="Stretch" Grid.Row="4" Padding="14 7">Введите Email</TextBox>

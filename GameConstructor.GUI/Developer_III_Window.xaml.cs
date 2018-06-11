@@ -861,7 +861,7 @@ namespace GameConstructor.GUI
             ConditionsTextBox.IsReadOnly = false;
             ConditionsTextBox.Focus();
 
-            ConstructorConditionTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF00C7FF"));
+            ConstructorConditionTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0790D8"));
         }
 
         private void ConditionsTextBox_TextChanged(object sender, TextChangedEventArgs e)
