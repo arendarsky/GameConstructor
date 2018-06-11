@@ -183,6 +183,10 @@ namespace GameConstructor.Core.DataStorages
         {
 
         }
+        public void RemoveResult(Result result)
+        {
+
+        }
     }
 
 
@@ -347,6 +351,19 @@ namespace GameConstructor.Core.DataStorages
                 effect = _context.Effects.First(
                     c => c.Id == effect.Id);
                 _context.Effects.Remove(effect);
+            }
+            catch
+            {
+
+            }
+        }
+        public void RemoveResult(Result result)
+        {
+            try
+            {
+                result = _context.Results.First(
+                    c => c.Id == result.Id);
+                
             }
             catch
             {
