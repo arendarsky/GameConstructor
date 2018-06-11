@@ -806,7 +806,12 @@ namespace GameConstructor.GUI
 
                 int index = _conditions.IndexOf(condition);
 
-                _conditions = _conditions.Take(index + 1).ToList();
+                foreach (var c in _conditions.Skip(index + 1).ToList())
+                {
+                    _conditions.Remove(c);
+                    _storage.RemoveCondition(c);
+                }
+                //_conditions = _conditions.Take(index + 1).ToList();
 
                 if (ConstructorBuildingCombobox.SelectedIndex == 0)
                 {
@@ -915,9 +920,6 @@ namespace GameConstructor.GUI
 
             Result result = DeleteButton.DataContext as Result;
 
-            _textResults.Remove(result);
-            _storage.RemoveResult(result);
-
             for (int i = 0; i < _conditions.Count; i++)
             {
                 Grid ConditionResultGrid = UIMethods.GetUIElementChildByNumberFromTemplatedListBox(Constructor, i, 1) as Grid;
@@ -926,6 +928,11 @@ namespace GameConstructor.GUI
 
                 ConditionTextResultComboBox.SelectedIndex = 0;
             }
+
+            _textResults.Remove(result);
+            _storage.RemoveResult(result);
+
+
 
             DefaultPossibleTextResultsItemsSource();
             DefaultConstructorItemsSource();            
