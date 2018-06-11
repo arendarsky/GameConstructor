@@ -535,8 +535,8 @@
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>-->
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#CC443830"/>
-        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF5FACFA"/>
-        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF0790D8"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#CC3086B4"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#CC3797F8"/>
         
         <Style x:Key="TextBoxConditionStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
