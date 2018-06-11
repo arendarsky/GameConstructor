@@ -916,6 +916,7 @@ namespace GameConstructor.GUI
             Result result = DeleteButton.DataContext as Result;
 
             _textResults.Remove(result);
+            _storage.RemoveResult(result);
 
             for (int i = 0; i < _conditions.Count; i++)
             {

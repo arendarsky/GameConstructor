@@ -20,6 +20,7 @@ namespace GameConstructor.Core
         public DbSet<Influence> Influences { get; set; }
         public DbSet<Picture> Pictures { get; set; }
         public DbSet<Result> Results { get; set; }
+        public DbSet<Condition> Conditions { get; set; }
         public Context(): base("GameConstructorDb")
         {
 
