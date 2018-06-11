@@ -29,7 +29,7 @@
 
                 <TextBlock Margin="20 35 10 20" FontSize="18" FontFamily="Verdana">Разработайте игру с нашим конструктором</TextBlock>
 
-                <Button Name="HelpButton" BorderBrush="Transparent" Background="Transparent" Grid.Column="1" Height="Auto" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 32" Style="{DynamicResource IconButtonsStyle}">
+                <Button Name="HelpButton" BorderBrush="Transparent" Background="Transparent" Grid.Column="1" Height="Auto" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 32" Style="{DynamicResource QuestionButtonStyle}">
                     <Image Source="Images/img_199922.png" Height="25" Width="25"></Image>
                 </Button>
 
@@ -102,7 +102,7 @@
                                     <TextBox Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 9 50 8" Padding="10 5" FontSize="14" Name="CharacteristicNameTextBox" GotFocus="CharacteristicNameTextBox_GotFocus" LostFocus="CharacteristicNameTextBox_LostFocus" Initialized="CharacteristicNameTextBox_Initialized" FontFamily="Verdana">Название характеристики</TextBox>
                                     <TextBox Grid.Column="1" VerticalAlignment="Center" Margin="0 9 0 8" Name="CharacteristicValueTextBox" Padding="8 5" FontSize="14" Width="90" FontFamily="Verdana" GotFocus="CharacteristicValueTextBox_GotFocus" LostFocus="CharacteristicValueTextBox_LostFocus" Initialized="CharacteristicValueTextBox_Initialized">Значение</TextBox>
 
-                                    <Button Name="DeleteButton" Grid.Column="2" Margin="23 0 5 0" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto" Click="DeleteButton_Click" Style="{DynamicResource IconButtonsStyle}">
+                                    <Button Name="DeleteButton" Grid.Column="2" Margin="23 0 5 0" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto" Click="DeleteButton_Click" Style="{DynamicResource SmallDeleteButtonStyle}">
                                         <Image Source="Images/delete_icon.png" Height="15" Width="15"></Image>
                                     </Button>
                                 </Grid>

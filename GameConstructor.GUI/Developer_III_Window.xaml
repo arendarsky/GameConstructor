@@ -29,7 +29,7 @@
 
                 <TextBlock Margin="20 35 10 20" FontSize="18" FontFamily="Verdana">Разработайте игру с нашим конструктором</TextBlock>
 
-                <Button Name="HelpButton" BorderBrush="Transparent" Background="Transparent" Grid.Column="1" Height="Auto" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 32" Style="{DynamicResource IconButtonsStyle}">
+                <Button Name="HelpButton" BorderBrush="Transparent" Background="Transparent" Grid.Column="1" Height="Auto" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 32" Style="{DynamicResource QuestionButtonStyle}">
                     <Image Source="Images/img_199922.png" Height="25" Width="25"></Image>
                 </Button>
 
@@ -88,7 +88,7 @@
 
                                         <TextBox Name="ResultTextBox" Padding="11 8" Grid.Row="1" FontFamily="Verdana" Margin="0 5 0 15" FontSize="13.5" HorizontalAlignment="Stretch" TextWrapping="Wrap" Height="95" Initialized="ResultTextBox_Initialized" GotFocus="ResultTextBox_GotFocus" LostFocus="ResultTextBox_LostFocus"></TextBox>
 
-                                        <Button Name="DeleteButton" Grid.Column="1" Margin="5 7.5 10 5" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto" Click="DeleteButton_Click" Style="{DynamicResource IconButtonsStyle}">
+                                        <Button Name="DeleteButton" Grid.Column="1" Margin="5 7.5 10 5" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto" Click="DeleteButton_Click" Style="{DynamicResource MediumDeleteButtonStyle}">
                                             <Image Source="Images/delete_icon.png" Height="20" Width="20"></Image>
                                         </Button>
                                     </Grid>

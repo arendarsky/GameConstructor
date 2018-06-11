@@ -71,7 +71,7 @@
                                     <TextBlock Grid.Row="1" Name="SourceOfTheGameTextBlock" FontSize="12" FontFamily="Verdana" Margin="0 5 0 0" Initialized="SourceOfTheGameTextBlock_Initialized">Источник здесь, если он есть</TextBlock>
                                 </Grid>
 
-                                <Button Name="DeleteButton" Grid.Column="2" Margin="10 5" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto" Click="DeleteButton_Click" Style="{DynamicResource IconButtonsStyle}">
+                                <Button Name="DeleteButton" Grid.Column="2" Margin="10 5" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto" Click="DeleteButton_Click" Style="{DynamicResource SmallDeleteButtonStyle}">
                                     <Image Source="Images/delete_icon.png" Height="15" Width="15"></Image>
                                 </Button>
                             </Grid>

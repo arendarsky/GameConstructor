@@ -247,9 +247,21 @@
             <GradientStop Color="#FFEDE4D8"/>
         </LinearGradientBrush>
         <SolidColorBrush x:Key="UsualButton.MouseOver.Background" Color="#FFF0DCBA"></SolidColorBrush>
-        <RadialGradientBrush x:Key="IconButton.MouseOver.Background">
-            <GradientStop Color="Transparent" Offset="1"/>
+        <RadialGradientBrush x:Key="SmallDeleteButton.MouseOver.Background">
+            <GradientStop Color="Transparent" Offset="0.8"/>
             <GradientStop Color="#FFE5C267"/>
+        </RadialGradientBrush>
+        <RadialGradientBrush x:Key="MediumDeleteButton.MouseOver.Background">
+            <GradientStop Color="Transparent" Offset="0.8"/>
+            <GradientStop Color="#FFF6EAD2"/>
+        </RadialGradientBrush>
+        <RadialGradientBrush x:Key="BigDeleteButton.MouseOver.Background">
+            <GradientStop Color="Transparent" Offset="0.8"/>
+            <GradientStop Color="#FFFBFBFA"/>
+        </RadialGradientBrush>
+        <RadialGradientBrush x:Key="QuestionButton.MouseOver.Background">
+            <GradientStop Color="Transparent" Offset="1"/>
+            <GradientStop Color="White"/>
         </RadialGradientBrush>
         <SolidColorBrush x:Key="AttentionButton.MouseOver.Border" Color="#CC6F6252"/>
         <SolidColorBrush x:Key="UsualButton.MouseOver.Border" Color="#CC6F6252"/>
@@ -257,9 +269,21 @@
         <SolidColorBrush x:Key="AttentionButton.Pressed.Background" Color="#FFF6D2B7"/>
         <SolidColorBrush x:Key="AttentionButton.Pressed.Background1" Color="#FFD5CEC7"/>        
         <SolidColorBrush x:Key="UsualButton.Pressed.Background" Color="#FFF3DBB4"/>
-        <RadialGradientBrush x:Key="IconButton.Pressed.Background">
-            <GradientStop Color="Transparent" Offset="1"/>
+        <RadialGradientBrush x:Key="SmallDeleteButton.Pressed.Background">
+            <GradientStop Color="Transparent" Offset="0.8"/>
             <GradientStop Color="#FFE5C267"/>
+        </RadialGradientBrush>
+        <RadialGradientBrush x:Key="MediumDeleteButton.Pressed.Background">
+            <GradientStop Color="Transparent" Offset="0.8"/>
+            <GradientStop Color="#FFF6EAD2"/>
+        </RadialGradientBrush>
+        <RadialGradientBrush x:Key="BigDeleteButton.Pressed.Background">
+            <GradientStop Color="Transparent" Offset="0.8"/>
+            <GradientStop Color="#FFFBFBFA"/>
+        </RadialGradientBrush>
+        <RadialGradientBrush x:Key="QuestionButton.Pressed.Background">
+            <GradientStop Color="Transparent" Offset="1"/>
+            <GradientStop Color="White"/>
         </RadialGradientBrush>
         <SolidColorBrush x:Key="AttentionButton.Pressed.Border" Color="#CC6F6252"/>
         <SolidColorBrush x:Key="UsualButton.Pressed.Border" Color="#CC6F6252"/>
@@ -345,7 +369,7 @@
         </Style>
 
 
-        <Style x:Key="IconButtonsStyle" TargetType="{x:Type Button}">
+        <Style x:Key="SmallDeleteButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource IconButton.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource IconButton.Static.Border}"/>
@@ -366,11 +390,131 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource IconButton.MouseOver.Background}"/>
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource SmallDeleteButton.MouseOver.Background}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource IconButton.MouseOver.Border}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource IconButton.Pressed.Background}"/>
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource SmallDeleteButton.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource IconButton.Pressed.Border}"/>
+                            </Trigger>
+                            <!--<Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>-->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="MediumDeleteButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource IconButton.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource IconButton.Static.Border}"/>
+            <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>-->
+            <Setter Property="Foreground" Value="#FF29022D"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource MediumDeleteButton.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource IconButton.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource MediumDeleteButton.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource IconButton.Pressed.Border}"/>
+                            </Trigger>
+                            <!--<Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>-->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="BigDeleteButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource IconButton.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource IconButton.Static.Border}"/>
+            <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>-->
+            <Setter Property="Foreground" Value="#FF29022D"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource BigDeleteButton.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource IconButton.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource BigDeleteButton.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource IconButton.Pressed.Border}"/>
+                            </Trigger>
+                            <!--<Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>-->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="QuestionButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource IconButton.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource IconButton.Static.Border}"/>
+            <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>-->
+            <Setter Property="Foreground" Value="#FF29022D"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource QuestionButton.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource IconButton.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource QuestionButton.Pressed.Background}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource IconButton.Pressed.Border}"/>
                             </Trigger>
                             <!--<Trigger Property="IsEnabled" Value="false">
