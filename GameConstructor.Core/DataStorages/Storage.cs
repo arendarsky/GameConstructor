@@ -217,8 +217,8 @@ namespace GameConstructor.Core.DataStorages
             {
                 using(_context = new Context())
                 {
-                    _playingGames = new DatabaseRepository<Game>(_context.Games.Where(
-                        g => g.DisplayingInGameMode == true).ToList());
+                    _playingGames = new DatabaseRepository<Game>(_context.Games
+                        .Include("Picture").ToList());
                     return _playingGames;
                 }
             }

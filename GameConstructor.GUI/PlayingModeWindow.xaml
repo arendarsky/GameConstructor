@@ -41,7 +41,7 @@
 
                                 <DockPanel Grid.Column="0" Margin="17 10 10 10">
                                     <Border BorderThickness="0" BorderBrush="#FF715C4E">
-                                        <Image Name="GameAvatarImage" Width="64" Height="64"  HorizontalAlignment="Left" ></Image>
+                                        <Image Name="GameAvatarImage"  Width="64" Height="64"  HorizontalAlignment="Left" ></Image>
                                     </Border>
                                 </DockPanel>
 

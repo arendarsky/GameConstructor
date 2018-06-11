@@ -110,7 +110,7 @@ namespace GameConstructor.GUI
 
         private void PlayingModeButton_Click(object sender, RoutedEventArgs e)
         {
-            PlayingModeWindow playingModeWindow = new PlayingModeWindow();
+            PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
 
             playingModeWindow.Show();
 

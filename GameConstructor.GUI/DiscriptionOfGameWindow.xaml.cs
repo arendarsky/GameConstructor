@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameConstructor.Core.Interfaces;
+using GameConstructor.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,13 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class DiscriptionOfGameWindow : Window
     {
-        public DiscriptionOfGameWindow()
+        IStorage _storage;
+        Game _game;
+        public DiscriptionOfGameWindow(IStorage storage, Game game)
         {
             InitializeComponent();
+            _storage = storage;
+            _game = game;
         }
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
@@ -35,7 +41,7 @@ namespace GameConstructor.GUI
 
         private void BackToPlayModeWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            PlayingModeWindow playingModeWindow = new PlayingModeWindow();
+            PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
 
             playingModeWindow.Show();
 
