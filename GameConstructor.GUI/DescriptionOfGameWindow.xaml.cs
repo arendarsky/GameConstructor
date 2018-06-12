@@ -29,13 +29,13 @@ namespace GameConstructor.GUI
 
 
         IStorage _storage;
-        Game _game;
+        IGame _game;
         User _user;
 
         bool _goingToPlayGame = false;
 
 
-        public DescriptionOfGameWindow(IStorage storage, Game game)
+        public DescriptionOfGameWindow(IStorage storage, IGame game)
         {
             _storage = storage;
             _game = game;

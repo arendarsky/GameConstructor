@@ -10,6 +10,7 @@ namespace GameConstructor.Core.Interfaces
     public interface IGame
     {
         int Id { get; }
+        int UserId { get; }
         int Popularity { get; }
         string Name { get; }
         string Source { get; }
@@ -31,5 +32,6 @@ namespace GameConstructor.Core.Interfaces
         void UpdateCharacteristics(List<Characteristic> characteristics);
         void UpdateResults(List<Result> results);
         void UpdateConditions(List<Condition> conditions);
+        void UpdatePopularity(int popularity);
     }
 }

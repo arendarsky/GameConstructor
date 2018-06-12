@@ -96,5 +96,10 @@ namespace GameConstructor.Core.Models
         {
             Conditions = conditions;
         }
+
+        public void UpdatePopularity(int popularity)
+        {
+            Popularity = popularity;
+        }
     }
 }

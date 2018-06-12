@@ -119,9 +119,9 @@ namespace GameConstructor.GUI
 
         private void NextQuestionButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_game.GetCharacteristics.Count() == _numberOfQuestionsShown + 1)
+            if (_game.GetQuestions.Count() == _numberOfQuestionsShown + 1)
             {
-                EndOfGameWindow endOfGameWindow = new EndOfGameWindow();
+                EndOfGameWindow endOfGameWindow = new EndOfGameWindow(_storage, _game, _localCharacteristics);
 
                 endOfGameWindow.Show();
 

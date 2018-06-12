@@ -22,11 +22,37 @@ namespace GameConstructor.GUI
     public partial class EndOfGameWindow : Window
     {
         IStorage _storage;
-        Game _game;
-        public EndOfGameWindow()
+        IGame _game;
+        List<Characteristic> _localCharacteristics;
+
+
+        public EndOfGameWindow(IStorage storage, IGame game, List<Characteristic> localCharacteristics)
         {
+            _storage = storage;
+            _game = game;
+            _localCharacteristics = localCharacteristics;
+
             InitializeComponent();
+
+            UpdatePopularity();
         }
+
+
+
+        private void UpdatePopularity()
+        {
+            int popularity = _game.Popularity;
+
+            popularity++;
+
+            _game.UpdatePopularity(popularity);
+
+            //User user = _storage.Users.Items.FirstOrDefault(u => u.Id == _game.UserId);
+
+            //_storage.SaveGame(user, _game);
+        }
+
+
 
         private void PlayToDifferentGames_Click(object sender, RoutedEventArgs e)
         {
