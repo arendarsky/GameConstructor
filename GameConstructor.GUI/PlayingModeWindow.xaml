@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameConstructor.GUI"
         mc:Ignorable="d"
-        Title="Наши игры" MinHeight="500" MinWidth="800" Height="500" Width="800">
+        Title="Игровой конструктор - Игровой режим" Height="590" MinHeight="500" Width="620" MinWidth="590" MaxWidth="760">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -23,20 +23,18 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="45 40 0 0" FontFamily="Verdana">Наши игры:</TextBlock>
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="19" Margin="45 95 0 10" FontFamily="Verdana">Наши игры:</TextBlock>
 
-                <ListBox Name="OurGamesListBox" Grid.Row="3" Grid.ColumnSpan="2" Margin="45 10 45 100" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" MouseDoubleClick="OurGamesListBox_MouseDoubleClick">
+                <ListBox Name="OurGamesListBox" Grid.Row="2" Grid.ColumnSpan="2" Margin="45 10 45 50" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" MouseDoubleClick="OurGamesListBox_MouseDoubleClick" Style="{DynamicResource MouseOverListBox}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition />
-                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
                                 <DockPanel Grid.Column="0" Margin="17 10 10 10">
@@ -52,25 +50,19 @@
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
 
-                                    <TextBlock Grid.Row="0" Name="NameOfTheGameTextBlock" FontSize="15" FontFamily="Verdana" Margin="0 15 0 0" Initialized="NameOfTheGameTextBlock_Initialized">Название игры</TextBlock>
+                                    <TextBlock Grid.Row="0" Name="NameOfTheGameTextBlock" FontSize="15" FontFamily="Verdana" Margin="0 8.5 0 0" Initialized="NameOfTheGameTextBlock_Initialized">Название игры</TextBlock>
 
-                                    <TextBlock Grid.Row="1" Name="SourceOfTheGameTextBlock" FontSize="12" FontFamily="Verdana" Margin="0 10 0 0" Initialized="SourceOfTheGameTextBlock_Initialized" >Источник здесь, если он есть</TextBlock>
+                                    <TextBlock Grid.Row="1" Name="SourceOfTheGameTextBlock" FontSize="12" FontFamily="Verdana" Margin="0 5 0 0" Initialized="SourceOfTheGameTextBlock_Initialized" >Источник здесь, если он есть</TextBlock>
 
-                                    <TextBlock Grid.Row="2" Name="RaitingOfTheGameTextBlock" FontSize="12" FontFamily="Verdana" Margin="0 5 0 0" Initialized="RaitingOfTheGameTextBlock_Initialized">Рейтинг:</TextBlock>
-
+                                    <TextBlock Grid.Row="2" Name="RaitingOfTheGameTextBlock" FontSize="12" FontFamily="Verdana" Margin="0 15 0 0" Initialized="RaitingOfTheGameTextBlock_Initialized">Рейтинг:</TextBlock>
                                 </Grid>
-
-
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25"  FontFamily="Verdana" Margin="40,0,80,38.667" Width="371"><Run Text="Ничего не понравилось"/><Run Text="?"/></TextBlock>
-
-                <Button Name="BackToCreateButton" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="25" Margin="45 30" Padding="12 8" Click="BackToCreateButton_Click" >Создать свою!</Button>
-
-            </Grid>
+                <Button Name="BackToMainMenuButton" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="15" Margin="25" Padding="9.5 5.5" Click="BackToCreateButton_Click" Style="{DynamicResource AttentionButtonsStyle}" FontFamily="Segoe UI">Назад в главное меню</Button>
+           </Grid>
         </ScrollViewer>
     </Grid>
 </Window>

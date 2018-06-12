@@ -23,13 +23,21 @@ namespace GameConstructor.GUI
     public partial class PlayingModeWindow : Window
     {
         private const double defaultBorderThickness = 1.1;
+
+
         IStorage _storage;
+
+
+
         public PlayingModeWindow(IStorage storage)
         {
-            InitializeComponent();
             _storage = storage;
+
+            InitializeComponent();
+            
             OurGamesListBox.ItemsSource = _storage.PlayableGames.Items;
         }
+
 
         private void OurGamesListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -40,9 +48,10 @@ namespace GameConstructor.GUI
                 discriptionOfGameWindow.Show();
 
                 Close();
-
             }
         }
+
+
 
         private void BackToCreateButton_Click(object sender, RoutedEventArgs e)
         {
@@ -53,6 +62,8 @@ namespace GameConstructor.GUI
             Close();
 
         }
+
+
 
         private void GameAvatarImage_Initialized(object sender, EventArgs e)
         {
@@ -81,11 +92,10 @@ namespace GameConstructor.GUI
             catch
             {
                 image.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(
-                    "gamepad.png", "../GameConstructor.Core/Images"))); ;
+                    "gamepad.png", "../GameConstructor.Core/Images")));
                 border.BorderThickness = new Thickness(defaultBorderThickness);
             }
         }
-
 
         private void NameOfTheGameTextBlock_Initialized(object sender, EventArgs e)
         {

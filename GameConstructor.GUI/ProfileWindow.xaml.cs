@@ -78,7 +78,7 @@ namespace GameConstructor.GUI
             catch
             {
                 image.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(
-                    "gamepad.png", "../GameConstructor.Core/Images"))); ;
+                    "gamepad.png", "../GameConstructor.Core/Images")));
                 border.BorderThickness = new Thickness(defaultBorderThickness);
             }
         }
@@ -130,22 +130,6 @@ namespace GameConstructor.GUI
                 Close();
             }
         }
-
-        //private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    if (e.ClickCount >= 2)
-        //    {
-        //        Grid item = sender as Grid;
-
-        //        Game game = item.DataContext as Game;
-
-        //        Developer_I_Window developer_I_Window = new Developer_I_Window(_user, game, _storage);
-
-        //        developer_I_Window.Show();
-
-        //        Close();
-        //    }
-        //}
 
 
 
