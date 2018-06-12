@@ -338,7 +338,12 @@ namespace GameConstructor.GUI
 
             Question question = QuestionTextBox.DataContext as Question;
 
-            question.Body = QuestionTextBox.Text;
+            if (question.Body != QuestionTextBox.Text)
+            {
+                question.Body = QuestionTextBox.Text;
+
+                _wereThereAlreadySomeChangings = true;
+            }            
         }
 
         private void AnswerTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -366,7 +371,12 @@ namespace GameConstructor.GUI
             
             Answer answer = AnswerTextBox.DataContext as Answer;
 
-            answer.Body = AnswerTextBox.Text;
+            if (answer.Body != AnswerTextBox.Text)
+            {
+                answer.Body = AnswerTextBox.Text;
+
+                _wereThereAlreadySomeChangings = true;
+            }            
         }
 
         private void ReactionTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -393,8 +403,13 @@ namespace GameConstructor.GUI
             }
 
             Effect reaction = ReactionTextBox.DataContext as Effect;
+            
+            if (reaction.Body != ReactionTextBox.Text)
+            {
+                reaction.Body = ReactionTextBox.Text;
 
-            reaction.Body = ReactionTextBox.Text;
+                _wereThereAlreadySomeChangings = true;
+            }
         }
 
         private void ChangeOfCharacteristicLTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -417,8 +432,14 @@ namespace GameConstructor.GUI
 
             Influence influence = ChangeOfCharacteristicLTextBox.DataContext as Influence;
 
-            try { influence.Value = int.Parse(ChangeOfCharacteristicLTextBox.Text); }
-            catch { }
+            bool intParsing = int.TryParse(ChangeOfCharacteristicLTextBox.Text, out int val);
+
+            if (intParsing && influence.Value != val)
+            {
+                influence.Value = val;
+
+                _wereThereAlreadySomeChangings = true;
+            }
 
             ChangeOfCharacteristicLTextBox.Text = influence.Value.ToString();
         }
@@ -609,8 +630,37 @@ namespace GameConstructor.GUI
 
 
 
+        private void LoosingFocusAtTheEnd()
+        {
+            if (FocusManager.GetFocusedElement(this) is TextBox FocusedTextBox)
+            {
+                if (FocusedTextBox.DataContext is Question question)
+                {
+                    QuestionTextBox_LostFocus(FocusedTextBox, null);
+                }
+
+                else if (FocusedTextBox.DataContext is Answer answer)
+                {
+                    AnswerTextBox_LostFocus(FocusedTextBox, null);
+                }
+
+                else if (FocusedTextBox.DataContext is Effect reaction)
+                {
+                    ReactionTextBox_LostFocus(FocusedTextBox, null);
+                }
+
+                else
+                {
+                    ChangeOfCharacteristicLTextBox_LostFocus(FocusedTextBox, null);
+                }
+            }
+        }
+
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            LoosingFocusAtTheEnd();
+
             bool cancelation = false;
 
             if (!_goingToTheNextDeveloperWindow && !_goingToThePreviousDeveloperWindow)
@@ -670,20 +720,7 @@ namespace GameConstructor.GUI
 
         private bool IfThereWereAnyChangesMadeByUser()
         {
-            if (_wereThereAlreadySomeChangings) { return true; }
-
-            List<Question> questions = _questions;
-
-            if (questions.Count == 1 && questions[0] == DefaultQuestion()) { questions = null; }
-
-            if (GeneralMethods.CheckingWhetherCollectionsHaveTheSameValues<Question>(questions, _game.GetQuestions))
-            {
-                return false;
-            }
-
-            _wereThereAlreadySomeChangings = true;
-
-            return true;
+            return _wereThereAlreadySomeChangings;
         }
 
 
@@ -691,6 +728,13 @@ namespace GameConstructor.GUI
         private void NewQuestionButton_Click(object sender, RoutedEventArgs e)
         {
             AddNewDefaultQuestion();
+
+            if (_questions.Count == 1)
+            {
+                NewQuestionButton.Margin = new Thickness(0, -90, 0, 35);
+            }
+
+            _wereThereAlreadySomeChangings = true;
         }
 
         private void NewAnswerButton_Click(object sender, RoutedEventArgs e)
@@ -704,6 +748,13 @@ namespace GameConstructor.GUI
             Question question = NewAnswerButton.DataContext as Question;
 
             AddNewDefaultAnswer(AnswerListBox, question);
+
+            if (question.Answers.Count == 1)
+            {
+                NewAnswerButton.Margin = new Thickness(17.5, -15, 10, 90);
+            }
+
+            _wereThereAlreadySomeChangings = true;
         }
 
         private void NewReactionButton_Click(object sender, RoutedEventArgs e)
@@ -717,6 +768,8 @@ namespace GameConstructor.GUI
             Answer answer = NewReactionButton.DataContext as Answer;
 
             AddNewDefaultReaction(ReactionsListBox, answer);
+
+            _wereThereAlreadySomeChangings = true;
         }
 
 
@@ -731,6 +784,17 @@ namespace GameConstructor.GUI
             _storage.RemoveQuestion(question);
 
             DefaultQuestionListBoxSource();
+
+            if (_questions.Count == 0)
+            {
+                Grid MainGrid = QuestionsListBox.Parent as Grid;
+
+                Button NewQuestionButton = MainGrid.Children[3] as Button;
+
+                NewQuestionButton.Margin = new Thickness(0, -20, 0, 35);
+            }
+
+            _wereThereAlreadySomeChangings = true;
         }
 
         private void DeleteAnswerButton_Click(object sender, RoutedEventArgs e)
@@ -750,6 +814,17 @@ namespace GameConstructor.GUI
             _storage.RemoveAnswer(answer);
 
             DefaultAnswersListBoxSource(AnswersListBox, question);
+
+            if (question.Answers.Count == 0)
+            {
+                Grid QuestionGrid = AnswersListBox.Parent as Grid;
+
+                Button NewAnswerButton = QuestionGrid.Children[3] as Button;
+
+                NewAnswerButton.Margin = new Thickness(17.5, 20, 10, 90);
+            }
+
+            _wereThereAlreadySomeChangings = true;
         }
 
         private void DeleteReactionButton_Click(object sender, RoutedEventArgs e)
@@ -769,6 +844,8 @@ namespace GameConstructor.GUI
             _storage.RemoveEffect(effect);
 
             DefaultReactionsListBoxSource(ReactionsListBox, answer);
+
+            _wereThereAlreadySomeChangings = true;
         }
     }
 }
