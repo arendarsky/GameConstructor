@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameConstructor.GUI"
         mc:Ignorable="d"
-        Title="Название игры" MinHeight="500" MinWidth="800" Height="500" Width="800">
+        Title="Название игры" MinHeight="500" MinWidth="700" Height="650" Width="800" MaxWidth="1000">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -38,7 +38,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Grid.Column="1" Name="CharacteristicValueTextBlock" FontSize="17" FontFamily="Verdana" Margin="10 10 10 5" Foreground="SaddleBrown" Initialized="CharacteristicValueTextBlock_Initialized" Background="{x:Null}">1</TextBlock>
+                                <TextBlock Grid.Column="1" Name="CharacteristicValueTextBlock" FontSize="17" FontFamily="Verdana" Margin="10 10 10 5" Foreground="SaddleBrown" Initialized="CharacteristicValueTextBlock_Initialized">1</TextBlock>
 
                                 <TextBlock Grid.Column="0" Name="CharacteristicNameTextBlock" FontSize="15" FontFamily="Verdana" Margin="10 11.5 10 5" Initialized="CharacteristicNameTextBlock_Initialized">показатель</TextBlock>
                             </Grid>

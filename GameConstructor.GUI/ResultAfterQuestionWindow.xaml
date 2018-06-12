@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameConstructor.GUI"
         mc:Ignorable="d"
-        Title="Название игры" MinHeight="500" MinWidth="800" Height="500" Width="800">
+        Title="Название игры" MinHeight="500" MinWidth="500" Height="500" Width="800">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -22,31 +22,34 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition />
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition  />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <ListBox Name="CharacteristicsListBox" Grid.Row="0" Grid.ColumnSpan="2" Margin="45,45,45,45" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+                <ListBox Name="CharacteristicsListBox" Grid.Row="0" Grid.ColumnSpan="2" Margin="45 25 45 20" Background="Transparent" BorderBrush="Transparent"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Right" Initialized="CharacteristicsListBox_Initialized" Style="{DynamicResource TransparentListBox}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Grid.Column="0" Name="NumberOfCharacteristic" FontSize="20" FontFamily="Verdana" Margin="0 0 0 0" >1</TextBlock>
+                                <TextBlock Grid.Column="1" Name="CharacteristicValueTextBlock" FontSize="17" FontFamily="Verdana" Margin="10 10 10 5" Foreground="SaddleBrown" >1</TextBlock>
 
-                                <TextBlock Grid.Column="1" Name="ChangingOfCharacteristic" FontSize="20" FontFamily="Verdana" Margin="0 0 0 0" >изменение показателя</TextBlock>
+                                <TextBlock Grid.Column="0" Name="CharacteristicNameTextBlock" FontSize="15" FontFamily="Verdana" Margin="10 11.5 10 5" Initialized="CharacteristicNameTextBlock_Initialized">показатель</TextBlock>
+
+                                <TextBlock Grid.Column="2" Name="InfluenceValueTextBlock" FontSize="17" FontFamily="Verdana" Margin="5 10 10 5" Initialized="InfluenceValueTextBlock_Initialized">0</TextBlock>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Name="IntermediateResult" FontSize="20" FontFamily="Verdana" Margin="45 20 45 20" TextWrapping="Wrap" >Комментарий к ответу на вопрос</TextBlock>
+                <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Name="IntermediateResultTextBlock" FontSize="17" FontFamily="Verdana" Margin="60 40 50 30" TextWrapping="Wrap" Initialized="IntermediateResultTextBlock_Initialized">Комментарий к ответу на вопрос</TextBlock>
 
-                <Button Name="Continue" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Margin="45,0,45,20" Padding="12 8" Height="52" Width="268" Click="Continue_Click" >Следующий вопрос</Button>
+                <Button Name="ContinueButton" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" Margin="45,0,45,20" Padding="12 8" Height="52" Width="268" >Следующий вопрос</Button>
 
             </Grid>
         </ScrollViewer>

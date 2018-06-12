@@ -27,6 +27,8 @@ namespace GameConstructor.GUI
         private List<Characteristic> _localCharacteristics;
         private Answer _answer;
 
+        private Effect _reaction;
+
         
 
         public ResultAfterQuestionWindow(IStorage storage, IGame game, int numberOfQuestionsShown, List<Characteristic> localCharacteristics, Answer answer)
@@ -37,18 +39,80 @@ namespace GameConstructor.GUI
             _localCharacteristics = localCharacteristics;
             _answer = answer;
 
-            InitializeComponent();
+            ChoosingRandomlyAReactionForAnswer();
+
+            InitializeComponent();            
+        }
+
+
+        private void ChoosingRandomlyAReactionForAnswer()
+        {
+            int amountOfReactions = _answer.Effects.Count();
+
+            _reaction = _answer.Effects[(new Random()).Next(amountOfReactions)];
+        }
+        
+
+
+        private void CharacteristicsListBox_Initialized(object sender, EventArgs e)
+        {
+            CharacteristicsListBox.ItemsSource = _localCharacteristics;
         }
 
 
 
-        private void Continue_Click(object sender, RoutedEventArgs e)
+        private void IntermediateResultTextBlock_Initialized(object sender, EventArgs e)
         {
-            QuestionsWindow questionsWindow = new QuestionsWindow(null, null);
+            IntermediateResultTextBlock.Text = _reaction.Body;
+        }
 
-            questionsWindow.Show();
 
-            Hide();            
+
+        private void CharacteristicNameTextBlock_Initialized(object sender, EventArgs e)
+        {
+            TextBlock CharacteristicNameTextBlock = sender as TextBlock;
+
+            Characteristic characteristic = CharacteristicNameTextBlock.DataContext as Characteristic;
+
+            CharacteristicNameTextBlock.Text = characteristic.Name.ToString();
+        }
+
+        private void InfluenceValueTextBlock_Initialized(object sender, EventArgs e)
+        {
+            TextBlock InfluenceValueTextBlock = sender as TextBlock;
+
+            Grid CharacteristicGrid = InfluenceValueTextBlock.Parent as Grid;
+
+            TextBlock CharacteristicValueTextBlock = CharacteristicGrid.Children[0] as TextBlock;
+
+            Characteristic characteristic = InfluenceValueTextBlock.DataContext as Characteristic;
+
+            Influence influence = _reaction.Influences.FirstOrDefault(inf => inf.Characteristic.Name == characteristic.Name);
+
+            characteristic.Value += influence.Value;
+
+            CharacteristicValueTextBlock.Text = characteristic.Value.ToString();
+            
+            if (influence.Value > 0)
+            {
+                InfluenceValueTextBlock.Foreground = Brushes.ForestGreen;
+
+                InfluenceValueTextBlock.Text = "(+" + influence.Value + ")";
+            }
+
+            else if (influence.Value < 0)
+            {
+                InfluenceValueTextBlock.Foreground = Brushes.Red;
+
+                InfluenceValueTextBlock.Text = "(" + influence.Value + ")";
+            }
+
+            else
+            {
+                InfluenceValueTextBlock.Foreground = Brushes.DarkGray;
+
+                InfluenceValueTextBlock.Text = "(" + influence.Value + ")";
+            }
         }
     }
 }
