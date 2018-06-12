@@ -160,10 +160,6 @@ namespace GameConstructor.GUI
 
                 Game currentGame = deleteButton.DataContext as Game;
 
-                //_games.Remove(currentGame);
-
-                //_context.Games.Remove(currentGame);
-                //_context.SaveChanges();
                 _storage.RemoveGame(currentGame);
                 _user.Games.RemoveAll(g => g.Name == currentGame.Name);
                 DefaultGameListBoxItemsSource();

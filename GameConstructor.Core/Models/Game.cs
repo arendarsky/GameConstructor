@@ -64,11 +64,21 @@ namespace GameConstructor.Core.Models
 
         public void UpdateCharacteristics(List<Characteristic> characteristics)
         {
-            foreach (var q in Questions)
-                foreach (var a in q.Answers)
-                    foreach (var e in a.Effects)
-                        e.Influences.RemoveAll(i => characteristics
-                        .FirstOrDefault(c => c.Id == i.Characteristic.Id) == null);
+            if (Questions != null)
+            {
+                foreach (var q in Questions)
+                {
+                    foreach (var a in q.Answers)
+                    {
+                        foreach (var e in a.Effects)
+                        {
+                            e.Influences.RemoveAll(i => characteristics
+                            .FirstOrDefault(c => c.Id == i.Characteristic.Id) == null);
+                        }
+                    }
+                }
+            }
+                        
             Characteristics = characteristics;
         }
 
