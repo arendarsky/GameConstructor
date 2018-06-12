@@ -28,19 +28,19 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="261,25,49.333,9.333" FontFamily="Verdana">Название игры</TextBlock>
+                <TextBlock Name="NameOfTheGame" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="261,25,49.333,9.333" FontFamily="Verdana">Название игры</TextBlock>
 
                 <DockPanel Grid.Column="0" Grid.Row="1" Margin="45 10 10 10">
                     <Border BorderThickness="0" BorderBrush="#FF715C4E">
-                        <Image Name="GameAvatarImage" Width="200" Height="200"  HorizontalAlignment="Left" ></Image>
+                        <Image Name="GameAvatarImage" Stretch="UniformToFill" Source="Images/gamepad.png" HorizontalAlignment="Left" ></Image>
                     </Border>
                 </DockPanel>
 
-                <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" Margin="45 40 0 0" FontFamily="Verdana">Разработчик</TextBlock>
+                <TextBlock Name="SourceOfTheGame" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" Margin="45 40 0 0" FontFamily="Verdana">Разработчик</TextBlock>
 
-                <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" Margin="45,100,0,0" FontFamily="Verdana">Рейтинг</TextBlock>
+                <TextBlock Name="RatingOfTheGame" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" Margin="45,100,0,0" FontFamily="Verdana">Рейтинг</TextBlock>
 
-                <TextBlock Grid.Row="2"  Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="20" Margin="45,0,0,8.667" FontFamily="Verdana">Описание игры у м м м му муоатктактаутауталт</TextBlock>
+                <TextBlock Name="DescriptionOfTheGame" Grid.Row="2"  Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="20" Margin="45,0,0,8.667" FontFamily="Verdana">Описание игры у м м м му муоатктактаутауталт</TextBlock>
 
                 <Button Name="BackToPlayModeWindowButton" Grid.Row="3" Grid.Column="0" Margin="45 30" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Bottom" Padding="14 7" Click="BackToPlayModeWindowButton_Click"  >Выбрать другую игру</Button>
 

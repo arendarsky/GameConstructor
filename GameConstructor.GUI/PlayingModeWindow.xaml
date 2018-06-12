@@ -41,7 +41,7 @@
 
                                 <DockPanel Grid.Column="0" Margin="17 10 10 10">
                                     <Border BorderThickness="0" BorderBrush="#FF715C4E">
-                                        <Image Name="GameAvatarImage"  Width="64" Height="64"  HorizontalAlignment="Left" ></Image>
+                                        <Image Name="GameAvatarImage"  Width="64" Height="64" Source="Images/img_199922.png"  HorizontalAlignment="Left" Initialized="GameAvatarImage_Initialized"></Image>
                                     </Border>
                                 </DockPanel>
 
@@ -52,11 +52,11 @@
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
 
-                                    <TextBlock Grid.Row="0" Name="NameOfTheGameTextBlock" FontSize="15" FontFamily="Verdana" Margin="0 15 0 0" >Название игры</TextBlock>
+                                    <TextBlock Grid.Row="0" Name="NameOfTheGameTextBlock" FontSize="15" FontFamily="Verdana" Margin="0 15 0 0" Initialized="NameOfTheGameTextBlock_Initialized">Название игры</TextBlock>
 
-                                    <TextBlock Grid.Row="1" Name="SourceOfTheGameTextBlock" FontSize="12" FontFamily="Verdana" Margin="0 10 0 0" >Источник здесь, если он есть</TextBlock>
+                                    <TextBlock Grid.Row="1" Name="SourceOfTheGameTextBlock" FontSize="12" FontFamily="Verdana" Margin="0 10 0 0" Initialized="SourceOfTheGameTextBlock_Initialized" >Источник здесь, если он есть</TextBlock>
 
-                                    <TextBlock Grid.Row="2" Name="RaitingOfTheGameTextBlock" FontSize="12" FontFamily="Verdana" Margin="0 5 0 0" >Рейтинг:</TextBlock>
+                                    <TextBlock Grid.Row="2" Name="RaitingOfTheGameTextBlock" FontSize="12" FontFamily="Verdana" Margin="0 5 0 0" Initialized="RaitingOfTheGameTextBlock_Initialized">Рейтинг:</TextBlock>
 
                                 </Grid>
 

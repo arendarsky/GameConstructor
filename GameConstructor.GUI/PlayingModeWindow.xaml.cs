@@ -1,5 +1,6 @@
 ﻿using GameConstructor.Core.Interfaces;
 using GameConstructor.Core.Models;
+using GameConstructor.Core.SpecialMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class PlayingModeWindow : Window
     {
+        private const double defaultBorderThickness = 1.1;
         IStorage _storage;
         public PlayingModeWindow(IStorage storage)
         {
@@ -52,5 +54,58 @@ namespace GameConstructor.GUI
 
         }
 
+        private void GameAvatarImage_Initialized(object sender, EventArgs e)
+        {
+            Image image = sender as Image;
+
+            Game game = image.DataContext as Game;
+            Border border = image.Parent as Border;
+
+            image.Stretch = Stretch.UniformToFill;
+
+            try
+            {
+                image.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(game.Picture.ImageSource, "../GameConstructor.Core/Images"))); ;
+
+                if (game.Picture.IsBorderRequired)
+                {
+                    border.BorderThickness = new Thickness(defaultBorderThickness);
+                }
+
+                else
+                {
+                    border.BorderThickness = new Thickness(0);
+                }
+            }
+
+            catch
+            {
+                image.Source = new BitmapImage(new Uri(ImageUploaded.GetDestinationPath(
+                    "gamepad.png", "../GameConstructor.Core/Images"))); ;
+                border.BorderThickness = new Thickness(defaultBorderThickness);
+            }
+        }
+
+
+        private void NameOfTheGameTextBlock_Initialized(object sender, EventArgs e)
+        {
+            TextBlock NameTextBlock = sender as TextBlock;
+
+            NameTextBlock.Text = (NameTextBlock.DataContext as Game).Name;
+        }
+
+        private void SourceOfTheGameTextBlock_Initialized(object sender, EventArgs e)
+        {
+            TextBlock SourceTextBlock = sender as TextBlock;
+
+            SourceTextBlock.Text = (SourceTextBlock.DataContext as Game).Source;
+        }
+
+        private void RaitingOfTheGameTextBlock_Initialized(object sender, EventArgs e)
+        {
+            TextBlock RatingTextBlock = sender as TextBlock;
+
+            RatingTextBlock.Text = "Популярность: " + (RatingTextBlock.DataContext as Game).Popularity.ToString();
+        }
     }
 }
