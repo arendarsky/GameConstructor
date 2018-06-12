@@ -114,5 +114,30 @@ namespace GameConstructor.GUI
                 InfluenceValueTextBlock.Text = "(" + influence.Value + ")";
             }
         }
+
+        
+
+        private void NextQuestionButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_game.GetCharacteristics.Count() == _numberOfQuestionsShown + 1)
+            {
+                EndOfGameWindow endOfGameWindow = new EndOfGameWindow();
+
+                endOfGameWindow.Show();
+
+                Close();
+            }
+
+            else
+            {
+                _numberOfQuestionsShown++;
+
+                QuestionsWindow questionsWindow = new QuestionsWindow(_storage, _game, _numberOfQuestionsShown, _localCharacteristics);
+
+                questionsWindow.Show();
+
+                Close();
+            }
+        }
     }
 }
