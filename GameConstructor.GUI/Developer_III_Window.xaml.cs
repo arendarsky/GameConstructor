@@ -428,8 +428,27 @@ namespace GameConstructor.GUI
 
 
 
+        private void LoosingFocusAtTheEnd()
+        {
+            if (FocusManager.GetFocusedElement(this) is TextBox FocusedTextBox)
+            {
+                if (FocusedTextBox.DataContext is Result result)
+                {
+                    ResultTextBox_LostFocus(FocusedTextBox, null);
+                }
+
+                else
+                {
+                    ConditionsTextBox_LostFocus(FocusedTextBox, null);
+                }
+            }
+        }
+
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            LoosingFocusAtTheEnd();
+
             bool cancelation = false;
 
             if (!_goingToThePreviousDeveloperWindow && !_savingTheGame)
@@ -553,7 +572,12 @@ namespace GameConstructor.GUI
 
             Result result = ResultTextBox.DataContext as Result;
 
-            result.Body = ResultTextBox.Text;
+            if (result.Body != ResultTextBox.Text)
+            {
+                result.Body = ResultTextBox.Text;
+
+                _wereThereAlreadySomeChangings = true;
+            }
         }
 
 
@@ -681,6 +705,8 @@ namespace GameConstructor.GUI
 
         private void ResultNumberCombobox_Initialized(object sender, EventArgs e)
         {
+            _userSelectionChanging = false;
+
             ComboBox ResultNumberCombobox = sender as ComboBox;
 
             List<string> comboBoxSource = new List<string> { defaultNumberResultComboBoxText };
@@ -707,6 +733,8 @@ namespace GameConstructor.GUI
 
                 ResultNumberCombobox.SelectedIndex = index;
             }
+
+            _userSelectionChanging = true;
         }
 
         private void ConstructorBuildingCombobox_Initialized(object sender, EventArgs e)
@@ -908,7 +936,12 @@ namespace GameConstructor.GUI
                 {
                     var condition = ConstructorConditionTextBox.DataContext as Core.Models.Condition;
 
-                    condition.Text = ConstructorConditionTextBox.Text;
+                    if (condition.Text != ConstructorConditionTextBox.Text)
+                    {
+                        condition.Text = ConstructorConditionTextBox.Text;
+
+                        _wereThereAlreadySomeChangings = true;
+                    }
                 }
 
                 _indexOfConstructorTextBoxEdittedByTheMoment = -1;

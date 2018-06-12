@@ -338,7 +338,12 @@ namespace GameConstructor.GUI
 
             Question question = QuestionTextBox.DataContext as Question;
 
-            question.Body = QuestionTextBox.Text;
+            if (question.Body != QuestionTextBox.Text)
+            {
+                question.Body = QuestionTextBox.Text;
+
+                _wereThereAlreadySomeChangings = true;
+            }            
         }
 
         private void AnswerTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -366,7 +371,12 @@ namespace GameConstructor.GUI
             
             Answer answer = AnswerTextBox.DataContext as Answer;
 
-            answer.Body = AnswerTextBox.Text;
+            if (answer.Body != AnswerTextBox.Text)
+            {
+                answer.Body = AnswerTextBox.Text;
+
+                _wereThereAlreadySomeChangings = true;
+            }            
         }
 
         private void ReactionTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -393,8 +403,13 @@ namespace GameConstructor.GUI
             }
 
             Effect reaction = ReactionTextBox.DataContext as Effect;
+            
+            if (reaction.Body != ReactionTextBox.Text)
+            {
+                reaction.Body = ReactionTextBox.Text;
 
-            reaction.Body = ReactionTextBox.Text;
+                _wereThereAlreadySomeChangings = true;
+            }
         }
 
         private void ChangeOfCharacteristicLTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -417,8 +432,14 @@ namespace GameConstructor.GUI
 
             Influence influence = ChangeOfCharacteristicLTextBox.DataContext as Influence;
 
-            try { influence.Value = int.Parse(ChangeOfCharacteristicLTextBox.Text); }
-            catch { }
+            bool intParsing = int.TryParse(ChangeOfCharacteristicLTextBox.Text, out int val);
+
+            if (intParsing && influence.Value != val)
+            {
+                influence.Value = val;
+
+                _wereThereAlreadySomeChangings = true;
+            }
 
             ChangeOfCharacteristicLTextBox.Text = influence.Value.ToString();
         }
@@ -609,8 +630,37 @@ namespace GameConstructor.GUI
 
 
 
+        private void LoosingFocusAtTheEnd()
+        {
+            if (FocusManager.GetFocusedElement(this) is TextBox FocusedTextBox)
+            {
+                if (FocusedTextBox.DataContext is Question question)
+                {
+                    QuestionTextBox_LostFocus(FocusedTextBox, null);
+                }
+
+                else if (FocusedTextBox.DataContext is Answer answer)
+                {
+                    AnswerTextBox_LostFocus(FocusedTextBox, null);
+                }
+
+                else if (FocusedTextBox.DataContext is Effect reaction)
+                {
+                    ReactionTextBox_LostFocus(FocusedTextBox, null);
+                }
+
+                else
+                {
+                    ChangeOfCharacteristicLTextBox_LostFocus(FocusedTextBox, null);
+                }
+            }
+        }
+
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            LoosingFocusAtTheEnd();
+
             bool cancelation = false;
 
             if (!_goingToTheNextDeveloperWindow && !_goingToThePreviousDeveloperWindow)

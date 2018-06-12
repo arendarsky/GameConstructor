@@ -531,18 +531,36 @@ namespace GameConstructor.GUI
 
         private void LoosingFocusAtTheEnd()
         {
-            if (FocusManager.GetFocusedElement(this) is TextBox FocusedTextBox && FocusedTextBox.DataContext is Characteristic characteristic)
+            if (FocusManager.GetFocusedElement(this) is TextBox FocusedTextBox)
             {
-                Grid CharacteristicGrid = FocusedTextBox.Parent as Grid;
-
-                if (FocusedTextBox == CharacteristicGrid.Children[0] as TextBox)
+                if (FocusedTextBox.DataContext is Characteristic characteristic)
                 {
-                    CharacteristicNameTextBox_LostFocus(FocusedTextBox, null);
+                    Grid CharacteristicGrid = FocusedTextBox.Parent as Grid;
+
+                    if (FocusedTextBox == CharacteristicGrid.Children[0] as TextBox)
+                    {
+                        CharacteristicNameTextBox_LostFocus(FocusedTextBox, null);
+                    }
+
+                    else
+                    {
+                        CharacteristicValueTextBox_LostFocus(FocusedTextBox, null);
+                    }
+                }
+
+                else if (FocusedTextBox == GameNameTextBox)
+                {
+                    GameNameTextBox_LostFocus(FocusedTextBox, null);
+                }
+
+                else if (FocusedTextBox == SourceTextBox)
+                {
+                    SourceTextBox_LostFocus(FocusedTextBox, null);
                 }
 
                 else
                 {
-                    CharacteristicValueTextBox_LostFocus(FocusedTextBox, null);
+                    GameDescriptionTextBox_LostFocus(FocusedTextBox, null);
                 }
             }
         }
