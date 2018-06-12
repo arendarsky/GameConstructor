@@ -74,7 +74,7 @@ namespace GameConstructor.GUI
 
             Characteristic characteristic = CharacteristicNameTextBlock.DataContext as Characteristic;
 
-            CharacteristicNameTextBlock.Text = characteristic.Name.ToString();
+            CharacteristicNameTextBlock.Text = characteristic.Name + ":";
         }
 
         private void InfluenceValueTextBlock_Initialized(object sender, EventArgs e)
@@ -102,14 +102,14 @@ namespace GameConstructor.GUI
 
             else if (influence.Value < 0)
             {
-                InfluenceValueTextBlock.Foreground = Brushes.Red;
+                InfluenceValueTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFF2323"));
 
                 InfluenceValueTextBlock.Text = "(" + influence.Value + ")";
             }
 
             else
             {
-                InfluenceValueTextBlock.Foreground = Brushes.DarkGray;
+                InfluenceValueTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF64606B"));
 
                 InfluenceValueTextBlock.Text = "(" + influence.Value + ")";
             }

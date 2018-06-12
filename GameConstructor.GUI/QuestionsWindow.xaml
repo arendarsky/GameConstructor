@@ -38,7 +38,7 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Grid.Column="1" Name="CharacteristicValueTextBlock" FontSize="17" FontFamily="Verdana" Margin="10 10 10 5" Foreground="SaddleBrown" Initialized="CharacteristicValueTextBlock_Initialized">1</TextBlock>
+                                <TextBlock Grid.Column="1" Name="CharacteristicValueTextBlock" FontSize="17" FontFamily="Verdana" Margin="10 10 10 5" Foreground="#FF863A03" Initialized="CharacteristicValueTextBlock_Initialized">1</TextBlock>
 
                                 <TextBlock Grid.Column="0" Name="CharacteristicNameTextBlock" FontSize="15" FontFamily="Verdana" Margin="10 11.5 10 5" Initialized="CharacteristicNameTextBlock_Initialized">показатель</TextBlock>
                             </Grid>

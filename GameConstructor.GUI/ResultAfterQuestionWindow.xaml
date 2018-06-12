@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameConstructor.GUI"
         mc:Ignorable="d"
-        Title="Название игры" MinHeight="430" MinWidth="550" Height="500" MaxWidth="700" Width="600">
+        Title="Название игры" MinHeight="430" MinWidth="550" Height="465" MaxWidth="700" Width="600">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -37,7 +37,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Grid.Column="1" Name="CharacteristicValueTextBlock" FontSize="17" FontFamily="Verdana" Margin="10 10 10 5" Foreground="SaddleBrown" >1</TextBlock>
+                                <TextBlock Grid.Column="1" Name="CharacteristicValueTextBlock" FontSize="17" FontFamily="Verdana" Margin="10 10 10 5" Foreground="#FF863A03" >1</TextBlock>
 
                                 <TextBlock Grid.Column="0" Name="CharacteristicNameTextBlock" FontSize="15" FontFamily="Verdana" Margin="10 11.5 10 5" Initialized="CharacteristicNameTextBlock_Initialized">показатель</TextBlock>
 
@@ -47,7 +47,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <TextBlock Grid.ColumnSpan="2" Foreground="Black" Grid.Row="1" Name="IntermediateResultTextBlock" FontSize="17" FontFamily="Verdana" Margin="60 40 50 30" TextWrapping="Wrap" Initialized="IntermediateResultTextBlock_Initialized">Комментарий к ответу на вопрос</TextBlock>
+                <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Name="IntermediateResultTextBlock" FontSize="17" FontFamily="Verdana" Margin="60 40 50 30" TextWrapping="Wrap" Initialized="IntermediateResultTextBlock_Initialized">Комментарий к ответу на вопрос</TextBlock>
 
                 <Button Name="NewGameButton" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Margin="70 20 70 50" Padding="15 8" Style="{DynamicResource AttentionButtonsStyle}">Следующий вопрос</Button>
             </Grid>

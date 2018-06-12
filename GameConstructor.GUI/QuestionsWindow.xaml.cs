@@ -102,7 +102,7 @@ namespace GameConstructor.GUI
 
             Characteristic characteristic = CharacteristicNameTextBlock.DataContext as Characteristic;
 
-            CharacteristicNameTextBlock.Text = characteristic.Name.ToString();
+            CharacteristicNameTextBlock.Text = characteristic.Name.ToString() + ":";
         }
 
 
