@@ -114,5 +114,19 @@ namespace GameConstructor.GUI
 
             AnswerBodyTextBlock.Text = answer.Body;
         }
+
+
+
+        private void AnswersListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (AnswersListBox.SelectedItem is Answer answer)
+            {
+                ResultAfterQuestionWindow resultAfterQuestionWindow = new ResultAfterQuestionWindow(_storage, _game, _numberOfQuestionsShown, _localCharacteristics, answer);
+
+                resultAfterQuestionWindow.Show();
+
+                Close();
+            }
+        }
     }
 }

@@ -46,9 +46,9 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <TextBlock Name="QuestionBodyTextBlock" Grid.ColumnSpan="2" Grid.Row="1" FontSize="17" FontFamily="Verdana" Margin="60 40 150 20" TextWrapping="Wrap" Initialized="QuestionBodyTextBlock_Initialized">Текст Вопроса</TextBlock>
+                <TextBlock Name="QuestionBodyTextBlock" Grid.ColumnSpan="2" Grid.Row="1" FontSize="17" FontFamily="Verdana" Margin="60 40 50 20" TextWrapping="Wrap" Initialized="QuestionBodyTextBlock_Initialized">Текст Вопроса</TextBlock>
 
-                <ListBox Name="AnswersListBox" Grid.Row="2" Grid.ColumnSpan="2" Margin="45,15,45,50" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" Initialized="AnswersListBox_Initialized" Style="{DynamicResource MouseOverListBox}">
+                <ListBox Name="AnswersListBox" Grid.Row="2" Grid.ColumnSpan="2" Margin="45,15,45,50" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" Initialized="AnswersListBox_Initialized" MouseDoubleClick="AnswersListBox_MouseDoubleClick" Style="{DynamicResource MouseOverListBox}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
