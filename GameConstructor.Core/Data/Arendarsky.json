@@ -1,8 +1,113 @@
-﻿[
+[
   {
-    "Games": [],
+    "Games": [
+      {
+        "Characteristics": [
+          {
+            "Id": 45,
+            "Name": "СИлА",
+            "GameId": 25,
+            "Value": 123,
+            "Influences": [
+              {
+                "Id": 249,
+                "EffectId": 77,
+                "Value": 10
+              },
+              {
+                "Id": 251,
+                "EffectId": 78,
+                "Value": -5
+              }
+            ]
+          },
+          {
+            "Id": 46,
+            "Name": "Ещё что-то",
+            "GameId": 25,
+            "Value": 0,
+            "Influences": [
+              {
+                "Id": 250,
+                "EffectId": 77,
+                "Value": 20
+              },
+              {
+                "Id": 252,
+                "EffectId": 78,
+                "Value": 1
+              }
+            ]
+          }
+        ],
+        "Conditions": [
+          {
+            "Id": 14,
+            "Text": "С > 0",
+            "ResultId": 12
+          },
+          {
+            "Id": 15,
+            "Text": "логическое условие",
+            "ResultId": 12
+          }
+        ],
+        "Picture": {
+          "Id": 24,
+          "ImageSource": "смерть и любовь.jpg",
+          "IsBorderRequired": true
+        },
+        "Questions": [
+          {
+            "Answers": [
+              {
+                "Effects": [
+                  {
+                    "Id": 77,
+                    "Body": "фывфыв",
+                    "AnswerId": 47
+                  }
+                ],
+                "Id": 47,
+                "Body": "Ответ",
+                "QuestionId": 23
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 78,
+                    "Body": "Фывввввв",
+                    "AnswerId": 48
+                  }
+                ],
+                "Id": 48,
+                "Body": "Овтет2",
+                "QuestionId": 23
+              }
+            ],
+            "Id": 23,
+            "Body": "Вопрос",
+            "GameId": 25
+          }
+        ],
+        "Results": [
+          {
+            "Id": 12,
+            "Body": "Происходит нечто",
+            "GameId": 25
+          }
+        ],
+        "Id": 25,
+        "Name": "Game Test",
+        "Source": null,
+        "DisplayingInGameMode": false,
+        "UserId": 29,
+        "Popularity": 0,
+        "Description": "Очень крутое описание. А, главное, оно есть!"
+      }
+    ],
     "Login": "Arendarsky",
-    "Id": 14,
+    "Id": 29,
     "Password": "Ip0iGRTyQ9suUjDi8+RRTg==",
     "Email": "Введите Email"
   }
