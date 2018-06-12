@@ -618,24 +618,39 @@ namespace GameConstructor.GUI
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            Button DeleteButton = sender as Button;
+            MessageBoxResult messageBoxResult;
 
-            Characteristic characteristic = DeleteButton.DataContext as Characteristic;
-
-            int indexPosition = _characteristics.IndexOf(characteristic);
-
-            if (indexPosition >= _characteristics.Count() - _newCharacteristicsAdded)
+            if (_game.GetQuestions != null)
             {
-                _newCharacteristicsAdded--;
+                messageBoxResult = MessageBox.Show("Вы уверены, что хотите удалить данную характеристику? Все связанные с ней влияния из следующего окна будут также удалены!",
+                       "Предупреждение!", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning, MessageBoxResult.No);
+            }
+            else
+            {
+                messageBoxResult = MessageBoxResult.Yes;
             }
 
-            _storage.RemoveCharacteristic(characteristic);
+            if (messageBoxResult != MessageBoxResult.No && messageBoxResult != MessageBoxResult.Cancel && messageBoxResult != MessageBoxResult.None)
+            {
+                Button DeleteButton = sender as Button;
 
-            _characteristics.Remove(characteristic);
+                Characteristic characteristic = DeleteButton.DataContext as Characteristic;
 
-            DefaultCharacteristicsListBoxSource();
+                int indexPosition = _characteristics.IndexOf(characteristic);
 
-            _wereThereAlreadySomeChangings = true;
+                if (indexPosition >= _characteristics.Count() - _newCharacteristicsAdded)
+                {
+                    _newCharacteristicsAdded--;
+                }
+
+                _storage.RemoveCharacteristic(characteristic);
+
+                _characteristics.Remove(characteristic);
+
+                DefaultCharacteristicsListBoxSource();
+
+                _wereThereAlreadySomeChangings = true;
+            }
         }
     }
 }
