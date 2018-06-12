@@ -20,7 +20,7 @@ namespace GameConstructor.GUI
     /// <summary>
     /// Логика взаимодействия для DiscriptionOfGameWindow.xaml
     /// </summary>
-    public partial class DiscriptionOfGameWindow : Window
+    public partial class DescriptionOfGameWindow : Window
     {
         private const double defaultBorderThickness = 1.2;
 
@@ -35,7 +35,7 @@ namespace GameConstructor.GUI
         bool _goingToPlayGame = false;
 
 
-        public DiscriptionOfGameWindow(IStorage storage, Game game)
+        public DescriptionOfGameWindow(IStorage storage, Game game)
         {
             _storage = storage;
             _game = game;
@@ -135,7 +135,7 @@ namespace GameConstructor.GUI
 
             else
             {
-                QuestionsWindow questionsWindow = new QuestionsWindow();
+                QuestionsWindow questionsWindow = new QuestionsWindow(_storage, _game);
 
                 questionsWindow.Show();
             }

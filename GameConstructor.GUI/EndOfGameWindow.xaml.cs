@@ -39,7 +39,7 @@ namespace GameConstructor.GUI
 
         private void PlayAgain_Click(object sender, RoutedEventArgs e)
         {
-            DiscriptionOfGameWindow discriptionOfGameWindow = new DiscriptionOfGameWindow(_storage, _game);
+            DescriptionOfGameWindow discriptionOfGameWindow = new DescriptionOfGameWindow(_storage, _game);
 
             discriptionOfGameWindow.Show();
 

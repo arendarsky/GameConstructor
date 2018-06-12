@@ -65,8 +65,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DiscriptionOfGameWindow.xaml.cs">
-      <DependentUpon>DiscriptionOfGameWindow.xaml</DependentUpon>
+    <Compile Include="DescriptionOfGameWindow.xaml.cs">
+      <DependentUpon>DescriptionOfGameWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="EndOfGameWindow.xaml.cs">
       <DependentUpon>EndOfGameWindow.xaml</DependentUpon>
@@ -93,7 +93,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DiscriptionOfGameWindow.xaml">
+    <Page Include="DescriptionOfGameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -43,7 +43,7 @@ namespace GameConstructor.GUI
         {
             if (OurGamesListBox.SelectedItem is Game game)
             {
-                DiscriptionOfGameWindow discriptionOfGameWindow = new DiscriptionOfGameWindow(_storage, game);
+                DescriptionOfGameWindow discriptionOfGameWindow = new DescriptionOfGameWindow(_storage, game);
 
                 discriptionOfGameWindow.Show();
 

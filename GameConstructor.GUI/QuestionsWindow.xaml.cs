@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameConstructor.Core.Interfaces;
+using GameConstructor.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,23 +21,83 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class QuestionsWindow : Window
     {
-        public QuestionsWindow()
+        IStorage _storage;
+        IGame _game;
+        Question _question;
+        List<Characteristic> _localCharacteristics;
+        int _numberOfQuestionsShown;
+
+        public QuestionsWindow(IStorage storage, IGame game, int numberOfQuestionsShown, List<Characteristic> localCharacteristics)
         {
+            _storage = storage;
+            _game = game;
+            _question = _game.GetQuestions.ToList()[numberOfQuestionsShown];
+            _localCharacteristics = localCharacteristics;
+            _numberOfQuestionsShown = numberOfQuestionsShown;
+
             InitializeComponent();
         }
 
-        private void AnswersListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        public QuestionsWindow(IStorage storage, IGame game)
         {
-            //надо добавить вопросы, так ругается
-            //if (AnswersListBox.SelectedItem is Answer answer)
-            {
-                ResultAfterQuestionWindow resultAfterQuestionWindow = new ResultAfterQuestionWindow();
+            _storage = storage;
+            _game = _storage.OpenGame(game);
+            _question = _game.GetQuestions.ToList()[0];
+            _localCharacteristics = CopyCharacteristics(_game.GetCharacteristics).ToList();
+            _numberOfQuestionsShown = 0;
 
-                resultAfterQuestionWindow.Show();
+            InitializeComponent();
+        }
 
-                Hide();
 
-            }
+
+        private IEnumerable<Characteristic> CopyCharacteristics(IEnumerable<Characteristic> originCharacteristics)
+        {
+            return originCharacteristics
+                .Select(ch => new Characteristic
+                {
+                    Name = ch.Name,
+                    Value = ch.Value
+                });
+        }
+
+
+
+        private void QuestionNumberTextBlock_Initialized(object sender, EventArgs e)
+        {
+            QuestionNumberTextBlock.Text += (_numberOfQuestionsShown + 1).ToString();
+        }
+
+        private void QuestionBodyTextBlock_Initialized(object sender, EventArgs e)
+        {
+            QuestionBodyTextBlock.Text = _question.Body;
+        }
+
+
+
+        private void AnswersListBox_Initialized(object sender, EventArgs e)
+        {
+            AnswersListBox.ItemsSource = _question.Answers;
+        }
+
+        private void CharacteristicsListBox_Initialized(object sender, EventArgs e)
+        {
+            CharacteristicsListBox.ItemsSource = _localCharacteristics;
+        }
+
+
+
+        private void ValueOfCharacteristicTextBlock_Initialized(object sender, EventArgs e)
+        {
+            TextBlock ValueOfCharacteristicTextBlock = sender as TextBlock;
+
+            Characteristic characteristic = ValueOfCharacteristicTextBlock.DataContext as Characteristic;
+
+            ValueOfCharacteristicTextBlock.Text = characteristic.Value.ToString();
+        }
+
+        private void DescriptionOfCharacteristicTextBlock_Initialized(object sender, EventArgs e)
+        {
 
         }
     }

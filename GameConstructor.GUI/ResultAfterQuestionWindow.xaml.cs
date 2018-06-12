@@ -26,7 +26,7 @@ namespace GameConstructor.GUI
 
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
-            QuestionsWindow questionsWindow = new QuestionsWindow();
+            QuestionsWindow questionsWindow = new QuestionsWindow(null, null, 0);
 
             questionsWindow.Show();
 
