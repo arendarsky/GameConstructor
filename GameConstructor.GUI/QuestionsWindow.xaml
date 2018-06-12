@@ -27,9 +27,9 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Name="QuestionNumberTextBlock" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Margin="80,45,150,45" FontFamily="Verdana" Initialized="QuestionNumberTextBlock_Initialized">Вопрос №</TextBlock>
+                <TextBlock Name="QuestionNumberTextBlock" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="110,45,120,45" FontFamily="Verdana" Initialized="QuestionNumberTextBlock_Initialized">Вопрос №</TextBlock>
 
-                <ListBox Name="CharacteristicsListBox" Grid.Row="0" Grid.Column="1" Margin="0 20 45 20" Background="Transparent" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" Initialized="CharacteristicsListBox_Initialized" Style="{DynamicResource TransparentListBox}">
+                <ListBox Name="CharacteristicsListBox" Grid.Row="0" Grid.Column="1" Margin="0 25 45 20" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Right" Initialized="CharacteristicsListBox_Initialized" Style="{DynamicResource TransparentListBox}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -38,28 +38,21 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Grid.Column="1" Name="ValueOfCharacteristicTextBlock" FontSize="15" FontFamily="Verdana" Margin="10 10 10 10" Foreground="DarkGray" Initialized="ValueOfCharacteristicTextBlock_Initialized">1</TextBlock>
+                                <TextBlock Grid.Column="1" Name="CharacteristicValueTextBlock" FontSize="17" FontFamily="Verdana" Margin="10 10 10 5" Foreground="SaddleBrown" Initialized="CharacteristicValueTextBlock_Initialized" Background="{x:Null}">1</TextBlock>
 
-                                <TextBlock Grid.Column="0" Name="DiscriptionOfCharacteristicTextBlock" FontSize="15" FontFamily="Verdana" Margin="10 10 10 10" Initialized="DescriptionOfCharacteristicTextBlock_Initialized">показатель</TextBlock>
+                                <TextBlock Grid.Column="0" Name="CharacteristicNameTextBlock" FontSize="15" FontFamily="Verdana" Margin="10 11.5 10 5" Initialized="CharacteristicNameTextBlock_Initialized">показатель</TextBlock>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <TextBlock Name="QuestionBodyTextBlock" Grid.ColumnSpan="2" Grid.Row="1" FontSize="17" FontFamily="Verdana" Margin="48 20 150 20" TextWrapping="Wrap" Initialized="QuestionBodyTextBlock_Initialized">Текст Вопроса </TextBlock>
+                <TextBlock Name="QuestionBodyTextBlock" Grid.ColumnSpan="2" Grid.Row="1" FontSize="17" FontFamily="Verdana" Margin="60 40 150 20" TextWrapping="Wrap" Initialized="QuestionBodyTextBlock_Initialized">Текст Вопроса</TextBlock>
 
                 <ListBox Name="AnswersListBox" Grid.Row="2" Grid.ColumnSpan="2" Margin="45,15,45,50" Background="#7FE3D9AD" BorderBrush="#8C2B2723"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" Initialized="AnswersListBox_Initialized" Style="{DynamicResource MouseOverListBox}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-
-                                <TextBlock Grid.Column="0" Name="NomberOfAnswer" FontSize="16" FontFamily="Verdana" Margin="10 10 0 0" >1</TextBlock>
-
-                                <TextBlock Grid.Column="1" Name="DiscriptionOfAnswer" FontSize="16" FontFamily="Verdana" Margin="10 10 0 0" TextWrapping="Wrap" >вариант ответа</TextBlock>
+                                <TextBlock Name="AnswerBodyTextBlock" FontSize="16" FontFamily="Verdana" Margin="10 10 10 10" TextWrapping="Wrap" Initialized="AnswerBodyTextBlock_Initialized">вариант ответа</TextBlock>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

@@ -26,12 +26,11 @@ namespace GameConstructor.GUI
 
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
-            QuestionsWindow questionsWindow = new QuestionsWindow(null, null, 0);
+            QuestionsWindow questionsWindow = new QuestionsWindow(null, null);
 
             questionsWindow.Show();
 
-            Hide();
-            
+            Hide();            
         }
     }
 }

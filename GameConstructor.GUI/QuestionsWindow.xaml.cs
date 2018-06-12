@@ -87,18 +87,32 @@ namespace GameConstructor.GUI
 
 
 
-        private void ValueOfCharacteristicTextBlock_Initialized(object sender, EventArgs e)
+        private void CharacteristicValueTextBlock_Initialized(object sender, EventArgs e)
         {
-            TextBlock ValueOfCharacteristicTextBlock = sender as TextBlock;
+            TextBlock CharacteristicValueTextBlock = sender as TextBlock;
 
-            Characteristic characteristic = ValueOfCharacteristicTextBlock.DataContext as Characteristic;
+            Characteristic characteristic = CharacteristicValueTextBlock.DataContext as Characteristic;
 
-            ValueOfCharacteristicTextBlock.Text = characteristic.Value.ToString();
+            CharacteristicValueTextBlock.Text = characteristic.Value.ToString();
         }
 
-        private void DescriptionOfCharacteristicTextBlock_Initialized(object sender, EventArgs e)
+        private void CharacteristicNameTextBlock_Initialized(object sender, EventArgs e)
         {
+            TextBlock CharacteristicNameTextBlock = sender as TextBlock;
 
+            Characteristic characteristic = CharacteristicNameTextBlock.DataContext as Characteristic;
+
+            CharacteristicNameTextBlock.Text = characteristic.Name.ToString();
+        }
+
+
+        private void AnswerBodyTextBlock_Initialized(object sender, EventArgs e)
+        {
+            TextBlock AnswerBodyTextBlock = sender as TextBlock;
+
+            Answer answer = AnswerBodyTextBlock.DataContext as Answer;
+
+            AnswerBodyTextBlock.Text = answer.Body;
         }
     }
 }
