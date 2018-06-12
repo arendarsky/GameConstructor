@@ -52,7 +52,7 @@
                     
                 </Grid>
 
-                <Button Name="NewQuestionButton" Panel.ZIndex="1" Grid.Row="2" Grid.ColumnSpan="3" FontSize="18" Padding="30 0" Margin="0 -90 0 35" HorizontalAlignment="Center" Click="NewQuestionButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Добавить вопрос</Button>
+                <Button Name="NewQuestionButton" Panel.ZIndex="1" Grid.Row="2" Grid.ColumnSpan="3" FontSize="18" Padding="30 15" Margin="0 -90 0 35" HorizontalAlignment="Center" Click="NewQuestionButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Добавить вопрос</Button>
 
                 <ListBox Name="QuestionsListBox" Grid.Row="1" Grid.ColumnSpan="3" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderBrush="Transparent" Margin="65 10 50 30" HorizontalContentAlignment="Stretch" Style="{DynamicResource TransparentListBox}">
                     <ListBox.ItemTemplate>

@@ -729,6 +729,11 @@ namespace GameConstructor.GUI
         {
             AddNewDefaultQuestion();
 
+            if (_questions.Count == 1)
+            {
+                NewQuestionButton.Margin = new Thickness(0, -90, 0, 35);
+            }
+
             _wereThereAlreadySomeChangings = true;
         }
 
@@ -743,6 +748,11 @@ namespace GameConstructor.GUI
             Question question = NewAnswerButton.DataContext as Question;
 
             AddNewDefaultAnswer(AnswerListBox, question);
+
+            if (question.Answers.Count == 1)
+            {
+                NewAnswerButton.Margin = new Thickness(17.5, -15, 10, 90);
+            }
 
             _wereThereAlreadySomeChangings = true;
         }
@@ -775,6 +785,15 @@ namespace GameConstructor.GUI
 
             DefaultQuestionListBoxSource();
 
+            if (_questions.Count == 0)
+            {
+                Grid MainGrid = QuestionsListBox.Parent as Grid;
+
+                Button NewQuestionButton = MainGrid.Children[3] as Button;
+
+                NewQuestionButton.Margin = new Thickness(0, -20, 0, 35);
+            }
+
             _wereThereAlreadySomeChangings = true;
         }
 
@@ -795,6 +814,15 @@ namespace GameConstructor.GUI
             _storage.RemoveAnswer(answer);
 
             DefaultAnswersListBoxSource(AnswersListBox, question);
+
+            if (question.Answers.Count == 0)
+            {
+                Grid QuestionGrid = AnswersListBox.Parent as Grid;
+
+                Button NewAnswerButton = QuestionGrid.Children[3] as Button;
+
+                NewAnswerButton.Margin = new Thickness(17.5, 20, 10, 90);
+            }
 
             _wereThereAlreadySomeChangings = true;
         }
