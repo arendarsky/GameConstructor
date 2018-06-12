@@ -774,28 +774,83 @@ namespace GameConstructor.GUI
 
 
 
+        private bool CheckingWhetherQuestionIsDefault(Question question)
+        {
+            if (question.Body == defaultQuestionText && question.Answers.Count == 1)
+            {
+                Answer answer = question.Answers[0];
+
+                if (answer.Body == defaultAnswerText && answer.Effects.Count == 1)
+                {
+                    Effect reaction = answer.Effects[0];
+
+                    if (reaction.Body == defaultEffectText && reaction.Influences.Count == DefaultEffect().Influences.Count)
+                    {
+                        for (int i = 0; i < reaction.Influences.Count; i++)
+                        {
+                            if (!(reaction.Influences[i].Characteristic == DefaultEffect().Influences[i].Characteristic && reaction.Influences[i].Value == DefaultEffect().Influences[i].Value))
+                            {
+                                return false;
+                            }
+                        }
+
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
         private void DeleteQuestionButton_Click(object sender, RoutedEventArgs e)
         {
             Button DeleteQuestionButton = sender as Button;
 
             Question question = DeleteQuestionButton.DataContext as Question;
 
-            _questions.Remove(question);
-            _storage.RemoveQuestion(question);
+            MessageBoxResult messageBoxResult;
 
-            DefaultQuestionListBoxSource();
-
-            if (_questions.Count == 0)
+            if (CheckingWhetherQuestionIsDefault(question))
             {
-                Grid MainGrid = QuestionsListBox.Parent as Grid;
-
-                Button NewQuestionButton = MainGrid.Children[3] as Button;
-
-                NewQuestionButton.Margin = new Thickness(0, -20, 0, 35);
+                messageBoxResult = MessageBoxResult.Yes;
+            }
+            else
+            {
+                messageBoxResult = MessageBox.Show("Вы уверены, что хотите удалить целый вопрос? Все данные, связанные с этим вопросом, будут также удалены!",
+                        "Предупреждение!", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning, MessageBoxResult.No);
             }
 
-            _wereThereAlreadySomeChangings = true;
-        }
+            if (messageBoxResult != MessageBoxResult.No && messageBoxResult != MessageBoxResult.Cancel && messageBoxResult != MessageBoxResult.None)
+            {
+                _questions.Remove(question);
+                _storage.RemoveQuestion(question);
+
+                DefaultQuestionListBoxSource();
+
+                if (_questions.Count == 0)
+                {
+                    Grid MainGrid = QuestionsListBox.Parent as Grid;
+
+                    Button NewQuestionButton = MainGrid.Children[3] as Button;
+
+                    NewQuestionButton.Margin = new Thickness(0, -20, 0, 35);
+                }
+
+                _wereThereAlreadySomeChangings = true;
+            }
+        }        
 
         private void DeleteAnswerButton_Click(object sender, RoutedEventArgs e)
         {
