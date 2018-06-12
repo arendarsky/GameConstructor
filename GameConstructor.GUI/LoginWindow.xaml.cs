@@ -172,5 +172,17 @@ namespace GameConstructor.GUI
                 e.Handled = true;
             }
         }
+
+
+
+        private void RegisterTextBlock_MouseEnter(object sender, MouseEventArgs e)
+        {
+            RegisterTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF5F391D"));
+        }
+
+        private void RegisterTextBlock_MouseLeave(object sender, MouseEventArgs e)
+        {
+            RegisterTextBlock.Foreground = Brushes.Black;
+        }
     }
 }

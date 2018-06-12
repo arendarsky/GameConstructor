@@ -184,5 +184,27 @@ namespace GameConstructor.GUI
 
             MessageBox.Show("Данные успешно сохранены!");
         }
+
+
+
+        private void BrowseGamesFromJsonTextBox_MouseEnter(object sender, MouseEventArgs e)
+        {
+            BrowseGamesFromJsonTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF5F391D"));
+        }
+
+        private void BrowseGamesFromJsonTextBox_MouseLeave(object sender, MouseEventArgs e)
+        {
+            BrowseGamesFromJsonTextBox.Foreground = Brushes.Black;
+        }
+
+        private void SaveGamesToJsonTextBox_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SaveGamesToJsonTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF5F391D"));
+        }
+
+        private void SaveGamesToJsonTextBox_MouseLeave(object sender, MouseEventArgs e)
+        {
+            SaveGamesToJsonTextBox.Foreground = Brushes.Black;
+        }
     }
 }
