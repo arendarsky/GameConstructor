@@ -26,20 +26,6 @@ namespace GameConstructor.GUI
         private const string defaultLoginText = "Введите логин";
         private const string defaultPasswordText = "Введите пароль";
 
-
-        double _defaultWidthOfTheWindow;
-        double _defaultHeightOfTheWindow;
-        double _defaultFontSize;
-        Thickness _defaultPadding;
-
-        double _minimalChangingOfTheSizeParameters;
-
-        double _fontSize;
-        Thickness _padding;
-        
-        bool _windowIsMaximized = false;
-
-
         IStorage _storage;
 
 
@@ -49,61 +35,7 @@ namespace GameConstructor.GUI
 
             InitializeComponent();
 
-            RestartTheWindow();           
-
-
-            //_defaultWidthOfTheWindow = Width;
-            //_defaultHeightOfTheWindow = Height;
-            //_defaultPadding = PlayingModeButton.Padding;
-            //_defaultFontSize = PlayingModeButton.FontSize;
-        }
-
-
-        private void ChangingTheParametersOfTheWindowAndItsContent()
-        {
-            _fontSize = _defaultFontSize * Math.Pow(_minimalChangingOfTheSizeParameters, 1.2);
-
-            _padding.Left = _defaultPadding.Left * Math.Pow(_minimalChangingOfTheSizeParameters, 1.8);
-            _padding.Right = _defaultPadding.Right * Math.Pow(_minimalChangingOfTheSizeParameters, 1.8);
-            _padding.Top = _defaultPadding.Top * Math.Pow(_minimalChangingOfTheSizeParameters, 1.2);
-            _padding.Bottom = _defaultPadding.Bottom * Math.Pow(_minimalChangingOfTheSizeParameters, 1.2);
-
-            //PlayingModeButton.FontSize = _fontSize;
-            //DeveloperModeButton.FontSize = _fontSize;
-
-            //PlayingModeButton.Padding = _padding;
-            //DeveloperModeButton.Padding = _padding;
-        }
-
-
-
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (!_windowIsMaximized)
-            {
-                _minimalChangingOfTheSizeParameters = Math.Min(Height / _defaultHeightOfTheWindow, Width / _defaultWidthOfTheWindow);
-
-                ChangingTheParametersOfTheWindowAndItsContent();
-            }
-        }
-
-
-
-        private void Window_StateChanged(object sender, EventArgs e)
-        {
-            if (WindowState == WindowState.Maximized)
-            {
-                _minimalChangingOfTheSizeParameters = MaxWidth / _defaultWidthOfTheWindow;
-
-                _windowIsMaximized = true;
-
-                ChangingTheParametersOfTheWindowAndItsContent();                
-            }
-
-            else if (WindowState == WindowState.Normal)
-            {
-                _windowIsMaximized = false;
-            }
+            RestartTheWindow();
         }
 
 
