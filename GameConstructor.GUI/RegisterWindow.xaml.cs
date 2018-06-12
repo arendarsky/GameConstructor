@@ -145,53 +145,53 @@ namespace GameConstructor.GUI
 
 
 
+        private bool IfSomeValuesAreDefault()
+        {
+            if (LoginTextBox.Text == defaultLoginText || PasswordBox.Password == null || PasswordBox.Password == "" || RepeatPasswordBox.Password == null || RepeatPasswordBox.Password == "" || EmailTextBox.Text == defaultEmail)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-            string login = LoginTextBox.Text;
-            string password = User.GetHash(PasswordBox.Password);
-            string passwordConf = User.GetHash(RepeatPasswordBox.Password);
-
-            if (string.IsNullOrWhiteSpace(login))
+            if (IfSomeValuesAreDefault())
             {
-                LoginTextBox.Focus();
-                return;
+                MessageBox.Show("Заполните, пожалуйста, все поля.", "Ошибка!");
             }
 
-            if (_storage.Users.Items.FirstOrDefault(u => u.Login.ToLower() == login.ToLower()) != null)
+            else if (PasswordBox.Password != RepeatPasswordBox.Password)
             {
-                MessageBox.Show("Пользователь с таким логином уже существует!");
-                return;
+                MessageBox.Show("Пароли не совпадают!", "Ошибка!");
+
+                RestartTheWindow();
             }
 
-            if (string.IsNullOrWhiteSpace(PasswordBox.Password))
+            else if (_storage.Users.Items.FirstOrDefault(u => u.Login.ToLower() == LoginTextBox.Text.ToLower()) != null)
             {
-                PasswordTextBox.Focus();
-                return;
+                MessageBox.Show("Пользователь с таким логином уже существует!", "Ошибка!");
+
+                RestartTheWindow();
             }
 
-            if (string.IsNullOrWhiteSpace(RepeatPasswordBox.Password))
+            else
             {
-                RepeatPasswordTextBox.Focus();
-                return;
+                User NewUser = new User
+                {
+                    Login = LoginTextBox.Text,
+                    Password = User.GetHash(PasswordBox.Password),
+                    Email = EmailTextBox.Text,
+                    Games = new List<Game>()
+                };
+
+                _storage.SaveUser(NewUser);
+
+                DialogResult = true;
             }
-
-            if (password != passwordConf)
-            {
-                MessageBox.Show("Пароли не совпадают!", "Ошибка");
-                return;
-            }
-
-            User NewUser = new User
-            {
-                Login = login,
-                Password = password,
-                Email = EmailTextBox.Text,
-                Games = new List<Game>()
-            };
-
-            _storage.SaveUser(NewUser);
-
-            DialogResult = true;
         }
     }
 }
