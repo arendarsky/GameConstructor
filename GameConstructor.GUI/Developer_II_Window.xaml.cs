@@ -670,20 +670,7 @@ namespace GameConstructor.GUI
 
         private bool IfThereWereAnyChangesMadeByUser()
         {
-            if (_wereThereAlreadySomeChangings) { return true; }
-
-            List<Question> questions = _questions;
-
-            if (questions.Count == 1 && questions[0] == DefaultQuestion()) { questions = null; }
-
-            if (GeneralMethods.CheckingWhetherCollectionsHaveTheSameValues<Question>(questions, _game.GetQuestions))
-            {
-                return false;
-            }
-
-            _wereThereAlreadySomeChangings = true;
-
-            return true;
+            return _wereThereAlreadySomeChangings;
         }
 
 
@@ -691,6 +678,8 @@ namespace GameConstructor.GUI
         private void NewQuestionButton_Click(object sender, RoutedEventArgs e)
         {
             AddNewDefaultQuestion();
+
+            _wereThereAlreadySomeChangings = true;
         }
 
         private void NewAnswerButton_Click(object sender, RoutedEventArgs e)
@@ -704,6 +693,8 @@ namespace GameConstructor.GUI
             Question question = NewAnswerButton.DataContext as Question;
 
             AddNewDefaultAnswer(AnswerListBox, question);
+
+            _wereThereAlreadySomeChangings = true;
         }
 
         private void NewReactionButton_Click(object sender, RoutedEventArgs e)
@@ -717,6 +708,8 @@ namespace GameConstructor.GUI
             Answer answer = NewReactionButton.DataContext as Answer;
 
             AddNewDefaultReaction(ReactionsListBox, answer);
+
+            _wereThereAlreadySomeChangings = true;
         }
 
 
@@ -731,6 +724,8 @@ namespace GameConstructor.GUI
             _storage.RemoveQuestion(question);
 
             DefaultQuestionListBoxSource();
+
+            _wereThereAlreadySomeChangings = true;
         }
 
         private void DeleteAnswerButton_Click(object sender, RoutedEventArgs e)
@@ -750,6 +745,8 @@ namespace GameConstructor.GUI
             _storage.RemoveAnswer(answer);
 
             DefaultAnswersListBoxSource(AnswersListBox, question);
+
+            _wereThereAlreadySomeChangings = true;
         }
 
         private void DeleteReactionButton_Click(object sender, RoutedEventArgs e)
@@ -769,6 +766,8 @@ namespace GameConstructor.GUI
             _storage.RemoveEffect(effect);
 
             DefaultReactionsListBoxSource(ReactionsListBox, answer);
+
+            _wereThereAlreadySomeChangings = true;
         }
     }
 }

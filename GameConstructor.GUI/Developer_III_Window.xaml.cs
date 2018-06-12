@@ -560,6 +560,8 @@ namespace GameConstructor.GUI
         private void NewTextResultButton_Click(object sender, RoutedEventArgs e)
         {
             AddNewPossibleTextResult();
+
+            _wereThereAlreadySomeChangings = true;
         }
 
 
@@ -791,6 +793,8 @@ namespace GameConstructor.GUI
                     condition.Result = textResult;
                     condition.ResultId = textResult.Id;
                 }
+
+                _wereThereAlreadySomeChangings = true;
             }
         }
 
@@ -829,6 +833,8 @@ namespace GameConstructor.GUI
 
                     AddNewCondition();
                 }
+
+                _wereThereAlreadySomeChangings = true;
             }
         }
 
@@ -932,10 +938,10 @@ namespace GameConstructor.GUI
             _textResults.Remove(result);
             _storage.RemoveResult(result);
 
-
-
             DefaultPossibleTextResultsItemsSource();
-            DefaultConstructorItemsSource();            
+            DefaultConstructorItemsSource();
+
+            _wereThereAlreadySomeChangings = true;
         }
     }
 }

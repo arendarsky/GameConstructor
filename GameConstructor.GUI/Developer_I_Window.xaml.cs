@@ -124,6 +124,8 @@ namespace GameConstructor.GUI
             AddNewDefaultCharacteristic();
 
             _newCharacteristicsAdded++;
+
+            _wereThereAlreadySomeChangings = true;
         }
 
 
@@ -337,7 +339,12 @@ namespace GameConstructor.GUI
 
             Characteristic characteristic = CharacteristicNameTextBox.DataContext as Characteristic;
 
-            characteristic.Name = CharacteristicNameTextBox.Text;
+            if (characteristic.Name != CharacteristicNameTextBox.Text)
+            {
+                characteristic.Name = CharacteristicNameTextBox.Text;
+
+                _wereThereAlreadySomeChangings = true;
+            }            
         }
 
         private void CharacteristicValueTextBox_LostFocus(object sender, RoutedEventArgs e)
@@ -346,8 +353,14 @@ namespace GameConstructor.GUI
 
             Characteristic characteristic = CharacteristicValueTextBox.DataContext as Characteristic;
 
-            try { characteristic.Value = int.Parse(CharacteristicValueTextBox.Text); }
-            catch { }
+            bool intParsing = int.TryParse(CharacteristicValueTextBox.Text, out int val);
+
+            if (intParsing && characteristic.Value != val)
+            {
+                characteristic.Value = val;
+
+                _wereThereAlreadySomeChangings = true;
+            }
 
             CharacteristicValueTextBox.Text = characteristic.Value.ToString();
         }
@@ -504,7 +517,7 @@ namespace GameConstructor.GUI
                 characteristics = null;
             }
 
-            if (name == _game.Name && source == _game.Source && description == _game.Description && picture == _game.Picture && GeneralMethods.CheckingWhetherCollectionsHaveTheSameValues(characteristics, _game.GetCharacteristics))
+            if (name == _game.Name && source == _game.Source && description == _game.Description && picture == _game.Picture)
             {
                 return false;
             }
@@ -516,8 +529,29 @@ namespace GameConstructor.GUI
 
 
 
+        private void LoosingFocusAtTheEnd()
+        {
+            if (FocusManager.GetFocusedElement(this) is TextBox FocusedTextBox && FocusedTextBox.DataContext is Characteristic characteristic)
+            {
+                Grid CharacteristicGrid = FocusedTextBox.Parent as Grid;
+
+                if (FocusedTextBox == CharacteristicGrid.Children[0] as TextBox)
+                {
+                    CharacteristicNameTextBox_LostFocus(FocusedTextBox, null);
+                }
+
+                else
+                {
+                    CharacteristicValueTextBox_LostFocus(FocusedTextBox, null);
+                }
+            }
+        }
+
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            LoosingFocusAtTheEnd();
+
             bool cancellation = false;
 
             if (!_goingToTheNextDeveloperWindow)
@@ -582,6 +616,8 @@ namespace GameConstructor.GUI
             _characteristics.Remove(characteristic);
 
             DefaultCharacteristicsListBoxSource();
+
+            _wereThereAlreadySomeChangings = true;
         }
     }
 }

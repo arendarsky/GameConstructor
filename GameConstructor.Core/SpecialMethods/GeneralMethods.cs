@@ -12,35 +12,7 @@ namespace GameConstructor.Core.SpecialMethods
         public static char[] MathOperators = new char[] { '>', '<', '⩾', '⩽', '=', '≠' };
         public static char[] MathOperations = new char[] { '+', '-', '/', '*' };
         public static char[] LogicalOperators = new char[] { '&', '|' };
-
-
-        public static bool CheckingWhetherCollectionsHaveTheSameValues<T>(IEnumerable<T> collection1, IEnumerable<T> collection2)
-        {
-            if (collection1 == null && collection2 == null)
-            {
-                return true;
-            }
-
-            else if (collection1 == null || collection2 == null)
-            {
-                return false;
-            }
-
-            else
-            {
-                IEnumerable<T> exception = collection1.Except(collection2);
-                IEnumerable<T> reverseException = collection2.Except(collection1);
-
-                if ((exception == null || exception.Count() == 0) && (reverseException == null || reverseException.Count() == 0))
-                {
-                    return true;
-                }
-
-                return false;
-            }
-        }
-
-
+        
 
         public static bool AreThereSameElementsInTheStringCollection (IEnumerable<string> collection, out string element)
         {
