@@ -37,9 +37,7 @@ namespace GameConstructor.GUI
             _storage = storage;
             _game = game;
             _localCharacteristics = localCharacteristics;
-
-            UpdatePopularity();
-
+            
             FormingTheResult();
 
             InitializeComponent();            
@@ -116,7 +114,6 @@ namespace GameConstructor.GUI
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
             if (_restartingTheGame)
             {
                 IGame game = _game;
