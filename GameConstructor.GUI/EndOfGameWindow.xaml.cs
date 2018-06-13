@@ -55,9 +55,9 @@ namespace GameConstructor.GUI
 
             _game.UpdatePopularity(popularity);
 
-            //User user = _storage.Users.Items.FirstOrDefault(u => u.Id == _game.UserId);
+            User user = new User { Id = _game.UserId };
 
-            //_storage.SaveGame(user, _game);
+            _storage.SaveGame(user, _game);
         }
 
 
@@ -119,18 +119,21 @@ namespace GameConstructor.GUI
 
             if (_restartingTheGame)
             {
-                DescriptionOfGameWindow discriptionOfGameWindow = new DescriptionOfGameWindow(_storage, _game);
+                IGame game = _game;
+                game.UpdatePicture(_game.Picture);
+
+                UpdatePopularity();
+
+                DescriptionOfGameWindow discriptionOfGameWindow = new DescriptionOfGameWindow(_storage, game);
 
                 discriptionOfGameWindow.Show();
-
-                _storage.CloseGame();
             }
 
             else
             {
-                PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
+                UpdatePopularity();
 
-                _storage.CloseGame();
+                PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
 
                 playingModeWindow.Show();
             }

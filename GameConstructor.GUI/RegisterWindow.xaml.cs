@@ -189,6 +189,7 @@ namespace GameConstructor.GUI
                 };
 
                 _storage.SaveUser(NewUser);
+                _storage.Users.Add(NewUser);
 
                 DialogResult = true;
             }
