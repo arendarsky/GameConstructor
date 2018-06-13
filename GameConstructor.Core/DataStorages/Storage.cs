@@ -199,6 +199,7 @@ namespace GameConstructor.Core.DataStorages
     {
         IRepository<Game> _playingGames;
         IRepository<User> _users;
+        bool _loaded;
         bool _gameOpened;
         Context _context;
 
@@ -207,9 +208,12 @@ namespace GameConstructor.Core.DataStorages
         {
             get
             {
+                if (_loaded)
+                    return _users;
                 using(_context = new Context())
                 {
                     _users = new DatabaseRepository<User>(_context.Users.ToList());
+                    _loaded = true;
                     return _users;
                 }
             }
