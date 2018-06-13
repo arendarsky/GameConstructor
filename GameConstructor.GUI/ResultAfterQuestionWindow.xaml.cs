@@ -161,6 +161,8 @@ namespace GameConstructor.GUI
             {
                 PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
 
+                _storage.CloseGame();
+
                 playingModeWindow.Show();
             }
         }

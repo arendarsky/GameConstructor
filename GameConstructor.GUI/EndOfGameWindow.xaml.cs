@@ -74,16 +74,21 @@ namespace GameConstructor.GUI
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+
             if (_restartingTheGame)
             {
                 DescriptionOfGameWindow discriptionOfGameWindow = new DescriptionOfGameWindow(_storage, _game);
 
                 discriptionOfGameWindow.Show();
+
+                _storage.CloseGame();
             }
 
             else
             {
                 PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
+
+                _storage.CloseGame();
 
                 playingModeWindow.Show();
             }
