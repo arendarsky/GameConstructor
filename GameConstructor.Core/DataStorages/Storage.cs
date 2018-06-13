@@ -78,14 +78,20 @@ namespace GameConstructor.Core.DataStorages
                 {
                     user = context.Users.First(us => us.Login == _user.Login);
                     context.Users.Remove(user);
+                    _users.Remove(user);
                 }
                 catch
                 {
 
                 }
-                context.Users.Add(_user);                                        
+                context.Users.Add(_user);
+                
                 context.SaveChanges();
             }
+        }
+        public void LoadNewUsers()
+        {
+
         }
         public void LoadToFile()
         {
@@ -203,7 +209,7 @@ namespace GameConstructor.Core.DataStorages
         bool _gameOpened;
         Context _context;
 
-
+        
         public IRepository<User> Users
         {
             get
@@ -389,6 +395,13 @@ namespace GameConstructor.Core.DataStorages
             catch
             {
 
+            }
+        }
+        public void LoadNewUsers()
+        {
+            using (_context = new Context())
+            {
+                _users = new DatabaseRepository<User>(_context.Users.ToList());
             }
         }
     }    

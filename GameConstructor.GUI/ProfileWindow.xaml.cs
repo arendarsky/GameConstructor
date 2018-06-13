@@ -158,7 +158,10 @@ namespace GameConstructor.GUI
 
             MessageBox.Show("Данные успешно загружены!");
 
+            _storage.LoadNewUsers();
+
             _user = _storage.LoadUsersGames(_user);
+
             DefaultGameListBoxItemsSource();
         }
 

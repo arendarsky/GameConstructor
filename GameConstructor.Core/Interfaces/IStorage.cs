@@ -23,5 +23,6 @@ namespace GameConstructor.Core.Interfaces
         void CloseGame();
         void RemoveResult(Result result);
         void RemoveCondition(Condition condition);
+        void LoadNewUsers();
     }
 }
