@@ -207,11 +207,11 @@ namespace GameConstructor.Core.SpecialMethods
 
 
 
-        public static Dictionary<string, string> FillingTheEmpltyAbbreviationDictionary(Dictionary<string, string> emptyDictionary, IEnumerable<string> fullStrings)
+        public static Dictionary<string, string> FillingTheEmpltyAbbreviationDictionary(IEnumerable<string> initialAbbreviations, IEnumerable<string> fullStrings)
         {
             Dictionary<string, string> newDictionary = new Dictionary<string, string>();
 
-            var oneLetterAbbreviations = emptyDictionary.Keys.Where(key => key.Length == 1);
+            var oneLetterAbbreviations = initialAbbreviations.Where(key => key.Length == 1);
 
             foreach (var oneLetterAbbreviation in oneLetterAbbreviations)
             {
@@ -230,7 +230,7 @@ namespace GameConstructor.Core.SpecialMethods
                 }
             }
 
-            var twoLettersAbbreviations = emptyDictionary.Keys.Where(key => key.Length == 2);
+            var twoLettersAbbreviations = initialAbbreviations.Where(key => key.Length == 2);
 
             foreach (var twoLettersAbbreviation in twoLettersAbbreviations)
             {
@@ -251,7 +251,7 @@ namespace GameConstructor.Core.SpecialMethods
 
             while (true)
             {
-                var longAbbreviations = emptyDictionary.Keys.Where(key => key.Length >= 3  && !newDictionary.Keys.Contains(key));
+                var longAbbreviations = initialAbbreviations.Where(key => key.Length >= 3  && !newDictionary.Keys.Contains(key));
 
                 if (longAbbreviations.Count() == 0)
                 {
@@ -268,7 +268,7 @@ namespace GameConstructor.Core.SpecialMethods
                         .Where(fS => fS.Length >= 3 && fS.Substring(0, 2).ToUpperInvariant() == firstAbbreviation.Substring(0, 2))
                         .OrderBy(fs => fs)
                         .ToList();
-
+                      
                     foreach (var abbreviation in abbreviationsWithTheSameLetters)
                     {
                         int index = int.Parse(abbreviation.Substring(2)) - 1;

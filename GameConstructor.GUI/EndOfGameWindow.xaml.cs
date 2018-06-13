@@ -60,12 +60,12 @@ namespace GameConstructor.GUI
 
 
 
-        private void FormingTheResult()
+        private List<Core.Models.Condition> RestoringOriginalCharacteristics()
         {
             var conditions = _game.GetConditions.ToList();
-            var results = _game.GetResults.ToList();
 
             var characteristicReverseDictionary = new Dictionary<string, string>();
+            var abbreviations = new List<string>();
 
             for (int i = 0; i < conditions.Count - 1; i++)
             {
@@ -80,20 +80,54 @@ namespace GameConstructor.GUI
                 {
                     if (!int.TryParse(symbolParts[j], out int t))
                     {
-                        characteristicReverseDictionary[symbolParts[j]] = "";
+                        abbreviations.Add(symbolParts[j]);
                     }
                 }
             }
 
-            characteristicReverseDictionary = GeneralMethods.FillingTheEmpltyAbbreviationDictionary(characteristicReverseDictionary, 
+            characteristicReverseDictionary = GeneralMethods.FillingTheEmpltyAbbreviationDictionary(abbreviations, 
                 _game.GetCharacteristics.Select(ch => ch.Name));
 
-            //for (int i = 0; i < conditions.Count() - 1; i++)
-            //{
-                
-            //}
+            for (int i = 0; i < conditions.Count() - 1; i++)
+            {
+                foreach (var abbreviation in characteristicReverseDictionary.Keys)
+                {
+                    conditions[i].Text = conditions[i].Text.Replace(abbreviation, characteristicReverseDictionary[abbreviation]);
+                }
+            }
 
-            _textResult = conditions.Last().Result;
+            return conditions;
+        }
+
+
+
+        private string CheckingOneOperator(string operatorCondition)
+        {
+            var parts = operatorCondition.Split(' ');
+
+            for (int i = 0; i < 3; i+=2)
+            {
+                if (!int.TryParse(parts[i], out int t))
+                {
+                    Characteristic characteristic = _localCharacteristics.First(ch => ch.Name == parts[i]);
+
+                    parts[i] = characteristic.Value.ToString();
+                }
+            }
+
+            return "";
+        }
+
+
+        private bool CheckingOneTextCondition(string condition)
+        {
+            return true;
+        }
+
+
+        private void FormingTheResult()
+        {
+            var restoredConditions = RestoringOriginalCharacteristics();
         }
 
 
