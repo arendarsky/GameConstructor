@@ -1,5 +1,6 @@
 ﻿using GameConstructor.Core.Interfaces;
 using GameConstructor.Core.Models;
+using GameConstructor.Core.SpecialMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace GameConstructor.GUI
         List<Characteristic> _localCharacteristics;
 
 
+        private Result _textResult = null;
         private bool _restartingTheGame = false;
 
 
@@ -36,12 +38,14 @@ namespace GameConstructor.GUI
             _game = game;
             _localCharacteristics = localCharacteristics;
 
-            InitializeComponent();
-
             UpdatePopularity();
+
+            FormingTheResult();
+
+            InitializeComponent();            
         }
 
-
+        
 
         private void UpdatePopularity()
         {
@@ -54,6 +58,44 @@ namespace GameConstructor.GUI
             //User user = _storage.Users.Items.FirstOrDefault(u => u.Id == _game.UserId);
 
             //_storage.SaveGame(user, _game);
+        }
+
+
+
+        private void FormingTheResult()
+        {
+            var conditions = _game.GetConditions.ToList();
+            var results = _game.GetResults.ToList();
+
+            var characteristicReverseDictionary = new Dictionary<string, string>();
+
+            for (int i = 0; i < conditions.Count - 1; i++)
+            {
+                string textOfConditionInAbbreviations = conditions[i].Text;
+
+                var symbolParts = textOfConditionInAbbreviations
+                    .Replace("(", "")
+                    .Replace(")", "")
+                    .Split(' ');
+
+                for (int j = 0; j < symbolParts.Length; j+=2)
+                {
+                    if (!int.TryParse(symbolParts[j], out int t))
+                    {
+                        characteristicReverseDictionary[symbolParts[j]] = "";
+                    }
+                }
+            }
+
+            characteristicReverseDictionary = GeneralMethods.FillingTheEmpltyAbbreviationDictionary(characteristicReverseDictionary, 
+                _game.GetCharacteristics.Select(ch => ch.Name));
+
+            //for (int i = 0; i < conditions.Count() - 1; i++)
+            //{
+                
+            //}
+
+            _textResult = conditions.Last().Result;
         }
 
 
@@ -92,6 +134,15 @@ namespace GameConstructor.GUI
 
                 playingModeWindow.Show();
             }
+        }
+
+
+
+        private void TextBlock_Initialized(object sender, EventArgs e)
+        {
+            TextBlock ResultTextBlock = sender as TextBlock;
+
+            ResultTextBlock.Text = _textResult.Body;
         }
     }
 }

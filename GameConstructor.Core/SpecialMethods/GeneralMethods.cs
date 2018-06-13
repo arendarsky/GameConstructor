@@ -204,5 +204,79 @@ namespace GameConstructor.Core.SpecialMethods
                 return false;
             }
         }
+
+
+
+        public static Dictionary<string, string> FillingTheEmpltyAbbreviationDictionary(Dictionary<string, string> emptyDictionary, IEnumerable<string> fullStrings)
+        {
+            Dictionary<string, string> newDictionary = new Dictionary<string, string>();
+
+            var oneLetterAbbreviations = emptyDictionary.Keys.Where(key => key.Length == 1);
+
+            foreach (var oneLetterAbbreviation in oneLetterAbbreviations)
+            {
+                var oneLetterString = fullStrings.FirstOrDefault(fullString => fullString.ToUpperInvariant() == oneLetterAbbreviation);
+
+                if (oneLetterString != null)
+                {
+                    newDictionary[oneLetterAbbreviation] = oneLetterString;
+                }
+
+                else
+                {
+                    var fullString = fullStrings.FirstOrDefault(fS => fS.ToUpperInvariant()[0] == oneLetterAbbreviation[0]);
+
+                    newDictionary[oneLetterAbbreviation] = fullString;
+                }
+            }
+
+            var twoLettersAbbreviations = emptyDictionary.Keys.Where(key => key.Length == 2);
+
+            foreach (var twoLettersAbbreviation in twoLettersAbbreviations)
+            {
+                var twoLettersString = fullStrings.FirstOrDefault(fullString => fullString.ToUpperInvariant() == twoLettersAbbreviation);
+
+                if (twoLettersString != null)
+                {
+                    newDictionary[twoLettersAbbreviation] = twoLettersString;
+                }
+
+                else
+                {
+                    var fullString = fullStrings.FirstOrDefault(fS => fS.Substring(0, 2).ToUpperInvariant() == twoLettersAbbreviation);
+
+                    newDictionary[twoLettersAbbreviation] = fullString;
+                }
+            }
+
+            while (true)
+            {
+                var longAbbreviations = emptyDictionary.Keys.Where(key => key.Length >= 3  && !newDictionary.Keys.Contains(key));
+
+                if (longAbbreviations.Count() == 0)
+                {
+                    return newDictionary;
+                }
+
+                else
+                {
+                    var firstAbbreviation = longAbbreviations.First();
+
+                    var abbreviationsWithTheSameLetters = longAbbreviations.Where(abb => abb.Substring(0, 2) == firstAbbreviation.Substring(0, 2));
+
+                    List<string> stringsWithTheSameLetters = fullStrings
+                        .Where(fS => fS.Length >= 3 && fS.Substring(0, 2).ToUpperInvariant() == firstAbbreviation.Substring(0, 2))
+                        .OrderBy(fs => fs)
+                        .ToList();
+
+                    foreach (var abbreviation in abbreviationsWithTheSameLetters)
+                    {
+                        int index = int.Parse(abbreviation.Substring(2)) - 1;
+
+                        newDictionary[abbreviation] = stringsWithTheSameLetters[index];
+                    }
+                }
+            }
+        }
     }
 }
