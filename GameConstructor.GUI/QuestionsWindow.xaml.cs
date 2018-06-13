@@ -27,6 +27,11 @@ namespace GameConstructor.GUI
         List<Characteristic> _localCharacteristics;
         int _numberOfQuestionsShown;
 
+        Answer _answer;
+        bool _goingForResultAfterQuestionWindow = false;
+
+
+
         public QuestionsWindow(IStorage storage, IGame game, int numberOfQuestionsShown, List<Characteristic> localCharacteristics)
         {
             _storage = storage;
@@ -121,11 +126,30 @@ namespace GameConstructor.GUI
         {
             if (AnswersListBox.SelectedItem is Answer answer)
             {
-                ResultAfterQuestionWindow resultAfterQuestionWindow = new ResultAfterQuestionWindow(_storage, _game, _numberOfQuestionsShown, _localCharacteristics, answer);
+                _answer = answer;
 
-                resultAfterQuestionWindow.Show();
+                _goingForResultAfterQuestionWindow = true;
 
                 Close();
+            }
+        }
+
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (_goingForResultAfterQuestionWindow)
+            {
+                ResultAfterQuestionWindow resultAfterQuestionWindow = new ResultAfterQuestionWindow(_storage, _game, _numberOfQuestionsShown, _localCharacteristics, _answer);
+
+                resultAfterQuestionWindow.Show();
+            }
+
+            else
+            {
+                PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
+
+                playingModeWindow.Show();
             }
         }
     }

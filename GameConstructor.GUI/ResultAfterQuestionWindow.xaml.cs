@@ -29,7 +29,11 @@ namespace GameConstructor.GUI
 
         private Effect _reaction;
 
-        
+
+        private bool _goingToTheNextQuestionWindow = false;
+        private bool _goingToTheEndOfTheGameWindow = false;
+
+
 
         public ResultAfterQuestionWindow(IStorage storage, IGame game, int numberOfQuestionsShown, List<Characteristic> localCharacteristics, Answer answer)
         {
@@ -121,9 +125,7 @@ namespace GameConstructor.GUI
         {
             if (_game.GetQuestions.Count() == _numberOfQuestionsShown + 1)
             {
-                EndOfGameWindow endOfGameWindow = new EndOfGameWindow(_storage, _game, _localCharacteristics);
-
-                endOfGameWindow.Show();
+                _goingToTheEndOfTheGameWindow = true;
 
                 Close();
             }
@@ -131,12 +133,35 @@ namespace GameConstructor.GUI
             else
             {
                 _numberOfQuestionsShown++;
+                _goingToTheNextQuestionWindow = true;                
 
+                Close();
+            }
+        }
+
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (_goingToTheEndOfTheGameWindow)
+            {
+                EndOfGameWindow endOfGameWindow = new EndOfGameWindow(_storage, _game, _localCharacteristics);
+
+                endOfGameWindow.Show();
+            }
+
+            else if (_goingToTheNextQuestionWindow)
+            {
                 QuestionsWindow questionsWindow = new QuestionsWindow(_storage, _game, _numberOfQuestionsShown, _localCharacteristics);
 
                 questionsWindow.Show();
+            }
 
-                Close();
+            else
+            {
+                PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
+
+                playingModeWindow.Show();
             }
         }
     }

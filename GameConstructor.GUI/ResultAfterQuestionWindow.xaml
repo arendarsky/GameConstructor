@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameConstructor.GUI"
         mc:Ignorable="d"
-        Title="Название игры" MinHeight="430" MinWidth="550" Height="465" MaxWidth="700" Width="600">
+        Title="Название игры" MinHeight="430" MinWidth="550" Height="465" MaxWidth="700" Width="600" Closing="Window_Closing">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

@@ -26,6 +26,10 @@ namespace GameConstructor.GUI
         List<Characteristic> _localCharacteristics;
 
 
+        private bool _restartingTheGame = false;
+
+
+
         public EndOfGameWindow(IStorage storage, IGame game, List<Characteristic> localCharacteristics)
         {
             _storage = storage;
@@ -56,20 +60,33 @@ namespace GameConstructor.GUI
 
         private void PlayToDifferentGames_Click(object sender, RoutedEventArgs e)
         {
-            PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
-
-            playingModeWindow.Show();
-
             Close();
         }
 
         private void PlayAgain_Click(object sender, RoutedEventArgs e)
         {
-            DescriptionOfGameWindow discriptionOfGameWindow = new DescriptionOfGameWindow(_storage, _game);
-
-            discriptionOfGameWindow.Show();
+            _restartingTheGame = true;
 
             Close();
+        }
+
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (_restartingTheGame)
+            {
+                DescriptionOfGameWindow discriptionOfGameWindow = new DescriptionOfGameWindow(_storage, _game);
+
+                discriptionOfGameWindow.Show();
+            }
+
+            else
+            {
+                PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
+
+                playingModeWindow.Show();
+            }
         }
     }
 }
