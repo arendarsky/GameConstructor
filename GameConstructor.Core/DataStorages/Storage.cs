@@ -220,8 +220,18 @@ namespace GameConstructor.Core.DataStorages
                 {
                     _users = new DatabaseRepository<User>(_context.Users.ToList());
                     _loaded = true;
-                    return _users;
                 }
+                if (_users.Items.Count() == 0)
+                {
+                    var fileStorage = new FileStorage(new User { Login = "Sanochkin" });
+                    fileStorage.LoadToDatabase();
+                    using (_context = new Context())
+                    {
+                        _users = new DatabaseRepository<User>(_context.Users.ToList());
+                        _loaded = true;
+                    }
+                }
+                return _users;
             }
         }
        
