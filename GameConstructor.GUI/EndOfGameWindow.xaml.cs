@@ -22,6 +22,17 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class EndOfGameWindow : Window
     {
+        private const char more = '>';
+        private const char less = '<';
+        private const char moreOrEqual = '⩾';
+        private const char lessOrEqual = '⩽';
+        private const char equal = '=';
+        private const char notEqual = '≠';
+
+        private const char falseChar = '^';
+        private const char trueChar = '~';
+
+
         IStorage _storage;
         IGame _game;
         List<Characteristic> _localCharacteristics;
@@ -31,6 +42,9 @@ namespace GameConstructor.GUI
         private bool _restartingTheGame = false;
 
 
+        Dictionary<string, string> _characteristicReverseDictionary;
+
+
 
         public EndOfGameWindow(IStorage storage, IGame game, List<Characteristic> localCharacteristics)
         {
@@ -38,7 +52,7 @@ namespace GameConstructor.GUI
             _game = game;
             _localCharacteristics = localCharacteristics;
             
-            FormingTheResult();
+            FormingTheTextResult();
 
             InitializeComponent();            
         }
@@ -60,12 +74,13 @@ namespace GameConstructor.GUI
 
 
 
-        private List<Core.Models.Condition> RestoringOriginalCharacteristics()
+        private void RestoringOriginalCharacteristics()
         {
             var conditions = _game.GetConditions.ToList();
 
-            var characteristicReverseDictionary = new Dictionary<string, string>();
             var abbreviations = new List<string>();
+
+            _characteristicReverseDictionary = new Dictionary<string, string>();            
 
             for (int i = 0; i < conditions.Count - 1; i++)
             {
@@ -85,49 +100,177 @@ namespace GameConstructor.GUI
                 }
             }
 
-            characteristicReverseDictionary = GeneralMethods.FillingTheEmpltyAbbreviationDictionary(abbreviations, 
+            _characteristicReverseDictionary = GeneralMethods.FillingTheEmpltyAbbreviationDictionary(abbreviations, 
                 _game.GetCharacteristics.Select(ch => ch.Name));
-
-            for (int i = 0; i < conditions.Count() - 1; i++)
-            {
-                foreach (var abbreviation in characteristicReverseDictionary.Keys)
-                {
-                    conditions[i].Text = conditions[i].Text.Replace(abbreviation, characteristicReverseDictionary[abbreviation]);
-                }
-            }
-
-            return conditions;
         }
 
 
 
-        private string CheckingOneOperator(string operatorCondition)
+        private bool CheckingOneOperatorIteration(string operatorCondition)
         {
             var parts = operatorCondition.Split(' ');
 
-            for (int i = 0; i < 3; i+=2)
+            if (!int.TryParse(parts[0], out int int1))
             {
-                if (!int.TryParse(parts[i], out int t))
-                {
-                    Characteristic characteristic = _localCharacteristics.First(ch => ch.Name == parts[i]);
+                Characteristic characteristic = _localCharacteristics.First(ch => ch.Name == _characteristicReverseDictionary[parts[0]]);
 
-                    parts[i] = characteristic.Value.ToString();
+                int1 = characteristic.Value;
+            }
+
+            if (!int.TryParse(parts[2], out int int2))
+            {
+                Characteristic characteristic = _localCharacteristics.First(ch => ch.Name == _characteristicReverseDictionary[parts[2]]);
+
+                int2 = characteristic.Value;
+            }
+
+            if (parts[1][0] == more)
+            {
+                return int1 > int2;
+            }
+            else if (parts[1][0] == less)
+            {
+                return int1 < int2;
+            }
+            else if (parts[1][0] == moreOrEqual)
+            {
+                return int1 >= int2;
+            }
+            else if (parts[1][0] == lessOrEqual)
+            {
+                return int1 <= int2;
+            }
+            else if (parts[1][0] == equal)
+            {
+                return int1 == int2;
+            }
+            else
+            {
+                return int1 != int2;
+            }
+        }
+        
+
+        private char GettingCharResultForAnIteration(string argument)
+        {
+            if (argument.Length > 1)
+            {
+                bool result = CheckingOneOperatorIteration(argument);
+
+                if (result) { return trueChar; }
+
+                else { return falseChar; }
+            }
+
+            return argument[0];            
+        }
+
+
+
+        private char SolvingOneOperatorStatement(string firstArgument, char mathOperator, string secondArgument)
+        {
+            char firstResult = GettingCharResultForAnIteration(firstArgument);
+            char secondResult = GettingCharResultForAnIteration(secondArgument);
+
+            if (mathOperator == MathLogicMethods.conjunction)
+            {
+                if (firstResult == trueChar && secondResult == trueChar)
+                {
+                    return trueChar;
+                }
+                else
+                {
+                    return falseChar;
+                }
+            }
+            else
+            {
+                if (firstResult == falseChar && secondResult == falseChar)
+                {
+                    return falseChar;
+                }
+                else
+                {
+                    return trueChar;
+                }
+            }
+        }
+
+
+
+        private List<string> SolvingOneTypeOfLogicalOperators(List<string> partsOfCondition, char typeOfLogicalOperator)
+        {
+            while (true)
+            {
+                int indexOfLogicalOperator = partsOfCondition.IndexOf(typeOfLogicalOperator.ToString());
+
+                if (indexOfLogicalOperator == -1) { break; }
+
+                char mathCharResult = SolvingOneOperatorStatement(partsOfCondition[indexOfLogicalOperator - 1], partsOfCondition[indexOfLogicalOperator][0], partsOfCondition[indexOfLogicalOperator + 1]);
+
+                partsOfCondition[indexOfLogicalOperator] = mathCharResult.ToString();
+
+                partsOfCondition.RemoveAt(indexOfLogicalOperator + 1);
+                partsOfCondition.RemoveAt(indexOfLogicalOperator - 1);
+            }
+
+            return partsOfCondition;
+        }
+
+
+
+        private char CheckingTextConditionWithoutBrackets(string condition)
+        {
+            var parts = MathLogicMethods.SplittingConjuctionAndDisjunctionsFromAString(condition);
+
+            if (parts.Count() != 1)
+            {
+                parts = SolvingOneTypeOfLogicalOperators(parts, MathLogicMethods.conjunction);
+                parts = SolvingOneTypeOfLogicalOperators(parts, MathLogicMethods.disjunction);
+
+                return parts[0][0];
+            }
+
+            else
+            {
+                bool result = CheckingOneOperatorIteration(parts[0]);
+
+                if (result)
+                {
+                    return trueChar;
+                }
+                else
+                {
+                    return falseChar;
+                }
+            }            
+        }
+
+
+        private void FormingTheTextResult()
+        {
+            RestoringOriginalCharacteristics();
+
+            var conditions = _game.GetConditions.ToList();
+
+            for (int i = 0; i < conditions.Count() - 1; i++)
+            {
+                var condition = conditions[i];
+
+                var charResult = CheckingTextConditionWithoutBrackets(condition.Text);
+
+                if (charResult == trueChar)
+                {
+                    _textResult = _game.GetResults.FirstOrDefault(result => result.Id == condition.ResultId);
+
+                    break;
                 }
             }
 
-            return "";
-        }
-
-
-        private bool CheckingOneTextCondition(string condition)
-        {
-            return true;
-        }
-
-
-        private void FormingTheResult()
-        {
-            var restoredConditions = RestoringOriginalCharacteristics();
+            if (_textResult == null)
+            {
+                _textResult = _game.GetResults.FirstOrDefault(result => result.Id == conditions.Last().ResultId);
+            }
         }
 
 

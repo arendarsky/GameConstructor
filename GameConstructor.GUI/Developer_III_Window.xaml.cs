@@ -30,7 +30,7 @@ namespace GameConstructor.GUI
         private const string emDash = " — ";
 
         private const string conjuctionSymbol = "&";
-        private const string conjuctionName = "Конъюнкиция";
+        private const string conjuctionName = "Конъюнкция";
         private const string conjuctionExplanation = "логическое И";
 
         private const string disjuctionSymbol = "|";

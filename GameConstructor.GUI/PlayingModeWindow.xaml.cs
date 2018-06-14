@@ -35,7 +35,9 @@ namespace GameConstructor.GUI
 
             InitializeComponent();
             
-            OurGamesListBox.ItemsSource = _storage.PlayableGames.Items.OrderByDescending(g => g.Popularity);
+            OurGamesListBox.ItemsSource = _storage.PlayableGames.Items
+                .OrderByDescending(g => g.Popularity)
+                .ThenBy(g => g.Name);
         }
 
 
