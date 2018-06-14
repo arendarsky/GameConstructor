@@ -13,7 +13,7 @@ namespace GameConstructor.Core.SpecialMethods
         public static char[] MathOperations = new char[] { '+', '-', '/', '*' };
         public static char[] LogicalOperators = new char[] { '&', '|' };
 
-        public static char[] InvalidCharsForTitles = new char[] { '>', '<', '⩾', '⩽', '=', '≠', '+', '-', '/', '*', '&', '|' };
+        public static char[] InvalidCharsForTitles = new char[] { '>', '<', '⩾', '⩽', '=', '≠', '&', '|', '^', '~' };
         
 
         public static bool AreThereSameElementsInTheStringCollection (IEnumerable<string> collection, out string element)
@@ -279,6 +279,47 @@ namespace GameConstructor.Core.SpecialMethods
                     }
                 }
             }
+        }
+
+
+
+        private static bool CheckingIfTitlesDoNotContainsInvalidCharacters(string title, out char wrongChar)
+        {
+            foreach (var invalidCharacter in InvalidCharsForTitles)
+            {                
+                int indexOfErrugularty = title.Count(ch => ch == invalidCharacter);
+
+                if (indexOfErrugularty > 0)
+                {
+                    wrongChar = invalidCharacter;
+
+                    return false;
+                }                
+            }
+
+            wrongChar = '0';
+
+            return true;
+        }
+
+        private static bool CheckingWhetherTitleIsNotInteger(string title)
+        {
+            if (int.TryParse(title, out int t))
+            { 
+                return false;                
+            }
+
+            return true;
+        } 
+
+        public static bool CheckingWhetherTitlesAreValid(string title, out char wrongChar)
+        {
+            if (CheckingIfTitlesDoNotContainsInvalidCharacters(title, out wrongChar) && CheckingWhetherTitleIsNotInteger(title))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
