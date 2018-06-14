@@ -4,1217 +4,1217 @@
       {
         "Characteristics": [
           {
-            "Id": 1007,
+            "Id": 1009,
             "Name": "Посещаемость",
-            "GameId": 1004,
+            "GameId": 1005,
             "Value": 0,
             "Influences": [
               {
-                "Id": 1217,
-                "EffectId": 1109,
+                "Id": 1457,
+                "EffectId": 1229,
                 "Value": -2
               },
               {
-                "Id": 1219,
-                "EffectId": 1110,
+                "Id": 1459,
+                "EffectId": 1230,
                 "Value": -1
               },
               {
-                "Id": 1221,
-                "EffectId": 1111,
+                "Id": 1461,
+                "EffectId": 1231,
                 "Value": 5
               },
               {
-                "Id": 1223,
-                "EffectId": 1112,
+                "Id": 1463,
+                "EffectId": 1232,
                 "Value": 5
               },
               {
-                "Id": 1225,
-                "EffectId": 1113,
+                "Id": 1465,
+                "EffectId": 1233,
                 "Value": 5
               },
               {
-                "Id": 1227,
-                "EffectId": 1114,
+                "Id": 1467,
+                "EffectId": 1234,
                 "Value": 3
               },
               {
-                "Id": 1229,
-                "EffectId": 1115,
+                "Id": 1469,
+                "EffectId": 1235,
                 "Value": 8
               },
               {
-                "Id": 1231,
-                "EffectId": 1116,
+                "Id": 1471,
+                "EffectId": 1236,
                 "Value": 5
               },
               {
-                "Id": 1233,
-                "EffectId": 1117,
+                "Id": 1473,
+                "EffectId": 1237,
                 "Value": 3
               },
               {
-                "Id": 1235,
-                "EffectId": 1118,
+                "Id": 1475,
+                "EffectId": 1238,
                 "Value": 10
               },
               {
-                "Id": 1237,
-                "EffectId": 1119,
+                "Id": 1477,
+                "EffectId": 1239,
                 "Value": 8
               },
               {
-                "Id": 1239,
-                "EffectId": 1120,
+                "Id": 1479,
+                "EffectId": 1240,
                 "Value": 2
               },
               {
-                "Id": 1241,
-                "EffectId": 1121,
+                "Id": 1481,
+                "EffectId": 1241,
                 "Value": 0
               },
               {
-                "Id": 1243,
-                "EffectId": 1122,
+                "Id": 1483,
+                "EffectId": 1242,
                 "Value": -5
               },
               {
-                "Id": 1245,
-                "EffectId": 1123,
+                "Id": 1485,
+                "EffectId": 1243,
                 "Value": -5
               },
               {
-                "Id": 1247,
-                "EffectId": 1124,
+                "Id": 1487,
+                "EffectId": 1244,
                 "Value": 2
               },
               {
-                "Id": 1249,
-                "EffectId": 1125,
+                "Id": 1489,
+                "EffectId": 1245,
                 "Value": 5
               },
               {
-                "Id": 1251,
-                "EffectId": 1126,
+                "Id": 1491,
+                "EffectId": 1246,
                 "Value": -1
               },
               {
-                "Id": 1253,
-                "EffectId": 1127,
+                "Id": 1493,
+                "EffectId": 1247,
                 "Value": -5
               },
               {
-                "Id": 1255,
-                "EffectId": 1128,
+                "Id": 1495,
+                "EffectId": 1248,
                 "Value": 0
               },
               {
-                "Id": 1257,
-                "EffectId": 1129,
+                "Id": 1497,
+                "EffectId": 1249,
                 "Value": 3
               },
               {
-                "Id": 1259,
-                "EffectId": 1130,
+                "Id": 1499,
+                "EffectId": 1250,
                 "Value": 1
               },
               {
-                "Id": 1261,
-                "EffectId": 1131,
+                "Id": 1501,
+                "EffectId": 1251,
                 "Value": 3
               },
               {
-                "Id": 1263,
-                "EffectId": 1132,
+                "Id": 1503,
+                "EffectId": 1252,
                 "Value": 1
               },
               {
-                "Id": 1265,
-                "EffectId": 1133,
+                "Id": 1505,
+                "EffectId": 1253,
                 "Value": -1
               },
               {
-                "Id": 1267,
-                "EffectId": 1134,
+                "Id": 1507,
+                "EffectId": 1254,
                 "Value": 3
               },
               {
-                "Id": 1269,
-                "EffectId": 1135,
+                "Id": 1509,
+                "EffectId": 1255,
                 "Value": 5
               },
               {
-                "Id": 1271,
-                "EffectId": 1136,
+                "Id": 1511,
+                "EffectId": 1256,
                 "Value": -3
               },
               {
-                "Id": 1273,
-                "EffectId": 1137,
+                "Id": 1513,
+                "EffectId": 1257,
                 "Value": -9
               },
               {
-                "Id": 1275,
-                "EffectId": 1138,
+                "Id": 1515,
+                "EffectId": 1258,
                 "Value": 8
               },
               {
-                "Id": 1277,
-                "EffectId": 1139,
+                "Id": 1517,
+                "EffectId": 1259,
                 "Value": 4
               },
               {
-                "Id": 1279,
-                "EffectId": 1140,
+                "Id": 1519,
+                "EffectId": 1260,
                 "Value": 5
               },
               {
-                "Id": 1281,
-                "EffectId": 1141,
+                "Id": 1521,
+                "EffectId": 1261,
                 "Value": 5
               },
               {
-                "Id": 1283,
-                "EffectId": 1142,
+                "Id": 1523,
+                "EffectId": 1262,
                 "Value": 5
               },
               {
-                "Id": 1285,
-                "EffectId": 1143,
+                "Id": 1525,
+                "EffectId": 1263,
                 "Value": 8
               },
               {
-                "Id": 1287,
-                "EffectId": 1144,
+                "Id": 1527,
+                "EffectId": 1264,
                 "Value": 1
               },
               {
-                "Id": 1289,
-                "EffectId": 1145,
+                "Id": 1529,
+                "EffectId": 1265,
                 "Value": 0
               },
               {
-                "Id": 1291,
-                "EffectId": 1146,
+                "Id": 1531,
+                "EffectId": 1266,
                 "Value": 3
               },
               {
-                "Id": 1293,
-                "EffectId": 1147,
+                "Id": 1533,
+                "EffectId": 1267,
                 "Value": 3
               },
               {
-                "Id": 1295,
-                "EffectId": 1148,
+                "Id": 1535,
+                "EffectId": 1268,
                 "Value": 1
               },
               {
-                "Id": 1297,
-                "EffectId": 1149,
+                "Id": 1537,
+                "EffectId": 1269,
                 "Value": -3
               },
               {
-                "Id": 1299,
-                "EffectId": 1150,
+                "Id": 1539,
+                "EffectId": 1270,
                 "Value": 1
               },
               {
-                "Id": 1301,
-                "EffectId": 1151,
+                "Id": 1541,
+                "EffectId": 1271,
                 "Value": 3
               },
               {
-                "Id": 1303,
-                "EffectId": 1152,
+                "Id": 1543,
+                "EffectId": 1272,
                 "Value": -4
               },
               {
-                "Id": 1305,
-                "EffectId": 1153,
+                "Id": 1545,
+                "EffectId": 1273,
                 "Value": 0
               },
               {
-                "Id": 1307,
-                "EffectId": 1154,
+                "Id": 1547,
+                "EffectId": 1274,
                 "Value": 0
               },
               {
-                "Id": 1309,
-                "EffectId": 1155,
+                "Id": 1549,
+                "EffectId": 1275,
                 "Value": 0
               },
               {
-                "Id": 1311,
-                "EffectId": 1156,
+                "Id": 1551,
+                "EffectId": 1276,
                 "Value": -3
               },
               {
-                "Id": 1313,
-                "EffectId": 1157,
+                "Id": 1553,
+                "EffectId": 1277,
                 "Value": 0
               },
               {
-                "Id": 1315,
-                "EffectId": 1158,
+                "Id": 1555,
+                "EffectId": 1278,
                 "Value": -3
               },
               {
-                "Id": 1317,
-                "EffectId": 1159,
+                "Id": 1557,
+                "EffectId": 1279,
                 "Value": 0
               },
               {
-                "Id": 1319,
-                "EffectId": 1160,
+                "Id": 1559,
+                "EffectId": 1280,
                 "Value": 1
               },
               {
-                "Id": 1321,
-                "EffectId": 1161,
+                "Id": 1561,
+                "EffectId": 1281,
                 "Value": 0
               },
               {
-                "Id": 1323,
-                "EffectId": 1162,
+                "Id": 1563,
+                "EffectId": 1282,
                 "Value": -2
               },
               {
-                "Id": 1325,
-                "EffectId": 1163,
+                "Id": 1565,
+                "EffectId": 1283,
                 "Value": 0
               },
               {
-                "Id": 1327,
-                "EffectId": 1164,
+                "Id": 1567,
+                "EffectId": 1284,
                 "Value": 0
               },
               {
-                "Id": 1329,
-                "EffectId": 1165,
+                "Id": 1569,
+                "EffectId": 1285,
                 "Value": 2
               },
               {
-                "Id": 1331,
-                "EffectId": 1166,
+                "Id": 1571,
+                "EffectId": 1286,
                 "Value": 1
               },
               {
-                "Id": 1333,
-                "EffectId": 1167,
+                "Id": 1573,
+                "EffectId": 1287,
                 "Value": 0
               },
               {
-                "Id": 1335,
-                "EffectId": 1168,
+                "Id": 1575,
+                "EffectId": 1288,
                 "Value": -5
               },
               {
-                "Id": 1337,
-                "EffectId": 1169,
+                "Id": 1577,
+                "EffectId": 1289,
                 "Value": 0
               },
               {
-                "Id": 1339,
-                "EffectId": 1170,
+                "Id": 1579,
+                "EffectId": 1290,
                 "Value": 0
               },
               {
-                "Id": 1341,
-                "EffectId": 1171,
+                "Id": 1581,
+                "EffectId": 1291,
                 "Value": -1
               },
               {
-                "Id": 1343,
-                "EffectId": 1172,
+                "Id": 1583,
+                "EffectId": 1292,
                 "Value": 0
               },
               {
-                "Id": 1345,
-                "EffectId": 1173,
+                "Id": 1585,
+                "EffectId": 1293,
                 "Value": -4
               },
               {
-                "Id": 1347,
-                "EffectId": 1174,
+                "Id": 1587,
+                "EffectId": 1294,
                 "Value": -4
               },
               {
-                "Id": 1349,
-                "EffectId": 1175,
+                "Id": 1589,
+                "EffectId": 1295,
                 "Value": -10
               },
               {
-                "Id": 1351,
-                "EffectId": 1176,
+                "Id": 1591,
+                "EffectId": 1296,
                 "Value": 0
               },
               {
-                "Id": 1353,
-                "EffectId": 1177,
+                "Id": 1593,
+                "EffectId": 1297,
                 "Value": -3
               },
               {
-                "Id": 1355,
-                "EffectId": 1178,
+                "Id": 1595,
+                "EffectId": 1298,
                 "Value": -6
               },
               {
-                "Id": 1357,
-                "EffectId": 1179,
+                "Id": 1597,
+                "EffectId": 1299,
                 "Value": -10
               },
               {
-                "Id": 1359,
-                "EffectId": 1180,
+                "Id": 1599,
+                "EffectId": 1300,
                 "Value": 10
               },
               {
-                "Id": 1361,
-                "EffectId": 1181,
+                "Id": 1601,
+                "EffectId": 1301,
                 "Value": 0
               },
               {
-                "Id": 1363,
-                "EffectId": 1182,
+                "Id": 1603,
+                "EffectId": 1302,
                 "Value": 0
               },
               {
-                "Id": 1365,
-                "EffectId": 1183,
+                "Id": 1605,
+                "EffectId": 1303,
                 "Value": 0
               },
               {
-                "Id": 1367,
-                "EffectId": 1184,
+                "Id": 1607,
+                "EffectId": 1304,
                 "Value": -6
               },
               {
-                "Id": 1369,
-                "EffectId": 1185,
+                "Id": 1609,
+                "EffectId": 1305,
                 "Value": 2
               },
               {
-                "Id": 1371,
-                "EffectId": 1186,
+                "Id": 1611,
+                "EffectId": 1306,
                 "Value": 5
               },
               {
-                "Id": 1373,
-                "EffectId": 1187,
+                "Id": 1613,
+                "EffectId": 1307,
                 "Value": 0
               },
               {
-                "Id": 1375,
-                "EffectId": 1188,
+                "Id": 1615,
+                "EffectId": 1308,
                 "Value": 2
               },
               {
-                "Id": 1377,
-                "EffectId": 1189,
+                "Id": 1617,
+                "EffectId": 1309,
                 "Value": 0
               },
               {
-                "Id": 1379,
-                "EffectId": 1190,
+                "Id": 1619,
+                "EffectId": 1310,
                 "Value": 0
               },
               {
-                "Id": 1381,
-                "EffectId": 1191,
+                "Id": 1621,
+                "EffectId": 1311,
                 "Value": 0
               },
               {
-                "Id": 1383,
-                "EffectId": 1192,
+                "Id": 1623,
+                "EffectId": 1312,
                 "Value": -3
               },
               {
-                "Id": 1385,
-                "EffectId": 1193,
+                "Id": 1625,
+                "EffectId": 1313,
                 "Value": 0
               },
               {
-                "Id": 1387,
-                "EffectId": 1194,
+                "Id": 1627,
+                "EffectId": 1314,
                 "Value": -2
               },
               {
-                "Id": 1389,
-                "EffectId": 1195,
+                "Id": 1629,
+                "EffectId": 1315,
                 "Value": 0
               },
               {
-                "Id": 1391,
-                "EffectId": 1196,
+                "Id": 1631,
+                "EffectId": 1316,
                 "Value": 3
               },
               {
-                "Id": 1393,
-                "EffectId": 1197,
+                "Id": 1633,
+                "EffectId": 1317,
                 "Value": 0
               },
               {
-                "Id": 1395,
-                "EffectId": 1198,
+                "Id": 1635,
+                "EffectId": 1318,
                 "Value": -1
               },
               {
-                "Id": 1397,
-                "EffectId": 1199,
+                "Id": 1637,
+                "EffectId": 1319,
                 "Value": 0
               },
               {
-                "Id": 1399,
-                "EffectId": 1200,
+                "Id": 1639,
+                "EffectId": 1320,
                 "Value": -1
               },
               {
-                "Id": 1401,
-                "EffectId": 1201,
+                "Id": 1641,
+                "EffectId": 1321,
                 "Value": 0
               },
               {
-                "Id": 1403,
-                "EffectId": 1202,
+                "Id": 1643,
+                "EffectId": 1322,
                 "Value": -1
               },
               {
-                "Id": 1405,
-                "EffectId": 1203,
+                "Id": 1645,
+                "EffectId": 1323,
                 "Value": 0
               },
               {
-                "Id": 1407,
-                "EffectId": 1204,
+                "Id": 1647,
+                "EffectId": 1324,
                 "Value": 3
               },
               {
-                "Id": 1409,
-                "EffectId": 1205,
+                "Id": 1649,
+                "EffectId": 1325,
                 "Value": -3
               },
               {
-                "Id": 1411,
-                "EffectId": 1206,
+                "Id": 1651,
+                "EffectId": 1326,
                 "Value": -8
               },
               {
-                "Id": 1413,
-                "EffectId": 1207,
+                "Id": 1653,
+                "EffectId": 1327,
                 "Value": 4
               },
               {
-                "Id": 1415,
-                "EffectId": 1208,
+                "Id": 1655,
+                "EffectId": 1328,
                 "Value": 0
               },
               {
-                "Id": 1417,
-                "EffectId": 1209,
+                "Id": 1657,
+                "EffectId": 1329,
                 "Value": -4
               },
               {
-                "Id": 1419,
-                "EffectId": 1210,
+                "Id": 1659,
+                "EffectId": 1330,
                 "Value": -2
               },
               {
-                "Id": 1421,
-                "EffectId": 1211,
+                "Id": 1661,
+                "EffectId": 1331,
                 "Value": -4
               },
               {
-                "Id": 1423,
-                "EffectId": 1212,
+                "Id": 1663,
+                "EffectId": 1332,
                 "Value": 0
               },
               {
-                "Id": 1425,
-                "EffectId": 1213,
+                "Id": 1665,
+                "EffectId": 1333,
                 "Value": 4
               },
               {
-                "Id": 1427,
-                "EffectId": 1214,
+                "Id": 1667,
+                "EffectId": 1334,
                 "Value": -1
               },
               {
-                "Id": 1429,
-                "EffectId": 1215,
+                "Id": 1669,
+                "EffectId": 1335,
                 "Value": 0
               },
               {
-                "Id": 1431,
-                "EffectId": 1216,
+                "Id": 1671,
+                "EffectId": 1336,
                 "Value": 4
               },
               {
-                "Id": 1433,
-                "EffectId": 1217,
+                "Id": 1673,
+                "EffectId": 1337,
                 "Value": -2
               },
               {
-                "Id": 1435,
-                "EffectId": 1218,
+                "Id": 1675,
+                "EffectId": 1338,
                 "Value": 0
               },
               {
-                "Id": 1437,
-                "EffectId": 1219,
+                "Id": 1677,
+                "EffectId": 1339,
                 "Value": -3
               },
               {
-                "Id": 1439,
-                "EffectId": 1220,
+                "Id": 1679,
+                "EffectId": 1340,
                 "Value": 3
               },
               {
-                "Id": 1441,
-                "EffectId": 1221,
+                "Id": 1681,
+                "EffectId": 1341,
                 "Value": 3
               },
               {
-                "Id": 1443,
-                "EffectId": 1222,
+                "Id": 1683,
+                "EffectId": 1342,
                 "Value": 3
               },
               {
-                "Id": 1445,
-                "EffectId": 1223,
+                "Id": 1685,
+                "EffectId": 1343,
                 "Value": 1
               },
               {
-                "Id": 1447,
-                "EffectId": 1224,
+                "Id": 1687,
+                "EffectId": 1344,
                 "Value": 3
               },
               {
-                "Id": 1449,
-                "EffectId": 1225,
+                "Id": 1689,
+                "EffectId": 1345,
                 "Value": -2
               },
               {
-                "Id": 1451,
-                "EffectId": 1226,
+                "Id": 1691,
+                "EffectId": 1346,
                 "Value": -8
               },
               {
-                "Id": 1453,
-                "EffectId": 1227,
+                "Id": 1693,
+                "EffectId": 1347,
                 "Value": 0
               },
               {
-                "Id": 1455,
-                "EffectId": 1228,
+                "Id": 1695,
+                "EffectId": 1348,
                 "Value": 0
               }
             ]
           },
           {
-            "Id": 1008,
+            "Id": 1010,
             "Name": "Прибыльность",
-            "GameId": 1004,
+            "GameId": 1005,
             "Value": 0,
             "Influences": [
               {
-                "Id": 1218,
-                "EffectId": 1109,
+                "Id": 1458,
+                "EffectId": 1229,
                 "Value": -5
               },
               {
-                "Id": 1220,
-                "EffectId": 1110,
+                "Id": 1460,
+                "EffectId": 1230,
                 "Value": 3
               },
               {
-                "Id": 1222,
-                "EffectId": 1111,
+                "Id": 1462,
+                "EffectId": 1231,
                 "Value": 7
               },
               {
-                "Id": 1224,
-                "EffectId": 1112,
+                "Id": 1464,
+                "EffectId": 1232,
                 "Value": 2
               },
               {
-                "Id": 1226,
-                "EffectId": 1113,
+                "Id": 1466,
+                "EffectId": 1233,
                 "Value": -9
               },
               {
-                "Id": 1228,
-                "EffectId": 1114,
+                "Id": 1468,
+                "EffectId": 1234,
                 "Value": -3
               },
               {
-                "Id": 1230,
-                "EffectId": 1115,
+                "Id": 1470,
+                "EffectId": 1235,
                 "Value": 0
               },
               {
-                "Id": 1232,
-                "EffectId": 1116,
+                "Id": 1472,
+                "EffectId": 1236,
                 "Value": -8
               },
               {
-                "Id": 1234,
-                "EffectId": 1117,
+                "Id": 1474,
+                "EffectId": 1237,
                 "Value": -5
               },
               {
-                "Id": 1236,
-                "EffectId": 1118,
+                "Id": 1476,
+                "EffectId": 1238,
                 "Value": -8
               },
               {
-                "Id": 1238,
-                "EffectId": 1119,
+                "Id": 1478,
+                "EffectId": 1239,
                 "Value": -1
               },
               {
-                "Id": 1240,
-                "EffectId": 1120,
+                "Id": 1480,
+                "EffectId": 1240,
                 "Value": -3
               },
               {
-                "Id": 1242,
-                "EffectId": 1121,
+                "Id": 1482,
+                "EffectId": 1241,
                 "Value": -5
               },
               {
-                "Id": 1244,
-                "EffectId": 1122,
+                "Id": 1484,
+                "EffectId": 1242,
                 "Value": 0
               },
               {
-                "Id": 1246,
-                "EffectId": 1123,
+                "Id": 1486,
+                "EffectId": 1243,
                 "Value": -3
               },
               {
-                "Id": 1248,
-                "EffectId": 1124,
+                "Id": 1488,
+                "EffectId": 1244,
                 "Value": 2
               },
               {
-                "Id": 1250,
-                "EffectId": 1125,
+                "Id": 1490,
+                "EffectId": 1245,
                 "Value": 5
               },
               {
-                "Id": 1252,
-                "EffectId": 1126,
+                "Id": 1492,
+                "EffectId": 1246,
                 "Value": -2
               },
               {
-                "Id": 1254,
-                "EffectId": 1127,
+                "Id": 1494,
+                "EffectId": 1247,
                 "Value": -3
               },
               {
-                "Id": 1256,
-                "EffectId": 1128,
+                "Id": 1496,
+                "EffectId": 1248,
                 "Value": -2
               },
               {
-                "Id": 1258,
-                "EffectId": 1129,
+                "Id": 1498,
+                "EffectId": 1249,
                 "Value": 1
               },
               {
-                "Id": 1260,
-                "EffectId": 1130,
+                "Id": 1500,
+                "EffectId": 1250,
                 "Value": -1
               },
               {
-                "Id": 1262,
-                "EffectId": 1131,
+                "Id": 1502,
+                "EffectId": 1251,
                 "Value": -3
               },
               {
-                "Id": 1264,
-                "EffectId": 1132,
+                "Id": 1504,
+                "EffectId": 1252,
                 "Value": 0
               },
               {
-                "Id": 1266,
-                "EffectId": 1133,
+                "Id": 1506,
+                "EffectId": 1253,
                 "Value": -1
               },
               {
-                "Id": 1268,
-                "EffectId": 1134,
+                "Id": 1508,
+                "EffectId": 1254,
                 "Value": -3
               },
               {
-                "Id": 1270,
-                "EffectId": 1135,
+                "Id": 1510,
+                "EffectId": 1255,
                 "Value": 3
               },
               {
-                "Id": 1272,
-                "EffectId": 1136,
+                "Id": 1512,
+                "EffectId": 1256,
                 "Value": 0
               },
               {
-                "Id": 1274,
-                "EffectId": 1137,
+                "Id": 1514,
+                "EffectId": 1257,
                 "Value": 0
               },
               {
-                "Id": 1276,
-                "EffectId": 1138,
+                "Id": 1516,
+                "EffectId": 1258,
                 "Value": -2
               },
               {
-                "Id": 1278,
-                "EffectId": 1139,
+                "Id": 1518,
+                "EffectId": 1259,
                 "Value": -3
               },
               {
-                "Id": 1280,
-                "EffectId": 1140,
+                "Id": 1520,
+                "EffectId": 1260,
                 "Value": -5
               },
               {
-                "Id": 1282,
-                "EffectId": 1141,
+                "Id": 1522,
+                "EffectId": 1261,
                 "Value": 0
               },
               {
-                "Id": 1284,
-                "EffectId": 1142,
+                "Id": 1524,
+                "EffectId": 1262,
                 "Value": 1
               },
               {
-                "Id": 1286,
-                "EffectId": 1143,
+                "Id": 1526,
+                "EffectId": 1263,
                 "Value": 0
               },
               {
-                "Id": 1288,
-                "EffectId": 1144,
+                "Id": 1528,
+                "EffectId": 1264,
                 "Value": -5
               },
               {
-                "Id": 1290,
-                "EffectId": 1145,
+                "Id": 1530,
+                "EffectId": 1265,
                 "Value": 5
               },
               {
-                "Id": 1292,
-                "EffectId": 1146,
+                "Id": 1532,
+                "EffectId": 1266,
                 "Value": 3
               },
               {
-                "Id": 1294,
-                "EffectId": 1147,
+                "Id": 1534,
+                "EffectId": 1267,
                 "Value": -6
               },
               {
-                "Id": 1296,
-                "EffectId": 1148,
+                "Id": 1536,
+                "EffectId": 1268,
                 "Value": -8
               },
               {
-                "Id": 1298,
-                "EffectId": 1149,
+                "Id": 1538,
+                "EffectId": 1269,
                 "Value": 0
               },
               {
-                "Id": 1300,
-                "EffectId": 1150,
+                "Id": 1540,
+                "EffectId": 1270,
                 "Value": 1
               },
               {
-                "Id": 1302,
-                "EffectId": 1151,
+                "Id": 1542,
+                "EffectId": 1271,
                 "Value": 4
               },
               {
-                "Id": 1304,
-                "EffectId": 1152,
+                "Id": 1544,
+                "EffectId": 1272,
                 "Value": 2
               },
               {
-                "Id": 1306,
-                "EffectId": 1153,
+                "Id": 1546,
+                "EffectId": 1273,
                 "Value": -3
               },
               {
-                "Id": 1308,
-                "EffectId": 1154,
+                "Id": 1548,
+                "EffectId": 1274,
                 "Value": 2
               },
               {
-                "Id": 1310,
-                "EffectId": 1155,
+                "Id": 1550,
+                "EffectId": 1275,
                 "Value": 0
               },
               {
-                "Id": 1312,
-                "EffectId": 1156,
+                "Id": 1552,
+                "EffectId": 1276,
                 "Value": 2
               },
               {
-                "Id": 1314,
-                "EffectId": 1157,
+                "Id": 1554,
+                "EffectId": 1277,
                 "Value": 1
               },
               {
-                "Id": 1316,
-                "EffectId": 1158,
+                "Id": 1556,
+                "EffectId": 1278,
                 "Value": -2
               },
               {
-                "Id": 1318,
-                "EffectId": 1159,
+                "Id": 1558,
+                "EffectId": 1279,
                 "Value": -2
               },
               {
-                "Id": 1320,
-                "EffectId": 1160,
+                "Id": 1560,
+                "EffectId": 1280,
                 "Value": -2
               },
               {
-                "Id": 1322,
-                "EffectId": 1161,
+                "Id": 1562,
+                "EffectId": 1281,
                 "Value": -2
               },
               {
-                "Id": 1324,
-                "EffectId": 1162,
+                "Id": 1564,
+                "EffectId": 1282,
                 "Value": -5
               },
               {
-                "Id": 1326,
-                "EffectId": 1163,
+                "Id": 1566,
+                "EffectId": 1283,
                 "Value": 0
               },
               {
-                "Id": 1328,
-                "EffectId": 1164,
+                "Id": 1568,
+                "EffectId": 1284,
                 "Value": 0
               },
               {
-                "Id": 1330,
-                "EffectId": 1165,
+                "Id": 1570,
+                "EffectId": 1285,
                 "Value": 2
               },
               {
-                "Id": 1332,
-                "EffectId": 1166,
+                "Id": 1572,
+                "EffectId": 1286,
                 "Value": 0
               },
               {
-                "Id": 1334,
-                "EffectId": 1167,
+                "Id": 1574,
+                "EffectId": 1287,
                 "Value": -2
               },
               {
-                "Id": 1336,
-                "EffectId": 1168,
+                "Id": 1576,
+                "EffectId": 1288,
                 "Value": -8
               },
               {
-                "Id": 1338,
-                "EffectId": 1169,
+                "Id": 1578,
+                "EffectId": 1289,
                 "Value": 0
               },
               {
-                "Id": 1340,
-                "EffectId": 1170,
+                "Id": 1580,
+                "EffectId": 1290,
                 "Value": 0
               },
               {
-                "Id": 1342,
-                "EffectId": 1171,
+                "Id": 1582,
+                "EffectId": 1291,
                 "Value": -1
               },
               {
-                "Id": 1344,
-                "EffectId": 1172,
+                "Id": 1584,
+                "EffectId": 1292,
                 "Value": 1
               },
               {
-                "Id": 1346,
-                "EffectId": 1173,
+                "Id": 1586,
+                "EffectId": 1293,
                 "Value": 0
               },
               {
-                "Id": 1348,
-                "EffectId": 1174,
+                "Id": 1588,
+                "EffectId": 1294,
                 "Value": 5
               },
               {
-                "Id": 1350,
-                "EffectId": 1175,
+                "Id": 1590,
+                "EffectId": 1295,
                 "Value": -2
               },
               {
-                "Id": 1352,
-                "EffectId": 1176,
+                "Id": 1592,
+                "EffectId": 1296,
                 "Value": 4
               },
               {
-                "Id": 1354,
-                "EffectId": 1177,
+                "Id": 1594,
+                "EffectId": 1297,
                 "Value": -3
               },
               {
-                "Id": 1356,
-                "EffectId": 1178,
+                "Id": 1596,
+                "EffectId": 1298,
                 "Value": -7
               },
               {
-                "Id": 1358,
-                "EffectId": 1179,
+                "Id": 1598,
+                "EffectId": 1299,
                 "Value": -10
               },
               {
-                "Id": 1360,
-                "EffectId": 1180,
+                "Id": 1600,
+                "EffectId": 1300,
                 "Value": 10
               },
               {
-                "Id": 1362,
-                "EffectId": 1181,
+                "Id": 1602,
+                "EffectId": 1301,
                 "Value": -5
               },
               {
-                "Id": 1364,
-                "EffectId": 1182,
+                "Id": 1604,
+                "EffectId": 1302,
                 "Value": 5
               },
               {
-                "Id": 1366,
-                "EffectId": 1183,
+                "Id": 1606,
+                "EffectId": 1303,
                 "Value": -6
               },
               {
-                "Id": 1368,
-                "EffectId": 1184,
+                "Id": 1608,
+                "EffectId": 1304,
                 "Value": -4
               },
               {
-                "Id": 1370,
-                "EffectId": 1185,
+                "Id": 1610,
+                "EffectId": 1305,
                 "Value": -6
               },
               {
-                "Id": 1372,
-                "EffectId": 1186,
+                "Id": 1612,
+                "EffectId": 1306,
                 "Value": 2
               },
               {
-                "Id": 1374,
-                "EffectId": 1187,
+                "Id": 1614,
+                "EffectId": 1307,
                 "Value": -10
               },
               {
-                "Id": 1376,
-                "EffectId": 1188,
+                "Id": 1616,
+                "EffectId": 1308,
                 "Value": 2
               },
               {
-                "Id": 1378,
-                "EffectId": 1189,
+                "Id": 1618,
+                "EffectId": 1309,
                 "Value": 0
               },
               {
-                "Id": 1380,
-                "EffectId": 1190,
+                "Id": 1620,
+                "EffectId": 1310,
                 "Value": 0
               },
               {
-                "Id": 1382,
-                "EffectId": 1191,
+                "Id": 1622,
+                "EffectId": 1311,
                 "Value": -5
               },
               {
-                "Id": 1384,
-                "EffectId": 1192,
+                "Id": 1624,
+                "EffectId": 1312,
                 "Value": 3
               },
               {
-                "Id": 1386,
-                "EffectId": 1193,
+                "Id": 1626,
+                "EffectId": 1313,
                 "Value": 2
               },
               {
-                "Id": 1388,
-                "EffectId": 1194,
+                "Id": 1628,
+                "EffectId": 1314,
                 "Value": -3
               },
               {
-                "Id": 1390,
-                "EffectId": 1195,
+                "Id": 1630,
+                "EffectId": 1315,
                 "Value": -2
               },
               {
-                "Id": 1392,
-                "EffectId": 1196,
+                "Id": 1632,
+                "EffectId": 1316,
                 "Value": -2
               },
               {
-                "Id": 1394,
-                "EffectId": 1197,
+                "Id": 1634,
+                "EffectId": 1317,
                 "Value": 0
               },
               {
-                "Id": 1396,
-                "EffectId": 1198,
+                "Id": 1636,
+                "EffectId": 1318,
                 "Value": 3
               },
               {
-                "Id": 1398,
-                "EffectId": 1199,
+                "Id": 1638,
+                "EffectId": 1319,
                 "Value": 5
               },
               {
-                "Id": 1400,
-                "EffectId": 1200,
+                "Id": 1640,
+                "EffectId": 1320,
                 "Value": 0
               },
               {
-                "Id": 1402,
-                "EffectId": 1201,
+                "Id": 1642,
+                "EffectId": 1321,
                 "Value": 0
               },
               {
-                "Id": 1404,
-                "EffectId": 1202,
+                "Id": 1644,
+                "EffectId": 1322,
                 "Value": -2
               },
               {
-                "Id": 1406,
-                "EffectId": 1203,
+                "Id": 1646,
+                "EffectId": 1323,
                 "Value": 0
               },
               {
-                "Id": 1408,
-                "EffectId": 1204,
+                "Id": 1648,
+                "EffectId": 1324,
                 "Value": 0
               },
               {
-                "Id": 1410,
-                "EffectId": 1205,
+                "Id": 1650,
+                "EffectId": 1325,
                 "Value": 0
               },
               {
-                "Id": 1412,
-                "EffectId": 1206,
+                "Id": 1652,
+                "EffectId": 1326,
                 "Value": -8
               },
               {
-                "Id": 1414,
-                "EffectId": 1207,
+                "Id": 1654,
+                "EffectId": 1327,
                 "Value": 4
               },
               {
-                "Id": 1416,
-                "EffectId": 1208,
+                "Id": 1656,
+                "EffectId": 1328,
                 "Value": 0
               },
               {
-                "Id": 1418,
-                "EffectId": 1209,
+                "Id": 1658,
+                "EffectId": 1329,
                 "Value": -4
               },
               {
-                "Id": 1420,
-                "EffectId": 1210,
+                "Id": 1660,
+                "EffectId": 1330,
                 "Value": 2
               },
               {
-                "Id": 1422,
-                "EffectId": 1211,
+                "Id": 1662,
+                "EffectId": 1331,
                 "Value": -4
               },
               {
-                "Id": 1424,
-                "EffectId": 1212,
+                "Id": 1664,
+                "EffectId": 1332,
                 "Value": -1
               },
               {
-                "Id": 1426,
-                "EffectId": 1213,
+                "Id": 1666,
+                "EffectId": 1333,
                 "Value": 4
               },
               {
-                "Id": 1428,
-                "EffectId": 1214,
+                "Id": 1668,
+                "EffectId": 1334,
                 "Value": -1
               },
               {
-                "Id": 1430,
-                "EffectId": 1215,
+                "Id": 1670,
+                "EffectId": 1335,
                 "Value": 0
               },
               {
-                "Id": 1432,
-                "EffectId": 1216,
+                "Id": 1672,
+                "EffectId": 1336,
                 "Value": 4
               },
               {
-                "Id": 1434,
-                "EffectId": 1217,
+                "Id": 1674,
+                "EffectId": 1337,
                 "Value": -2
               },
               {
-                "Id": 1436,
-                "EffectId": 1218,
+                "Id": 1676,
+                "EffectId": 1338,
                 "Value": 0
               },
               {
-                "Id": 1438,
-                "EffectId": 1219,
+                "Id": 1678,
+                "EffectId": 1339,
                 "Value": -2
               },
               {
-                "Id": 1440,
-                "EffectId": 1220,
+                "Id": 1680,
+                "EffectId": 1340,
                 "Value": 8
               },
               {
-                "Id": 1442,
-                "EffectId": 1221,
+                "Id": 1682,
+                "EffectId": 1341,
                 "Value": -7
               },
               {
-                "Id": 1444,
-                "EffectId": 1222,
+                "Id": 1684,
+                "EffectId": 1342,
                 "Value": 3
               },
               {
-                "Id": 1446,
-                "EffectId": 1223,
+                "Id": 1686,
+                "EffectId": 1343,
                 "Value": 2
               },
               {
-                "Id": 1448,
-                "EffectId": 1224,
+                "Id": 1688,
+                "EffectId": 1344,
                 "Value": 2
               },
               {
-                "Id": 1450,
-                "EffectId": 1225,
+                "Id": 1690,
+                "EffectId": 1345,
                 "Value": -7
               },
               {
-                "Id": 1452,
-                "EffectId": 1226,
+                "Id": 1692,
+                "EffectId": 1346,
                 "Value": 10
               },
               {
-                "Id": 1454,
-                "EffectId": 1227,
+                "Id": 1694,
+                "EffectId": 1347,
                 "Value": 3
               },
               {
-                "Id": 1456,
-                "EffectId": 1228,
+                "Id": 1696,
+                "EffectId": 1348,
                 "Value": 0
               }
             ]
@@ -1222,18 +1222,18 @@
         ],
         "Conditions": [
           {
-            "Id": 1007,
+            "Id": 1009,
             "Text": "ПО ⩾ 10 & ПР ⩾ 10",
-            "ResultId": 1005
+            "ResultId": 1007
           },
           {
-            "Id": 1008,
+            "Id": 1010,
             "Text": "логическое условие",
-            "ResultId": 1006
+            "ResultId": 1008
           }
         ],
         "Picture": {
-          "Id": 1004,
+          "Id": 1005,
           "ImageSource": "медуза.jpg",
           "IsBorderRequired": true
         },
@@ -1243,1017 +1243,1605 @@
               {
                 "Effects": [
                   {
-                    "Id": 1109,
+                    "Id": 1229,
                     "Body": "Ваши студенты слишком долго учатся — и все это время вам приходится их кормить.",
-                    "AnswerId": 1039
+                    "AnswerId": 1084
                   },
                   {
-                    "Id": 1110,
+                    "Id": 1230,
                     "Body": "К сожалению, очень много ошибок в первые же месяцы работы. Читатели понимают, что у вас работают непрофессионалы.",
-                    "AnswerId": 1039
+                    "AnswerId": 1084
                   },
                   {
-                    "Id": 1111,
+                    "Id": 1231,
                     "Body": "Ваши студенты и новички делают невозможное — о вас сразу же начинают все говорить как о медиа нового типа.",
-                    "AnswerId": 1039
+                    "AnswerId": 1084
                   }
                 ],
-                "Id": 1039,
+                "Id": 1084,
                 "Body": "Это же стартап. Посмотрите на студентов, которые хотят учиться и стоят недорого. И еще знают, чем интересуются миллениалы. Только так медиа и делаются.",
-                "QuestionId": 1011
+                "QuestionId": 1022
               },
               {
                 "Effects": [
                   {
-                    "Id": 1112,
+                    "Id": 1232,
                     "Body": "Грамотный ход. Уволившиеся журналисты требуют не очень много денег, находятся на творческом подъеме и жаждут отомстить.",
-                    "AnswerId": 1040
+                    "AnswerId": 1085
                   },
                   {
-                    "Id": 1113,
+                    "Id": 1233,
                     "Body": "Стоило только собрать сильную команду, как вы чувствуете давление власти. Ну или не власти, а специфического российского рынка — рекламодатели боятся иметь с вами дело.",
-                    "AnswerId": 1040
+                    "AnswerId": 1085
                   },
                   {
-                    "Id": 1114,
+                    "Id": 1234,
                     "Body": "Вам удалось купить уникальный журналистский коллектив. Но он живет прошлым, борется с химерами — и еще крайне обидчив и почти неуправляем.",
-                    "AnswerId": 1040
+                    "AnswerId": 1085
                   },
                   {
-                    "Id": 1115,
+                    "Id": 1235,
                     "Body": "На перекупке коллектива вам удалось сделать хорошую рекламу, что дает приток посетителей.",
-                    "AnswerId": 1040
+                    "AnswerId": 1085
                   }
                 ],
-                "Id": 1040,
+                "Id": 1085,
                 "Body": "Перекуплю команду у какого-то медиа — журналисты сейчас часто остаются без работы: то из «Ленты.ру» уходят десятками, то из «Афиши», то из Forbes, то из РБК. Есть из кого выбирать",
-                "QuestionId": 1011
+                "QuestionId": 1022
               },
               {
                 "Effects": [
                   {
-                    "Id": 1116,
+                    "Id": 1236,
                     "Body": "Звезды относятся к вашему медиа как к еще одному месту, где можно получать большие гонорары. Они не вкладываются в проект, так что посещаемость, конечно, растет, но не слишком.",
-                    "AnswerId": 1041
+                    "AnswerId": 1086
                   },
                   {
-                    "Id": 1117,
+                    "Id": 1237,
                     "Body": "Проблема ваших авторов в том, что они везде. Вы можете прочитать их почти в любом издании, в результате люди запоминают текст Кашина, но не издание, в котором он был опубликован. Посещаемость растет, но вы платите большие деньги, а если авторы уйдут, то уйдет и вся посещаемость",
-                    "AnswerId": 1041
+                    "AnswerId": 1086
                   },
                   {
-                    "Id": 1118,
+                    "Id": 1238,
                     "Body": "Звезды раскручивают ваше медиа, но обходятся слишком дорого.",
-                    "AnswerId": 1041
+                    "AnswerId": 1086
                   }
                 ],
-                "Id": 1041,
+                "Id": 1086,
                 "Body": "Надо брать звезд. Только так новое медиа может заявить о себе. Если для меня станут писать Василий Уткин, Ксения Собчак и Олег Кашин, мое медиа тут же обретет популярность.",
-                "QuestionId": 1011
+                "QuestionId": 1022
               },
               {
                 "Effects": [
                   {
-                    "Id": 1119,
+                    "Id": 1239,
                     "Body": "Вам повезло с главным редактором — вы заранее договорились о концепции, заранее обговорили бюджет, команду он собрал опытную и молодую одновременно. И не такую уж дорогую. Она сразу начала приносить результат.",
-                    "AnswerId": 1042
+                    "AnswerId": 1087
                   },
                   {
-                    "Id": 1120,
+                    "Id": 1240,
                     "Body": "Вы согласились не вмешиваться в кадровую политику, но видите, что главный редактор нанимает только своих знакомых. Команда собирается долго. Да и стоит дороже, чем вы планировали.",
-                    "AnswerId": 1042
+                    "AnswerId": 1087
                   },
                   {
-                    "Id": 1121,
+                    "Id": 1241,
                     "Body": "Безусловно, команда — дело главного редактора. Но вы видите, что он нанимает каких-то бестолочей, и хотите вмешаться. В результате скандала ваш главный редактор увольняется. Время идет, деньги тают, медиа так и не запускается.",
-                    "AnswerId": 1042
+                    "AnswerId": 1087
                   }
                 ],
-                "Id": 1042,
+                "Id": 1087,
                 "Body": "Не надо набирать команду, надо взять главного редактора, с которым есть общий язык. Он сам всех наберет.",
-                "QuestionId": 1011
+                "QuestionId": 1022
               }
             ],
-            "Id": 1011,
+            "Id": 1022,
             "Body": "Начинаем. У вас уже есть идея, концепция, вы даже нашли минимальное финансирование. Теперь пришла пора реализации. Для этого нужны журналисты. Кого брать?",
-            "GameId": 1004
+            "GameId": 1005
           },
           {
             "Answers": [
               {
                 "Effects": [
                   {
-                    "Id": 1122,
+                    "Id": 1242,
                     "Body": "Ваш сайт упал в первый же день, потому что не выдержал нагрузок. Каких нагрузок, вы не знаете: забыли прикрутить аналитику.",
-                    "AnswerId": 1043
+                    "AnswerId": 1088
                   },
                   {
-                    "Id": 1123,
+                    "Id": 1243,
                     "Body": "Все вроде работает, только сайт выглядит настолько ужасно, что к вам никто не ходит. Через месяц приходится отправиться в профессиональную студию и искать настоящих разработчиков.",
-                    "AnswerId": 1043
+                    "AnswerId": 1088
                   },
                   {
-                    "Id": 1124,
+                    "Id": 1244,
                     "Body": "Удобно все уметь! Все сделано немного на коленке, но работает же! Все равно ведь главное — это контент.",
-                    "AnswerId": 1043
+                    "AnswerId": 1088
                   }
                 ],
-                "Id": 1043,
+                "Id": 1088,
                 "Body": "Мм, сам нарисую и запущу на «Вордпрессе».",
-                "QuestionId": 1012
+                "QuestionId": 1023
               },
               {
                 "Effects": [
                   {
-                    "Id": 1125,
+                    "Id": 1245,
                     "Body": "Да, свои разработка и дизайн — это круто. Ребята попались классные. Все происходит в три раза быстрее, чем обычно, а ваше издание не похоже ни на какое другое. Плюс вы можете делать что захотите. И зарабатывать на этом.",
-                    "AnswerId": 1044
+                    "AnswerId": 1089
                   },
                   {
-                    "Id": 1126,
+                    "Id": 1246,
                     "Body": "Арт-директор поругался с техдиром и уволился перед запуском. Пришлось искать нового, терять время и деньги.",
-                    "AnswerId": 1044
+                    "AnswerId": 1089
                   },
                   {
-                    "Id": 1127,
+                    "Id": 1247,
                     "Body": "Полная катастрофа. Брать своих людей хорошо, когда вы умеете управлять процессом и понимаете, кого брать. А вы набрали жуликов, которые ничего не сделали. Время потеряно, деньги на ветер.",
-                    "AnswerId": 1044
+                    "AnswerId": 1089
                   },
                   {
-                    "Id": 1128,
+                    "Id": 1248,
                     "Body": "Команда работает, но вы поняли, что взяли не тех людей. Результат вам не нравится. Читателям, впрочем, этого пока не заметно.",
-                    "AnswerId": 1044
+                    "AnswerId": 1089
                   }
                 ],
-                "Id": 1044,
+                "Id": 1089,
                 "Body": "Берем технического директора и арт-директора в штат немедленно.",
-                "QuestionId": 1012
+                "QuestionId": 1023
               },
               {
                 "Effects": [
                   {
-                    "Id": 1129,
+                    "Id": 1249,
                     "Body": "Это был беспроигрышный ход. Charmer сделал сайты почти всех современных российских медиа. Единственная проблема — вы немного похожи на все современные российские медиа.",
-                    "AnswerId": 1045
+                    "AnswerId": 1090
                   },
                   {
-                    "Id": 1130,
+                    "Id": 1250,
                     "Body": "Вы если идете в студию, не забывайте, что сначала нужно правильно сформулировать задачу — за вас это никто не сделает. Процесс затянулся. Все получилось хорошо, но слишком долго.",
-                    "AnswerId": 1045
+                    "AnswerId": 1090
                   },
                   {
-                    "Id": 1134,
+                    "Id": 1254,
                     "Body": "У вас получилось сделать что-то совершенно неожиданное и заметное! Запуск будет громким.",
-                    "AnswerId": 1045
+                    "AnswerId": 1090
                   }
                 ],
-                "Id": 1045,
+                "Id": 1090,
                 "Body": "Не проблема. Пойду в студию Charmer, они все под ключ сделают.",
-                "QuestionId": 1012
+                "QuestionId": 1023
               },
               {
                 "Effects": [
                   {
-                    "Id": 1131,
+                    "Id": 1251,
                     "Body": "Это было невыносимо дорого и чудовищно долго, зато Артемий Лебедев раскричал о вас по всему интернету (не всем, впрочем, понравилось).",
-                    "AnswerId": 1046
+                    "AnswerId": 1091
                   },
                   {
-                    "Id": 1132,
+                    "Id": 1252,
                     "Body": "Так, а почему логотип такой странный? И почему все считают, что он похож на логотип газеты The Guardian? Только запустились, а уже скандал. Впрочем, на посещаемости это сказывается положительно.",
-                    "AnswerId": 1046
+                    "AnswerId": 1091
                   },
                   {
-                    "Id": 1133,
+                    "Id": 1253,
                     "Body": "Ну кто же заказывает медиа Студии Лебедева в 2017 году? Вы еще не запустились, а уже устарели. И это видно.",
-                    "AnswerId": 1046
+                    "AnswerId": 1091
                   }
                 ],
-                "Id": 1046,
+                "Id": 1091,
                 "Body": "Студия Лебедева, конечно!",
-                "QuestionId": 1012
+                "QuestionId": 1023
               }
             ],
-            "Id": 1012,
+            "Id": 1023,
             "Body": "Окей, редакцию худо-бедно набрали, но этого (сюрприз!) мало. Это же еще разработать надо и нарисовать. Что делать будем?",
-            "GameId": 1004
+            "GameId": 1005
           },
           {
             "Answers": [
               {
                 "Effects": [
                   {
-                    "Id": 1135,
+                    "Id": 1255,
                     "Body": "Правильная, хоть и медленная стратегия. Собственные материалы — лучшая реклама. И к тому же без лишних расходов.",
-                    "AnswerId": 1047
+                    "AnswerId": 1092
                   },
                   {
-                    "Id": 1136,
+                    "Id": 1256,
                     "Body": "С такой благородной стратегией вы рискуете остаться очень крутым медиа, которое, однако, никто не читает. Такие случаи на российском рынке уже были.",
-                    "AnswerId": 1047
+                    "AnswerId": 1092
                   },
                   {
-                    "Id": 1137,
+                    "Id": 1257,
                     "Body": "Один бомбический материал вышел, и никто не заметил — ладно. Второй вышел — и опять в молоко. Третий — то же самое. Редакция понимает, что что-то не так, и кто-то начинает лениться, а кто-то уходит в медиа с большей аудиторией",
-                    "AnswerId": 1047
+                    "AnswerId": 1092
                   },
                   {
-                    "Id": 1138,
+                    "Id": 1258,
                     "Body": "Эта стратегия дает очень неожиданный результат: ваши материалы оказываются настолько бомбическими, что посещаемость резко растет, но рекламодатели не хотят иметь с вами дела — слишком рискованно.",
-                    "AnswerId": 1047
+                    "AnswerId": 1092
                   }
                 ],
-                "Id": 1047,
+                "Id": 1092,
                 "Body": "Ну и что. Выпустим пять-десять бомбических материалов, и все заговорят. А там и поисковый трафик подтянется.",
-                "QuestionId": 1013
+                "QuestionId": 1024
               },
               {
                 "Effects": [
                   {
-                    "Id": 1139,
+                    "Id": 1259,
                     "Body": "К сожалению, купленный трафик очень плохого качества — люди заходят, смотрят одну, максимум две страницы, и тут же о вас забывают",
-                    "AnswerId": 1048
+                    "AnswerId": 1093
                   },
                   {
-                    "Id": 1140,
+                    "Id": 1260,
                     "Body": "Плохие новости. Как только вы перестаете покупать трафик, он тут же падает — читатели у вас не задерживаются. Поэтому посещаемость растет только на столько, на сколько вы ее покупаете.",
-                    "AnswerId": 1048
+                    "AnswerId": 1093
                   },
                   {
-                    "Id": 1141,
+                    "Id": 1261,
                     "Body": "Вы покупаете трафик с умом — только когда не дотягиваете по обязательствам перед рекламодателями, либо продвигаете самые хитовые статьи, чтобы у них был максимальный охват. И все равно люди, пришедшие из трафикообменных сетей, надолго у вас не остаются.",
-                    "AnswerId": 1048
+                    "AnswerId": 1093
                   }
                 ],
-                "Id": 1048,
+                "Id": 1093,
                 "Body": "Да, проблема. Ну ничего, можно закупить трафик в трафикообменных системах. Может, и стыдно немного, зато посещаемость растет! А как вырастет — перестанем покупать.",
-                "QuestionId": 1013
+                "QuestionId": 1024
               },
               {
                 "Effects": [
                   {
-                    "Id": 1142,
+                    "Id": 1262,
                     "Body": "Основной трафик едва ли не любого медиа сейчас — это соцсети. Идти туда нужно обязательно, и чем активнее, тем лучше.",
-                    "AnswerId": 1049
+                    "AnswerId": 1094
                   },
                   {
-                    "Id": 1143,
+                    "Id": 1263,
                     "Body": "Вам повезло с умным специалистом, который знает, что заходит, что не заходит. Он максимизирует охват популярных материалов и не дает улететь в трубу по расходам.",
-                    "AnswerId": 1049
+                    "AnswerId": 1094
                   },
                   {
-                    "Id": 1144,
+                    "Id": 1264,
                     "Body": "Закупка трафика в социальных сетях имеет такую особенность — охват растет, лайки растут. Но только в социальных сетях. На сайт люди из соцсетей переходят неохотно. Может, вам делать медиа в соцсетях, вообще без сайта?",
-                    "AnswerId": 1049
+                    "AnswerId": 1094
                   }
                 ],
-                "Id": 1049,
+                "Id": 1094,
                 "Body": "Нужны соцсети. Будем активно развиваться везде, от «ВК» до «Одноклассников»; где надо — будем закупать трафик.",
-                "QuestionId": 1013
+                "QuestionId": 1024
               },
               {
                 "Effects": [
                   {
-                    "Id": 1145,
+                    "Id": 1265,
                     "Body": "С точки зрения бизнеса вечеринка окупилась: многие рекламодатели увидели серьезность ваших намерений и задумались о том, чтобы дать у вас рекламу или сделать совместный проект.",
-                    "AnswerId": 1050
+                    "AnswerId": 1095
                   },
                   {
-                    "Id": 1146,
+                    "Id": 1266,
                     "Body": "Кажется, это был очень правильный ход — вас заметили трендсеттеры и рекламодатели, о медиа стали говорить. А какой концерт был! Весь фейсбук забит фотографиями с крупным названием вашего медиа.",
-                    "AnswerId": 1050
+                    "AnswerId": 1095
                   },
                   {
-                    "Id": 1147,
+                    "Id": 1267,
                     "Body": "Ух, ну и влетела же вам вечеринка в копеечку! Но зато хоть, кажется, дело сдвинулось с мертвой точки — о вашем медиа узнали трендсеттеры.",
-                    "AnswerId": 1050
+                    "AnswerId": 1095
                   },
                   {
-                    "Id": 1148,
+                    "Id": 1268,
                     "Body": "Это было грандиозно — о вас в какой-то момент говорила вся Москва. Жалко, что это длилось всего пару дней — до следующей мощной вечеринки.",
-                    "AnswerId": 1050
+                    "AnswerId": 1095
                   }
                 ],
-                "Id": 1050,
+                "Id": 1095,
                 "Body": "Надо устроить вечеринку. И созвать туда всю Москву. Все запомнят.",
-                "QuestionId": 1013
+                "QuestionId": 1024
               },
               {
                 "Effects": [
                   {
-                    "Id": 1149,
+                    "Id": 1269,
                     "Body": "Рынок недоумевает. У вас что, настолько все плохо, что вы пошли по другим медиа? Вам вежливо (а иногда и невежливо) отказывают.",
-                    "AnswerId": 1051
+                    "AnswerId": 1096
                   },
                   {
-                    "Id": 1150,
+                    "Id": 1270,
                     "Body": "У вас получилось найти партнеров, но всего лишь нескольких: у кого-то трафик не дотягивает до вашего, и вам не интересно, кому-то, наоборот, не интересны вы. В принципе правильная идея, но явно с ограниченным эффектом.",
-                    "AnswerId": 1051
+                    "AnswerId": 1096
                   },
                   {
-                    "Id": 1151,
+                    "Id": 1271,
                     "Body": "У вас получается наладить партнерскую сеть с симпатичными медиа с другой структурой трафика, чем у вас. И это здорово.",
-                    "AnswerId": 1051
+                    "AnswerId": 1096
                   }
                 ],
-                "Id": 1051,
+                "Id": 1096,
                 "Body": "Пойду в другие медиа, будем делать совместные проекты.",
-                "QuestionId": 1013
+                "QuestionId": 1024
               }
             ],
-            "Id": 1013,
+            "Id": 1024,
             "Body": "Фу-у-уф. Запустились. Только почему-то никто ничего не читает!",
-            "GameId": 1004
+            "GameId": 1005
           },
           {
             "Answers": [
               {
                 "Effects": [
                   {
-                    "Id": 1152,
+                    "Id": 1272,
                     "Body": "Вслед за оппозиционным политиком пришла «Единая Россия». У вас нет причин ей отказать, и вы публикуете и этот текст. Читатели недовольны.",
-                    "AnswerId": 1052
+                    "AnswerId": 1097
                   },
                   {
-                    "Id": 1153,
+                    "Id": 1273,
                     "Body": "Материал опубликован, политических последствий не было, но вот многим другим рекламодателям это не понравилось. Кампании никто не снимает, но с новыми тоже не приходят.",
-                    "AnswerId": 1052
+                    "AnswerId": 1097
                   },
                   {
-                    "Id": 1154,
+                    "Id": 1274,
                     "Body": "Материал опубликован, ничего страшного не случилось. Правда, некоторые читатели теперь любят писать в комментариях, что вы продались. Впрочем, может, это и не читатели вовсе, а работники ольгинской фабрики троллей.",
-                    "AnswerId": 1052
+                    "AnswerId": 1097
                   }
                 ],
-                "Id": 1052,
+                "Id": 1097,
                 "Body": "Замечательно. Пусть присылает текст, опубликуем с пометкой, что это реклама.",
-                "QuestionId": 1014
+                "QuestionId": 1025
               },
               {
                 "Effects": [
                   {
-                    "Id": 1155,
+                    "Id": 1275,
                     "Body": "В процессе согласования материала вы рассорились. Материал не вышел, вы только зря потратили время.",
-                    "AnswerId": 1053
+                    "AnswerId": 1098
                   },
                   {
-                    "Id": 1156,
+                    "Id": 1276,
                     "Body": "Вслед за оппозиционным политиком пришла «Единая Россия». У вас нет причин ей отказать, и вы публикуете и этот текст. Читатели недовольны.",
-                    "AnswerId": 1053
+                    "AnswerId": 1098
                   },
                   {
-                    "Id": 1157,
+                    "Id": 1277,
                     "Body": "Материал опубликован, ничего страшного не случилось. Правда, некоторые читатели теперь любят писать в комментариях, что вы продались. Впрочем, может, это и не читатели вовсе, а работники ольгинской фабрики троллей.",
-                    "AnswerId": 1053
+                    "AnswerId": 1098
                   }
                 ],
-                "Id": 1053,
+                "Id": 1098,
                 "Body": "Можно попробовать. Но осторожно: с тем, что коррупция — это плохо, согласны все. А вот «„Единая Россия“ — худшая партия в мире» даже за большие деньги писать не надо.",
-                "QuestionId": 1014
+                "QuestionId": 1025
               },
               {
                 "Effects": [
                   {
-                    "Id": 1158,
+                    "Id": 1278,
                     "Body": "От материала вы отбились. Но и скандал получили. Публичный.",
-                    "AnswerId": 1054
+                    "AnswerId": 1099
                   },
                   {
-                    "Id": 1159,
+                    "Id": 1279,
                     "Body": "Так, ну одной проблемой меньше. Оппозиционный политик, конечно, скривился, но это в его практике не первый и не последний случай, все всё понимают.",
-                    "AnswerId": 1054
+                    "AnswerId": 1099
                   }
                 ],
-                "Id": 1054,
+                "Id": 1099,
                 "Body": "Никакой оппозиции на нашей площадке, нас инвестор убьет.",
-                "QuestionId": 1014
+                "QuestionId": 1025
               },
               {
                 "Effects": [
                   {
-                    "Id": 1160,
+                    "Id": 1280,
                     "Body": "Политик решил, что это вранье, и устроил публичный скандал. Но вы смогли спокойно отбиться — вы же правда не размещаете политическую рекламу.",
-                    "AnswerId": 1055
+                    "AnswerId": 1100
                   },
                   {
-                    "Id": 1161,
+                    "Id": 1281,
                     "Body": "Кажется, вы выбрали идеальный репутационный вариант. Денег, правда, не заработали ни копейки.",
-                    "AnswerId": 1055
+                    "AnswerId": 1100
                   }
                 ],
-                "Id": 1055,
+                "Id": 1100,
                 "Body": "Лучший вариант — запретить любую политическую рекламу.",
-                "QuestionId": 1014
+                "QuestionId": 1025
               }
             ],
-            "Id": 1014,
+            "Id": 1025,
             "Body": "Трафик есть, но что-то мало денег. И вы идете по рекламодателям. Они, разумеется, осторожничают. Но тут к вам приходит оппозиционный политик (поздравляем, вы запустились в предвыборный год), а у него даже есть бюджет.",
-            "GameId": 1004
+            "GameId": 1005
           },
           {
             "Answers": [
               {
                 "Effects": [
                   {
-                    "Id": 1162,
+                    "Id": 1282,
                     "Body": "По опасной дорожке пошли. Скандал не заканчивается; если человек не высказался против вашего издания, на него косо смотрят. Рекламодатели тоже напряглись.",
-                    "AnswerId": 1056
+                    "AnswerId": 1101
                   },
                   {
-                    "Id": 1163,
+                    "Id": 1283,
                     "Body": "Скандалы в фейсбуке редко длятся больше пары дней. И этот улегся. Хотя самые ярые спорщики сделали себе зарубку и теперь при каждом упоминании вашего издания будут рассказывать об этой истории. ",
-                    "AnswerId": 1056
+                    "AnswerId": 1101
                   }
                 ],
-                "Id": 1056,
+                "Id": 1101,
                 "Body": "Ой, да мало ли что в фейсбуке пишут. Много чести на это реагировать.",
-                "QuestionId": 1015
+                "QuestionId": 1026
               },
               {
                 "Effects": [
                   {
-                    "Id": 1164,
+                    "Id": 1284,
                     "Body": "Вы извинились, но вам не поверили — мол, слишком неискренне извинились. Впрочем, ни один скандал в фейсбуке не живет больше недели. Все закончилось без особых последствий. ",
-                    "AnswerId": 1057
+                    "AnswerId": 1102
                   },
                   {
-                    "Id": 1165,
+                    "Id": 1285,
                     "Body": "У вас получилось обратить скандал в свою пользу! Вы показали, как надо исправлять публичные ошибки. Это заметили все. ",
-                    "AnswerId": 1057
+                    "AnswerId": 1102
                   },
                   {
-                    "Id": 1166,
+                    "Id": 1286,
                     "Body": "Фейсбук любит извинения. Все резко заканчивается, большинство спорщиков уважительно кивают. Но внутри команды споры продолжаются еще полгода. Впрочем, скандал повышает вашу посещаемость. ",
-                    "AnswerId": 1057
+                    "AnswerId": 1102
                   }
                 ],
-                "Id": 1057,
+                "Id": 1102,
                 "Body": "Неприятный скандал. Надо извиниться и забыть как страшный сон. Иначе будет хуже.",
-                "QuestionId": 1015
+                "QuestionId": 1026
               },
               {
                 "Effects": [
                   {
-                    "Id": 1167,
+                    "Id": 1287,
                     "Body": "Вы добились только того, что со всеми переругались, и теперь ваши же друзья косятся на вас. А скандал забылся через неделю. ",
-                    "AnswerId": 1058
+                    "AnswerId": 1103
                   },
                   {
-                    "Id": 1168,
+                    "Id": 1288,
                     "Body": "Еще вчера вы думали, что это гигантский скандал. Нет! Сегодня небо разверзлось по-настоящему. В том числе внутри вашего издания. Рекламодатели уходят, редакторы тоже. Не факт, что вы смож-ете это пережить. ",
-                    "AnswerId": 1058
+                    "AnswerId": 1103
                   },
                   {
-                    "Id": 1169,
+                    "Id": 1289,
                     "Body": "Вот это поворот! Ваши враги стали вашими злейшими врагами. Ваши союзники теперь за вас горой. С рекламодателями примерно та же ситуация: теперь кто-то наотрез отказывается с вами иметь дело, а кто-то, наоборот, хочет от вас провокаций и эпатажа. ",
-                    "AnswerId": 1058
+                    "AnswerId": 1103
                   }
                 ],
-                "Id": 1058,
+                "Id": 1103,
                 "Body": "Скандал — это классно! Наконец-то о нас все говорят! Извиняться, конечно, не надо. Наоборот, надо обострить. Ух, я сейчас выступлю…",
-                "QuestionId": 1015
+                "QuestionId": 1026
               },
               {
                 "Effects": [
                   {
-                    "Id": 1170,
+                    "Id": 1290,
                     "Body": "Как ни странно, это срабатывает. Люди уважают, когда к ним обращаются лично. Конфликт постепенно утихает без каких-либо последствий. ",
-                    "AnswerId": 1059
+                    "AnswerId": 1104
                   },
                   {
-                    "Id": 1171,
+                    "Id": 1291,
                     "Body": "Хамство публичное, а извинения личное? Нет, участников конфликта это совершенно не устроило, они только публикуют куски из вашей переписки. Конфликт заканчивается сам, но неделю нервы у всех на пределе. ",
-                    "AnswerId": 1059
+                    "AnswerId": 1104
                   }
                 ],
-                "Id": 1059,
+                "Id": 1104,
                 "Body": "Самое неприятное — это публичность. Участвовать в этом всем не хочется, но разобраться придется. Так что всем, кто выступает, будем отвечать в личке.",
-                "QuestionId": 1015
+                "QuestionId": 1026
               }
             ],
-            "Id": 1015,
+            "Id": 1026,
             "Body": "А вот и первый скандал! Кто-то из вашей SMM-команды довольно жестко поддел читателя в вашем официальном фейсбуке. Начался медиасрач. Команда разделилась на две части. Одни считают, что это травля и, может, вы и были не правы, но те, кто ругает, настолько омерзительны, что извиняться нельзя. Другие говорят: главное — издание ошиблось, надо исправляться. Пока в команде спорят, скандал нарастает. Новые возмущенные посты появляются раз в полчаса.",
-            "GameId": 1004
+            "GameId": 1005
           },
           {
             "Answers": [
               {
                 "Effects": [
                   {
-                    "Id": 1172,
+                    "Id": 1292,
                     "Body": "Люди любят честность. Ну и вообще, все в одной лодке. Все вошли в положение, а вы успели решить проблемы. ",
-                    "AnswerId": 1060
+                    "AnswerId": 1105
                   },
                   {
-                    "Id": 1173,
+                    "Id": 1293,
                     "Body": "Вам поверили, но людям нужны деньги. Начался внутренний скандал, часть людей ушла. Но хотя бы это не вылезло наружу. ",
-                    "AnswerId": 1060
+                    "AnswerId": 1105
                   }
                 ],
-                "Id": 1060,
+                "Id": 1105,
                 "Body": "Cоберу всех сотрудников, расскажу честно, что происходит, и попрошу месяц потерпеть без зарплаты. ",
-                "QuestionId": 1016
+                "QuestionId": 1027
               },
               {
                 "Effects": [
                   {
-                    "Id": 1174,
+                    "Id": 1294,
                     "Body": "Вместе с пейволлом вы запустили публичную кампанию по спасению издания. У вас накопилось уже достаточное количество фанатов, которые спасли вас на первые месяцы. Правда, аудитория все равно сильно упала. ",
-                    "AnswerId": 1061
+                    "AnswerId": 1106
                   },
                   {
-                    "Id": 1175,
+                    "Id": 1295,
                     "Body": "Главное пока, чего вы добились, — это оттока аудитории (не хотят платить), авторов (не для кого писать) и рекламодателей (некому рекламировать). Но, возможно, все впереди! ",
-                    "AnswerId": 1061
+                    "AnswerId": 1106
                   }
                 ],
-                "Id": 1061,
+                "Id": 1106,
                 "Body": "Это катастрофа. Надо менять бизнес-модель. Переходим на пейволл, тогда деньги будут приходить вовремя.",
-                "QuestionId": 1016
+                "QuestionId": 1027
               },
               {
                 "Effects": [
                   {
-                    "Id": 1176,
+                    "Id": 1296,
                     "Body": "У вас хороший инвестор! Вошел в положение, дал займ. Главное, вовремя вернуть. ",
-                    "AnswerId": 1062
+                    "AnswerId": 1107
                   },
                   {
-                    "Id": 1177,
+                    "Id": 1297,
                     "Body": "М-да, когда инвестор давал вам деньги, он думал, что вкладывается в прибыльный бизнес, — и тут вы с проблемами. В результате все, что вы получили, — недоверие инвестора и по-прежнему отсутствие денег. А значит, уход части команды и слухи о вашем паршивом положении среди рекламодателей. ",
-                    "AnswerId": 1062
+                    "AnswerId": 1107
                   }
                 ],
-                "Id": 1062,
+                "Id": 1107,
                 "Body": "Надо звонить инвестору. И уговорить его либо дать денег, либо запустить новый раунд финансирования.",
-                "QuestionId": 1016
+                "QuestionId": 1027
               },
               {
                 "Effects": [
                   {
-                    "Id": 1178,
+                    "Id": 1298,
                     "Body": "Это честно. Но, во-первых, вы чуть не разорились на компенсациях, во-вторых, оставшимся количеством людей нормальное медиа не сделать. В-третьих, рекламодатели в кризисное медиа не идут. ",
-                    "AnswerId": 1063
+                    "AnswerId": 1108
                   },
                   {
-                    "Id": 1179,
+                    "Id": 1299,
                     "Body": "Вы действительно сэкономили на расходах, но, во-первых, пришлось платить компенсации, а денег на них нет. Начался скандал. Часть людей ушла сама, часть затаила обиду. Сотрудников вам теперь не хватает. Рекламодатели тоже скандалы не любят. ",
-                    "AnswerId": 1063
+                    "AnswerId": 1108
                   },
                   {
-                    "Id": 1180,
+                    "Id": 1300,
                     "Body": "Жесткое, но полезное решение. Вас стало мало, зато вы теперь злые и хотите всем доказать, что можете. Маленькая команда делает в 2 раза больше, чем большая раньше. ",
-                    "AnswerId": 1063
+                    "AnswerId": 1108
                   }
                 ],
-                "Id": 1063,
+                "Id": 1108,
                 "Body": "Придется сокращать людей. Мы явно живем не по средствам.",
-                "QuestionId": 1016
+                "QuestionId": 1027
               }
             ],
-            "Id": 1016,
+            "Id": 1027,
             "Body": "Опять проблемы. Вы уже начали зарабатывать деньги, но быстро выяснилось, что платите-то вы сотрудникам по расписанию, а рекламодатели переводят деньги с задержкой. И у вас образовался кассовый разрыв — то есть пора платить зарплаты, а нечем.",
-            "GameId": 1004
+            "GameId": 1005
           },
           {
             "Answers": [
               {
                 "Effects": [
                   {
-                    "Id": 1181,
+                    "Id": 1301,
                     "Body": "Человеческая беседа — это, конечно, хорошо, но на таком ручном управлении медиа держаться не может. Либо есть правила, либо их нет — а что будет, если вы, например, в отпуск уедете? В общем, ненадежная система, и она в какой-то момент ударит по вашему бизнесу. ",
-                    "AnswerId": 1064
+                    "AnswerId": 1109
                   },
                   {
-                    "Id": 1182,
+                    "Id": 1302,
                     "Body": "Вам повезло, что инвестор у вас, кажется, человек адекватный. Вы отбили и главного редактора, и вообще объяснили, как медиа работает. Редакции и читателям знать про такую встречу необязательно. ",
-                    "AnswerId": 1064
+                    "AnswerId": 1109
                   },
                   {
-                    "Id": 1183,
+                    "Id": 1303,
                     "Body": "Истерику прекратить не удалось. Вам стоит поучиться вести такие переговоры. Потому что вы только все усложнили. ",
-                    "AnswerId": 1064
+                    "AnswerId": 1109
                   },
                   {
-                    "Id": 1184,
+                    "Id": 1304,
                     "Body": "Запись вашего разговора с инвестором утекла в другие СМИ (как?!). Это огромное пятно и на вашей репутации, и на репутации издания. ",
-                    "AnswerId": 1064
+                    "AnswerId": 1109
                   }
                 ],
-                "Id": 1064,
+                "Id": 1109,
                 "Body": "Так, спокойно. Прекратить истерику. Сейчас поеду к инвестору и поговорим по-человечески. Все решаемо.",
-                "QuestionId": 1017
+                "QuestionId": 1028
               },
               {
                 "Effects": [
                   {
-                    "Id": 1185,
+                    "Id": 1305,
                     "Body": "О ваших переговорах узнает газета «Ведомости» и выпускает большой материал. Проблемы с инвестором обостряются. ",
-                    "AnswerId": 1065
+                    "AnswerId": 1110
                   },
                   {
-                    "Id": 1186,
+                    "Id": 1306,
                     "Body": "Невероятно, но ваш инвестор нажал на тормоза. Вы сумели договориться — и никакой Кремль не страшен!",
-                    "AnswerId": 1065
+                    "AnswerId": 1110
                   }
                 ],
-                "Id": 1065,
+                "Id": 1110,
                 "Body": "А сыграю-ка я на обострение. Скажу, что раз так — то ухожу. Инвестору такой скандал не нужен.",
-                "QuestionId": 1017
+                "QuestionId": 1028
               },
               {
                 "Effects": [
                   {
-                    "Id": 1187,
+                    "Id": 1307,
                     "Body": "Это все так. Теоретически. Но инвестор вас и слушать не хочет — у издания начинается финансовый кризис. ",
-                    "AnswerId": 1066
+                    "AnswerId": 1111
                   },
                   {
-                    "Id": 1188,
+                    "Id": 1308,
                     "Body": "Это все так. И хорошо, что вам попался инвестор, который, поостыв, это понимает. ",
-                    "AnswerId": 1066
+                    "AnswerId": 1111
                   }
                 ],
-                "Id": 1066,
+                "Id": 1111,
                 "Body": "Вообще-то существует закон о СМИ. По которому собственник не имеет права оказывать давление на редакцию. А в материале все подтверждено документами.",
-                "QuestionId": 1017
+                "QuestionId": 1028
               },
               {
                 "Effects": [
                   {
-                    "Id": 1189,
+                    "Id": 1309,
                     "Body": "Аккуратно не получилось. Главный редактор увольняется и уводит за собой большую часть команды. ",
-                    "AnswerId": 1067
+                    "AnswerId": 1112
                   },
                   {
-                    "Id": 1190,
+                    "Id": 1310,
                     "Body": "У вас получился очень жесткий разговор с главным редактором. Вы уговорили его остаться, но и предупреждать вас о «сложных» текстах он не будет. Придется дрожать до следующего случая. ",
-                    "AnswerId": 1067
+                    "AnswerId": 1112
                   },
                   {
-                    "Id": 1191,
+                    "Id": 1311,
                     "Body": "Инвестор вами крайне недоволен. Ну что еще за «залет»? Либо уж отвечайте за свое медиа и не давайте его в обиду, либо не допускайте таких вот «залетов». ",
-                    "AnswerId": 1067
+                    "AnswerId": 1112
                   }
                 ],
-                "Id": 1067,
+                "Id": 1112,
                 "Body": "Скажу инвестору, что это залет и что в следующий раз так не будем. Или, по крайней мере, будем предупреждать. С главным редактором тоже поговорю. Аккуратно.",
-                "QuestionId": 1017
+                "QuestionId": 1028
               }
             ],
-            "Id": 1017,
+            "Id": 1028,
             "Body": "Вы наконец-то выпустили сенсационный материал. Настоящее расследование настоящих преступлений настоящих политиков. Телевидение, разумеется, молчит, но все интернет-СМИ и газеты пишут — и ссылаются на вас. Волну подхватывает Навальный. Успех! Есть только одна проблема: вам звонит инвестор в истерике и требует снять материал. А главного редактора уволить. На вопрос «За что?» отвечает, что ему звонят из какой-то там башни Кремля и ему это все низачем не нужно.",
-            "GameId": 1004
+            "GameId": 1005
           },
           {
             "Answers": [
               {
                 "Effects": [
                   {
-                    "Id": 1192,
+                    "Id": 1312,
                     "Body": "Вся прогрессивная общественность крутит пальцем у виска, доверие читателей к вашему изданию так тоже не повысить. ",
-                    "AnswerId": 1068
+                    "AnswerId": 1113
                   },
                   {
-                    "Id": 1193,
+                    "Id": 1313,
                     "Body": "Материал никто не заметил. Пусть это останется на вашей совести. ",
-                    "AnswerId": 1068
+                    "AnswerId": 1113
                   },
                   {
-                    "Id": 1194,
+                    "Id": 1314,
                     "Body": "Поднимается дикий скандал. Читатели возмущены, ни один рекламодатель не готов размещаться рядом с рекламой КНДР. В результате вы больше теряете, чем зарабатываете.",
-                    "AnswerId": 1068
+                    "AnswerId": 1113
                   }
                 ],
-                "Id": 1068,
+                "Id": 1113,
                 "Body": "Реклама — она и в КНДР реклама. Мы не несем ответственности за эту чушь, а деньги нужны.",
-                "QuestionId": 1018
+                "QuestionId": 1029
               },
               {
                 "Effects": [
                   {
-                    "Id": 1195,
+                    "Id": 1315,
                     "Body": "Не будет так не будет. Денег, кстати, тоже не будет. ",
-                    "AnswerId": 1069
+                    "AnswerId": 1114
                   },
                   {
-                    "Id": 1196,
+                    "Id": 1316,
                     "Body": "Не будет так не будет. Зато она появилась в трех других изданиях — и вы их публично пожурили, подчеркнув, что сами от такого отказались. ",
-                    "AnswerId": 1069
+                    "AnswerId": 1114
                   }
                 ],
-                "Id": 1069,
+                "Id": 1114,
                 "Body": "Да вы что, с дубу рухнули, какое чучхе?! Никогда этого не будет в моем издании.",
-                "QuestionId": 1018
+                "QuestionId": 1029
               },
               {
                 "Effects": [
                   {
-                    "Id": 1197,
+                    "Id": 1317,
                     "Body": "Какие баннеры? В КНДР не знают, что такое баннеры! Они отказались. ",
-                    "AnswerId": 1070
+                    "AnswerId": 1115
                   },
                   {
-                    "Id": 1198,
+                    "Id": 1318,
                     "Body": "Теперь ваш сайт украшен транспарантами с Ким Ир Сеном. У каждой статьи по Ким Ир Сену. Над вами смеются и показывают пальцем. ",
-                    "AnswerId": 1070
+                    "AnswerId": 1115
                   }
                 ],
-                "Id": 1070,
+                "Id": 1115,
                 "Body": "Ну слушайте, всегда можно найти выход. Прославлять чучхе статьями на сайте мы не будем, а вот баннеры — пожалуйста.",
-                "QuestionId": 1018
+                "QuestionId": 1029
               }
             ],
-            "Id": 1018,
+            "Id": 1029,
             "Body": "Вы вроде как развиваетесь, люди вас читают, реклама тоже что-то приносит — но все равно меньше, чем нужно. И тут к вам приходит рекламодатель — и не просто рекламодатель, а КНДР! Да-да, Корейская Народно-Демократическая Республика! И у нее внезапно очень много денег (откуда?!). И они хотят выпустить десять статей о всепобеждающем учении чучхе.",
-            "GameId": 1004
+            "GameId": 1005
           },
           {
             "Answers": [
               {
                 "Effects": [
                   {
-                    "Id": 1199,
+                    "Id": 1319,
                     "Body": "Удивительно, но ваше решение оказалось вам даже на руку: рекламодатели поняли, что вы — долгосрочный проект, на который можно положиться. И который готов выполнять требования законодательства, даже если законы написаны ужасно. ",
-                    "AnswerId": 1071
+                    "AnswerId": 1116
                   },
                   {
-                    "Id": 1200,
+                    "Id": 1320,
                     "Body": "В интернете ничего не удаляется просто так. Конечно, удаление комментария заметили, и конечно, из-за этого вышел микросрач — мол, как так, свободная пресса, а читателей угнетает. Но больших последствий удалось избежать. ",
-                    "AnswerId": 1071
+                    "AnswerId": 1116
                   },
                   {
-                    "Id": 1201,
+                    "Id": 1321,
                     "Body": "Возможный скандал удалось погасить малыми силами. Что делать, если законодательство такое? ",
-                    "AnswerId": 1071
+                    "AnswerId": 1116
                   }
                 ],
-                "Id": 1071,
+                "Id": 1116,
                 "Body": "Черт. Удаляю немедленно, отчитываюсь в Роскомнадзор.",
-                "QuestionId": 1019
+                "QuestionId": 1030
               },
               {
                 "Effects": [
                   {
-                    "Id": 1202,
+                    "Id": 1322,
                     "Body": "Поздравляем, вы поссорились с Роскомнадзором. Ждите следующее письмо — это и вас будет нервировать, и рекламодателей не порадует. ",
-                    "AnswerId": 1072
+                    "AnswerId": 1117
                   },
                   {
-                    "Id": 1203,
+                    "Id": 1323,
                     "Body": "Вас не блокируют, но в интернете начинается очередной бессмысленный срач, который отнимает время и силы, но, как водится, ни к чему не приводит. Разве что вам пришлось забанить в ФБ Романа Супера. ",
-                    "AnswerId": 1072
+                    "AnswerId": 1117
                   },
                   {
-                    "Id": 1204,
+                    "Id": 1324,
                     "Body": "Все сделано чисто! С одной стороны, у Роскомнадзора нет поводов вас блокировать, с другой — вы напомнили аудитории, что закон идиотский. За это ваше издание и любят! ",
-                    "AnswerId": 1072
+                    "AnswerId": 1117
                   },
                   {
-                    "Id": 1205,
+                    "Id": 1325,
                     "Body": "Именно после вашего твита Роскомнадзор понял, что надо блокировать не только СМИ, но и твиттер. В общем, твиттер теперь тоже заблокирован в России. ",
-                    "AnswerId": 1072
+                    "AnswerId": 1117
                   }
                 ],
-                "Id": 1072,
+                "Id": 1117,
                 "Body": "Комментарий придется удалить, зато как я сейчас на них отыграюсь в твиттере!",
-                "QuestionId": 1019
+                "QuestionId": 1030
               },
               {
                 "Effects": [
                   {
-                    "Id": 1206,
+                    "Id": 1326,
                     "Body": "Вы заблокированы на территории России. Вы вещаете в соцсетях, с помощью имейл-рассылок и мессенджеров, но аудитория все равно мизерная. Что уж говорить о рекламодателях, которые в полном составе от вас сбежали. ",
-                    "AnswerId": 1073
+                    "AnswerId": 1118
                   }
                 ],
-                "Id": 1073,
+                "Id": 1118,
                 "Body": "Да какого черта! Что они мне сделают? В игнор.",
-                "QuestionId": 1019
+                "QuestionId": 1030
               }
             ],
-            "Id": 1019,
+            "Id": 1030,
             "Body": "Ой, что это? Это письмо из Роскомнадзора! От вас требуют в течение суток удалить комментарий на вашем сайте — он экстремистский, в нем читатель утверждает, что Крым… А впрочем, сами додумайте, что — Крым.",
-            "GameId": 1004
+            "GameId": 1005
           },
           {
             "Answers": [
               {
                 "Effects": [
                   {
-                    "Id": 1207,
+                    "Id": 1327,
                     "Body": "Менеджерское решение «ничего не делать — само образуется» срабатывает и в этот раз. Все действительно образовалось. ",
-                    "AnswerId": 1074
+                    "AnswerId": 1119
                   },
                   {
-                    "Id": 1208,
+                    "Id": 1328,
                     "Body": "Хуже не стало, лучше тоже. Просто все работают без удовольствия. Но, может быть, это правда временно. ",
-                    "AnswerId": 1074
+                    "AnswerId": 1119
                   },
                   {
-                    "Id": 1209,
+                    "Id": 1329,
                     "Body": "Зря вы так. Люди стали уходить, посещаемость падает. У вас просто нечего читать. ",
-                    "AnswerId": 1074
+                    "AnswerId": 1119
                   }
                 ],
-                "Id": 1074,
+                "Id": 1119,
                 "Body": "Не надо ничего делать. Такое всегда по синусоиде происходит. Устали — взбодрятся.",
-                "QuestionId": 1020
+                "QuestionId": 1031
               },
               {
                 "Effects": [
                   {
-                    "Id": 1210,
+                    "Id": 1330,
                     "Body": "Люди уволены. Другие не взбодрились. Ничего не изменилось",
-                    "AnswerId": 1075
+                    "AnswerId": 1120
                   },
                   {
-                    "Id": 1211,
+                    "Id": 1331,
                     "Body": "Странный вы выбрали способ управления медиа. Чтобы все работало, люди должны верить в то, что делают; их надо зажигать. Увольнения тут не помогают. Вслед за уволенными уходят лучшие. ",
-                    "AnswerId": 1075
+                    "AnswerId": 1120
                   }
                 ],
-                "Id": 1075,
+                "Id": 1120,
                 "Body": "Возмутительно. Пара показательных увольнений — и все завертится.",
-                "QuestionId": 1020
+                "QuestionId": 1031
               },
               {
                 "Effects": [
                   {
-                    "Id": 1212,
+                    "Id": 1332,
                     "Body": "Ну что, вы потратили кучу денег, кучу времени, все напились, подружились, но работу обсуждать всем было неохота. ",
-                    "AnswerId": 1076
+                    "AnswerId": 1121
                   },
                   {
-                    "Id": 1213,
+                    "Id": 1333,
                     "Body": "Люди наконец почувствовали, что делают вместе одно дело. Все сдружились, вернулись на подъеме и с новыми идеями. ",
-                    "AnswerId": 1076
+                    "AnswerId": 1121
                   },
                   {
-                    "Id": 1214,
+                    "Id": 1334,
                     "Body": "Ваш зам. главного редактора напился до чертиков, приставал к девушкам и хамил. Хочется это все забыть как страшный сон. ",
-                    "AnswerId": 1076
+                    "AnswerId": 1121
                   }
                 ],
-                "Id": 1076,
+                "Id": 1121,
                 "Body": "Нужен тимбилдинг. Отправимся на природу, запремся в доме с алкоголем и будем перепридумывать издание.",
-                "QuestionId": 1020
+                "QuestionId": 1031
               },
               {
                 "Effects": [
                   {
-                    "Id": 1215,
+                    "Id": 1335,
                     "Body": "Вы поговорили со всеми. Потратили кучу времени. Никто, кроме пары человек, ничего внятного не сказал. Ну и, разумеется, все противоречат друг другу. ",
-                    "AnswerId": 1077
+                    "AnswerId": 1122
                   },
                   {
-                    "Id": 1216,
+                    "Id": 1336,
                     "Body": "Очень правильно! Вы узнали очень много нового про своих сотрудников, про себя и про издание. Многое из этого лучше было бы не знать, зато вы понимаете, как теперь действовать. ",
-                    "AnswerId": 1077
+                    "AnswerId": 1122
                   },
                   {
-                    "Id": 1217,
+                    "Id": 1337,
                     "Body": "Почему вы не делали этого раньше? Зачем вам вообще все эти люди? Сплошное разочарование, надо гнать всех. ",
-                    "AnswerId": 1077
+                    "AnswerId": 1122
                   }
                 ],
-                "Id": 1077,
+                "Id": 1122,
                 "Body": "Надо действовать аккуратно. Поговорить по очереди с каждым, придумать им новые цели и приключения. Так все и сдвинется с мертвой точки.",
-                "QuestionId": 1020
+                "QuestionId": 1031
               }
             ],
-            "Id": 1020,
+            "Id": 1031,
             "Body": "Что-то ваша команда, кажется, устала. Материалы выходят, все вроде ок, но идей стало меньше, материалы какие-то унылые, ну и вообще все явно заскучали. Надо что-то делать.",
-            "GameId": 1004
+            "GameId": 1005
           },
           {
             "Answers": [
               {
                 "Effects": [
                   {
-                    "Id": 1218,
+                    "Id": 1338,
                     "Body": "Да вы прям-таки мультиканальное медиа! Только почему-то ничего не получается. Наверное, потому, что вы пытаетесь использовать одни и те же приемы на всех платформах, а там сидят совершенно разные люди. Впрочем, вреда от этого особого тоже нет. ",
-                    "AnswerId": 1078
+                    "AnswerId": 1123
                   },
                   {
-                    "Id": 1219,
+                    "Id": 1339,
                     "Body": "Слишком быстро расширяться опасно. Вы теперь есть везде, но везде как-то ничего не получается, а сотрудников у вас больше не становится, поэтому страдает еще и сайт. Так что вы мультиканальное медиа — в том смысле, что каналов у вас много и ни один из них не нужен. ",
-                    "AnswerId": 1078
+                    "AnswerId": 1123
                   }
                 ],
-                "Id": 1078,
+                "Id": 1123,
                 "Body": "Наша задача — быть везде. Запускаем каналы в «Одноклассниках», «Вайбере», «Телеграме». Выпускаем приложения для всех платформ.",
-                "QuestionId": 1021
+                "QuestionId": 1032
               },
               {
                 "Effects": [
                   {
-                    "Id": 1220,
+                    "Id": 1340,
                     "Body": "Кажется, вы правда нащупали что-то новое. Ролики в соцсетях набирают миллионы просмотров. И неважно, что фейсбук, кажется, немного врет с цифрами, — главное, что ролики правда крутые. Вот уже и рекламодатели ими заинтересовались. ",
-                    "AnswerId": 1079
+                    "AnswerId": 1124
                   },
                   {
-                    "Id": 1221,
+                    "Id": 1341,
                     "Body": "Хорошая затея! И ролики красивые, только какие-то слишком телевизионные, в соцсетях такое не очень смотрят. Потому что зря вы связались с телевизионным продакшеном. Он вас разорил. ",
-                    "AnswerId": 1079
+                    "AnswerId": 1124
                   }
                 ],
-                "Id": 1079,
+                "Id": 1124,
                 "Body": "Видео! В соцсетях! В Америке все только об этом и говорят.",
-                "QuestionId": 1021
+                "QuestionId": 1032
               },
               {
                 "Effects": [
                   {
-                    "Id": 1222,
+                    "Id": 1342,
                     "Body": "Ваши подкасты так хорошо пошли, что, кажется, скоро можно будет отказываться от текстов. Ваша цель — чтобы вас слушали в каждой машине. Ну что же, чем черт не шутит! ",
-                    "AnswerId": 1080
+                    "AnswerId": 1125
                   },
                   {
-                    "Id": 1223,
+                    "Id": 1343,
                     "Body": "Кажется, получается! Аудитория пока не очень большая и до качества подкаста «Serial» еще далековато, но это правда слушают! Рекламодателей затащить в подкасты непросто, но это вопрос времени. ",
-                    "AnswerId": 1080
+                    "AnswerId": 1125
                   }
                 ],
-                "Id": 1080,
+                "Id": 1125,
                 "Body": "Подкасты. Радио умирает, и тут на сцену выходим мы.",
-                "QuestionId": 1021
+                "QuestionId": 1032
               },
               {
                 "Effects": [
                   {
-                    "Id": 1224,
+                    "Id": 1344,
                     "Body": "Примерно на третьем приложении у вас закончились идеи. Ну и никакого очевидного успеха тоже не прослеживается. Но аудитория и правда подросла. А главное, в приложениях она гораздо лояльнее, чем на сайте. ",
-                    "AnswerId": 1081
+                    "AnswerId": 1126
                   },
                   {
-                    "Id": 1225,
+                    "Id": 1345,
                     "Body": "К сожалению, вы забыли, что для цифрового издательства нужно много крутых разработчиков. А у вас их мало. Куча денег на ветер. Просто потому что вашими приложениями невозможно пользоваться. Они тормозят и глючат. ",
-                    "AnswerId": 1081
+                    "AnswerId": 1126
                   }
                 ],
-                "Id": 1081,
+                "Id": 1126,
                 "Body": "Встанем, как Sports.ru, в авангарде мобильной революции. Придумаем десятки мобильных приложений на каждый случай жизни — и превратимся в цифровое издательство.",
-                "QuestionId": 1021
+                "QuestionId": 1032
               },
               {
                 "Effects": [
                   {
-                    "Id": 1226,
+                    "Id": 1346,
                     "Body": "О-о-о, клиент попер! Только вам теперь приходится производить столько рекламного контента, что вы немного забыли про редакцию. В результате вы превратились в хорошее агентство и плохое медиа. ",
-                    "AnswerId": 1082
+                    "AnswerId": 1127
                   },
                   {
-                    "Id": 1227,
+                    "Id": 1347,
                     "Body": "Сперва все было неплохо, но быстро выяснилось, что вы умеете придумывать для своего издания, а для других ничего не получается. Кроме того, вы просто не можете работать в таком адском ритме. ",
-                    "AnswerId": 1082
+                    "AnswerId": 1127
                   }
                 ],
-                "Id": 1082,
+                "Id": 1127,
                 "Body": "Будем превращаться в агентство. Мы умеем делать сайты, умеем писать тексты. Будем искать клиентов и делать это для них за большие деньги.",
-                "QuestionId": 1021
+                "QuestionId": 1032
               },
               {
                 "Effects": [
                   {
-                    "Id": 1228,
+                    "Id": 1348,
                     "Body": "Эх, а все так хорошо все начиналось! Впрочем, мы все вам завидуем. ",
-                    "AnswerId": 1083
+                    "AnswerId": 1128
                   }
                 ],
-                "Id": 1083,
+                "Id": 1128,
                 "Body": "Да надоело мне это ваше медиа! Продам свою долю и уеду на море. До свидания.",
-                "QuestionId": 1021
+                "QuestionId": 1032
               }
             ],
-            "Id": 1021,
+            "Id": 1032,
             "Body": "Ну что же, вы дошли до 11-го вопроса, это значит, что ваше медиа многое выдержало — для России случай редчайший. У вас наконец появились возможности расширяться. Куда бечь?",
-            "GameId": 1004
+            "GameId": 1005
           }
         ],
         "Results": [
           {
-            "Id": 1005,
+            "Id": 1007,
             "Body": "Звено гребаной цепи! Вы поработали в медиа, но вас уволили. Ничего, это часто случается",
-            "GameId": 1004
+            "GameId": 1005
           },
           {
-            "Id": 1006,
+            "Id": 1008,
             "Body": "Будут еще результаты! Позже!",
-            "GameId": 1004
+            "GameId": 1005
           }
         ],
-        "Id": 1004,
+        "Id": 1005,
         "Name": "Приведите медиа к успеху",
         "Source": "meduza.io/games/privedite-media-k-uspehu",
         "DisplayingInGameMode": false,
-        "UserId": 1005,
+        "UserId": 1006,
         "Popularity": 10,
         "Description": "27 мая 2017 года в культурном центре ЗИЛ «Медуза» провела вторую конференцию «Шторм»: весь день представители лучших медиа на свете рассказывали, как они эти медиа делают. Вместе со «Штормом» «Медуза» предлагает разминку для всех, кто хоть немного интересуется, как делаются современные российские медиа (спойлер: хаотично, непредсказуемо и с большими проблемами)."
+      },
+      {
+        "Characteristics": [
+          {
+            "Id": 1011,
+            "Name": "Результат",
+            "GameId": 1006,
+            "Value": 0,
+            "Influences": [
+              {
+                "Id": 1697,
+                "EffectId": 1349,
+                "Value": -1
+              },
+              {
+                "Id": 1698,
+                "EffectId": 1350,
+                "Value": 1
+              },
+              {
+                "Id": 1699,
+                "EffectId": 1351,
+                "Value": -1
+              },
+              {
+                "Id": 1700,
+                "EffectId": 1352,
+                "Value": -1
+              },
+              {
+                "Id": 1701,
+                "EffectId": 1353,
+                "Value": 1
+              },
+              {
+                "Id": 1702,
+                "EffectId": 1354,
+                "Value": -1
+              },
+              {
+                "Id": 1703,
+                "EffectId": 1355,
+                "Value": -1
+              },
+              {
+                "Id": 1704,
+                "EffectId": 1356,
+                "Value": 1
+              },
+              {
+                "Id": 1705,
+                "EffectId": 1357,
+                "Value": -1
+              },
+              {
+                "Id": 1706,
+                "EffectId": 1358,
+                "Value": -1
+              },
+              {
+                "Id": 1707,
+                "EffectId": 1359,
+                "Value": -1
+              },
+              {
+                "Id": 1708,
+                "EffectId": 1360,
+                "Value": -1
+              },
+              {
+                "Id": 1709,
+                "EffectId": 1361,
+                "Value": 1
+              },
+              {
+                "Id": 1710,
+                "EffectId": 1362,
+                "Value": -1
+              },
+              {
+                "Id": 1711,
+                "EffectId": 1363,
+                "Value": -1
+              },
+              {
+                "Id": 1712,
+                "EffectId": 1364,
+                "Value": 1
+              },
+              {
+                "Id": 1713,
+                "EffectId": 1365,
+                "Value": -1
+              },
+              {
+                "Id": 1714,
+                "EffectId": 1366,
+                "Value": -1
+              },
+              {
+                "Id": 1715,
+                "EffectId": 1367,
+                "Value": 1
+              },
+              {
+                "Id": 1716,
+                "EffectId": 1368,
+                "Value": -1
+              },
+              {
+                "Id": 1717,
+                "EffectId": 1369,
+                "Value": -1
+              },
+              {
+                "Id": 1718,
+                "EffectId": 1370,
+                "Value": -1
+              },
+              {
+                "Id": 1719,
+                "EffectId": 1371,
+                "Value": -1
+              },
+              {
+                "Id": 1720,
+                "EffectId": 1372,
+                "Value": -1
+              },
+              {
+                "Id": 1721,
+                "EffectId": 1373,
+                "Value": 1
+              },
+              {
+                "Id": 1722,
+                "EffectId": 1374,
+                "Value": 1
+              },
+              {
+                "Id": 1723,
+                "EffectId": 1375,
+                "Value": 1
+              },
+              {
+                "Id": 1724,
+                "EffectId": 1376,
+                "Value": 1
+              }
+            ]
+          }
+        ],
+        "Conditions": [
+          {
+            "Id": 1011,
+            "Text": "Р ⩾ 6",
+            "ResultId": 1009
+          },
+          {
+            "Id": 1012,
+            "Text": "Р ⩽ -5",
+            "ResultId": 1010
+          },
+          {
+            "Id": 1013,
+            "Text": "логическое условие",
+            "ResultId": 1011
+          }
+        ],
+        "Picture": null,
+        "Questions": [
+          {
+            "Answers": [
+              {
+                "Effects": [
+                  {
+                    "Id": 1349,
+                    "Body": "Хм, Монеточка с вами несогласна. Она говорит, что в этом случае она бы «бомжевала возле трасс» и стала бы самой бедной ",
+                    "AnswerId": 1129
+                  }
+                ],
+                "Id": 1129,
+                "Body": "Конечно, разбогатела, только и мысли, что о нем",
+                "QuestionId": 1033
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1350,
+                    "Body": "Из людей.Верно! Монеточка говорит, что в этом случае она бы «бомжевала возле трасс» и стала бы самой бедной из людей.",
+                    "AnswerId": 1130
+                  }
+                ],
+                "Id": 1130,
+                "Body": "Обеднела бы",
+                "QuestionId": 1033
+              }
+            ],
+            "Id": 1033,
+            "Body": "Если бы героине платили за каждую мысль про возлюбленного, она бы разбогатела или обеднела?",
+            "GameId": 1006
+          },
+          {
+            "Answers": [
+              {
+                "Effects": [
+                  {
+                    "Id": 1351,
+                    "Body": "Да, но не только! «Но я снова не отвечаю, я инкогнито-инкогнида», — говорится в песне. Про «инкогниду» поется именно так.",
+                    "AnswerId": 1131
+                  }
+                ],
+                "Id": 1131,
+                "Body": "Инкогнито",
+                "QuestionId": 1034
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1352,
+                    "Body": "Да, но не только! «Но я снова не отвечаю, я инкогнито-инкогнида», — говорится в песне. Про «инкогниду» поется именно так.",
+                    "AnswerId": 1132
+                  }
+                ],
+                "Id": 1132,
+                "Body": "Инкогнида",
+                "QuestionId": 1034
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1353,
+                    "Body": "Да! «Но я снова не отвечаю, я инкогнито-инкогнида», — говорится в песне.",
+                    "AnswerId": 1133
+                  }
+                ],
+                "Id": 1133,
+                "Body": "И то и другое",
+                "QuestionId": 1034
+              }
+            ],
+            "Id": 1034,
+            "Body": "Кавалер предлагает героине отправиться в березовую рощу, чтобы по очереди читать ее любимый рассказ. Но она ничего не отвечает, потому что она… ",
+            "GameId": 1006
+          },
+          {
+            "Answers": [
+              {
+                "Effects": [
+                  {
+                    "Id": 1354,
+                    "Body": "Нет! Хотя кто-то расшифровал эту строчку именно так. В действительности трещина, конечно. «За окном темно, в окне трещина».",
+                    "AnswerId": 1134
+                  }
+                ],
+                "Id": 1134,
+                "Body": "Клещи",
+                "QuestionId": 1035
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1355,
+                    "Body": "Нет! Правильно — трещина, конечно. «За окном темно, в окне трещина».",
+                    "AnswerId": 1135
+                  }
+                ],
+                "Id": 1135,
+                "Body": "Мощи",
+                "QuestionId": 1035
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1356,
+                    "Body": "Правильно — трещина, конечно. «За окном темно, в окне трещина».",
+                    "AnswerId": 1136
+                  }
+                ],
+                "Id": 1136,
+                "Body": "Трещина",
+                "QuestionId": 1035
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1357,
+                    "Body": "Нет! Правильно — трещина, конечно. «За окном темно, в окне трещина».",
+                    "AnswerId": 1137
+                  }
+                ],
+                "Id": 1137,
+                "Body": "Лучина",
+                "QuestionId": 1035
+              }
+            ],
+            "Id": 1035,
+            "Body": "Героиня помнит, что как-то раз они сидели вместе на кухне, помнит конфорку, темноту за окном и что-то в окне. Что? ",
+            "GameId": 1006
+          },
+          {
+            "Answers": [
+              {
+                "Effects": [
+                  {
+                    "Id": 1358,
+                    "Body": "Правильно, духами, но не сестры, а мамы.",
+                    "AnswerId": 1138
+                  }
+                ],
+                "Id": 1138,
+                "Body": "Духами сестры",
+                "QuestionId": 1036
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1359,
+                    "Body": "Нет, это из «Восьмиклассницы» Цоя. Про нее тоже был тест. Героиня песни «Каждый раз» пахла мамиными духами.",
+                    "AnswerId": 1139
+                  }
+                ],
+                "Id": 1139,
+                "Body": "Маминой помадой",
+                "QuestionId": 1036
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1360,
+                    "Body": "Нет, нет и нет! Героиня песни «Каждый раз» пахла мамиными духами.",
+                    "AnswerId": 1140
+                  }
+                ],
+                "Id": 1140,
+                "Body": "Одеколоном отца",
+                "QuestionId": 1036
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1361,
+                    "Body": "Правильно! «Я опять кручу на пальце прядь, / Пахну как мамины духи».",
+                    "AnswerId": 1141
+                  }
+                ],
+                "Id": 1141,
+                "Body": "Мамиными духами",
+                "QuestionId": 1036
+              }
+            ],
+            "Id": 1036,
+            "Body": "Героиня рассказывает, что воспользовалась косметикой своего родственника. Чьей именно?",
+            "GameId": 1006
+          },
+          {
+            "Answers": [
+              {
+                "Effects": [
+                  {
+                    "Id": 1362,
+                    "Body": "Нет. К сожалению или к счастью, героиня песни выгоняет возлюбленного. «Уезжай и чай не допивай, / Снег или дождь там — уходи».",
+                    "AnswerId": 1142
+                  }
+                ],
+                "Id": 1142,
+                "Body": "Они решают пожениться",
+                "QuestionId": 1037
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1363,
+                    "Body": "Нет. К сожалению или к счастью, героиня песни выгоняет возлюбленного. «Уезжай и чай не допивай, / Снег или дождь там — уходи».",
+                    "AnswerId": 1143
+                  }
+                ],
+                "Id": 1143,
+                "Body": "До этого не дошло, они просто занимаются любовью",
+                "QuestionId": 1037
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1364,
+                    "Body": "Правильно. «Уезжай и чай не допивай, / Снег или дождь там — уходи».",
+                    "AnswerId": 1144
+                  }
+                ],
+                "Id": 1144,
+                "Body": "Героиня выгоняет своего возлюбленного",
+                "QuestionId": 1037
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1365,
+                    "Body": "Нет, к сожалению или к счастью, героиня песни выгоняет возлюбленного. «Уезжай и чай не допивай, / Снег или дождь там — уходи». Мама врывается в другой песне.",
+                    "AnswerId": 1145
+                  }
+                ],
+                "Id": 1145,
+                "Body": "Врывается мама",
+                "QuestionId": 1037
+              }
+            ],
+            "Id": 1037,
+            "Body": "Чем заканчивается свидание, о котором идет речь в песне?",
+            "GameId": 1006
+          },
+          {
+            "Answers": [
+              {
+                "Effects": [
+                  {
+                    "Id": 1366,
+                    "Body": "Нет, он сравнивается с февралем. «Там промозглый седой февраль, // Он теперь, как и ты, один».",
+                    "AnswerId": 1146
+                  }
+                ],
+                "Id": 1146,
+                "Body": "Как январь",
+                "QuestionId": 1038
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1367,
+                    "Body": "Правильно. «Там промозглый седой февраль, // Он теперь, как и ты, один».",
+                    "AnswerId": 1147
+                  }
+                ],
+                "Id": 1147,
+                "Body": "Как февраль",
+                "QuestionId": 1038
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1368,
+                    "Body": "Нет, он сравнивается с февралем. «Там промозглый седой февраль, // Он теперь, как и ты, один».",
+                    "AnswerId": 1148
+                  }
+                ],
+                "Id": 1148,
+                "Body": "Как март",
+                "QuestionId": 1038
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1369,
+                    "Body": "Нет, он сравнивается с февралем. «Там промозглый седой февраль, // Он теперь, как и ты, один».",
+                    "AnswerId": 1149
+                  }
+                ],
+                "Id": 1149,
+                "Body": "Как апрель",
+                "QuestionId": 1038
+              }
+            ],
+            "Id": 1038,
+            "Body": "Возлюбленный изгнан. И он теперь один — как кто?",
+            "GameId": 1006
+          },
+          {
+            "Answers": [
+              {
+                "Effects": [
+                  {
+                    "Id": 1370,
+                    "Body": "Нет, звонким ямбом она бы стала, если бы он не любил стихи. А если бы наркотой, то она бы в пику ему стала фитоняшкой.",
+                    "AnswerId": 1150
+                  }
+                ],
+                "Id": 1150,
+                "Body": "Звонкий ямб",
+                "QuestionId": 1039
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1371,
+                    "Body": "Нет, если бы бойфренд стал наркотой, то она бы в пику ему стала фитоняшкой. «Если б был наркотою ты, / Фитоняшкой бы стала я».",
+                    "AnswerId": 1151
+                  }
+                ],
+                "Id": 1151,
+                "Body": "Винишко-тян",
+                "QuestionId": 1039
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1372,
+                    "Body": "Почти! Если бы бойфренд стал наркотой, то она бы в пику ему стала фитоняшкой. «Если б был наркотою ты, / Фитоняшкой бы стала я».",
+                    "AnswerId": 1152
+                  }
+                ],
+                "Id": 1152,
+                "Body": "Тину Канделаки",
+                "QuestionId": 1039
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1373,
+                    "Body": "Точно! «Если б был наркотою ты, / Фитоняшкой бы стала я».",
+                    "AnswerId": 1153
+                  }
+                ],
+                "Id": 1153,
+                "Body": "Фитоняшку",
+                "QuestionId": 1039
+              }
+            ],
+            "Id": 1039,
+            "Body": "Героиня настолько противопоставляет себя злосчастному мужчине, что, если бы тот стал наркотой, она бы превратилась в… ",
+            "GameId": 1006
+          },
+          {
+            "Answers": [
+              {
+                "Effects": [
+                  {
+                    "Id": 1374,
+                    "Body": "Правильно! Монеточка объясняла, что задумывала эту песню как рассказ о сильной и независимой девочке, которая не думает о прошлой любви. Но потом поняла, что героиня не справилась — и на самом деле думает о нем слишком много.",
+                    "AnswerId": 1154
+                  }
+                ],
+                "Id": 1154,
+                "Body": "Мало",
+                "QuestionId": 1040
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1375,
+                    "Body": "Правильно! Монеточка объясняла, что задумывала эту песню как повествование о сильной и независимой девочке, которая не думает о прошлой любви. Но потом поняла, что героиня не справилась и на самом деле думает о нем слишком много.",
+                    "AnswerId": 1155
+                  }
+                ],
+                "Id": 1155,
+                "Body": "Много",
+                "QuestionId": 1040
+              },
+              {
+                "Effects": [
+                  {
+                    "Id": 1376,
+                    "Body": "Да, Монеточка объясняла, что задумывала эту песню как повествование о сильной и независимой девочке, которая не думает о прошлой любви. Но потом поняла, что героиня не справилась и на самом деле думает о нем слишком много.",
+                    "AnswerId": 1156
+                  }
+                ],
+                "Id": 1156,
+                "Body": "Как посмотреть!",
+                "QuestionId": 1040
+              }
+            ],
+            "Id": 1040,
+            "Body": "Так и что в итоге — много или мало героиня думает о своем возлюбленном?",
+            "GameId": 1006
+          }
+        ],
+        "Results": [
+          {
+            "Id": 1009,
+            "Body": "Пост-пост, мета-мета! В смысле, топ-топ! Текст песни вы усвоили. ",
+            "GameId": 1006
+          },
+          {
+            "Id": 1010,
+            "Body": "И тебя не жаль, не жаль, потому что текста вы не знаете.",
+            "GameId": 1006
+          },
+          {
+            "Id": 1011,
+            "Body": "Нет монет! Текст песни вы знаете средне. ",
+            "GameId": 1006
+          }
+        ],
+        "Id": 1006,
+        "Name": "Если б мне платили каждый раз, то что? Тест на знание главного хита Монеточки «Каждый раз»",
+        "Source": "https://meduza.io/quiz/esli-b-mne-platili-to-chto-test-na-znanie-glavnogo-hita-monetochki-kazhdyy-raz",
+        "DisplayingInGameMode": false,
+        "UserId": 1006,
+        "Popularity": 1,
+        "Description": "Все обсуждают Монеточку и главный хит — «Каждый раз». В фейсбуке всерьез разбирают текст и спорят, часто ли героиня песни думает о своем (бывшем?) возлюбленном. Многие прослушали песню десятки раз — пора проверить, насколько хорошо усвоен текст."
       }
     ],
     "Login": "Sanochkin",
-    "Id": 1005,
+    "Id": 1006,
     "Password": "xMpCOKC5I4INzFCab3WEmw==",
     "Email": "yura645@gmail.com"
   }
