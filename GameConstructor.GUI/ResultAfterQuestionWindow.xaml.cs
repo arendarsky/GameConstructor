@@ -21,6 +21,9 @@ namespace GameConstructor.GUI
     /// </summary>
     public partial class ResultAfterQuestionWindow : Window
     {
+        private const string endGameText = "Завершить игру";
+
+
         private IStorage _storage;
         private IGame _game;
         private int _numberOfQuestionsShown;
@@ -49,7 +52,9 @@ namespace GameConstructor.GUI
 
             ChoosingRandomlyAReactionForAnswer();
 
-            InitializeComponent();            
+            InitializeComponent();
+
+            CheckingWhatIsTheNextWindow();
         }
 
 
@@ -123,24 +128,29 @@ namespace GameConstructor.GUI
             }
         }
 
-        
 
-        private void NextQuestionButton_Click(object sender, RoutedEventArgs e)
+
+        private void CheckingWhatIsTheNextWindow()
         {
             if (_game.GetQuestions.Count() == _numberOfQuestionsShown + 1)
             {
                 _goingToTheEndOfTheGameWindow = true;
 
-                Close();
+                NextQuestionButton.Content = endGameText;
             }
 
             else
             {
                 _numberOfQuestionsShown++;
-                _goingToTheNextQuestionWindow = true;                
-
-                Close();
+                _goingToTheNextQuestionWindow = true;
             }
+        }
+
+        
+
+        private void NextQuestionButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
 
 
