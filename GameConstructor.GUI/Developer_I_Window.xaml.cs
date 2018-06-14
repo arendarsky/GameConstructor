@@ -62,6 +62,7 @@ namespace GameConstructor.GUI
             _picture = new Picture(defaultImageSource, defaultStateOfBorder);
             _characteristics = new List<Characteristic>();
             _wereThereAlreadySomeChangings = false;
+            _creatingTheGameForTheFirstTime = true;
 
             InitializeComponent();
 
@@ -84,7 +85,6 @@ namespace GameConstructor.GUI
             _storage = storage;
             _user = user;
             _wereThereAlreadySomeChangings = false;
-            _creatingTheGameForTheFirstTime = true;
 
             Constructor();
         }
@@ -485,7 +485,7 @@ namespace GameConstructor.GUI
 
             int amountOfGamesWithSuchName = _user.Games.Where(game => game.Name == GameNameTextBox.Text).Count();
 
-            if (amountOfGamesWithSuchName > 0 && _creatingTheGameForTheFirstTime || amountOfGamesWithSuchName > 1 && !_creatingTheGameForTheFirstTime)
+            if ((amountOfGamesWithSuchName > 0 && _creatingTheGameForTheFirstTime) || (amountOfGamesWithSuchName > 1 && (!_creatingTheGameForTheFirstTime)))
             {
                 MessageBox.Show("У Вас уже есть игра с таким названием. Пожалуйста, придумайте для этой игры другое!", "Ошибка!");
 
