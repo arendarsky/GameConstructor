@@ -12,6 +12,8 @@ namespace GameConstructor.Core.SpecialMethods
         public static char[] MathOperators = new char[] { '>', '<', '⩾', '⩽', '=', '≠' };
         public static char[] MathOperations = new char[] { '+', '-', '/', '*' };
         public static char[] LogicalOperators = new char[] { '&', '|' };
+
+        public static char[] InvalidCharsForTitles = new char[] { '>', '<', '⩾', '⩽', '=', '≠', '+', '-', '/', '*', '&', '|' };
         
 
         public static bool AreThereSameElementsInTheStringCollection (IEnumerable<string> collection, out string element)

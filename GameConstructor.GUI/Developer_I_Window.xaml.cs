@@ -49,6 +49,7 @@ namespace GameConstructor.GUI
         bool _goingToTheNextDeveloperWindow = false;
         bool _characteristicNameTextBoxShouldBeFocused = false;
         bool _theSameCharacteristicsNamesErrorWasShown = false;
+        bool _creatingTheGameForTheFirstTime = false;
         int _newCharacteristicsAdded = 0;
 
         
@@ -83,6 +84,7 @@ namespace GameConstructor.GUI
             _storage = storage;
             _user = user;
             _wereThereAlreadySomeChangings = false;
+            _creatingTheGameForTheFirstTime = true;
 
             Constructor();
         }
@@ -481,9 +483,15 @@ namespace GameConstructor.GUI
                 return false;
             }
 
-            if (_user.Games.Where(game => game.Name == GameNameTextBox.Text).Count() > 0)
+            int amountOfGamesWithSuchName = _user.Games.Where(game => game.Name == GameNameTextBox.Text).Count();
+
+            if (amountOfGamesWithSuchName > 0 && _creatingTheGameForTheFirstTime || amountOfGamesWithSuchName > 1 && !_creatingTheGameForTheFirstTime)
             {
                 MessageBox.Show("У Вас уже есть игра с таким названием. Пожалуйста, придумайте для этой игры другое!", "Ошибка!");
+
+                GameNameTextBox.Focus();
+
+                return false;
             }
 
             return true;
