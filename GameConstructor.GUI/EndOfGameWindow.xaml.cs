@@ -261,7 +261,7 @@ namespace GameConstructor.GUI
 
                 if (charResult == trueChar)
                 {
-                    _textResult = _game.GetResults.FirstOrDefault(result => result.Id == condition.ResultId);
+                    _textResult = condition.Result;
 
                     break;
                 }
@@ -269,7 +269,7 @@ namespace GameConstructor.GUI
 
             if (_textResult == null)
             {
-                _textResult = _game.GetResults.FirstOrDefault(result => result.Id == conditions.Last().ResultId);
+                _textResult = conditions.Last().Result;
             }
         }
 
