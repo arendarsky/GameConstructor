@@ -2419,7 +2419,11 @@
             "ResultId": 1011
           }
         ],
-        "Picture": null,
+        "Picture": {
+          "Id": 1006,
+          "ImageSource": "003b95512138f52379c2b73757b57c14.960x960x1.jpg",
+          "IsBorderRequired": true
+        },
         "Questions": [
           {
             "Answers": [
@@ -2836,7 +2840,7 @@
         "Source": "https://meduza.io/quiz/esli-b-mne-platili-to-chto-test-na-znanie-glavnogo-hita-monetochki-kazhdyy-raz",
         "DisplayingInGameMode": false,
         "UserId": 1006,
-        "Popularity": 1,
+        "Popularity": 2,
         "Description": "Все обсуждают Монеточку и главный хит — «Каждый раз». В фейсбуке всерьез разбирают текст и спорят, часто ли героиня песни думает о своем (бывшем?) возлюбленном. Многие прослушали песню десятки раз — пора проверить, насколько хорошо усвоен текст."
       }
     ],
