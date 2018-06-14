@@ -104,6 +104,11 @@ namespace GameConstructor.GUI
             TextBlock NameTextBlock = sender as TextBlock;
 
             NameTextBlock.Text = (NameTextBlock.DataContext as Game).Name;
+
+            if (NameTextBlock.Text.Length > 38)
+            {
+                NameTextBlock.Text = NameTextBlock.Text.Substring(0, 35) + "...";
+            }
         }
 
         private void SourceOfTheGameTextBlock_Initialized(object sender, EventArgs e)
@@ -111,6 +116,11 @@ namespace GameConstructor.GUI
             TextBlock SourceTextBlock = sender as TextBlock;
 
             SourceTextBlock.Text = (SourceTextBlock.DataContext as Game).Source;
+
+            if (SourceTextBlock.Text.Length > 53)
+            {
+                SourceTextBlock.Text = SourceTextBlock.Text.Substring(0, 50) + "...";
+            }
         }
 
         private void RaitingOfTheGameTextBlock_Initialized(object sender, EventArgs e)
