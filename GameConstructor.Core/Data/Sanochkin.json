@@ -1228,13 +1228,13 @@
           },
           {
             "Id": 37,
-            "Text": "ПО ⩽ 0 | ПР ⩽ 0",
-            "ResultId": 34
+            "Text": "ПО ⩾ 10 & ПР ⩾ 10",
+            "ResultId": 35
           },
           {
             "Id": 38,
             "Text": "ПО ⩾ 10 & ПР ⩾ 10",
-            "ResultId": 35
+            "ResultId": 34
           }
         ],
         "Picture": {
@@ -2947,12 +2947,12 @@
           },
           {
             "Id": 34,
-            "Text": "Р ⩽ 3",
+            "Text": "Р = 2",
             "ResultId": 31
           },
           {
             "Id": 35,
-            "Text": "Р ⩽ 5",
+            "Text": "Р = 5",
             "ResultId": 32
           },
           {
