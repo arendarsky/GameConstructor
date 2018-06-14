@@ -46,7 +46,15 @@ namespace GameConstructor.Core.DataStorages
             {
 
             }
-            _user = _users.Items.First();
+            try
+            {
+                _user = _users.Items.First();
+            }
+            catch
+            {
+                _user = new User { Login = _user.Login };
+                _users.Add(_user);
+            }
         }
 
 

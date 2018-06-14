@@ -151,6 +151,7 @@ namespace GameConstructor.GUI
 
         private void NextQuestionButton_Click(object sender, RoutedEventArgs e)
         {
+            _goingForward = true;
             Close();
         }
 
