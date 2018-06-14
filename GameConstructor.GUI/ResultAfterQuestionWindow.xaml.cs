@@ -35,6 +35,7 @@ namespace GameConstructor.GUI
 
         private bool _goingToTheNextQuestionWindow = false;
         private bool _goingToTheEndOfTheGameWindow = false;
+        private bool _goingForward = false;
         bool _testingMode;
         bool _wereThereAlreadySomeChangings;
 
@@ -150,6 +151,7 @@ namespace GameConstructor.GUI
 
         private void NextQuestionButton_Click(object sender, RoutedEventArgs e)
         {
+            _goingForward = true;
             Close();
         }
 
@@ -157,7 +159,7 @@ namespace GameConstructor.GUI
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (_goingToTheEndOfTheGameWindow)
+            if (_goingForward && _goingToTheEndOfTheGameWindow)
             {
                 EndOfGameWindow endOfGameWindow = new EndOfGameWindow(_testingMode, _storage, _game,
                     _localCharacteristics, _wereThereAlreadySomeChangings);
@@ -165,7 +167,7 @@ namespace GameConstructor.GUI
                 endOfGameWindow.Show();
             }
 
-            else if (_goingToTheNextQuestionWindow)
+            else if (_goingForward && _goingToTheNextQuestionWindow)
             {
                 QuestionsWindow questionsWindow = new QuestionsWindow(_testingMode, _storage, _game,
                     _numberOfQuestionsShown, _localCharacteristics, _wereThereAlreadySomeChangings);
@@ -183,6 +185,7 @@ namespace GameConstructor.GUI
 
                     playingModeWindow.Show();
                 }
+
                 else
                 {
                     Developer_III_Window developerWindow = new Developer_III_Window(

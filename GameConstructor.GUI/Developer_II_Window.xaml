@@ -30,7 +30,7 @@
 
                 <TextBlock Margin="30 35 10 20" FontSize="18" FontFamily="Verdana">Разработайте игру с нашим конструктором</TextBlock>
 
-                <Button Name="HelpButton" BorderBrush="Transparent" Background="Transparent" Grid.Column="1" Height="Auto" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 32" Style="{DynamicResource QuestionButtonStyle}">
+                <Button Visibility="Hidden" Name="HelpButton" BorderBrush="Transparent" Background="Transparent" Grid.Column="1" Height="Auto" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 32" Style="{DynamicResource QuestionButtonStyle}">
                     <Image Source="Images/img_199922.png" Height="25" Width="25"></Image>
                 </Button>
 

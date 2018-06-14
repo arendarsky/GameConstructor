@@ -46,7 +46,15 @@ namespace GameConstructor.Core.DataStorages
             {
 
             }
-            _user = _users.Items.First();
+            try
+            {
+                _user = _users.Items.First();
+            }
+            catch
+            {
+                _user = new User { Login = _user.Login };
+                _users.Add(_user);
+            }
         }
 
 
@@ -220,8 +228,18 @@ namespace GameConstructor.Core.DataStorages
                 {
                     _users = new DatabaseRepository<User>(_context.Users.ToList());
                     _loaded = true;
-                    return _users;
                 }
+                if (_users.Items.Count() == 0)
+                {
+                    var fileStorage = new FileStorage(new User { Login = "Sanochkin" });
+                    fileStorage.LoadToDatabase();
+                    using (_context = new Context())
+                    {
+                        _users = new DatabaseRepository<User>(_context.Users.ToList());
+                        _loaded = true;
+                    }
+                }
+                return _users;
             }
         }
        

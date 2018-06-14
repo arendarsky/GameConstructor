@@ -641,7 +641,7 @@ namespace GameConstructor.GUI
                 abbreviationStrings.Add(value + emDash + originalKey);
             }
 
-            List<string> defaultKeys = new List<string> { MathOperators, Brackets, Conjuction, Disjuction };
+            List<string> defaultKeys = new List<string> { MathOperators, Conjuction, Disjuction };
 
             CharacteristicAbbreviationsListBox.ItemsSource = defaultKeys.Concat(abbreviationStrings);
         }        

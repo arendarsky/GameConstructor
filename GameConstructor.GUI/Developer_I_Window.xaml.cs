@@ -49,6 +49,7 @@ namespace GameConstructor.GUI
         bool _goingToTheNextDeveloperWindow = false;
         bool _characteristicNameTextBoxShouldBeFocused = false;
         bool _theSameCharacteristicsNamesErrorWasShown = false;
+        bool _creatingTheGameForTheFirstTime = false;
         int _newCharacteristicsAdded = 0;
 
         
@@ -61,6 +62,7 @@ namespace GameConstructor.GUI
             _picture = new Picture(defaultImageSource, defaultStateOfBorder);
             _characteristics = new List<Characteristic>();
             _wereThereAlreadySomeChangings = false;
+            _creatingTheGameForTheFirstTime = true;
 
             InitializeComponent();
 
@@ -477,6 +479,17 @@ namespace GameConstructor.GUI
                 {
                     UIMethods.FindCurrentTextInTextBoxesOfTheTemplatedListBox(CharacteristicsListBox, 0, element, "По крайней мере две ваши характеристики имеют одинаковое название. Без учета регистра. Пожалуйста, измените названия.");
                 }
+
+                return false;
+            }
+
+            int amountOfGamesWithSuchName = _user.Games.Where(game => game.Name == GameNameTextBox.Text).Count();
+
+            if ((amountOfGamesWithSuchName > 0 && _creatingTheGameForTheFirstTime) || (amountOfGamesWithSuchName > 1 && (!_creatingTheGameForTheFirstTime)))
+            {
+                MessageBox.Show("У Вас уже есть игра с таким названием. Пожалуйста, придумайте для этой игры другое!", "Ошибка!");
+
+                GameNameTextBox.Focus();
 
                 return false;
             }
