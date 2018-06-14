@@ -29,11 +29,14 @@ namespace GameConstructor.GUI
 
         Answer _answer;
         bool _goingForResultAfterQuestionWindow = false;
+        bool _testingMode;
+        bool _wereThereAlreadySomeChangings;
 
 
-
-        public QuestionsWindow(IStorage storage, IGame game, int numberOfQuestionsShown, List<Characteristic> localCharacteristics)
+        public QuestionsWindow(bool testingMode, IStorage storage, IGame game, int numberOfQuestionsShown, List<Characteristic> localCharacteristics, bool wereThereAlreadySomeChangings)
         {
+            _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
+            _testingMode = testingMode;
             _storage = storage;
             _game = game;
             _question = _game.GetQuestions.ToList()[numberOfQuestionsShown];
@@ -43,10 +46,15 @@ namespace GameConstructor.GUI
             InitializeComponent();
         }
 
-        public QuestionsWindow(IStorage storage, IGame game)
+        public QuestionsWindow(bool testingMode, IStorage storage, IGame game, bool wereThereAlreadySomeChangings)
         {
+            _testingMode = testingMode;
+            _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
             _storage = storage;
-            _game = _storage.OpenGame(game);
+            if (testingMode)
+                _game = game;
+            else
+                _game = _storage.OpenGame(game);
             _question = _game.GetQuestions.ToList()[0];
             _localCharacteristics = CopyCharacteristics(_game.GetCharacteristics).ToList();
             _numberOfQuestionsShown = 0;
@@ -140,18 +148,29 @@ namespace GameConstructor.GUI
         {
             if (_goingForResultAfterQuestionWindow)
             {
-                ResultAfterQuestionWindow resultAfterQuestionWindow = new ResultAfterQuestionWindow(_storage, _game, _numberOfQuestionsShown, _localCharacteristics, _answer);
+                ResultAfterQuestionWindow resultAfterQuestionWindow = new ResultAfterQuestionWindow(
+                    _testingMode, _storage, _game, _numberOfQuestionsShown, 
+                    _localCharacteristics, _answer, _wereThereAlreadySomeChangings);
 
                 resultAfterQuestionWindow.Show();
             }
 
             else
             {
-                PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
+                if (!_testingMode)
+                {
+                    PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
 
-                _storage.CloseGame();
+                    _storage.CloseGame();
 
-                playingModeWindow.Show();
+                    playingModeWindow.Show();
+                }
+                else
+                {
+                    Developer_III_Window developerWindow = new Developer_III_Window(
+                        _storage.Users.Items.First(u => u.Id == _game.UserId), _game, _storage, _wereThereAlreadySomeChangings);
+                    developerWindow.Show();
+                }
             }
         }
     }
