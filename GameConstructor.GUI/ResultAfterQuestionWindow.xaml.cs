@@ -35,11 +35,15 @@ namespace GameConstructor.GUI
 
         private bool _goingToTheNextQuestionWindow = false;
         private bool _goingToTheEndOfTheGameWindow = false;
+        bool _testingMode;
+        bool _wereThereAlreadySomeChangings;
 
 
 
-        public ResultAfterQuestionWindow(IStorage storage, IGame game, int numberOfQuestionsShown, List<Characteristic> localCharacteristics, Answer answer)
+        public ResultAfterQuestionWindow(bool testingMode, IStorage storage, IGame game, int numberOfQuestionsShown, List<Characteristic> localCharacteristics, Answer answer, bool wereThereAlreadySomeChangings)
         {
+            _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
+            _testingMode = testingMode;
             _storage = storage;
             _game = game;
             _numberOfQuestionsShown = numberOfQuestionsShown;
@@ -155,25 +159,37 @@ namespace GameConstructor.GUI
         {
             if (_goingToTheEndOfTheGameWindow)
             {
-                EndOfGameWindow endOfGameWindow = new EndOfGameWindow(_storage, _game, _localCharacteristics);
+                EndOfGameWindow endOfGameWindow = new EndOfGameWindow(_testingMode, _storage, _game,
+                    _localCharacteristics, _wereThereAlreadySomeChangings);
 
                 endOfGameWindow.Show();
             }
 
             else if (_goingToTheNextQuestionWindow)
             {
-                QuestionsWindow questionsWindow = new QuestionsWindow(_storage, _game, _numberOfQuestionsShown, _localCharacteristics);
+                QuestionsWindow questionsWindow = new QuestionsWindow(_testingMode, _storage, _game,
+                    _numberOfQuestionsShown, _localCharacteristics, _wereThereAlreadySomeChangings);
 
                 questionsWindow.Show();
             }
 
             else
             {
-                PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
+                if (!_testingMode)
+                {
+                    PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
 
-                _storage.CloseGame();
+                    _storage.CloseGame();
 
-                playingModeWindow.Show();
+                    playingModeWindow.Show();
+                }
+                else
+                {
+                    Developer_III_Window developerWindow = new Developer_III_Window(
+                        _storage.Users.Items.First(u => u.Id == _game.UserId), 
+                        _game, _storage, _wereThereAlreadySomeChangings);
+                    developerWindow.Show();
+                }
             }
         }
     }

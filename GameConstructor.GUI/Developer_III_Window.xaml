@@ -180,7 +180,7 @@
 
                         <Button Name="SaveGameButton2"  Padding="24 13"  Margin="27 25" Grid.Column="0" FontSize="20" Click="SaveGameButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Сохранить</Button>
 
-                        <Button Name="TestGameButton"  Padding="17 13"  Margin="27 25" Grid.Column="1" FontSize="20" Click="SaveGameButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Тестировать</Button>
+                        <Button Name="TestGameButton"  Padding="17 13"  Margin="27 25" Grid.Column="1" FontSize="20" Click="TestGameButton_Click" Style="{DynamicResource AttentionButtonsStyle}">Тестировать</Button>
                     </Grid>
                 </Grid>
             </Grid>

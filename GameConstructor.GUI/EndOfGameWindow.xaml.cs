@@ -40,14 +40,18 @@ namespace GameConstructor.GUI
 
         private Result _textResult = null;
         private bool _restartingTheGame = false;
+        bool _testingMode;
+        bool _wereThereAlreadySomeChangings;
 
 
         Dictionary<string, string> _characteristicReverseDictionary;
 
 
 
-        public EndOfGameWindow(IStorage storage, IGame game, List<Characteristic> localCharacteristics)
+        public EndOfGameWindow(bool testingMode, IStorage storage, IGame game, List<Characteristic> localCharacteristics, bool wereThereAlreadySomeChangings)
         {
+            _wereThereAlreadySomeChangings = wereThereAlreadySomeChangings;
+            _testingMode = testingMode;
             _storage = storage;
             _game = game;
             _localCharacteristics = localCharacteristics;
@@ -293,23 +297,42 @@ namespace GameConstructor.GUI
         {
             if (_restartingTheGame)
             {
-                IGame game = _game;
-                game.UpdatePicture(_game.Picture);
+                if (_testingMode)
+                {
+                    QuestionsWindow questionsWindow = new QuestionsWindow(_testingMode, _storage, _game,
+                         _wereThereAlreadySomeChangings);
+                    questionsWindow.Show();
+                }
+                else
+                {
+                    IGame game = _game;
+                    game.UpdatePicture(_game.Picture);
 
-                UpdatePopularity();
+                    UpdatePopularity();
 
-                DescriptionOfGameWindow discriptionOfGameWindow = new DescriptionOfGameWindow(_storage, game);
+                    DescriptionOfGameWindow discriptionOfGameWindow = new DescriptionOfGameWindow(_storage, game);
 
-                discriptionOfGameWindow.Show();
+                    discriptionOfGameWindow.Show();
+                }
             }
 
             else
             {
-                UpdatePopularity();
+                if (!_testingMode)
+                {
+                    UpdatePopularity();
 
-                PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
+                    PlayingModeWindow playingModeWindow = new PlayingModeWindow(_storage);
 
-                playingModeWindow.Show();
+                    playingModeWindow.Show();
+                }
+                else
+                {
+                    Developer_III_Window developerWindow = new Developer_III_Window(
+                        _storage.Users.Items.First(u => u.Id == _game.UserId), _game,
+                        _storage, _wereThereAlreadySomeChangings);
+                    developerWindow.Show();
+                }
             }
         }
 

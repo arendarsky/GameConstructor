@@ -135,7 +135,7 @@ namespace GameConstructor.GUI
 
             else
             {
-                QuestionsWindow questionsWindow = new QuestionsWindow(_storage, _game);
+                QuestionsWindow questionsWindow = new QuestionsWindow(false, _storage, _game, false);
 
                 questionsWindow.Show();
             }

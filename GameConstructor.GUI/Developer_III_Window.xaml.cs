@@ -76,6 +76,7 @@ namespace GameConstructor.GUI
         bool _goingToThePreviousDeveloperWindow = false;
         bool _lastConstructorConditionContinuingIsElse = false;
         bool _userSelectionChanging = false;
+        bool _testingMode;
 
         int _indexOfConstructorTextBoxEdittedByTheMoment = -1;
 
@@ -449,37 +450,44 @@ namespace GameConstructor.GUI
         {
             LoosingFocusAtTheEnd();
 
-            bool cancelation = false;
-
-            if (!_goingToThePreviousDeveloperWindow && !_savingTheGame)
+            if (_testingMode)
             {
-                if (IfThereWereAnyChangesMadeByUser())
+                OpenTestingMode();
+            }
+            else
+            {
+                bool cancelation = false;
+
+                if (!_goingToThePreviousDeveloperWindow && !_savingTheGame)
                 {
-                    var messageBoxResult = MessageBox.Show("Вы уверены, что хотите покинуть окно разработки? Никакие текущие изменения не будут сохранены!",
-                    "Предупреждение!", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning, MessageBoxResult.No);
-
-                    if (messageBoxResult == MessageBoxResult.No || messageBoxResult == MessageBoxResult.Cancel || messageBoxResult == MessageBoxResult.None)
+                    if (IfThereWereAnyChangesMadeByUser())
                     {
-                        e.Cancel = true;
+                        var messageBoxResult = MessageBox.Show("Вы уверены, что хотите покинуть окно разработки? Никакие текущие изменения не будут сохранены!",
+                        "Предупреждение!", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning, MessageBoxResult.No);
 
-                        cancelation = true;
+                        if (messageBoxResult == MessageBoxResult.No || messageBoxResult == MessageBoxResult.Cancel || messageBoxResult == MessageBoxResult.None)
+                        {
+                            e.Cancel = true;
+
+                            cancelation = true;
+                        }
+                    }
+
+                    if (!cancelation)
+                    {
+                        GoingBackToProfileWindow();
                     }
                 }
 
-                if (!cancelation)
+                else if (_goingToThePreviousDeveloperWindow)
                 {
-                    GoingBackToProfileWindow();
+                    GoingToThePreviousDeveloperWindow();
                 }
-            }
 
-            else if (_goingToThePreviousDeveloperWindow)
-            {
-                GoingToThePreviousDeveloperWindow();
-            }
-
-            else
-            {
-                SavingTheGameAndReturningToProfile();
+                else
+                {
+                    SavingTheGameAndReturningToProfile();
+                }
             }
         }
 
@@ -504,6 +512,15 @@ namespace GameConstructor.GUI
             ProfileWindow profileWindow = new ProfileWindow(_storage, _user);
 
             profileWindow.Show();
+        }
+        private void OpenTestingMode()
+        {
+            if (GamePartialSave())
+            {
+                QuestionsWindow questionWindow = new QuestionsWindow(true, _storage, _game, _wereThereAlreadySomeChangings);
+
+                questionWindow.Show();
+            }
         }
 
 
@@ -975,6 +992,12 @@ namespace GameConstructor.GUI
             DefaultConstructorItemsSource();
 
             _wereThereAlreadySomeChangings = true;
+        }
+
+        private void TestGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            _testingMode = true;
+            Close();
         }
     }
 }
