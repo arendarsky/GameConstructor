@@ -63,6 +63,11 @@ namespace GameConstructor.GUI
         private void NameOfTheGameTextBlock_Initialized(object sender, EventArgs e)
         {
             NameOfTheGameTextBlock.Text = _game.Name;
+
+            if (NameOfTheGameTextBlock.Text.Length > 40)
+            {
+                NameOfTheGameTextBlock.Text = NameOfTheGameTextBlock.Text.Substring(0, 37) + "...";
+            }
         }
 
         private void SourceTextBlock_Initialized(object sender, EventArgs e)
@@ -72,6 +77,11 @@ namespace GameConstructor.GUI
             if (SourceTextBlock.Text == "" || SourceTextBlock.Text == null)
             {
                 SourceTextBlock.Height = 0;
+            }
+
+            if (SourceTextBlock.Text.Length > 74)
+            {
+                SourceTextBlock.Text = SourceTextBlock.Text.Substring(0, 71) + "...";
             }
         }
 

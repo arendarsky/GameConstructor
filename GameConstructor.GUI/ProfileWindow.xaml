@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameConstructor.GUI"
         mc:Ignorable="d"
-        Title="Игровой конструктор - Личный кабинет" Height="550" MinHeight="400" Width="610" MinWidth="590" MaxWidth="620">
+        Title="Игровой конструктор - Личный кабинет" Height="550" MinHeight="400" Width="610" MinWidth="595" MaxWidth="620">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="33*"/>
