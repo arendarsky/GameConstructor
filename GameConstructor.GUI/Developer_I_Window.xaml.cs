@@ -481,6 +481,11 @@ namespace GameConstructor.GUI
                 return false;
             }
 
+            if (_user.Games.Where(game => game.Name == GameNameTextBox.Text).Count() > 0)
+            {
+                MessageBox.Show("У Вас уже есть игра с таким названием. Пожалуйста, придумайте для этой игры другое!", "Ошибка!");
+            }
+
             return true;
         }
 
